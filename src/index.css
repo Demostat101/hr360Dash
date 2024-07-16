@@ -7,11 +7,11 @@
 }
 
 .trans {
-  transition: 0.5s;
+  transition: 0.250s;
 }
 
 .transit {
-  transition: 0.5s;
+  transition: 0.250s;
 }
 
 a.active {
@@ -44,6 +44,28 @@ a.active .icon {
   left: 60px;
   background-color: rgb(49, 45, 45);
 }
+
+.open-grid{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+/* .open-grid{
+  display: grid;
+  grid-template-columns: 739px 358px;
+  gap: 30px;
+} */
+
+.close-grid{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 33.03px;
+}
+/* .close-grid{
+  display: grid;
+  grid-template-columns: 813.69px 394.18px;
+  gap: 33.03px;
+} */
 
 @media only screen and (max-width: 1102px) {
   body {

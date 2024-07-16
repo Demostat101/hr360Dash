@@ -7,14 +7,14 @@ import { BsColumnsGap } from "react-icons/bs";
 export const Paths = [
   {
     to: "/",
-    icons: [<BsColumnsGap size={40} />, <BsColumnsGap size={23} />],
+    icons: [<BsColumnsGap size={40} />, <BsColumnsGap size={28} />],
 
     label: "Dashboard",
   },
 
   {
     to: "/employee",
-    icons: [<IoIosPeople size={40} />, <IoIosPeople size={30} />],
+    icons: [<IoIosPeople size={40} />, <IoIosPeople size={28} />],
     label: "Employee",
   },
 

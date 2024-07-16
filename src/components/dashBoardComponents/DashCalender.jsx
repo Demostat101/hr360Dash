@@ -20,7 +20,7 @@ const CalendarContainer = styled.div`
 
   /* ~~~ navigation styles ~~~ */
   .react-calendar__navigation {
-    display: flex;
+    display: none;
 
     .react-calendar__navigation__label {
       font-weight: bold;
@@ -55,7 +55,7 @@ const CalendarContainer = styled.div`
   /* ~~~ day grid styles ~~~ */
   .react-calendar__month-view__days {
     display: grid !important;
-    grid-template-columns: 14.2% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%;
+    grid-template-columns: 12% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%;
 
     .react-calendar__tile {
       max-width: initial !important;

@@ -35,9 +35,7 @@ const SideNavBar = () => {
           return (
             <NavLink
               className={
-                path.label === "Dashboard" && !open
-                  ? "pl-0"
-                  : !open
+                !open
                   ? "pl-0 m-0"
                   : "flex flex-col gap-2 mb-0 pl-4 place-items-center"
               }
