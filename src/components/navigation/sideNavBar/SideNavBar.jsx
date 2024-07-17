@@ -10,7 +10,7 @@ const SideNavBar = () => {
       className={
         open
           ? "w-[250px] h-[100vh] trans bg-[#176B87] text-[#FFFFFF] pt-[100px] flex flex-col justify-between pb-[8px] "
-          : "w-[130px] h-[100vh] transit bg-[#176B87] place-items-center text-white pt-[70px] flex flex-col justify-between pb-[12px]"
+          : "w-[130px] h-[100vh] transit bg-[#176B87] place-items-center text-white pt-[110px] flex flex-col justify-between pb-[12px]"
       }
     >
       <ul
@@ -36,8 +36,8 @@ const SideNavBar = () => {
             <NavLink
               className={
                 !open
-                  ? "pl-0 m-0"
-                  : "flex flex-col gap-2 mb-0 pl-4 place-items-center"
+                  ? "pl-0 m-1"
+                  : "flex flex-col gap-2 mb-3 pl-4 place-items-center"
               }
               to={path.to}
               key={index}

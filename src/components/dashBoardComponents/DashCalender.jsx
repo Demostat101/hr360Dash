@@ -1,88 +1,82 @@
+import dayjs from "dayjs";
+import { generateDate } from "./DashCalenderFunctions";
 import { useState } from "react";
-import Calendar from "react-calendar";
-import styled from "styled-components";
+import { Context } from "../../DashBoardContext";
+
+function cn(...classes) {
+  return classes.filter(Boolean).join();
+}
 
 const DashCalender = () => {
-  const [calender, setCalender] = useState(new Date());
+  const { open } = Context;
+  const days = ["S", "M", "T", "W", "T", "F", "S"];
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const currentDay = dayjs();
+  const [today, setToday] = useState(currentDay);
+
   return (
-    <CalendarContainer>
-      <Calendar setCalender={setCalender} calender={calender} />
-    </CalendarContainer>
+    <div className="w-full h-80%">
+    
+      <h1
+        className={
+          open
+            ? "h-[40px] grid justify-center place-items-center text-[16px] text-black font-[600]"
+            : "h-[43.62px] text-black font-[600] text-[17.62px] grid justify-center place-items-center"
+        }
+      >
+        {months[today.month()]} {[today.year()]}
+      </h1>
+      <hr />
+      <div className="grid grid-cols-7 w-[100%] place-items-center justify-center text-[15px]">
+        {days.map((day, index) => {
+          return (
+            <h1 key={index} className=" font-[700]">
+              {day}
+            </h1>
+          );
+        })}
+      </div>
+      <div
+        className={
+          open
+            ? "w-[100%] h-[166.82px] grid grid-cols-7 place-items-center justify-center"
+            : "w-[100%] place-items-center justify-center h-[183.68px] grid grid-cols-7"
+        }
+      >
+        {generateDate().map(({ date, currentMonth, today }, index) => {
+          return (
+            <div key={index} className=" grid place-items-center">
+              <h3
+                className={cn(
+                  currentMonth
+                    ? ""
+                    : " text-gray-300 h-[30px] text-[13.21px] w-[30px] grid place-items-center justify-center rounded-full",
+                  today
+                    ? "bg-[#176B87] text-[13.21px] h-[30px] w-[30px] grid place-items-center justify-center rounded-full text-white"
+                    : "h-[30px] w-[30px] transition-all text-[13.21px] justify-center cursor-pointer grid place-items-center rounded-full hover:text-white hover:bg-black "
+                )}
+              >
+                {date.date()}
+              </h3>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 
 export default DashCalender;
-
-const CalendarContainer = styled.div`
-  /* ~~~ container styles ~~~ */
-  max-width: 600px;
-  border-radius: 3px;
-
-  /* ~~~ navigation styles ~~~ */
-  .react-calendar__navigation {
-    display: none;
-
-    .react-calendar__navigation__label {
-      font-weight: bold;
-    }
-  }
-
-  /* ~~~ button styles ~~~ */
-  button {
-    width: 30px;
-    height: 30px;
-    border: 0;
-    border-radius: 50%;
-    color: black;
-    display: grid;
-    place-items: center;
-
-    &:hover {
-      background-color: #176b87;
-      color: white;
-    }
-
-    &:active {
-      background-color: #176b87;
-    }
-  }
-
-  button:nth-child(3):hover {
-    color: black;
-    background-color: white;
-  }
-
-  /* ~~~ day grid styles ~~~ */
-  .react-calendar__month-view__days {
-    display: grid !important;
-    grid-template-columns: 12% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%;
-
-    .react-calendar__tile {
-      max-width: initial !important;
-    }
-  }
-
-  /* ~~~ neighboring month & weekend styles ~~~ */
-  .react-calendar__month-view__days__day--neighboringMonth {
-    opacity: 0.7;
-  }
-  .react-calendar__month-view__days__day--weekend {
-    color: #dfdfdf;
-  }
-
-  /* ~~~ other view styles ~~~ */
-  .react-calendar__year-view__months,
-  .react-calendar__decade-view__years,
-  .react-calendar__century-view__decades {
-    display: grid !important;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-
-    &.react-calendar__year-view__months {
-      grid-template-columns: 33.3% 33.3% 33.3%;
-    }
-
-    .react-calendar__tile {
-      max-width: initial !important;
-    }
-  }
-`;

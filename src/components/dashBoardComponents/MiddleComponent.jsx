@@ -116,19 +116,20 @@ const MiddleComponent = () => {
       <div
         className={
           open
-            ? "w-[100%] bg-[#FFFFFF] flex justify-evenly flex-col border-solid rounded-lg shadow-lg h-[295.71px]"
+            ? "w-[100%] bg-[#FFFFFF] flex justify-evenly flex-col rounded-lg shadow-lg h-[295.71px]"
             : "w-[100%] flex justify-evenly flex-col bg-[#FFFFFF] h-[325.59px] rounded-lg shadow-lg"
         }
       >
         <DashCalender />
+        <hr />
         <div
           className={
             open
-              ? "w-full flex flex-col h-[40.7px] gap-[10px] justify-center place-items-center"
-              : "w-full flex flex-col h-[40.7px] gap-[10px] justify-center place-items-center"
+              ? "w-full flex flex-col h-[40.7px] justify-center place-items-center"
+              : "w-full flex flex-col h-[40.7px] justify-center place-items-center"
           }
         >
-          <div className="w-[90%] h-[90%] gap-[10px] flex">
+          <div className="w-[100%] h-[100%] justify-center gap-[10px] flex">
             <div className="flex w-[100px] h-[100%] justify-center place-items-center gap-[5px]">
               <span className="w-[10px] h-[10px] rounded-full bg-red-500"></span>{" "}
               <span>holiday</span>

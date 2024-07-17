@@ -27,7 +27,7 @@ const DashBoard = () => {
         <div
           className={
             open
-              ? "w-[100%] 2xl:h-[914.82px] mt-[50px] flex flex-col gap-[25px]"
+              ? "w-[100%] 2xl:h-[914.82px] mt-[23px] flex flex-col gap-[25px]"
               : "w-[100%] 2xl:h-[1007.28px]  mt-[50px] flex flex-col gap-[27.53px]"
           }
         >

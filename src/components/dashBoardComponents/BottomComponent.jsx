@@ -9,8 +9,8 @@ const BottomComponent = () => {
     <main
       className={
         open
-          ? "2xl:w-[1127.37px] 2xl:h-[311.1px] flex md:justify-center md:gap-[30px] 2xl:gap-[21px] md:w-[100%] md:h-[100%]"
-          : "2xl:w-[1241.3px] md:justify-center md:gap-[30px] 2xl:h-[342.55px] flex 2xl:gap-[23.12px] md:w-[100%] md:h-[100%]"
+          ? "w-[100%] h-[311.1px] flex gap-[21px]"
+          : "w-[100%] h-[342.55px] flex gap-[23.12px]"
       }
     >
       <Box1 />

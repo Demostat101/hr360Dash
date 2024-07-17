@@ -47,25 +47,16 @@ a.active .icon {
 
 .open-grid{
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 65.8% minmax(30%,33%);
   gap: 30px;
 }
-/* .open-grid{
-  display: grid;
-  grid-template-columns: 739px 358px;
-  gap: 30px;
-} */
+
 
 .close-grid{
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 65.8% 1fr;
   gap: 33.03px;
 }
-/* .close-grid{
-  display: grid;
-  grid-template-columns: 813.69px 394.18px;
-  gap: 33.03px;
-} */
 
 @media only screen and (max-width: 1102px) {
   body {
