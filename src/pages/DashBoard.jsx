@@ -6,13 +6,9 @@ import TopComponent from "../components/dashBoardComponents/TopComponent";
 const DashBoard = () => {
   const { open, name } = Context();
   return (
-    <main className="w-full flex flex-col min-h-screen p-[25px] border-solid border-2 border-red-500">
+    <main className="w-full flex flex-col min-h-screen p-[25px]">
       <div
-        className={
-          open
-            ? "w-[100%] border-solid border-2 border-yellow-500 h-[978.82px] "
-            : "w-[100%]  h-[1077.8px] border-solid border-2 border-green-500 "
-        }
+        className={open ? "w-[100%] h-[978.82px] " : "w-[100%]  h-[1077.8px] "}
       >
         <h1
           className={

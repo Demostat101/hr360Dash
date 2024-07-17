@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Pic from "/src/assets/woman.jfif";
 import { FaBars } from "react-icons/fa";
-import SearchInput from "../../../pages/SearchInput";
+import SearchInput from "../../dashBoardComponents/SearchInput";
 import { Context } from "../../../DashBoardContext";
 
 const TopNavBar = () => {
@@ -13,8 +13,8 @@ const TopNavBar = () => {
       <header
         className={
           !open
-            ? "w-[100%] border-solid border-2 pl-[25px] pr-[35px] border-red-500 bg-[#FFFFFF] border-r h-[86px] flex flex-col justify-center"
-            : "w-[100%] border-solid pl-[25px] pr-[35px]  border-2 border-yellow-500 bg-[#FFFFFF] h-[78px] flex flex-col justify-center"
+            ? "w-[100%] border-solid pl-[25px] pr-[35px] bg-[#FFFFFF] border-r h-[86px] flex flex-col justify-center"
+            : "w-[100%] border-solid pl-[25px] pr-[35px] bg-[#FFFFFF] h-[78px] flex flex-col justify-center"
         }
       >
         <div

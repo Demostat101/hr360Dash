@@ -1,7 +1,7 @@
 import { Context } from "../../DashBoardContext";
-import Box1 from "./bottomComponents/Box1";
-import Box2 from "./bottomComponents/Box2";
-import Box3 from "./bottomComponents/Box3";
+import Events from "./bottomComponents/Events";
+import Announcements from "./bottomComponents/Announcements";
+import Celebration from "./bottomComponents/Celebration";
 
 const BottomComponent = () => {
   const { open } = Context();
@@ -9,13 +9,13 @@ const BottomComponent = () => {
     <main
       className={
         open
-          ? "w-[100%] h-[311.1px] flex gap-[21px]"
-          : "w-[100%] h-[342.55px] flex gap-[23.12px]"
+          ? "w-[100%] h-[311.1px] open-container "
+          : "w-[100%] h-[342.55px] close-container "
       }
     >
-      <Box1 />
-      <Box2 />
-      <Box3 />
+      <Events />
+      <Announcements />
+      <Celebration />
     </main>
   );
 };

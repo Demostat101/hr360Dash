@@ -7,11 +7,11 @@
 }
 
 .trans {
-  transition: 0.250s;
+  transition: 0.25s;
 }
 
 .transit {
-  transition: 0.250s;
+  transition: 0.25s;
 }
 
 a.active {
@@ -35,31 +35,36 @@ a.active .icon {
   color: #176b87;
 }
 
-.birth::after{
+.birth::after {
   content: "";
   position: absolute;
   width: 20px;
   height: 2px;
-  bottom: 0;
+  bottom: -10px;
   left: 60px;
   background-color: rgb(49, 45, 45);
 }
 
-.open-grid{
+.open-grid {
   display: grid;
-  grid-template-columns: 65.8% minmax(30%,33%);
+  grid-template-columns: 65.8% minmax(30%, 33%);
   gap: 30px;
 }
 
-
-.close-grid{
+.close-grid {
   display: grid;
   grid-template-columns: 65.8% 1fr;
   gap: 33.03px;
 }
 
-@media only screen and (max-width: 1102px) {
-  body {
-    background-color: #f6f7fa;
-  }
+.open-container {
+  display: grid;
+  grid-template-columns: minmax(29%, 31.5%) minmax(29%, 31.5%) 1fr;
+  gap: 21px;
+}
+
+.close-container {
+  display: grid;
+  grid-template-columns: minmax(29%, 31.5%) minmax(29%, 31.5%) 1fr;
+  gap: 23.12px;
 }
