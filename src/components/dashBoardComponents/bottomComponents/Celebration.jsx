@@ -62,12 +62,12 @@ const Box3 = () => {
             : "w-[100%] pt-[20px]  h-[23px] justify-center flex place-items-center"
         }
       >
-        <div className="w-full flex justify-center gap-[100px] relative cursor-pointer">
+        <div className="w-[200px] flex justify-center gap-[100px] relative cursor-pointer">
           <div
             className={
               (open
-                ? "w-[67px] h-[21px] font-[400] text-[14px] leading-[21px] "
-                : "w-[74px] h-[23px] font-[400] text-[15.41px] leading-[23.12px] ",
+                ? "w-[67px] h-[21px] font-[400] text-[14px] leading-[21px]"
+                : "w-[74px] h-[23px] font-[400] text-[15.41px] leading-[23.12px]",
               !toggle && !open ? "birth " : !toggle && open ? "births " : "")
             }
             onClick={() => setToggle(false)}
@@ -78,8 +78,8 @@ const Box3 = () => {
           <div
             className={
               (open
-                ? "w-[136px] h-[21px] font-[400] text-[14px] leading-[21px] "
-                : "w-[149px] h-[23px] font-[400] text-[15.41px] leading-[23.12px] ",
+                ? "w-[136px] h-[21px] font-[400] text-[14px] leading-[21px]"
+                : "w-[149px] h-[23px] font-[400] text-[15.41px] leading-[23.12px]",
               toggle && open
                 ? "anniversary "
                 : toggle && !open
