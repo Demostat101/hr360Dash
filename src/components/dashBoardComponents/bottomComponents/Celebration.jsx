@@ -41,7 +41,7 @@ const Box3 = () => {
               : "w-[140.94px] h-[34.13px] flex flex-col justify-center place-items-center rounded-lg border-[#E3EFF3] border-solid border-2"
           }
         >
-          <select className=" outline-none" name="" id="">
+          <select className=" outline-none bg-white" name="" id="">
             <option value="">This week</option>
             <option value="">Last week</option>
           </select>

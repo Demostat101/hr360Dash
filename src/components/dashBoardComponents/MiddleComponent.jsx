@@ -60,7 +60,7 @@ const MiddleComponent = () => {
             >
               {/* left drop down select */}
 
-              <select className=" outline-none w-full" name="" id="">
+              <select className=" outline-none w-full bg-white" name="" id="">
                 <option value="Sale">Sales</option>
                 <option value="Nosale">No Sales</option>
               </select>
@@ -79,7 +79,7 @@ const MiddleComponent = () => {
 
               <select
                 onChange={() => setGraph((prev) => !prev)}
-                className=" outline-none w-full"
+                className=" outline-none w-full bg-white"
                 name=""
                 id=""
               >
