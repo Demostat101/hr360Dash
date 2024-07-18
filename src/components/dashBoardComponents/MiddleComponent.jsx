@@ -61,8 +61,8 @@ const MiddleComponent = () => {
               {/* left drop down select */}
 
               <select className=" outline-none w-full bg-white" name="" id="">
-                <option value="Sale">Sales</option>
-                <option value="Nosale">No Sales</option>
+                <option value="Sale" className="bg-white">Sales</option>
+                <option value="Nosale" className="bg-white">No Sales</option>
               </select>
             </div>
 
@@ -83,8 +83,8 @@ const MiddleComponent = () => {
                 name=""
                 id=""
               >
-                <option value="Sale">jan-jun 2024</option>
-                <option value="Nosale">jul-dec 2024</option>
+                <option value="Sale" className="bg-white">jan-jun 2024</option>
+                <option value="Nosale" className="bg-white">jul-dec 2024</option>
               </select>
             </div>
           </div>

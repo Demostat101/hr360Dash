@@ -42,8 +42,8 @@ const Box3 = () => {
           }
         >
           <select className=" outline-none bg-white" name="" id="">
-            <option value="">This week</option>
-            <option value="">Last week</option>
+            <option value="" className="bg-white">This week</option>
+            <option value="" className="bg-white">Last week</option>
           </select>
         </div>
       </div>
