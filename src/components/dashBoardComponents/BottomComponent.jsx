@@ -9,7 +9,7 @@ const BottomComponent = () => {
     <main
       className={
         open
-          ? "w-[100%] h-[311.1px] open-container "
+          ? "w-[100%] h-[311.1px] open-container border-solid border-2 border-red-500"
           : "w-[100%] h-[342.55px] close-container "
       }
     >

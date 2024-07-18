@@ -31,13 +31,13 @@ const TopNavBar = () => {
               <FaBars size={25} className="text-[#176B87]" />
             )}
           </div>
-          <div className="flex place-items-center w-[50%] h-[58px] bg-[#FFFFFF]">
+          <div className="flex place-items-center w-[50%] h-[58px] bg-[rgb(255,255,255)] top-bar-search">
             <SearchInput />
             <div className="relative w-[50px] h-[50px] bg-[#FFFFFF]">
               <img
                 src={Pic}
                 alt="siteImage"
-                className="w-[50px] h-[50px] rounded-full ml-4 bg-[#FFFFFF]"
+                className="w-[50px] h-[50px] rounded-full ml-4 bg-[#FFFFFF] object-cover"
               />
               <span
                 className={

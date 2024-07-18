@@ -113,8 +113,8 @@ const Box3 = () => {
                   alt=""
                   className={
                     open
-                      ? "w-[50.1px] h-[50.1px] rounded-full"
-                      : "w-[55.17px] h-[55.17px] rounded-full"
+                      ? "w-[50.1px] h-[50.1px] rounded-full object-cover"
+                      : "w-[55.17px] h-[55.17px] rounded-full object-cover"
                   }
                 />
                 {/* name container */}

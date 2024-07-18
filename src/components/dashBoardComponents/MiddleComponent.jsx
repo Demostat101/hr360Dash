@@ -28,16 +28,16 @@ const MiddleComponent = () => {
         <div
           className={
             open
-              ? "w-[100%] h-[42px] justify-between flex place-items-center"
-              : "w-[100%] h-[45.82px] justify-between flex place-items-center"
+              ? "w-[100%] h-[42px] justify-between flex place-items-center employee-container"
+              : "w-[100%] h-[45.82px] justify-between flex place-items-center employee-container"
           }
         >
           {/* graph top content */}
           <div
             className={
               open
-                ? "w-[256px] pl-[15px] text-nowrap h-[24px] text-[16px] leading-[24px] font-[500]"
-                : "w-[282px] h-[26px] text-nowrap text-[17.62px] leading-[26.43px] pl-[15px] font-[500]"
+                ? "w-[256px] pl-[15px] text-nowrap h-[24px] text-[16px] leading-[24px] font-[500] overview-container"
+                : "w-[282px] h-[26px] text-nowrap text-[17.62px] leading-[26.43px] pl-[15px] font-[500] overview-container"
             }
           >
             Employee Availability Overview

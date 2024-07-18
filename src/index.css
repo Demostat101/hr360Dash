@@ -68,3 +68,45 @@ a.active .icon {
   grid-template-columns: minmax(29%, 31.5%) minmax(29%, 31.5%) 1fr;
   gap: 23.12px;
 }
+
+@media only screen and (max-width:1195px) {
+
+  .top-box-wrap{
+    /* flex-wrap: wrap; */
+    flex-wrap: wrap-reverse;
+    height: 100%;
+  }
+
+  .update-container{
+    text-wrap: wrap;
+  }
+
+  .open-grid,.close-grid {
+    
+    grid-template-columns: 100%;
+    height: 100%;
+    
+  }
+
+  .employee-container{
+    flex-wrap: wrap;
+    justify-content: left;
+    padding-left: 25px;
+  }
+
+  .overview-container{
+    padding: 0;
+  }
+
+  .open-container, .close-container {
+    grid-template-columns: 100%;
+    height: 100%;
+  }
+
+  .top-bar-search{
+    width: 80%;
+  }
+  
+}
+
+

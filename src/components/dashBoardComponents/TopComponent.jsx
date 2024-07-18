@@ -8,8 +8,8 @@ const TopComponent = () => {
     <div
       className={
         open
-          ? "w-full h-[228.01px] flex gap-[27px]"
-          : "w-full h-[251.06px] flex gap-[27px] "
+          ? "w-full h-[228.01px] flex gap-[27px] top-box-wrap"
+          : "w-full h-[251.06px] flex gap-[27px] top-box-wrap"
       }
     >
       {/* container holding all cards */}
@@ -106,8 +106,8 @@ const TopComponent = () => {
                   <p
                     className={
                       open
-                        ? "text-[12px] leading[18px] font-[400] text-nowrap text-[#969696]"
-                        : "text-[13.21px] leading[19.82px] font-[400] text-nowrap text-[#969696]"
+                        ? "text-[12px] leading[18px] font-[400] text-nowrap text-[#969696] update-container"
+                        : "text-[13.21px] leading[19.82px] font-[400] text-nowrap text-[#969696] update-container"
                     }
                   >
                     {update}
