@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Context } from "../../../DashBoardContext";
-import { Box3Data } from "./CelebrationArray";
+import Anniversary from "./Anniversary";
+import Birthday from "./Birthday";
 
 const Box3 = () => {
+  const [toggle, setToggle] = useState(false);
   const { open } = Context();
 
   return (
@@ -42,8 +45,12 @@ const Box3 = () => {
           }
         >
           <select className=" outline-none bg-white" name="" id="">
-            <option value="" className="bg-white">This week</option>
-            <option value="" className="bg-white">Last week</option>
+            <option value="" className="bg-white">
+              This week
+            </option>
+            <option value="" className="bg-white">
+              Last week
+            </option>
           </select>
         </div>
       </div>
@@ -55,23 +62,31 @@ const Box3 = () => {
             : "w-[100%] pt-[20px]  h-[23px] justify-center flex place-items-center"
         }
       >
-        <div className="w-full flex justify-between pl-[50px] relative ">
+        <div className="w-full flex justify-center gap-[100px] relative cursor-pointer">
           <div
             className={
-              open
-                ? "w-[67px] h-[21px] birth font-[400] text-[14px] leading-[21px]"
-                : "w-[74px] birth h-[23px] font-[400] text-[15.41px] leading-[23.12px]"
+              (open
+                ? "w-[67px] h-[21px] font-[400] text-[14px] leading-[21px] "
+                : "w-[74px] h-[23px] font-[400] text-[15.41px] leading-[23.12px] ",
+              !toggle && !open ? "birth " : !toggle && open ? "births " : "")
             }
+            onClick={() => setToggle(false)}
           >
             Birthday
           </div>
 
           <div
             className={
-              open
-                ? "w-[136px] h-[21px] font-[400] text-[14px] leading-[21px]"
-                : "w-[149px] h-[23px] font-[400] text-[15.41px] leading-[23.12px]"
+              (open
+                ? "w-[136px] h-[21px] font-[400] text-[14px] leading-[21px] "
+                : "w-[149px] h-[23px] font-[400] text-[15.41px] leading-[23.12px] ",
+              toggle && open
+                ? "anniversary "
+                : toggle && !open
+                ? "anniversarys "
+                : "")
             }
+            onClick={() => setToggle(true)}
           >
             Anniversary
           </div>
@@ -89,76 +104,8 @@ const Box3 = () => {
         }
       >
         {/* single image card */}
-        {Box3Data.map(({ img, department, name, date }, index) => {
-          return (
-            <div
-              key={index}
-              className={
-                open
-                  ? " w-[100%] h-[50.1px] flex justify-between place-items-center pl-[15px] pr-[15px]"
-                  : " w-[100%] h-[55.17px] flex justify-between place-items-center pl-[15px] pr-[15px]"
-              }
-            >
-              {/* picture and name div */}
 
-              <div
-                className={
-                  open
-                    ? " w-[175.1px] h-[50.1px] place-items-center flex gap-[15px]"
-                    : " w-[192.68px] place-items-center flex h-[55.17px] gap-[16.52px]"
-                }
-              >
-                <img
-                  src={img}
-                  alt=""
-                  className={
-                    open
-                      ? "w-[50.1px] h-[50.1px] rounded-full object-cover"
-                      : "w-[55.17px] h-[55.17px] rounded-full object-cover"
-                  }
-                />
-                {/* name container */}
-
-                <div
-                  className={
-                    open
-                      ? " w-[110px] h-[39px] flex flex-col"
-                      : " w-[121px] h-[43px] flex flex-col"
-                  }
-                >
-                  <span
-                    className={
-                      open
-                        ? " font-[500] text-nowrap text-[14px] leading-[21px]"
-                        : " font-[500] text-nowrap text-[15.41px] leading-[23.12px]"
-                    }
-                  >
-                    {name}
-                  </span>
-                  <small
-                    className={
-                      open
-                        ? " font-[400] text-[12px] leading-[18px]"
-                        : " font-[400] text-[13.21px] leading-[19.82px]"
-                    }
-                  >
-                    {department}
-                  </small>
-                </div>
-              </div>
-
-              <div
-                className={
-                  open
-                    ? " font-[400] text-[14px] leading-[21px]"
-                    : " font-[400] text-[15.41px] leading-[23.12px]"
-                }
-              >
-                {date}
-              </div>
-            </div>
-          );
-        })}
+        {!toggle ? <Birthday /> : <Anniversary />}
       </div>
     </div>
   );

@@ -22,3 +22,24 @@ export const Box3Data = [
     date: "18 Feb",
   },
 ];
+
+export const Box3Data1 = [
+  {
+    img: Alfred1,
+    name: "Alfred Sarah",
+    department: "IT Department",
+    date: "13 July",
+  },
+  {
+    img: Alfred2,
+    name: "Alfred Sarah",
+    department: "IT Department",
+    date: "05 Sept",
+  },
+  {
+    img: Alfred3,
+    name: "Alfred  Sarah",
+    department: "IT Department",
+    date: "18 Dec",
+  },
+];
