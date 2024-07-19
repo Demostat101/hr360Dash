@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import Pic from "/src/assets/woman.jfif";
 import { FaBars } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 import SearchInput from "../../dashBoardComponents/SearchInput";
 import { Context } from "../../../DashBoardContext";
 
 const TopNavBar = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const { open, handleOpenBar } = Context();
+  const { open, handleOpenBar/* ,menu,handleMenuChange */ } = Context();
+  
 
   return (
     <>
@@ -24,13 +26,18 @@ const TopNavBar = () => {
               : "w-[100%] bg-[#FFFFFF] h-[63.85px] flex-1 flex justify-between place-items-center"
           }
         >
-          <div className="cursor-pointer" onClick={handleOpenBar}>
+          <div className="cursor-pointer /* toggle-width-icons */" onClick={handleOpenBar}>
             {open ? (
               <FaBars size={25} className="text-[#176B87]" />
             ) : (
               <FaBars size={25} className="text-[#176B87]" />
             )}
           </div>
+          {/* <div className="hidden menu-icon" onClick={handleMenuChange}>
+            {
+              !menu ? <FaBars size={25}/> : <FaTimes/>
+            }
+          </div> */}
           <div className="flex place-items-center w-[50%] h-[58px] bg-[rgb(255,255,255)] top-bar-search">
             <SearchInput />
             <div className="relative w-[50px] h-[50px] bg-[#FFFFFF]">

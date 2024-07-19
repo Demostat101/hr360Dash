@@ -1,8 +1,8 @@
-import { GrAnnounce } from "react-icons/gr";
-import { IoIosPeople } from "react-icons/io";
+import { HiOutlineUserGroup } from "react-icons/hi";
 import { BsPersonAdd } from "react-icons/bs";
-import { TbReportAnalytics } from "react-icons/tb";
 import { BsColumnsGap } from "react-icons/bs";
+import { MdOutlineAnalytics } from "react-icons/md";
+import { MdCampaign } from "react-icons/md";
 
 export const Paths = [
   {
@@ -14,7 +14,7 @@ export const Paths = [
 
   {
     to: "/employee",
-    icons: [<IoIosPeople size={40} />, <IoIosPeople size={28} />],
+    icons: [<HiOutlineUserGroup size={40} />, <HiOutlineUserGroup size={28} />],
     label: "Employee",
   },
 
@@ -25,12 +25,12 @@ export const Paths = [
   },
   {
     to: "/analytics",
-    icons: [<TbReportAnalytics size={40} />, <TbReportAnalytics size={28} />],
+    icons: [<MdOutlineAnalytics size={40} />, <MdOutlineAnalytics size={28} />],
     label: "Analytics",
   },
   {
     to: "/announcement",
-    icons: [<GrAnnounce size={40} />, <GrAnnounce size={28} />],
+    icons: [< MdCampaign size={40} />, < MdCampaign size={28} />],
     label: "Announcement",
   },
 ];

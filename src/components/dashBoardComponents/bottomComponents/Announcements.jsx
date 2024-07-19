@@ -79,8 +79,8 @@ const Box2 = () => {
                 <small
                   className={
                     open
-                      ? "w-[199.65px] h-[18px] font-[400] text-[12px] leading-[18px]"
-                      : "w-[219.83px] h-[20px] font-[400] text-[13.21px] leading-[19.82px] text-nowrap"
+                      ? "w-[199.65px] text-[#A9A9A9] h-[18px] font-[400] text-[12px] leading-[18px]"
+                      : "w-[219.83px] text-[#A9A9A9] h-[20px] font-[400] text-[13.21px] leading-[19.82px] text-nowrap"
                   }
                 >
                   {dateTime}

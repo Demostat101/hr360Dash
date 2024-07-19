@@ -98,7 +98,6 @@ a.active .icon {
 
 @media only screen and (max-width: 1195px) {
   .top-box-wrap {
-    /* flex-wrap: wrap; */
     flex-wrap: wrap-reverse;
     height: 100%;
   }
@@ -115,7 +114,6 @@ a.active .icon {
 
   .employee-container {
     flex-wrap: wrap;
-    justify-content: left;
     padding-left: 25px;
   }
 
@@ -133,3 +131,32 @@ a.active .icon {
     width: 80%;
   }
 }
+
+
+
+/* @media only screen and (max-width:767px) {
+  .hide-nav{
+    position: absolute;
+    z-index: 1;
+    transform: translateX(-120%);
+  }
+
+  .hide-nav#side-bar{
+    transform: translateX(0);
+  }
+
+  .top-bar-search {
+    width: 95%;
+    padding-left: 10px;
+  }
+
+  .toggle-width-icons{
+    display: none;
+  }
+
+  .menu-icon{
+    display: block;
+  }
+  
+  
+} */

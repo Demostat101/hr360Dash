@@ -1,4 +1,4 @@
-import { IoIosPeople } from "react-icons/io";
+import { HiOutlineUserGroup } from "react-icons/hi";
 import { Context } from "../../DashBoardContext";
 import { EmployeeStore } from "./TopComponentStore";
 
@@ -54,7 +54,7 @@ const TopComponent = () => {
                         : "w-[76.26px] flex justify-center place-items-center shadow-lg  rounded-lg h-[54.14px] bg-black"
                     }
                   >
-                    <IoIosPeople
+                    < HiOutlineUserGroup
                       className={
                         open
                           ? "w-[23.3px] h-[21.31px]  text-[#FFFFFF]"

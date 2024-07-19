@@ -1,6 +1,7 @@
 import { Box3Data } from "./CelebrationArray";
 
 const Birthday = () => {
+  
   return (
     <>
       {Box3Data.map(({ img, department, name, date }, index) => {
@@ -52,8 +53,8 @@ const Birthday = () => {
                 <small
                   className={
                     open
-                      ? " font-[400] text-[12px] leading-[18px]"
-                      : " font-[400] text-[13.21px] leading-[19.82px]"
+                      ? " font-[400] text-[#A9A9A9] text-[12px] leading-[18px]"
+                      : " font-[400] text-[#A9A9A9] text-[13.21px] leading-[19.82px]"
                   }
                 >
                   {department}

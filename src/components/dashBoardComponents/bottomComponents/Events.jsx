@@ -73,8 +73,8 @@ const Box1 = () => {
                 <span
                   className={
                     open
-                      ? "text-[12px] leading-[18px] font-[400]"
-                      : "text-[13.21px] leading-[19.82px] font-[400]"
+                      ? "text-[12px] text-[#505050] leading-[18px] font-[400]"
+                      : "text-[13.21px] text-[#505050] leading-[19.82px] font-[400]"
                   }
                 >
                   {time}

@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { Context } from "../../../DashBoardContext";
 import Anniversary from "./Anniversary";
 import Birthday from "./Birthday";
+import useLocalStorage from "use-local-storage";
 
 const Box3 = () => {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useLocalStorage(false);
   const { open } = Context();
 
   return (
@@ -44,7 +44,11 @@ const Box3 = () => {
               : "w-[140.94px] h-[34.13px] flex flex-col justify-center place-items-center rounded-lg border-[#E3EFF3] border-solid border-2"
           }
         >
-          <select className=" outline-none bg-white text-[#969696]" name="" id="">
+          <select
+            className=" outline-none bg-white text-[#969696]"
+            name=""
+            id=""
+          >
             <option value="" className="bg-white">
               This week
             </option>
