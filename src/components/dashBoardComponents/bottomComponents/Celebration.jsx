@@ -44,11 +44,11 @@ const Box3 = () => {
               : "w-[140.94px] h-[34.13px] flex flex-col justify-center place-items-center rounded-lg border-[#E3EFF3] border-solid border-2"
           }
         >
-          <select className=" outline-none bg-white" name="" id="">
+          <select className=" outline-none bg-white text-[#969696]" name="" id="">
             <option value="" className="bg-white">
               This week
             </option>
-            <option value="" className="bg-white">
+            <option value="" className="bg-white ">
               Last week
             </option>
           </select>
@@ -62,11 +62,11 @@ const Box3 = () => {
             : "w-[100%] pt-[20px]  h-[23px] justify-center flex place-items-center"
         }
       >
-        <div className="w-[200px] flex justify-center gap-[100px] relative cursor-pointer">
+        <div className="w-[200px] flex justify-center gap-[100px] relative cursor-pointer text-[#A5A5A5]">
           <div
             className={
               (open
-                ? "w-[67px] h-[21px] font-[400] text-[14px] leading-[21px]"
+                ? "w-[67px] h-[21px] font-[400] text-[14px] leading-[21px] "
                 : "w-[74px] h-[23px] font-[400] text-[15.41px] leading-[23.12px]",
               !toggle && !open ? "birth " : !toggle && open ? "births " : "")
             }

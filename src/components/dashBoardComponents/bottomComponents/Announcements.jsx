@@ -31,8 +31,8 @@ const Box2 = () => {
         <button
           className={
             open
-              ? "w-[110px] h-[31px] rounded-lg border-[#E3EFF3] border-solid border-2"
-              : "w-[121.12px] h-[34.01px] rounded-lg border-solid border-[#E3EFF3] border-[2px]"
+              ? "w-[110px] h-[31px] rounded-lg border-[#E3EFF3] border-solid border-2 text-[#969696]"
+              : "w-[121.12px] h-[34.01px] rounded-lg border-solid border-[#E3EFF3] border-[2px] text-[#969696]"
           }
         >
           Create

@@ -8,8 +8,14 @@ function cn(...classes) {
 }
 
 const DashCalender = () => {
+  const currentDay = dayjs();
+
   const { open } = Context;
+
   const days = ["S", "M", "T", "W", "T", "F", "S"];
+
+  const [selectedDate, setSelectedDate] = useState(currentDay);
+
   const months = [
     "January",
     "February",
@@ -24,7 +30,7 @@ const DashCalender = () => {
     "November",
     "December",
   ];
-  const currentDay = dayjs();
+
   const [today, setToday] = useState(currentDay);
 
   return (
@@ -65,8 +71,14 @@ const DashCalender = () => {
                     : " text-gray-300 h-[30px] text-[13.21px] w-[30px] grid place-items-center justify-center rounded-full",
                   today
                     ? "bg-[#176B87] text-[13.21px] h-[30px] w-[30px] grid place-items-center justify-center rounded-full text-white"
+                    : selectedDate.toDate().toDateString() ===
+                      date.toDate().toDateString()
+                    ? "bg-yellow-500 text-white h-[30px] w-[30px] transition-all text-[13.21px] grid place-items-center rounded-full"
                     : "h-[30px] w-[30px] transition-all text-[13.21px] justify-center cursor-pointer grid place-items-center rounded-full hover:text-white hover:bg-black "
                 )}
+                onClick={() => {
+                  setSelectedDate(date);
+                }}
               >
                 {date.date()}
               </h3>
