@@ -41,7 +41,7 @@ a.active .icon {
   width: 20px;
   height: 2px;
   bottom: -12px;
-  left: 0;
+  left: -10px;
   background-color: rgb(49, 45, 45);
 }
 .births::after {
@@ -50,7 +50,7 @@ a.active .icon {
   width: 20px;
   height: 2px;
   bottom: -15px;
-  left: 0;
+  left: -10px;
   background-color: rgb(49, 45, 45);
 }
 .anniversary::after {
