@@ -1,8 +1,10 @@
 import React from "react";
 import { CiSearch } from "react-icons/ci";
 import { LiaSlidersHSolid } from "react-icons/lia";
+import { Context } from "../../DashBoardContext";
 
 const SearchInput = () => {
+  const {search, setSearch} = Context()
   return (
     <form
       className="w-[100%] h-[58px] bg-[
@@ -19,6 +21,8 @@ onSubmit={e=> e.preventDefault()}
             type="text"
             placeholder="Search..."
             className="w-full h-full outline-none"
+            value={search} 
+            onChange={(event)=> setSearch(event.target.value)}
           />
         </div>
         <LiaSlidersHSolid size={28} className="text-[#A3A3A3]" />

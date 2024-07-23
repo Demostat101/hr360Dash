@@ -10,16 +10,13 @@ export const Context = () => {
 };
 
 export const ContextProvider = ({ children }) => {
+  const [search, setSearch] = useState("");
   const { data, fetchError, isLoading } = useAxiosFetch(`http://localhost:4000/data`)
   const [open, setOpen] = useLocalStorage(false);
   const [name, setName] = useState("Esther");
-
-  // const [apiData, setApiData] = useState([]);
-  // const [menu, setMenu] = useState(false);
-
-  // const handleMenuChange = () => {
-  //   setMenu((m) => !m);
-  // };
+    
+  const employeeData = data.filter((employee) => (employee.name.toLowerCase().includes(search.toLowerCase()) || employee.empID.toString().includes(search.toString())));
+ 
 
 console.log(data);
   const handleOpenBar = () => {
@@ -28,7 +25,7 @@ console.log(data);
   };
 
   return (
-    <dashBoardContext.Provider value={{ handleOpenBar, open, name , data, fetchError, isLoading/* ,menu,handleMenuChange */ }}>
+    <dashBoardContext.Provider value={{ handleOpenBar, open, name , data, fetchError, isLoading, employeeData, search, setSearch }}>
       {children}
     </dashBoardContext.Provider>
   );

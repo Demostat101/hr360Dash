@@ -5,6 +5,7 @@ import {
   XAxis,
   Tooltip,
   Legend,
+  YAxis,
 } from "recharts";
 import { salesData } from "./GraphData";
 const halfsales = salesData.slice(0, 6);
@@ -12,8 +13,9 @@ const halfsales = salesData.slice(0, 6);
 const Graph1 = () => {
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart barCategoryGap={15} data={halfsales} margin={{ left: 30 }}>
+      <BarChart barCategoryGap={15} data={halfsales} >
         <XAxis dataKey="month" />
+        <YAxis/>
         <Tooltip />
         <Legend />
         <Bar dataKey="Employees working" fill="#B4D4FF" />

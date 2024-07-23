@@ -102,8 +102,8 @@ const MiddleComponent = () => {
           <div
             className={
               open
-                ? "w-[90%] border-l h-[230px] pr-[30px] pb-[15px] "
-                : "w-[90%] border-l h-[250px] pr-[30px] pb-[15px] "
+                ? "w-[90%] h-[230px] pr-[30px] pb-[15px] "
+                : "w-[90%] h-[250px] pr-[30px] pb-[15px] "
             }
           >
             {graph ? <Graph2 /> : <Graph1 />}
