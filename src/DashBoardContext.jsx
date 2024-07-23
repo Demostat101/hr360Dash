@@ -15,9 +15,6 @@ export const ContextProvider = ({ children }) => {
   const [open, setOpen] = useLocalStorage(false);
   const [name, setName] = useState("Esther");
     
-  const employeeData = data.filter((employee) => (employee.name.toLowerCase().includes(search.toLowerCase()) || employee.empID.toString().includes(search.toString())));
- 
-
 console.log(data);
   const handleOpenBar = () => {
     const close = !open;
@@ -25,7 +22,7 @@ console.log(data);
   };
 
   return (
-    <dashBoardContext.Provider value={{ handleOpenBar, open, name , data, fetchError, isLoading, employeeData, search, setSearch }}>
+    <dashBoardContext.Provider value={{ handleOpenBar, open, name , data, fetchError, isLoading, search, setSearch }}>
       {children}
     </dashBoardContext.Provider>
   );

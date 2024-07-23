@@ -23,7 +23,7 @@ const Employee = () => {
 
       
       {
-        !isLoading && !fetchError && data.length ? <EmpPagination/> : ""
+        !isLoading && !fetchError && data.length ? <EmpPagination/> : <div>Nothing to display</div>
       }
 
 
