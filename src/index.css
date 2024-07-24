@@ -133,6 +133,10 @@ a.active .icon {
   }
 }
 
+/* .table-head{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+} */
 
 
 @media only screen and (max-width: 1195px) {

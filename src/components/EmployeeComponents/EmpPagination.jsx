@@ -1,5 +1,6 @@
 import { Context } from "../../DashBoardContext";
 import Pagination from "@mui/material/Pagination";
+import { IoMdMore } from "react-icons/io";
 import { UsePagination } from "./UsePagination";
 import { NavLink } from "react-router-dom";
 import { PaginationItem, Typography } from "@mui/material";
@@ -8,11 +9,6 @@ import { useMemo } from "react";
 const EmpPagination = () => {
   const { data, search } = Context();
 
-  // const employeeDB = data.filter(
-  //   (employee) =>
-  //     employee.name.toLowerCase().includes(search.toLowerCase()) ||
-  //     employee.empID.toString().includes(search.toString())
-  // );
   const [
     totalPages,
     startPageIndex,
@@ -33,19 +29,18 @@ const EmpPagination = () => {
 
 
 
-  console.log(filteredEmployeeList);
 
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Emp.ID</th>
-            <th>NAME</th>
-            <th>Department</th>
-            <th>Email Address</th>
-            <th>Emp Type</th>
-            <th>Status</th>
+    <div className="w-full">
+      <table className="w-full">
+        <thead className="w-full">
+          <tr className="w-full border-solid border-2 border-green-500 table-head ">
+            <th>Emp.ID </th><IoMdMore/>
+            <th>NAME <IoMdMore/></th>
+            <th>Department <IoMdMore/></th>
+            <th>Email Address <IoMdMore/></th>
+            <th>Emp Type <IoMdMore/></th>
+            <th>Status <IoMdMore/></th>
             
           </tr>
         </thead>
@@ -54,7 +49,10 @@ const EmpPagination = () => {
 
            filteredEmployeeList.map((val)=> {
               return <tr key={val.id}>
+              <div className="flex gap-[15px]">
+              <input type="checkbox" name="" id="" />
               <td>{val.empID}</td>
+              </div>
               <td>{val.name}</td>
               <td>{val.department}</td>
               <td>{val.email}</td>
@@ -74,6 +72,7 @@ const EmpPagination = () => {
       </table>
 
       <Pagination
+      className="flex flex-col place-items-end"
         color="primary"
         count={totalPages}
         onChange={(event, value) => setStartPageIndex(value - 1)}

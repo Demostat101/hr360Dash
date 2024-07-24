@@ -5,6 +5,11 @@ import { Context } from "../../DashBoardContext";
 
 const SearchInput = () => {
   const {search, setSearch} = Context()
+
+  const handleSearch = (event)=>{
+    setSearch(event.target.value);
+    
+  }
   return (
     <form
       className="w-[100%] h-[58px] bg-[
@@ -22,7 +27,7 @@ onSubmit={e=> e.preventDefault()}
             placeholder="Search..."
             className="w-full h-full outline-none"
             value={search} 
-            onChange={(event)=> setSearch(event.target.value)}
+            onChange={handleSearch }
           />
         </div>
         <LiaSlidersHSolid size={28} className="text-[#A3A3A3]" />
