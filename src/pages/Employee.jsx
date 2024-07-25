@@ -6,8 +6,8 @@ const Employee = () => {
   const { isLoading, fetchError, data, open } = Context();
 
   return (
-    <div className="w-full min-h-full p-[25px]">
-      <div className="w-full h-full border-solid border-2 border-green-500">
+    <div className="w-full min-h-screen p-[25px]">
+      <div className="w-full min-h-screen">
         {/* Top Bar */}
         <div className={open ? "w-full h-[129px] mb-[25px]" : "w-full h-[127.67px] mb-[25px]"}>
           {/* employ over view and add employ */}
@@ -35,18 +35,22 @@ const Employee = () => {
         </div>
 
         {/* Table Bar */}
-        <div className={open ? "w-full h-[635.29px] border-solid border-2 border-yellow-500" : "w-full h-[700px] border-solid border-2 border-black"}>
-          {isLoading && (
-            <div className="w-full h-96 flex flex-col justify-center place-items-center">
-              <div className="loader"></div>
+        <div className={open ? "w-full h-[100%]" : "w-full h-[100%]"}>
+          {
+            (isLoading || !isLoading && fetchError) && <div className="w-full h-full">
+            {isLoading && (
+              <div className="w-full h-96 flex flex-col justify-center place-items-center">
+                <div className="loader"></div>
+              </div>
+            )}
+  
+            {!isLoading && fetchError && (
+              <div className="w-full h-32 flex flex-col justify-center place-items-center text-center">
+                <div className="text-red-600">{fetchError}</div>
+              </div>
+            )}
             </div>
-          )}
-
-          {!isLoading && fetchError && (
-            <div className="w-full h-32 flex flex-col justify-center place-items-center text-center">
-              <div className="text-red-600">{fetchError}</div>
-            </div>
-          )}
+          }
 
           {!isLoading && !fetchError && data.length ? <EmpPagination /> : ""}
         </div>

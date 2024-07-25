@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 export const UsePagination = (perPageRecords, totalPageRecords)=>{
-    const totalPages = Math.ceil((totalPageRecords/perPageRecords)+1);
+    const totalPages = Math.ceil((totalPageRecords/perPageRecords));
     const [startPageIndex, setStartPageIndex] = useState(0);
-    const [endPageIndex, setEndPageIndex]= useState(perPageRecords-1);
+    const [endPageIndex, setEndPageIndex]= useState(perPageRecords);
     const [currentPageIndex, setCurrentPageIndex]= useState(1);
 
 

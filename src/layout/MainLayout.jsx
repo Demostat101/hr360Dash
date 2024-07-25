@@ -7,7 +7,7 @@ const MainLayout = () => {
   return (
     <div className="flex h-screen bg-[#F6F7FA] relative">
       <SideNavBar/>
-      <div className="w-full overflow-auto overflow-x-hidden">
+      <div className="w-full min-h-screen overflow-auto overflow-x-hidden">
         <TopNavBar />
         <Outlet />
       </div>

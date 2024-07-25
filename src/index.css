@@ -98,6 +98,7 @@ a.active .icon {
 
 .link{
   text-decoration: underline;
+  text-decoration-color: #176B87;
 }
 
 .loader {
@@ -133,10 +134,39 @@ a.active .icon {
   }
 }
 
-/* .table-head{
-  display: grid;
-  grid-template-columns: repeat(6,1fr);
-} */
+table{
+  width: 100%;
+}
+
+th{
+  text-align: left;
+  font-weight: 500;
+  font-size: 16.29px;
+  color: #292D32;
+}
+
+.th-bb {
+  border-bottom: 1px solid #F3F3F3;
+}
+
+tbody{
+  width: 100%;
+  background-color: white;
+}
+
+td{
+  height: 70px;
+}
+
+th:first-child{
+  padding-left: 30px;
+}
+th:last-child{
+  opacity: 0;
+}
+
+
+
 
 
 @media only screen and (max-width: 1195px) {

@@ -1,10 +1,12 @@
 import { Context } from "../../DashBoardContext";
 import Pagination from "@mui/material/Pagination";
+import Image from "../../assets/moreImg.jfif"
 import { IoMdMore } from "react-icons/io";
 import { UsePagination } from "./UsePagination";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { PaginationItem, Typography } from "@mui/material";
 import { useMemo } from "react";
+import { useTable } from "react-table";
 
 const EmpPagination = () => {
   const { data, search } = Context();
@@ -15,7 +17,7 @@ const EmpPagination = () => {
     endPageIndex,
     currentPageIndex,
     setStartPageIndex,
-  ] = UsePagination(6, data.length);
+  ] = UsePagination(9, data.length);
 
   const filteredEmployeeList = useMemo(() => data.filter(
     (employee) =>
@@ -27,34 +29,74 @@ const EmpPagination = () => {
     )
   , [startPageIndex,search,data]);
 
+    const columns = useMemo (()=>([
+      {
+        Header: "Emp.ID ⁝",
+        accessor:"empID"
+      },
+      {
+        Header: "Name ⁝",
+        accessor:"name"
+      },
+      {
+        Header: "Department ⁝",
+        accessor:"department"
+      },
+      {
+       Header: "Role ⁝",
+        accessor:"role"
+      },
+      {
+        Header: "Email Address ⁝",
+        accessor:"email"
+      },
+      {
+        Header: "Emp Type ⁝",
+        accessor:"empType"
+      },
+      {
+        Header: "Status ⁝",
+        accessor:"active"
+      },
+      {
+        Header: "Details ⁝"
+      }
+    ]),[]);
 
-
+    const table = useTable({columns, data:filteredEmployeeList})
+    const {getTableProps, headerGroups} = table;
 
   return (
-    <div className="w-full">
-      <table className="w-full">
-        <thead className="w-full">
-          <tr className="w-full border-solid border-2 border-green-500 table-head ">
-            <th>Emp.ID </th><IoMdMore/>
-            <th>NAME <IoMdMore/></th>
-            <th>Department <IoMdMore/></th>
-            <th>Email Address <IoMdMore/></th>
-            <th>Emp Type <IoMdMore/></th>
-            <th>Status <IoMdMore/></th>
-            
-          </tr>
+    <div className="w-full h-screen">
+
+      <table className="min-h-[100vh]" {...getTableProps()}>
+{/* header */}
+        <thead className=" rounded-tl-lg bg-[#E7F0FD]" >
+          {headerGroups.map((headerGroup)=>(
+            <tr className={open ? "w-[100%] h-[62.62px]" : "w-[100%] h-[69px]"} {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map((column)=>{
+                    return <th {...column.getHeaderProps()}>
+                        {column.render("Header")}
+                    </th>
+                  })}
+            </tr>
+          ))}
         </thead>
-        <tbody>
+{/* body */}
+
+
+<tbody className={open ? " w-full h-[62.62px] text-[#8F8F8F] th-bb" : " w-full h-[69px] text-[#8F8F8F] th-bb"}>
           {
 
            filteredEmployeeList.map((val)=> {
-              return <tr key={val.id}>
-              <div className="flex gap-[15px]">
-              <input type="checkbox" name="" id="" />
-              <td>{val.empID}</td>
-              </div>
+              return <tr key={val.id} className={open ? " w-full h-[62.62px] text-[#8F8F8F] th-bb" : " w-full h-[69px] text-[#8F8F8F] th-bb"}>
+              <td >
+              <input className="ml-[15px] border-[#8F8F8F]" type="checkbox" name="" id="" />
+              <span className="pl-[10px]">{val.empID}</span>
+              </td>
               <td>{val.name}</td>
               <td>{val.department}</td>
+              <td>{val.role}</td>
               <td>{val.email}</td>
               <td>{val.empType}</td>
               <td>
@@ -64,15 +106,17 @@ const EmpPagination = () => {
                   <div className="text-red-500">On leave</div>
                 )}
               </td>
-              <td><NavLink className="link">Details</NavLink></td>
+              <td><Link className="link text-[#176B87] bg-white">Details</Link></td>
+            
             </tr>
             })
           }
         </tbody>
+
       </table>
 
       <Pagination
-      className="flex flex-col place-items-end"
+      className="flex flex-col place-items-end pt-[15px] pb-[15px]"
         color="primary"
         count={totalPages}
         onChange={(event, value) => setStartPageIndex(value - 1)}
@@ -98,4 +142,6 @@ const EmpPagination = () => {
 };
 
 export default EmpPagination;
+
+
 
