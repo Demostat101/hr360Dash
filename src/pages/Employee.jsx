@@ -35,7 +35,7 @@ const Employee = () => {
         </div>
 
         {/* Table Bar */}
-        <div className={open ? "w-full h-[100%]" : "w-full h-[100%]"}>
+        <div className={open ? "w-full h-[635.29px]" : "w-full h-[700px]"}>
           {
             (isLoading || !isLoading && fetchError) && <div className="w-full h-full">
             {isLoading && (

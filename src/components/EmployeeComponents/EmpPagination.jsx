@@ -85,7 +85,7 @@ const EmpPagination = () => {
 {/* body */}
 
 
-<tbody className={open ? " w-full h-[62.62px] text-[#8F8F8F] th-bb" : " w-full h-[69px] text-[#8F8F8F] th-bb"}>
+<tbody className={open ? " w-full max-h-[62.62px] text-[#8F8F8F] th-bb" : " w-full max-h-[69px] text-[#8F8F8F] th-bb"}>
           {
 
            filteredEmployeeList.map((val)=> {
