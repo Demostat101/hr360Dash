@@ -6,8 +6,8 @@ const Employee = () => {
   const { isLoading, fetchError, data, open } = Context();
 
   return (
-    <div className="w-full min-h-screen p-[25px]">
-      <div className="w-full min-h-screen">
+    <div className="w-full p-[25px]">
+      <div className="w-full">
         {/* Top Bar */}
         <div className={open ? "w-full h-[129px] mb-[25px]" : "w-full h-[127.67px] mb-[25px]"}>
           {/* employ over view and add employ */}

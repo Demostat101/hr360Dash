@@ -9,7 +9,7 @@ import { useMemo } from "react";
 import { useTable } from "react-table";
 
 const EmpPagination = () => {
-  const { data, search } = Context();
+  const { data, search,handleCheckBox } = Context();
 
   const [
     totalPages,
@@ -67,13 +67,13 @@ const EmpPagination = () => {
     const {getTableProps, headerGroups} = table;
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-full">
 
-      <table className="min-h-[100vh]" {...getTableProps()}>
+      <table {...getTableProps()}>
 {/* header */}
-        <thead className=" rounded-tl-lg bg-[#E7F0FD]" >
+        <thead>
           {headerGroups.map((headerGroup)=>(
-            <tr className={open ? "w-[100%] h-[62.62px]" : "w-[100%] h-[69px]"} {...headerGroup.getHeaderGroupProps()}>
+            <tr className={open ? "w-[100%] h-[62.62px] bg-[#adb0b6]" : "w-[100%] h-[69px] bg-[#adb0b6]"} {...headerGroup.getHeaderGroupProps()}>
                   {headerGroup.headers.map((column)=>{
                     return <th {...column.getHeaderProps()}>
                         {column.render("Header")}
@@ -85,13 +85,13 @@ const EmpPagination = () => {
 {/* body */}
 
 
-<tbody className={open ? " w-full max-h-[62.62px] text-[#8F8F8F] th-bb" : " w-full max-h-[69px] text-[#8F8F8F] th-bb"}>
+<tbody className={open ? " w-full h-[62.62px] text-[#8F8F8F] th-bb" : " w-full h-[69px] text-[#8F8F8F] th-bb"}>
           {
 
            filteredEmployeeList.map((val)=> {
               return <tr key={val.id} className={open ? " w-full h-[62.62px] text-[#8F8F8F] th-bb" : " w-full h-[69px] text-[#8F8F8F] th-bb"}>
               <td >
-              <input className="ml-[15px] border-[#8F8F8F]" type="checkbox" name="" id="" />
+              <input className="ml-[15px] border-[#8F8F8F]" onChange={()=>handleCheckBox(val.id)} type="checkbox" name="" id="" />
               <span className="pl-[10px]">{val.empID}</span>
               </td>
               <td>{val.name}</td>

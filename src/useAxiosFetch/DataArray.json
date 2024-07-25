@@ -1,339 +1,334 @@
-{ 
-    "data" : [
-      {
-        "id": 1,
-        "empID": "009120",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 2,
-        "empID": "009121",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": false
-      },
-      {
-        "id": 3,
-        "empID": "009122",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-
-      },
-      {
-        "id": 4,
-        "empID": "009123",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 5,
-        "empID": "009124",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 6,
-        "empID": "009125",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 7,
-        "empID": "009126",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 8,
-        "empID": "009127",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 9,
-        "empID": "009128",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 10,
-        "empID": "009129",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 11,
-        "empID": "009130",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 12,
-        "empID": "009131",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 13,
-        "empID": "009132",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 14,
-        "empID": "009133",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 15,
-        "empID": "009134",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 16,
-        "empID": "009135",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 17,
-        "empID": "009136",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 18,
-        "empID": "009137",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 19,
-        "empID": "009138",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 20,
-        "empID": "009139",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": false
-      },
-      {
-        "id": 21,
-        "empID": "009140",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 22,
-        "empID": "009141",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 23,
-        "empID": "009142",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 24,
-        "empID": "009143",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 25,
-        "empID": "009144",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 26,
-        "empID": "009145",
-        "name": "Ajayi Omolola",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 27,
-        "empID": "009146",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": false
-      },
-      {
-        "id": 28,
-        "empID": "009147",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 29,
-        "empID": "009148",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 30,
-        "empID": "009149",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 31,
-        "empID": "009150",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 32,
-        "empID": "009151",
-        "name": "Ajayi Omolola",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": true
-      },
-      {
-        "id": 33,
-        "empID": "009152",
-        "name": "Ajayi Esther",
-        "department": "Marketing",
-        "role": "Manager",
-        "email": "esther@sbc.org",
-        "empType": "Contract",
-        "active": false
-      }
-      
+{
+  "data": [
+    {
+      "id": "1",
+      "empID": "009120",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": false
+    },
+    {
+      "id": "2",
+      "empID": "009121",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": false
+    },
+    {
+      "id": "3",
+      "empID": "009122",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": false
+    },
+    {
+      "id": "4",
+      "empID": "009123",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "5",
+      "empID": "009124",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "6",
+      "empID": "009125",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "7",
+      "empID": "009126",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "8",
+      "empID": "009127",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "9",
+      "empID": "009128",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "10",
+      "empID": "009129",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "11",
+      "empID": "009130",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "12",
+      "empID": "009131",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "13",
+      "empID": "009132",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "14",
+      "empID": "009133",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "15",
+      "empID": "009134",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "16",
+      "empID": "009135",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "17",
+      "empID": "009136",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "18",
+      "empID": "009137",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "19",
+      "empID": "009138",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "20",
+      "empID": "009139",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": false
+    },
+    {
+      "id": "21",
+      "empID": "009140",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "22",
+      "empID": "009141",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "23",
+      "empID": "009142",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "24",
+      "empID": "009143",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "25",
+      "empID": "009144",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "26",
+      "empID": "009145",
+      "name": "Ajayi Omolola",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "27",
+      "empID": "009146",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": false
+    },
+    {
+      "id": "28",
+      "empID": "009147",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "29",
+      "empID": "009148",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "30",
+      "empID": "009149",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "31",
+      "empID": "009150",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "32",
+      "empID": "009151",
+      "name": "Ajayi Omolola",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": true
+    },
+    {
+      "id": "33",
+      "empID": "009152",
+      "name": "Ajayi Esther",
+      "department": "Marketing",
+      "role": "Manager",
+      "email": "esther@sbc.org",
+      "empType": "Contract",
+      "active": false
+    }
   ]
-} 
-
-
-
+}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const useAxiosFetch = (dataUrl) => {
+export const useAxiosFetch = (dataUrl) => {
   const [data, setData] = useState([]);
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -35,8 +35,23 @@ const useAxiosFetch = (dataUrl) => {
 
     return cleanUp;
   }, [dataUrl]);
-  return { data, fetchError, isLoading };
+  return { data, fetchError, isLoading,setData};
 };
 
 
-export default useAxiosFetch
+// export default useAxiosFetch
+
+
+export const apiRequest = async (url="", optionObj= {},errMsg=null) =>{
+  try {
+      const data = await fetch(url, optionObj)
+      if (!data.ok) {
+          throw Error ("please reload the app")
+      }
+      
+  } catch (error) {
+      errMsg = error.message
+  } finally {
+      return errMsg
+  }
+}
