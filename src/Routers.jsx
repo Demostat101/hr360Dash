@@ -6,6 +6,7 @@ import Employee from "./pages/Employee";
 import AddEmployee from "./pages/AddEmployee";
 import Analytics from "./pages/Analytics";
 import Announcement from "./pages/Announcement";
+import EmployeeDetails from "./components/EmployeeComponents/EmployeeDetails";
 
 const Routers = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const Routers = createBrowserRouter([
       {
         path: "/employee",
         element: <Employee />,
+      },
+      {
+        path: "/employee/:id",
+        element: <EmployeeDetails />,
       },
 
       {

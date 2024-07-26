@@ -38,7 +38,7 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": false
     },
     {
       "id": "5",
@@ -78,7 +78,7 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": false
     },
     {
       "id": "9",

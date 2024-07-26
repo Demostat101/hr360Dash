@@ -4,15 +4,15 @@ import SevenUpLogo from "../../../assets/SevenUpLogo.jfif";
 import { Context } from "../../../DashBoardContext";
 
 const SideNavBar = () => {
-  const { open/* ,menu */ } = Context();
+  const { open /* ,menu */ } = Context();
   return (
     <nav /* id="side-bar" */
-      className={(
+      className={
         open
           ? "w-[250px] h-[100vh] trans bg-[#176B87] text-[#FFFFFF] pt-[100px] flex flex-col justify-between pb-[8px] "
-          : "w-[130px] h-[100vh] transit bg-[#176B87] place-items-center text-white pt-[110px] flex flex-col justify-between pb-[12px]"/* ,
+          : "w-[130px] h-[100vh] transit bg-[#176B87] place-items-center text-white pt-[110px] flex flex-col justify-between pb-[12px]" /* ,
           open || menu ? "#side-bar hide-nav w-[250px] h-[100vh] trans bg-[#176B87] text-[#FFFFFF] pt-[100px] flex flex-col justify-between pb-[8px]" : !open || menu ?  "#side-bar hide-nav w-[130px] h-[100vh] transit bg-[#176B87] place-items-center text-white pt-[110px] flex flex-col justify-between pb-[12px]" : "#side-bar" */
-  )}
+      }
     >
       <ul
         className={

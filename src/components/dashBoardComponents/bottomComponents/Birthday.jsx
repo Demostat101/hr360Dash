@@ -1,7 +1,6 @@
 import { Box3Data } from "./CelebrationArray";
 
 const Birthday = () => {
-  
   return (
     <>
       {Box3Data.map(({ img, department, name, date }, index) => {

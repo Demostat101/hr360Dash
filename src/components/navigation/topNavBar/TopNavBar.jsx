@@ -7,8 +7,7 @@ import { Context } from "../../../DashBoardContext";
 
 const TopNavBar = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const { open, handleOpenBar/* ,menu,handleMenuChange */ } = Context();
-  
+  const { open, handleOpenBar /* ,menu,handleMenuChange */ } = Context();
 
   return (
     <>
@@ -26,7 +25,10 @@ const TopNavBar = () => {
               : "w-[100%] bg-[#FFFFFF] h-[63.85px] flex-1 flex justify-between place-items-center"
           }
         >
-          <div className="cursor-pointer /* toggle-width-icons */" onClick={handleOpenBar}>
+          <div
+            className="cursor-pointer /* toggle-width-icons */"
+            onClick={handleOpenBar}
+          >
             {open ? (
               <FaBars size={25} className="text-[#176B87]" />
             ) : (

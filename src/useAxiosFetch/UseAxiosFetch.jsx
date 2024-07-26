@@ -35,23 +35,20 @@ export const useAxiosFetch = (dataUrl) => {
 
     return cleanUp;
   }, [dataUrl]);
-  return { data, fetchError, isLoading,setData};
+  return { data, fetchError, isLoading, setData };
 };
 
 
-// export default useAxiosFetch
 
-
-export const apiRequest = async (url="", optionObj= {},errMsg=null) =>{
+export const apiRequest = async (url = "", optionObj = {}, errMsg = null) => {
   try {
-      const data = await fetch(url, optionObj)
-      if (!data.ok) {
-          throw Error ("please reload the app")
-      }
-      
+    const data = await fetch(url.toString(), optionObj);
+    if (!data.ok) {
+      throw Error("please reload the app");
+    }
   } catch (error) {
-      errMsg = error.message
+    errMsg = error.message;
   } finally {
-      return errMsg
+    return errMsg;
   }
-}
+};

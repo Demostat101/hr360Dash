@@ -143,7 +143,7 @@ th{
   text-align: left;
   font-weight: 500;
   font-size: 16.29px;
-  color: #292D32;
+  color: #41454B;
 }
 
 
@@ -163,9 +163,11 @@ td{
 
 th:first-child{
   padding-left: 30px;
+  border-top-left-radius: 10px;
 }
 th:last-child{
   opacity: 0;
+  border-top-right-radius: 10px;
 }
 
 thead{
