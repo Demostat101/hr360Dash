@@ -8,7 +8,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": false
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "2",
@@ -18,7 +19,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": false
+      "active": false,
+      "region": "Lagos"
     },
     {
       "id": "3",
@@ -28,7 +30,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": false
+      "active": false,
+      "region": "Abuja"
     },
     {
       "id": "4",
@@ -38,7 +41,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": false
+      "active": false,
+      "region": "Abuja"
     },
     {
       "id": "5",
@@ -48,7 +52,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "6",
@@ -58,7 +63,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "7",
@@ -68,7 +74,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "8",
@@ -78,7 +85,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": false
+      "active": false,
+      "region": "Abuja"
     },
     {
       "id": "9",
@@ -88,7 +96,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "10",
@@ -98,7 +107,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "11",
@@ -108,7 +118,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "12",
@@ -118,7 +129,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "13",
@@ -128,7 +140,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "14",
@@ -138,7 +151,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "15",
@@ -148,7 +162,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "16",
@@ -158,7 +173,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "17",
@@ -168,7 +184,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "18",
@@ -178,7 +195,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "19",
@@ -188,7 +206,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Abuja"
     },
     {
       "id": "20",
@@ -198,7 +217,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": false
+      "active": false,
+      "region": "Abuja"
     },
     {
       "id": "21",
@@ -208,7 +228,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Lagos"
     },
     {
       "id": "22",
@@ -218,7 +239,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Lagos"
     },
     {
       "id": "23",
@@ -228,7 +250,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Lagos"
     },
     {
       "id": "24",
@@ -238,7 +261,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Lagos"
     },
     {
       "id": "25",
@@ -248,7 +272,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Lagos"
     },
     {
       "id": "26",
@@ -258,7 +283,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Lagos"
     },
     {
       "id": "27",
@@ -268,7 +294,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": false
+      "active": false,
+      "region": "Lagos"
     },
     {
       "id": "28",
@@ -278,7 +305,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Lagos"
     },
     {
       "id": "29",
@@ -288,7 +316,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Lagos"
     },
     {
       "id": "30",
@@ -298,7 +327,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Lagos"
     },
     {
       "id": "31",
@@ -308,7 +338,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Lagos"
     },
     {
       "id": "32",
@@ -318,7 +349,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": true
+      "active": true,
+      "region": "Lagos"
     },
     {
       "id": "33",
@@ -328,7 +360,8 @@
       "role": "Manager",
       "email": "esther@sbc.org",
       "empType": "Contract",
-      "active": false
+      "active": false,
+      "region": "Lagos"
     }
   ]
 }

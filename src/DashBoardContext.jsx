@@ -12,7 +12,9 @@ export const Context = () => {
 export const ContextProvider = ({ children }) => {
   const API_URL = "http://localhost:4000/data";
   const [error, setError] = useState(null);
-  const [search, setSearch] = useState("");
+  const [searchName, setSearchName] = useState("");
+  const [searchEmpID, setSearchEmpID] = useState("");
+  const [searchEmpRegion, setSearchEmpRegion] = useState("");
   const [open, setOpen] = useLocalStorage(false);
   const [name, setName] = useState("Esther");
   const { data, fetchError, isLoading, setData } = useAxiosFetch(
@@ -50,7 +52,9 @@ export const ContextProvider = ({ children }) => {
     }
   };
 
- 
+//  const handleChange = (e)=>{
+//   setSearchName(e.target.value)
+//  }
 
   return (
     <dashBoardContext.Provider
@@ -61,9 +65,15 @@ export const ContextProvider = ({ children }) => {
         data,
         fetchError,
         isLoading,
-        search,
-        setSearch,
-        handleCheckBox
+        searchName,
+        setSearchName,
+        handleCheckBox,
+        searchEmpID,
+        setSearchEmpID,
+        searchEmpRegion,
+        setSearchEmpRegion
+      
+
       }}
     >
       {children}

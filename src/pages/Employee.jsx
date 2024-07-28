@@ -3,7 +3,17 @@ import { Context } from "../DashBoardContext";
 import { FaPlus } from "react-icons/fa";
 
 const Employee = () => {
-  const { isLoading, fetchError, data, open } = Context();
+  const {
+    isLoading,
+    fetchError,
+    data,
+    open,
+    searchName,
+    setSearchName,
+    searchEmpID,
+    setSearchEmpID,
+    setSearchEmpRegion,
+  } = Context();
 
   return (
     <div className="w-full p-[25px]">
@@ -68,23 +78,31 @@ const Employee = () => {
                   : "w-[100%] h-[43.41px] flex gap-[15.48px]"
               }
             >
-              <div
-                
-              >
-                <input className={
-                  open
-                    ? " w-[126px] h-[45px] grid justify-center text-center focus:outline-none place-items-center bg-white rounded-lg font-[400] text-[18px]"
-                    : "w-[121.88px] h-[43.41px] grid justify-center text-center focus:outline-none place-items-center bg-white rounded-lg font-[400] text-[17.41px]"
-                } type="text" placeholder="Name" />
+              <div>
+                <input
+                  className={
+                    open
+                      ? " w-[126px] h-[45px] grid justify-center text-center focus:outline-none place-items-center bg-white rounded-lg font-[400] text-[18px]"
+                      : "w-[121.88px] h-[43.41px] grid justify-center text-center focus:outline-none place-items-center bg-white rounded-lg font-[400] text-[17.41px]"
+                  }
+                  type="text"
+                  placeholder="Name"
+                  value={searchName}
+                  onChange={(e) => setSearchName(e.target.value)}
+                />
               </div>
-              <div
-               
-              >
-                <input  className={
-                  open
-                    ? "w-[144px] h-[45px] grid justify-center place-items-center text-center focus:outline-none bg-white rounded-lg font-[400] text-[18px]"
-                    : "w-[139.29px] h-[43.41px] grid justify-center place-items-center text-center focus:outline-none bg-white rounded-lg font-[400] text-[17.41px] "
-                } type="text" placeholder="Emp.ID" />
+              <div>
+                <input
+                  className={
+                    open
+                      ? "w-[144px] h-[45px] grid justify-center place-items-center text-center focus:outline-none bg-white rounded-lg font-[400] text-[18px]"
+                      : "w-[139.29px] h-[43.41px] grid justify-center place-items-center text-center focus:outline-none bg-white rounded-lg font-[400] text-[17.41px] "
+                  }
+                  type="text"
+                  placeholder="Emp.ID"
+                  value={searchEmpID}
+                  onChange={(e) => setSearchEmpID(e.target.value)}
+                />
               </div>
               <div
                 className={
@@ -93,12 +111,21 @@ const Employee = () => {
                     : "w-[137.36px] h-[43.41px] bg-white pl-[20px] pr-[20px] rounded-lg grid place-items-center font-[400] text-[17.41px]"
                 }
               >
-                <select name="" id="" className=" outline-none bg-white">
-                  <option value="Region" className="bg-white">
+                <select
+                  name=""
+                  id=""
+                  className=" outline-none bg-white"
+                  onChange={(e) => setSearchEmpRegion(e.target.value)}
+                >
+                  <option value="" className="bg-white">
                     Region
                   </option>
-                  <option value="Costain" className="bg-white">
-                    Costain
+
+                  <option value="Abuja" className="bg-white">
+                    Abuja
+                  </option>
+                  <option value="Lagos" className="bg-white">
+                    Lagos
                   </option>
                 </select>
               </div>

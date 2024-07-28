@@ -7,7 +7,8 @@ import { useMemo } from "react";
 import { useTable } from "react-table";
 
 const EmpTable = () => {
-  const { data, search, handleCheckBox } = Context();
+  const { data, searchName, searchEmpID, handleCheckBox, searchEmpRegion } =
+    Context();
 
   const [
     totalPages,
@@ -22,14 +23,17 @@ const EmpTable = () => {
       data
         .filter(
           (employee) =>
-            employee.name.toLowerCase().includes(search.toLowerCase()) ||
-            employee.empID.toString().includes(search.toString())
+            employee.name.toLowerCase().includes(searchName.toLowerCase()) &&
+            employee.empID.toString().includes(searchEmpID.toString()) &&
+            employee.region
+              .toLowerCase()
+              .includes(searchEmpRegion.toLowerCase())
         )
         .slice(
           startPageIndex * endPageIndex,
           startPageIndex * endPageIndex + endPageIndex
         ),
-    [startPageIndex, search, data]
+    [startPageIndex, searchName, searchEmpID, searchEmpRegion, data]
   );
 
   const columns = useMemo(
@@ -160,11 +164,7 @@ const EmpTable = () => {
           <PaginationItem
             slots={{
               previous: () => <Typography variant="label">Prev</Typography>,
-              next: () => (
-                <Typography variant="label">
-                  Next
-                </Typography>
-              ),
+              next: () => <Typography variant="label">Next</Typography>,
             }}
             {...item}
           />
