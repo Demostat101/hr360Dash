@@ -69,22 +69,22 @@ const Employee = () => {
               }
             >
               <div
-                className={
-                  open
-                    ? " w-[126px] h-[45px] grid justify-center place-items-center bg-white rounded-lg font-[400] text-[18px]"
-                    : "w-[121.88px] h-[43.41px] grid justify-center place-items-center bg-white rounded-lg font-[400] text-[17.41px]"
-                }
+                
               >
-                Name
+                <input className={
+                  open
+                    ? " w-[126px] h-[45px] grid justify-center text-center focus:outline-none place-items-center bg-white rounded-lg font-[400] text-[18px]"
+                    : "w-[121.88px] h-[43.41px] grid justify-center text-center focus:outline-none place-items-center bg-white rounded-lg font-[400] text-[17.41px]"
+                } type="text" placeholder="Name" />
               </div>
               <div
-                className={
-                  open
-                    ? "w-[144px] h-[45px] grid justify-center place-items-center bg-white rounded-lg font-[400] text-[18px]"
-                    : "w-[139.29px] h-[43.41px] grid justify-center place-items-center bg-white rounded-lg font-[400] text-[17.41px] "
-                }
+               
               >
-                Emp.ID
+                <input  className={
+                  open
+                    ? "w-[144px] h-[45px] grid justify-center place-items-center text-center focus:outline-none bg-white rounded-lg font-[400] text-[18px]"
+                    : "w-[139.29px] h-[43.41px] grid justify-center place-items-center text-center focus:outline-none bg-white rounded-lg font-[400] text-[17.41px] "
+                } type="text" placeholder="Emp.ID" />
               </div>
               <div
                 className={

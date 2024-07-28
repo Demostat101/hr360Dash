@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import useLocalStorage from "use-local-storage";
 import { apiRequest, useAxiosFetch } from "./useAxiosFetch/UseAxiosFetch";
 
+
 export const dashBoardContext = createContext();
 
 export const Context = () => {
@@ -12,11 +13,11 @@ export const ContextProvider = ({ children }) => {
   const API_URL = "http://localhost:4000/data";
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
+  const [open, setOpen] = useLocalStorage(false);
+  const [name, setName] = useState("Esther");
   const { data, fetchError, isLoading, setData } = useAxiosFetch(
     `http://localhost:4000/data`
   );
-  const [open, setOpen] = useLocalStorage(false);
-  const [name, setName] = useState("Esther");
 
   const handleOpenBar = () => {
     const close = !open;
@@ -49,6 +50,8 @@ export const ContextProvider = ({ children }) => {
     }
   };
 
+ 
+
   return (
     <dashBoardContext.Provider
       value={{
@@ -60,7 +63,7 @@ export const ContextProvider = ({ children }) => {
         isLoading,
         search,
         setSearch,
-        handleCheckBox,
+        handleCheckBox
       }}
     >
       {children}

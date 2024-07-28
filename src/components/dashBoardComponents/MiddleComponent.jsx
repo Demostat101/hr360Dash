@@ -78,13 +78,13 @@ const MiddleComponent = () => {
               {/* right drop down select */}
 
               <select
-                onChange={() => setGraph((prev) => !prev)}
+                onChange={()=>setGraph(prev=>!prev)}
                 className=" outline-none w-full bg-white"
                 name=""
                 id=""
               >
-                <option value="Sale" className="bg-white">jan-jun 2024</option>
-                <option value="Nosale" className="bg-white">jul-dec 2024</option>
+                <option value="jan-jun" className="bg-white">jan-jun 2024</option>
+                <option value="jul-dec" className="bg-white">jul-dec 2024</option>
               </select>
             </div>
           </div>
