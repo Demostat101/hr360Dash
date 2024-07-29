@@ -14,24 +14,24 @@
   transition: 0.25s;
 }
 
-a.active {
+ul a.active {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   background-color: #f6f7fa;
   color: rgb(95, 79, 79);
 }
-a.active .icons {
+ul a.active .icons {
   border-radius: 7px;
 }
 
-a.active #label {
+ul a.active #label {
   color: #176b87;
 }
-a.active {
+ul a.active {
   position: relative;
 }
 
-a.active .icon {
+ul a.active .icon {
   color: #176b87;
 }
 
@@ -173,10 +173,6 @@ th:last-child{
 thead{
   border-radius: 20px;
 }
-
-
-
-
 
 @media only screen and (max-width: 1195px) {
   .top-box-wrap {
