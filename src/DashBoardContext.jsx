@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import useLocalStorage from "use-local-storage";
 import { apiRequest, useAxiosFetch } from "./useAxiosFetch/UseAxiosFetch";
+// import { useParams } from "react-router-dom";
 
 
 export const dashBoardContext = createContext();
@@ -52,9 +53,6 @@ export const ContextProvider = ({ children }) => {
     }
   };
 
-//  const handleChange = (e)=>{
-//   setSearchName(e.target.value)
-//  }
 
   return (
     <dashBoardContext.Provider

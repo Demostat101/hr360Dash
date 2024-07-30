@@ -42,7 +42,7 @@ export const useAxiosFetch = (dataUrl) => {
 
 export const apiRequest = async (url = "", optionObj = {}, errMsg = null) => {
   try {
-    const data = await fetch(url.toString(), optionObj);
+    const data = await fetch(url, optionObj);
     if (!data.ok) {
       throw Error("please reload the app");
     }
