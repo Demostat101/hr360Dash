@@ -50,7 +50,7 @@ const EmployeeDetails = () => {
 
         </div>
 
-        <div className={open ? "w-full h-full border-solid border-2 border-yellow-500 flex flex-col gap-[20px]" : "w-full h-full border-solid border-2 border-yellow-500 flex flex-col gap-[20px]"}>
+        <div className={open ? "w-full h-full border-solid border-2 border-yellow-500 flex flex-col gap-[10px]" : "w-full h-full border-solid border-2 border-yellow-500 flex flex-col gap-[10px]"}>
           <div>
             {
               employeeFilter.map((val)=>{

@@ -20,6 +20,7 @@ export const ContextProvider = ({ children }) => {
   const [open, setOpen] = useLocalStorage(false);
   const [name, setName] = useState("Esther");
   const [editPersonalDetailsButton, setEditPersonalDetailsButton] = useState(false)
+  const [editOfficialDetailsButton, setEditOfficialDetailsButton] = useState(false)
   const { data, fetchError, isLoading, setData } = useAxiosFetch(
     `http://localhost:4000/data`
   );
@@ -70,6 +71,8 @@ export const ContextProvider = ({ children }) => {
   const [editLanguage, setEditLanguage] = useState("")
   const [editEmergencyContact, setEditEmergencyContact] = useState("")
 
+  
+
   const handleEdit = async (id) => {
 
     const edit = {
@@ -97,6 +100,7 @@ export const ContextProvider = ({ children }) => {
           `http://localhost:4000/data/${id}`,
           edit
         );
+       
 
         setEditName("")
         setEditGender("")
@@ -111,6 +115,7 @@ export const ContextProvider = ({ children }) => {
         setEditLanguage("")
         setEditEmergencyContact("")
         setEditPersonalDetailsButton(false)
+
         setData(
           data.map((employee) => (employee.id === id ? { ...response.data } : employee))
         );
@@ -147,7 +152,8 @@ export const ContextProvider = ({ children }) => {
         editNationality, setEditNationality,
         editLanguage, setEditLanguage,
         editEmergencyContact, setEditEmergencyContact,
-        handleEdit
+        handleEdit,
+        editOfficialDetailsButton
       }}
     >
       {children}

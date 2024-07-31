@@ -21,7 +21,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2015"
+      "date": "Apr 13, 2015",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "2",
@@ -31,7 +34,7 @@
       "role": "Manager",
       "email": "estherajayi@sbc.org",
       "empType": "Contract",
-      "active": true,
+      "active": false,
       "region": "Abuja",
       "job": "Web Developer",
       "phone": "07034666784",
@@ -44,7 +47,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2015"
+      "date": "Apr 13, 2015",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "3",
@@ -67,7 +73,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "4",
@@ -90,7 +99,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "5",
@@ -113,7 +125,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "6",
@@ -136,7 +151,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "7",
@@ -159,7 +177,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "8",
@@ -182,7 +203,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "9",
@@ -205,7 +229,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "10",
@@ -228,7 +255,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "11",
@@ -251,7 +281,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "12",
@@ -274,7 +307,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "13",
@@ -297,7 +333,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "14",
@@ -320,7 +359,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "15",
@@ -343,7 +385,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "16",
@@ -366,7 +411,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "17",
@@ -389,7 +437,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "18",
@@ -412,7 +463,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "19",
@@ -435,7 +489,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "20",
@@ -458,7 +515,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "21",
@@ -481,7 +541,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "22",
@@ -504,7 +567,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "23",
@@ -527,7 +593,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "24",
@@ -550,7 +619,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "25",
@@ -573,7 +645,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "26",
@@ -596,7 +671,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "27",
@@ -619,7 +697,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "28",
@@ -642,7 +723,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "29",
@@ -665,7 +749,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "30",
@@ -688,7 +775,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "31",
@@ -711,7 +801,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "32",
@@ -734,7 +827,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     },
     {
       "id": "33",
@@ -757,7 +853,10 @@
       "language": "English",
       "address": "No 16, Joel Solanke street, Surulere,Lagos State.",
       "emergencyContact": "+234 8133445566 (Father)",
-      "date": "Apr 13, 2019"
+      "date": "Apr 13, 2019",
+      "schedule":"Regular Hours",
+      "reportingSupervisor":"Mr Ademola",
+      "skills":[{"skill":"Coding"}, {"skill":"Team work"}]
     }
   ]
 }
