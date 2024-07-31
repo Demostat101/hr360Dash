@@ -7,9 +7,8 @@ import { FaPhone } from "react-icons/fa6";
 import { TbCalendarTime } from "react-icons/tb";
 
 
- 
-
 const EmployeeDetails = () => {
+  
   const {pathname} = useLocation()
   const {open,data} = Context()
   const {id} = useParams()

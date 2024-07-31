@@ -16,6 +16,7 @@ const PersonalDetailsEdit = () => {
         editLanguage, setEditLanguage,
         editEmergencyContact, setEditEmergencyContact
     } = Context()
+    
 
   return (
     <form onSubmit={(e)=> e.preventDefault()} className={open ? "w-full h-[296.68px] flex justify-between gap-[30px]" :"w-full h-[326.37px] flex justify-between gap-[30px]"}>
@@ -71,7 +72,7 @@ const PersonalDetailsEdit = () => {
           <div className={open ? "w-[267.26px] h-[269.52px] flex flex-col  gap-[18.07px] border-solid border-2 border-red-500" : "w-[294.01px] h-[293.28px] flex flex-col  gap-[19.88px] border-solid border-2 border-red-500"}>
 
             <div className="w-full ">
-                <label className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Education</label>
+                <label className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Education</label> <br />
                 <input className=' focus:outline-none' type="text" placeholder='Education' value={editEducation} onChange={(e)=> setEditEducation(e.target.value)}/>
             </div>
 

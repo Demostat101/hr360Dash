@@ -1,31 +1,68 @@
-import { useState } from "react";
+
 import { Context } from "../../DashBoardContext"
 import { CiEdit } from "react-icons/ci";
 import { LuSave } from "react-icons/lu";
 import PersonalDetailsEdit from "./PersonalDetailsEdit";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 
 
 
 const EmployeePage = () => {
   const {id} = useParams()
-  const {open, data, editPersonalDetailsButton, setEditPersonalDetailsButton} = Context();
+  const {
+    open, 
+    data, 
+    editPersonalDetailsButton, 
+    setEditPersonalDetailsButton,
+    setEditName,
+    setEditGender,
+    setEditPhone,
+    setEditEmail,
+    setEditDateOfBirth,
+    setEditMaritalStatus,
+    setEditReligion,
+    setEditAddress,
+    setEditEducation,
+    setEditNationality,
+    setEditLanguage,
+    setEditEmergencyContact,
+    handleEdit
+  } = Context();
   const employeeFilter = data.filter((employee) => employee.id.toString() === id);
-  // console.log(employeeFilter);
-  // const employeeId = employeeFilter.map(({id})=> {return id})
-  // console.log(employeeId);
 
    const handleEditButton = ()=>{
     setEditPersonalDetailsButton(true)
    }
+
+   const post = data.find((post) => post.id.toString() === id);
+
+   useEffect(() => {
+     if (post) {
+      setEditName(post.name)
+      setEditGender(post.gender)
+      setEditPhone(post.phone)
+      setEditEmail(post.email)
+      setEditDateOfBirth(post.dob)
+      setEditMaritalStatus(post.maritalStatus)
+      setEditReligion(post.Religion)
+      setEditAddress(post.address)
+      setEditEducation(post.education)
+      setEditNationality(post.Nationality)
+      setEditLanguage(post.language)
+      setEditEmergencyContact(post.emergencyContact)
+      
+     }
+   }, [post, setEditName, setEditGender, setEditPhone,setEditEmail,setEditDateOfBirth,setEditMaritalStatus,setEditReligion,setEditAddress,setEditEducation,setEditNationality,setEditLanguage,setEditEmergencyContact ]);
+
 
   return (
     <div className={open ? "w-full h-[395.18px] border-[1.75px] border-[#ECEEF6] shadow-md bg-white" : "w-full h-[434.73px] border-[1.92px] border-[#ECEEF6] shadow-md bg-white"}>
       <div className={open ? "w-full h-[64px] border-[1.75px] border-[#ECEEF6] flex justify-between place-items-center p-[20px]" : "w-full h-[70.41px] border-[1.92px] border-[#ECEEF6] flex justify-between place-items-center p-[20px]"}>
         <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>Personal Details</div>
 
-        {!editPersonalDetailsButton ? <div className={open ? "w-[95px] h-[24px] flex gap-[10px] justify-end place-items-center cursor-pointer" : "w-[104.51px] h-[26.4px] flex gap-[11px] justify-end place-items-center cursor-pointer"}> <span onClick={ handleEditButton} className={open ? "text-[16px] leading-[24px] font-[400]" : "text-[17.6px] leading-[24px] font-[400]"}>Edit info</span> <CiEdit size={22}/></div> : <div className={open ? "w-[95px] h-[24px] flex gap-[10px] place-items-center justify-end cursor-pointer" : "w-[104.51px] h-[26.4px] flex gap-[11px] place-items-center justify-end cursor-pointer"}> <span>Save</span> <LuSave size={22}/></div> }
+        {!editPersonalDetailsButton ? <div onClick={ handleEditButton} className={open ? "w-[95px] h-[24px] flex gap-[10px] justify-end place-items-center cursor-pointer" : "w-[104.51px] h-[26.4px] flex gap-[11px] justify-end place-items-center cursor-pointer"}> <span  className={open ? "text-[16px] leading-[24px] font-[400]" : "text-[17.6px] leading-[24px] font-[400]"}>Edit info</span> <CiEdit size={22}/></div> : <div onClick={() => handleEdit(post.id)} className={open ? "w-[95px] h-[24px] flex gap-[10px] place-items-center justify-end cursor-pointer" : "w-[104.51px] h-[26.4px] flex gap-[11px] place-items-center justify-end cursor-pointer"}> <span>Save</span> <LuSave size={22}/></div> }
       </div>
       <hr />
 

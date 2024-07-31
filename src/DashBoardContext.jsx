@@ -1,6 +1,7 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import useLocalStorage from "use-local-storage";
 import { apiRequest, useAxiosFetch } from "./useAxiosFetch/UseAxiosFetch";
+import axios from "axios";
 
 
 export const dashBoardContext = createContext();
@@ -10,6 +11,7 @@ export const Context = () => {
 };
 
 export const ContextProvider = ({ children }) => {
+
   const API_URL = "http://localhost:4000/data";
   const [error, setError] = useState(null);
   const [searchName, setSearchName] = useState("");
@@ -68,6 +70,55 @@ export const ContextProvider = ({ children }) => {
   const [editLanguage, setEditLanguage] = useState("")
   const [editEmergencyContact, setEditEmergencyContact] = useState("")
 
+  const handleEdit = async (id) => {
+
+    const edit = {
+      id: (data.length + 1).toString(),
+      name: editName,
+      gender: editGender,
+      phone:editPhone,
+      email:editEmail,
+      dob:editDateOfBirth,
+      maritalStatus:editMaritalStatus,
+      Religion:editReligion,
+      address:editAddress,
+      education:editEducation,
+      Nationality:editNationality,
+      language:editLanguage,
+      emergencyContact:editEmergencyContact,
+
+    };
+
+    if (editName === "" || editEmail === "") {
+      alert("fields cant be blank");
+    } else {
+      try {
+        const response = await axios.patch(
+          `http://localhost:4000/data/${id}`,
+          edit
+        );
+
+        setEditName("")
+        setEditGender("")
+        setEditPhone("")
+        setEditEmail("")
+        setEditDateOfBirth("")
+        setEditMaritalStatus("")
+        setEditReligion("")
+        setEditAddress("")
+        setEditEducation("")
+        setEditNationality("")
+        setEditLanguage("")
+        setEditEmergencyContact("")
+        setEditPersonalDetailsButton(false)
+        setData(
+          data.map((employee) => (employee.id === id ? { ...response.data } : employee))
+        );
+      } catch (error) {
+        console.log(`Error: ${error.message}`);
+      }
+    }
+  };
 
   return (
     <dashBoardContext.Provider
@@ -95,7 +146,8 @@ export const ContextProvider = ({ children }) => {
         editEducation, setEditEducation,
         editNationality, setEditNationality,
         editLanguage, setEditLanguage,
-        editEmergencyContact, setEditEmergencyContact
+        editEmergencyContact, setEditEmergencyContact,
+        handleEdit
       }}
     >
       {children}
