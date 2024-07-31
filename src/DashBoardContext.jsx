@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import useLocalStorage from "use-local-storage";
 import { apiRequest, useAxiosFetch } from "./useAxiosFetch/UseAxiosFetch";
-// import { useParams } from "react-router-dom";
 
 
 export const dashBoardContext = createContext();
@@ -18,6 +17,7 @@ export const ContextProvider = ({ children }) => {
   const [searchEmpRegion, setSearchEmpRegion] = useState("");
   const [open, setOpen] = useLocalStorage(false);
   const [name, setName] = useState("Esther");
+  const [editPersonalDetailsButton, setEditPersonalDetailsButton] = useState(false)
   const { data, fetchError, isLoading, setData } = useAxiosFetch(
     `http://localhost:4000/data`
   );
@@ -53,6 +53,21 @@ export const ContextProvider = ({ children }) => {
     }
   };
 
+  // Handle Edit Personal Employee Details
+
+  const [editName, setEditName] = useState("")
+  const [editGender, setEditGender] = useState("")
+  const [editPhone, setEditPhone] = useState("")
+  const [editEmail, setEditEmail] = useState("")
+  const [editDateOfBirth, setEditDateOfBirth] = useState("")
+  const [editMaritalStatus, setEditMaritalStatus] = useState("")
+  const [editReligion, setEditReligion] = useState("")
+  const [editAddress, setEditAddress] = useState("")
+  const [editEducation, setEditEducation] = useState("")
+  const [editNationality, setEditNationality] = useState("")
+  const [editLanguage, setEditLanguage] = useState("")
+  const [editEmergencyContact, setEditEmergencyContact] = useState("")
+
 
   return (
     <dashBoardContext.Provider
@@ -66,12 +81,21 @@ export const ContextProvider = ({ children }) => {
         searchName,
         setSearchName,
         handleCheckBox,
-        searchEmpID,
-        setSearchEmpID,
-        searchEmpRegion,
-        setSearchEmpRegion
-      
-
+        searchEmpID, setSearchEmpID,
+        searchEmpRegion, setSearchEmpRegion,
+        editPersonalDetailsButton, setEditPersonalDetailsButton,
+        editName, setEditName,
+        editGender, setEditGender,
+        editPhone, setEditPhone,
+        editEmail, setEditEmail,
+        editDateOfBirth, setEditDateOfBirth,
+        editMaritalStatus, setEditMaritalStatus,
+        editReligion, setEditReligion,
+        editAddress, setEditAddress,
+        editEducation, setEditEducation,
+        editNationality, setEditNationality,
+        editLanguage, setEditLanguage,
+        editEmergencyContact, setEditEmergencyContact
       }}
     >
       {children}
