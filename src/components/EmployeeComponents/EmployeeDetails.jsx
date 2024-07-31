@@ -1,7 +1,7 @@
 import { NavLink, Outlet, useLocation, useParams } from "react-router-dom"
 import { Context } from "../../DashBoardContext"
 import Image from "../../assets/ajayiImage.jfif"
-import { BiSitemap } from "react-icons/bi";
+import { BsDiagram3 } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { TbCalendarTime } from "react-icons/tb";
@@ -32,7 +32,7 @@ const EmployeeDetails = () => {
                 <div className={open ? "w-full h-[73px] p-[5px] flex gap-[48px]" : "w-full h-[79px] p-[5.49px] flex gap-[52.67px]"}>
   
                   <div className={open ? "w-[120.31px] h-[63px] flex flex-col gap-[15px]" : "w-[132.17px] h-[68.46px] flex flex-col gap-[16.46px]"}>
-                    <div className={open ? "w-[111.31px] h-[24px] flex gap-[6px] place-items-center" : "w-[122.17px] h-[26px] flex gap-[6.58px] place-items-center"}> <BiSitemap size={23} className="text-[#176B87]" /> <span className={open ? "font-[500] text-[16px] leading-[24px] text-black opacity-70 text-nowrap" : "font-[500] text-[17.56px] leading-[26.33px] text-black opacity-70 text-nowrap"}>{employee.department}</span> </div>
+                    <div className={open ? "w-[111.31px] h-[24px] flex gap-[6px] place-items-center" : "w-[122.17px] h-[26px] flex gap-[6.58px] place-items-center"}> <BsDiagram3 size={23} className="text-[#176B87]" /> <span className={open ? "font-[500] text-[16px] leading-[24px] text-black opacity-70 text-nowrap" : "font-[500] text-[17.56px] leading-[26.33px] text-black opacity-70 text-nowrap"}>{employee.department}</span> </div>
                     <div className={open ? "w-[120.31px] h-[24px] flex gap-[6px] place-items-center" : "w-[132.17px] h-[26px] flex gap-[6.58px] place-items-center"}> <TbCalendarTime size={23} className="text-[#176B87]"/> <span className={open ? "font-[500] text-[16px] leading-[24px] text-black opacity-70 text-nowrap" : "font-[500] text-[17.56px] leading-[26.33px] text-black opacity-70 text-nowrap"}>{employee.date}</span> </div>
                   </div>
   
@@ -56,9 +56,9 @@ const EmployeeDetails = () => {
               employeeFilter.map((val)=>{
                 return <nav key={val.id} className={open ? "w-full h-[67.61px] rounded-[10px] border-[1.75px] border-[#ECEEF6] shadow-md bg-white flex place-items-center px-[20px]" : "w-full h-[74.32px] rounded-[10px] shadow-md bg-white flex place-items-center px-[20px] border-[1.75px] border-[#ECEEF6]"}>
                 <div className="w-full h-full flex gap-[10px]">
-                  <button><NavLink className={(open && pathname === `/employee/${id}` || !open && pathname === `/employee/${id}`? "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 bg-[#E1EDFD] rounded-[10px]" : "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 border-[1px] border-[#E3EFF3] rounded-[10px]" )}>Employee Details</NavLink></button>
-                  <button><NavLink className={(open && pathname === `/employee/${id}/employee-payslip` || !open && pathname === `/employee/${id}/employee-payslip`? "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 bg-[#E1EDFD] rounded-[10px]" : "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 border-[1px] border-[#E3EFF3] rounded-[10px]" )} to={`/employee/${id}/employee-payslip`}>Payslip</NavLink></button>
-                  <button><NavLink className={(open && pathname === `/employee/${id}/employee-leave-history` || !open && pathname === `/employee/${id}/employee-leave-history`? "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 bg-[#E1EDFD] rounded-[10px]" : "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 border-[1px] border-[#E3EFF3] rounded-[10px]" )} to={`/employee/${id}/employee-leave-history`}>Leave History</NavLink></button>
+                  <button><NavLink className={(open && pathname === `/employee/${id}` || !open && pathname === `/employee/${id}`? "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 bg-[#E1EDFD] rounded-[10px] border-[1px] border-[#a5b5bb]" : "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black bg-white opacity-70 border-[1px] border-[#a5b5bb] rounded-[10px]" )}>Employee Details</NavLink></button>
+                  <button><NavLink className={(open && pathname === `/employee/${id}/employee-payslip` || !open && pathname === `/employee/${id}/employee-payslip`? "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 bg-[#E1EDFD] rounded-[10px] border-[1px] border-[#a5b5bb]" : "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 border-[1px] border-[#a5b5bb] rounded-[10px] bg-white" )} to={`/employee/${id}/employee-payslip`}>Payslip</NavLink></button>
+                  <button><NavLink className={(open && pathname === `/employee/${id}/employee-leave-history` || !open && pathname === `/employee/${id}/employee-leave-history`? "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 bg-[#E1EDFD] rounded-[10px] border-[1px] border-[#a5b5bb]" : "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 border-[1px] border-[#a5b5bb] rounded-[10px] bg-white" )} to={`/employee/${id}/employee-leave-history`}>Leave History</NavLink></button>
                 </div>
                 <div className={open ? "py-[9px] px-[40px] bg-[#E0ECFC] rounded-[10px] border-[1px] border-[#176B87] font-[400] text-[14px] leading-[21px] text-[#176B87] text-nowrap" : "py-[9px] px-[40px] bg-[#E0ECFC] rounded-[10px] border-[1px] border-[#176B87] font-[400] text-[14px] leading-[21px] text-[#176B87] text-nowrap"}>{val.active ? "Active" : "On Leave"}</div>
               </nav>

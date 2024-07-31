@@ -178,57 +178,57 @@ const EmployeePage = () => {
       </div>
       <hr />
 
-      <div className="w-full p-[20px]">
+      <div className="w-full p-[20px] border-2 border-solid border-[gold]">
               {
                 employeeFilter.map((employee)=>{
-                  return <div key={employee.id} className={open ? "w-full h-[296.68px] flex justify-between gap-[30px]" :"w-full h-[326.37px] flex justify-between gap-[30px]"}>
+                  return <div key={employee.id} className={open ? "w-full h-fit flex justify-between gap-[30px]" :"w-full h-fit flex justify-between gap-[30px]"}>
 
-                  <div className={open ? "w-[161.42px] h-[200.46px] flex flex-col  gap-[18.07px]" : "w-[117px] h-[293.28px] flex flex-col  gap-[19.88px]"}>
+                  <div className={open ? " w-[161.42px] h-[200.46px] flex flex-col  gap-[18.07px]" : "w-[177.47px] h-[220.39px] flex flex-col  gap-[19.86px]"}>
         
-                    <div className="w-full ">
+                    <div className="w-full flex flex-col gap-[5px]">
                         <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Employee ID</span>
                         <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.empID}</div>
                     </div>
         
-                    <div className="w-full">
+                    <div className="w-full flex flex-col gap-[5px]">
                         <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Employment Type</span>
                         <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.empType}</div>
                     </div>
         
-                    <div className="w-full">
+                    <div className="w-full flex flex-col gap-[5px]">
                         <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Work Shedule</span>
                         <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.schedule}</div>
                     </div>
         
                   </div>
         
-                  <div className={open ? "w-[187.06px] h-[200.46px] flex flex-col  gap-[18.07px]" : "w-[246.61px] h-[318px] flex flex-col  gap-[19.88px]"}>
+                  <div className={open ? " w-[187.06px] h-[200.46px] flex flex-col  gap-[18.07px]" : "w-[205.66px] h-[220.39px] flex flex-col  gap-[19.86px]"}>
         
-                    <div className="w-full ">
+                    <div className="w-full flex flex-col gap-[5px]">
                         <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Job Title</span>
                         <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.job}</div>
                     </div>
         
-                    <div className="w-full">
+                    <div className="w-full flex flex-col gap-[5px]">
                         <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Department</span>
                         <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.department}</div>
                     </div>
         
-                    <div className="w-full">
+                    <div className="w-full flex flex-col gap-[5px]">
                         <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Reporting Supervisor</span>
                         <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.reportingSupervisor}</div>
                     </div>
         
                   </div>
         
-                  <div className={open ? "w-[267.26px] h-full flex flex-col  gap-[18.07px]" : "w-[294.01px] h-full flex flex-col  gap-[19.88px]"}>
+                  <div className={open ? " w-[267.26px] h-fit flex flex-col  gap-[18.07px]" : "w-[294.01px] h-fit flex flex-col  gap-[19.86px]"}>
         
-                    <div className="w-full ">
+                    <div className="w-full flex flex-col gap-[5px]">
                         <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Region</span>
                         <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.region}</div>
                     </div>
         
-                    <div className="w-full h-full">
+                    <div className="w-full h-full flex flex-col gap-[5px]">
                       <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Skills</span>
 
                       <div className={employee.skills.length > 2 ? "py-[9px] px-[5px] flex flex-wrap gap-[10px]" : "py-[9px] px-[5px] flex gap-[10px]"}>
@@ -245,7 +245,14 @@ const EmployeePage = () => {
                 </div>
                 })
               }
+
+              <div>Attachment</div>
+            <div className={open ? "w-full h-[44px] flex gap-[25px]" : "w-full h-[48.37px] flex gap-[27.49px]"}>
+              <div className={open ? "py-[10px] px-[25px] flex gap-[9px]" : "py-[10.99px] px-[27.49px] flex gap-[9.89px]"}>pdf</div>
             </div>
+
+          </div>
+
       </div>
 
     </div>
