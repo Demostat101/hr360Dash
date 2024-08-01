@@ -16,7 +16,7 @@ const EmployeeDetails = () => {
 
   return (
     <main className="w-full p-[25px]">
-      <section className="w-full border-solid border-2 border-red-500 h-full flex flex-col gap-[45px]">
+      <section className="w-full h-full flex flex-col gap-[45px]">
         <div className={open ? "w-full h-[208.08px] rounded-xl flex flex-col justify-center bg-white pl-[20px] shadow-md border-[1.75px] border-[#ECEEF6]" : "w-full h-[245.01px] rounded-xl flex flex-col justify-center bg-white pl-[20px] shadow-md border-[1.75px] border-[#ECEEF6]"}>
           
           {
@@ -50,7 +50,7 @@ const EmployeeDetails = () => {
 
         </div>
 
-        <div className={open ? "w-full h-full border-solid border-2 border-yellow-500 flex flex-col gap-[10px]" : "w-full h-full border-solid border-2 border-yellow-500 flex flex-col gap-[10px]"}>
+        <div className={open ? "w-full h-full flex flex-col gap-[10px]" : "w-full h-full flex flex-col gap-[10px]"}>
           <div>
             {
               employeeFilter.map((val)=>{

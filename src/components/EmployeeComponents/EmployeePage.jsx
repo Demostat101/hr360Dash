@@ -2,9 +2,10 @@
 import { Context } from "../../DashBoardContext"
 import { CiEdit } from "react-icons/ci";
 import { LuSave } from "react-icons/lu";
-import PersonalDetailsEdit from "./PersonalDetailsEdit";
+import PersonalDetailsEdit from "./PersonalDetailsEditForm";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import OfficialDetailsEditForm from "./OfficialDetailsEditForm";
 
 
 
@@ -28,13 +29,27 @@ const EmployeePage = () => {
     setEditNationality,
     setEditLanguage,
     setEditEmergencyContact,
-    handleEdit,
-    editOfficialDetailsButton
+    handleEditPersonalDetails,
+    editOfficialDetailsButton,
+    setEditOfficialDetailsButton,
+    handleEditOfficialDetails,
+    setEditEmployeeId,
+    setEditEmployementType,
+    setEditWorkSchedule,
+    setEditJobTitle,
+    setEditDepartment,
+    setEditReportingOfficer,
+    setEditRegion,
+    setEditSkills
+
   } = Context();
   const employeeFilter = data.filter((employee) => employee.id.toString() === id);
 
-   const handleEditButton = ()=>{
+   const handleEditPersonalDetailsButton = ()=>{
     setEditPersonalDetailsButton(true)
+   }
+   const handleEditOfficialDetailsButton = ()=>{
+    setEditOfficialDetailsButton(true)
    }
 
    const post = data.find((post) => post.id.toString() === id);
@@ -58,13 +73,28 @@ const EmployeePage = () => {
    }, [post, setEditName, setEditGender, setEditPhone,setEditEmail,setEditDateOfBirth,setEditMaritalStatus,setEditReligion,setEditAddress,setEditEducation,setEditNationality,setEditLanguage,setEditEmergencyContact ]);
 
 
+   useEffect(() => {
+     if (post) {
+      setEditEmployeeId(post.empID)
+      setEditEmployementType(post.empType)
+      setEditWorkSchedule(post.schedule)
+      setEditJobTitle(post.job)
+      setEditDepartment(post.department)
+      setEditReportingOfficer(post.reportingSupervisor)
+      setEditRegion(post.region)
+      setEditSkills(post.skills)
+      
+     }
+   }, [post, setEditEmployeeId, setEditEmployementType, setEditJobTitle,setEditWorkSchedule,setEditDepartment,setEditReportingOfficer,setEditRegion,setEditSkills]);
+
+
   return (
     <div className="w-full h-full flex flex-col gap-[30px]">
-      <div className={open ? "w-full h-[395.18px] border-[1.75px] border-[#ECEEF6] shadow-md bg-white" : "w-full h-[434.73px] border-[1.92px] border-[#ECEEF6] shadow-md bg-white"}>
+      <div className={open ? "w-full h-[395.18px] border-[1.75px] border-[#ECEEF6] shadow-md bg-white rounded-xl" : "w-full h-[434.73px] border-[1.92px] border-[#ECEEF6] shadow-md bg-white rounded-xl"}>
       <div className={open ? "w-full h-[64px] border-[1.75px] border-[#ECEEF6] flex justify-between place-items-center p-[20px]" : "w-full h-[70.41px] border-[1.92px] border-[#ECEEF6] flex justify-between place-items-center p-[20px]"}>
         <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>Personal Details</div>
 
-        {!editPersonalDetailsButton ? <div onClick={ handleEditButton} className={open ? "w-[95px] h-[24px] flex gap-[10px] justify-end place-items-center cursor-pointer" : "w-[104.51px] h-[26.4px] flex gap-[11px] justify-end place-items-center cursor-pointer"}> <span  className={open ? "text-[16px] leading-[24px] font-[400]" : "text-[17.6px] leading-[24px] font-[400]"}>Edit info</span> <CiEdit size={22}/></div> : <div onClick={() => handleEdit(post.id)} className={open ? "w-[95px] h-[24px] flex gap-[10px] place-items-center justify-end cursor-pointer" : "w-[104.51px] h-[26.4px] flex gap-[11px] place-items-center justify-end cursor-pointer"}> <span>Save</span> <LuSave size={22}/></div> }
+        {!editPersonalDetailsButton ? <div onClick={ handleEditPersonalDetailsButton} className={open ? "w-[95px] h-[24px] flex gap-[10px] justify-end place-items-center cursor-pointer" : "w-[104.51px] h-[26.4px] flex gap-[11px] justify-end place-items-center cursor-pointer"}> <span  className={open ? "text-[16px] leading-[24px] font-[400]" : "text-[17.6px] leading-[24px] font-[400]"}>Edit info</span> <CiEdit size={22}/></div> : <div onClick={() => handleEditPersonalDetails(post.id)} className={open ? "w-[95px] h-[24px] flex gap-[10px] place-items-center justify-end cursor-pointer" : "w-[104.51px] h-[26.4px] flex gap-[11px] place-items-center justify-end cursor-pointer"}> <span>Save</span> <LuSave size={22}/></div> }
       </div>
       <hr />
 
@@ -74,7 +104,7 @@ const EmployeePage = () => {
           !editPersonalDetailsButton 
 
           ? (
-            <div>
+            <>
               {
                 employeeFilter.map((employee)=>{
                   return <div key={employee.id} className={open ? "w-full h-[296.68px] flex justify-between gap-[30px]" :"w-full h-[326.37px] flex justify-between gap-[30px]"}>
@@ -154,7 +184,7 @@ const EmployeePage = () => {
                 </div>
                 })
               }
-            </div>
+            </>
           ) 
 
           : (
@@ -169,86 +199,109 @@ const EmployeePage = () => {
 
     </div>
 
-      <div className={open ? " w-full h-[405.59px] bg-white " : " w-full h-[445.91px] bg-white"}>
+      <div className={open ? " w-full h-[405.59px] bg-white rounded-xl" : " w-full h-[445.91px] bg-white rounded-xl"}>
 
         <div className={open ? "w-full h-[64px] border-[1.75px] border-[#ECEEF6] flex justify-between place-items-center p-[20px]" : "w-full h-[70.41px] border-[1.92px] border-[#ECEEF6] flex justify-between place-items-center p-[20px]"}>
         <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>Official Details</div>
 
-        {!editOfficialDetailsButton ? <div /* onClick={ "handleEditButton"} */ className={open ? "w-[95px] h-[24px] flex gap-[10px] justify-end place-items-center cursor-pointer" : "w-[104.51px] h-[26.4px] flex gap-[11px] justify-end place-items-center cursor-pointer"}> <span  className={open ? "text-[16px] leading-[24px] font-[400]" : "text-[17.6px] leading-[24px] font-[400]"}>Edit info</span> <CiEdit size={22}/></div> : <div /* onClick={"() => handleEdit(post.id)"} */ className={open ? "w-[95px] h-[24px] flex gap-[10px] place-items-center justify-end cursor-pointer" : "w-[104.51px] h-[26.4px] flex gap-[11px] place-items-center justify-end cursor-pointer"}> <span>Save</span> <LuSave size={22}/></div> }
+        {!editOfficialDetailsButton ? <div onClick={handleEditOfficialDetailsButton} className={open ? "w-[95px] h-[24px] flex gap-[10px] justify-end place-items-center cursor-pointer" : "w-[104.51px] h-[26.4px] flex gap-[11px] justify-end place-items-center cursor-pointer"}> <span  className={open ? "text-[16px] leading-[24px] font- [400]" : "text-[17.6px] leading-[24px] font-[400]"}>Edit info</span> <CiEdit size={22}/></div> : <div onClick={() => handleEditOfficialDetails(post.id)}className={open ? "w-[95px] h-[24px] flex gap-[10px] place-items-center justify-end cursor-pointer" : "w-[104.51px] h-[26.4px] flex gap-[11px] place-items-center justify-end cursor-pointer"}> <span>Save</span> <LuSave size={22}/></div> }
       </div>
       <hr />
 
-      <div className="w-full p-[20px] border-2 border-solid border-[gold]">
-              {
-                employeeFilter.map((employee)=>{
-                  return <div key={employee.id} className={open ? "w-full h-fit flex justify-between gap-[30px]" :"w-full h-fit flex justify-between gap-[30px]"}>
-
-                  <div className={open ? " w-[161.42px] h-[200.46px] flex flex-col  gap-[18.07px]" : "w-[177.47px] h-[220.39px] flex flex-col  gap-[19.86px]"}>
-        
-                    <div className="w-full flex flex-col gap-[5px]">
-                        <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Employee ID</span>
-                        <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.empID}</div>
-                    </div>
-        
-                    <div className="w-full flex flex-col gap-[5px]">
-                        <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Employment Type</span>
-                        <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.empType}</div>
-                    </div>
-        
-                    <div className="w-full flex flex-col gap-[5px]">
-                        <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Work Shedule</span>
-                        <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.schedule}</div>
-                    </div>
-        
-                  </div>
-        
-                  <div className={open ? " w-[187.06px] h-[200.46px] flex flex-col  gap-[18.07px]" : "w-[205.66px] h-[220.39px] flex flex-col  gap-[19.86px]"}>
-        
-                    <div className="w-full flex flex-col gap-[5px]">
-                        <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Job Title</span>
-                        <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.job}</div>
-                    </div>
-        
-                    <div className="w-full flex flex-col gap-[5px]">
-                        <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Department</span>
-                        <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.department}</div>
-                    </div>
-        
-                    <div className="w-full flex flex-col gap-[5px]">
-                        <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Reporting Supervisor</span>
-                        <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.reportingSupervisor}</div>
-                    </div>
-        
-                  </div>
-        
-                  <div className={open ? " w-[267.26px] h-fit flex flex-col  gap-[18.07px]" : "w-[294.01px] h-fit flex flex-col  gap-[19.86px]"}>
-        
-                    <div className="w-full flex flex-col gap-[5px]">
-                        <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Region</span>
-                        <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.region}</div>
-                    </div>
-        
-                    <div className="w-full h-full flex flex-col gap-[5px]">
-                      <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Skills</span>
-
-                      <div className={employee.skills.length > 2 ? "py-[9px] px-[5px] flex flex-wrap gap-[10px]" : "py-[9px] px-[5px] flex gap-[10px]"}>
-                        {
-                          employee.skills.map((val,index)=>{
-                            return <div key={index} className={open ? "py-[9px] px-[20px] bg-[#E0ECFC] rounded-[10px] border-[1px] border-[#176B87] font-[400] text-[14px] leading-[21px] text-[#176B87] text-nowrap" : "py-[9px] px-[20px] bg-[#E0ECFC] rounded-[10px] border-[1px] border-[#176B87] font-[400] text-[14px] leading-[21px] text-[#176B87] text-nowrap"}>{val.skill}</div>
-                          })
-                        }
+      <div className="w-full p-[20px] shadow-lg ">
+              <div>
+                {
+                  !editOfficialDetailsButton 
+                  ? (
+                   <> {
+                      
+                      employeeFilter.map((employee)=>{
+                        return <div key={employee.id} className={open ? "w-full h-fit flex justify-between gap-[30px]" :"w-full h-fit flex justify-between gap-[30px]"}>
+      
+                        <div className={open ? " w-[161.42px] h-[200.46px] flex flex-col  gap-[18.07px]" : "w-[177.47px] h-[220.39px] flex flex-col  gap-[19.86px]"}>
+              
+                          <div className="w-full flex flex-col gap-[5px]">
+                              <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Employee ID</span>
+                              <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.empID}</div>
+                          </div>
+              
+                          <div className="w-full flex flex-col gap-[5px]">
+                              <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Employment Type</span>
+                              <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.empType}</div>
+                          </div>
+              
+                          <div className="w-full flex flex-col gap-[5px]">
+                              <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Work Shedule</span>
+                              <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.schedule}</div>
+                          </div>
+              
+                        </div>
+              
+                        <div className={open ? " w-[187.06px] h-[200.46px] flex flex-col  gap-[18.07px]" : "w-[205.66px] h-[220.39px] flex flex-col  gap-[19.86px]"}>
+              
+                          <div className="w-full flex flex-col gap-[5px]">
+                              <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Job Title</span>
+                              <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.job}</div>
+                          </div>
+              
+                          <div className="w-full flex flex-col gap-[5px]">
+                              <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Department</span>
+                              <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.department}</div>
+                          </div>
+              
+                          <div className="w-full flex flex-col gap-[5px]">
+                              <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Reporting Supervisor</span>
+                              <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.reportingSupervisor}</div>
+                          </div>
+              
+                        </div>
+              
+                        <div className={open ? " w-[267.26px] h-fit flex flex-col  gap-[18.07px]" : "w-[294.01px] h-fit flex flex-col  gap-[19.86px]"}>
+              
+                          <div className="w-full flex flex-col gap-[5px]">
+                              <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Region</span>
+                              <div className={open ? "font-[500] text-[16px] leading-[24px]" : "font-[500] text-[17.6px] leading-[26.4px]"}>{employee.region}</div>
+                          </div>
+              
+                          <div className="w-full h-full flex flex-col gap-[5px]">
+                            <span className={open ? "font-[400] text-[16px] leading-[24px] text-black opacity-60" : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"}>Skills</span>
+      
+                            <div className={employee.skills.length > 2 ? "py-[9px] px-[5px] flex flex-wrap gap-[10px]" : "py-[9px] px-[5px] flex gap-[10px]"}>
+                              {
+                                employee.skills.map((val,index)=>{
+                                  return <div key={index} className={open ? "py-[9px] px-[20px] bg-[#E0ECFC] rounded-[10px] border-[1px] border-[#176B87] font-[400] text-[14px] leading-[21px] text-[#176B87] text-nowrap" : "py-[9px] px-[20px] bg-[#E0ECFC] rounded-[10px] border-[1px] border-[#176B87] font-[400] text-[14px] leading-[21px] text-[#176B87] text-nowrap"}>{val.skill}</div>
+                                })
+                              }
+                            </div>
+                          </div>
+              
+                        </div>
+              
                       </div>
-                    </div>
-        
-                  </div>
-        
-                </div>
-                })
-              }
+                      })
+                      
+                    }</>
+                  )
 
-              <div>Attachment</div>
-            <div className={open ? "w-full h-[44px] flex gap-[25px]" : "w-full h-[48.37px] flex gap-[27.49px]"}>
-              <div className={open ? "py-[10px] px-[25px] flex gap-[9px]" : "py-[10.99px] px-[27.49px] flex gap-[9.89px]"}>pdf</div>
+                  : (
+                    <OfficialDetailsEditForm/>
+                  )
+                }
+              </div>
+
+            <div>
+              <div className={open ? "text-black opacity-70 my-[15px]" : "text-black opacity-70 my-[20px]"}>Attachment</div>
+              <div className={open ? "w-full h-[44px] flex justify-between" : "w-full h-[48.37px] flex justify-between"}>
+                <div className={open ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px] justify-center place-items-center" : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-center place-items-center"}> 
+                  <LuSave size={15}/> <span className="text-nowrap text-[16px]">Ajayi's Employment Contract pdf</span> 
+                </div>
+                <div className={open ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px]  place-items-center  " : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] text-[18px] p-[10px] flex gap-[8px] justify-center place-items-center"}> 
+                  <LuSave size={15}/> <span className="text-nowrap">Ajayi's Employment Contract pdf</span> 
+                </div>
+                <div className={open ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px]  justify-center place-items-center" : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-center place-items-center"}> 
+                  <LuSave size={15}/> <span className="text-nowrap">Ajayi's Employment Contract pdf</span> 
+                </div>
+              </div>
             </div>
 
           </div>

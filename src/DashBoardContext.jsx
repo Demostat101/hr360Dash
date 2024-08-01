@@ -73,7 +73,7 @@ export const ContextProvider = ({ children }) => {
 
   
 
-  const handleEdit = async (id) => {
+  const handleEditPersonalDetails = async (id) => {
 
     const edit = {
       id: (data.length + 1).toString(),
@@ -125,6 +125,60 @@ export const ContextProvider = ({ children }) => {
     }
   };
 
+  // Handle Edit Official Details
+
+  const [editEmployeeId, setEditEmployeeId] = useState("")
+  const [editEmployementType, setEditEmployementType] = useState("")
+  const [editWorkSchedule, setEditWorkSchedule] = useState("")
+  const [editJobTitle, setEditJobTitle] = useState("")
+  const [editDepartment, setEditDepartment] = useState("")
+  const [editReportingOfficer, setEditReportingOfficer] = useState("")
+  const [editRegion, setEditRegion] = useState("")
+  const [editSkills, setEditSkills] = useState("")
+
+  const handleEditOfficialDetails = async (id) => {
+
+    const edit = {
+      id: (data.length + 1).toString(),
+      empID: editEmployeeId,
+      empType: editEmployementType,
+      schedule:editWorkSchedule,
+      job:editJobTitle,
+      department:editDepartment,
+      reportingSupervisor:editReportingOfficer,
+      region:editRegion,
+      skills:editSkills,
+    };
+
+    if (editDepartment === "" || editReportingOfficer === "") {
+      alert("fields cant be blank");
+    } else {
+      try {
+        const response = await axios.patch(
+          `http://localhost:4000/data/${id}`,
+          edit
+        );
+       
+
+        setEditEmployeeId("")
+        setEditEmployementType("")
+        setEditWorkSchedule("")
+        setEditJobTitle("")
+        setEditDepartment("")
+        setEditReportingOfficer("")
+        setEditRegion("")
+        setEditSkills("")
+        setEditOfficialDetailsButton(false)
+
+        setData(
+          data.map((employee) => (employee.id === id ? { ...response.data } : employee))
+        );
+      } catch (error) {
+        console.log(`Error: ${error.message}`);
+      }
+    }
+  };
+
   return (
     <dashBoardContext.Provider
       value={{
@@ -152,8 +206,18 @@ export const ContextProvider = ({ children }) => {
         editNationality, setEditNationality,
         editLanguage, setEditLanguage,
         editEmergencyContact, setEditEmergencyContact,
-        handleEdit,
-        editOfficialDetailsButton
+        handleEditPersonalDetails,
+        editOfficialDetailsButton,
+        setEditOfficialDetailsButton,
+        handleEditOfficialDetails,
+        editEmployeeId, setEditEmployeeId,
+        editEmployementType, setEditEmployementType,
+        editWorkSchedule, setEditWorkSchedule,
+        editJobTitle, setEditJobTitle,
+        editDepartment, setEditDepartment,
+        editReportingOfficer, setEditReportingOfficer,
+        editRegion, setEditRegion,
+        editSkills, setEditSkills
       }}
     >
       {children}
