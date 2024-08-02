@@ -14,6 +14,12 @@ const EmployeeDetails = () => {
   const {id} = useParams()
   const employeeFilter = data.filter((employee) => employee.id.toString() === id);
 
+  // let a = Number("1000")
+  // let b = Number("200")
+  // let amount = (a+b).toLocaleString()
+
+  // console.log(amount);
+
   return (
     <main className="w-full p-[25px]">
       <section className="w-full h-full flex flex-col gap-[45px]">

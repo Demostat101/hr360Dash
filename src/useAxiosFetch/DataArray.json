@@ -31,7 +31,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Access Bank",
+      "bankAccount":"0023467844",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"500000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"7000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"2000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "2",
@@ -64,7 +79,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "3",
@@ -97,7 +127,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "4",
@@ -130,7 +175,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "5",
@@ -163,7 +223,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "6",
@@ -196,7 +271,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "7",
@@ -229,7 +319,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "8",
@@ -262,7 +367,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "9",
@@ -295,7 +415,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "10",
@@ -328,7 +463,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "11",
@@ -361,7 +511,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "12",
@@ -394,7 +559,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "13",
@@ -427,7 +607,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "14",
@@ -460,7 +655,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "15",
@@ -493,7 +703,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "16",
@@ -526,7 +751,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "17",
@@ -559,7 +799,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "18",
@@ -592,7 +847,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "19",
@@ -625,7 +895,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "20",
@@ -658,7 +943,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "21",
@@ -691,7 +991,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "22",
@@ -724,7 +1039,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "23",
@@ -757,7 +1087,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "24",
@@ -790,7 +1135,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "25",
@@ -823,7 +1183,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "26",
@@ -856,7 +1231,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "27",
@@ -889,7 +1279,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "28",
@@ -922,7 +1327,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "29",
@@ -955,7 +1375,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "30",
@@ -988,7 +1423,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "31",
@@ -1021,7 +1471,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "32",
@@ -1054,7 +1519,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     },
     {
       "id": "33",
@@ -1087,7 +1567,22 @@
         {
           "skill": "Team work"
         }
-      ]
+      ],
+      "bankName": "Union Bank",
+      "bankAccount":"0023467823",
+      "daysWorked":"22 days",
+      "cycle":"Monthly",
+      "dateIssued":"May 2019",
+      "salary":"700000",
+      "medicalAllowance":"10000",
+      "transportAllowance":"20000",
+      "foodAllowance":"5000",
+      "overTime":"5000",
+      "otherAllowance":"4000",
+      "natinalInsurance":"4000",
+      "incomeTax":"10000",
+      "loanRepayment":"3000",
+      "nhs":"2000"
     }
   ]
 }
