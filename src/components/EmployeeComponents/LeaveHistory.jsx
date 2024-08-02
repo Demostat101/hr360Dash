@@ -1,11 +1,16 @@
 
-import React from 'react'
+import { Context } from "../../DashBoardContext";
+
 
 const LeaveHistory = () => {
+
+  const {open} = Context()
+
+
   return (
-    <div>
+    <>
       Leave History
-    </div>
+    </>
   )
 }
 
