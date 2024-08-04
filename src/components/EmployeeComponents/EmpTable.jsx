@@ -77,7 +77,7 @@ const EmpTable = () => {
   const { getTableProps, headerGroups } = table;
 
   return (
-    <div className="w-full">
+    <div className="w-full table-container">
       <table {...getTableProps()}>
         {/* header */}
         <thead>

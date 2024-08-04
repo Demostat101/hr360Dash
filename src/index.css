@@ -136,10 +136,10 @@ ul a.active .icon {
 
 table{
   width: 100%;
-  border-radius: 20px;
+  /* border-radius: 20px; */
 }
 
-th{
+.table-container th{
   text-align: left;
   font-weight: 500;
   font-size: 16.29px;
@@ -157,22 +157,37 @@ tbody{
   background-color: white;
 }
 
-td{
+.table-container td{
   height: 70px;
 }
 
-th:first-child{
+.table-container th:first-child{
   padding-left: 30px;
   border-top-left-radius: 10px;
 }
-th:last-child{
+.table-container th:last-child{
   opacity: 0;
   border-top-right-radius: 10px;
 }
 
-thead{
+.table-container thead{
   border-radius: 20px;
 }
+
+.payslip-table td,th{
+  padding-left: 20px;
+}
+
+
+.payslip-head{
+  border-bottom: 1px solid rgb(196, 194, 194);
+  
+}
+
+.payslip-table{
+  border-radius: 12px;
+}
+
 
 @media only screen and (max-width: 1195px) {
   .top-box-wrap {
