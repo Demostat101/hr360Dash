@@ -10,6 +10,9 @@ import EmployeeDetails from "./components/EmployeeComponents/EmployeeDetails";
 import PaySlip from "./components/EmployeeComponents/PaySlip";
 import EmployeePage from "./components/EmployeeComponents/EmployeePage";
 import LeaveHistory from "./components/EmployeeComponents/LeaveHistory";
+import PersonalDetails from "./components/addEmployeeComponents/PersonalDetails";
+import OfficialDetails from "./components/addEmployeeComponents/OfficialDetails";
+import BankDetails from "./components/addEmployeeComponents/BankDetails";
 
 const Routers = createBrowserRouter([
   {
@@ -44,12 +47,27 @@ const Routers = createBrowserRouter([
             path: "employee-leave-history",
             element: <LeaveHistory />,
           },
-        ],
+        ]
       },
 
       {
         path: "/add-employee",
-        element: <AddEmployee />,
+        element: <AddEmployee />/* ,
+        children: [
+          {
+            index: true,
+
+            element: <PersonalDetails />,
+          },
+          {
+            path: "official-details",
+            element: <OfficialDetails />,
+          },
+          {
+            path: "bank-details",
+            element: <BankDetails />,
+          },
+        ] */
       },
       {
         path: "/analytics",
