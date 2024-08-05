@@ -38,8 +38,6 @@ export const useAxiosFetch = (dataUrl) => {
   return { data, fetchError, isLoading, setData };
 };
 
-
-
 export const apiRequest = async (url = "", optionObj = {}, errMsg = null) => {
   try {
     const data = await fetch(url, optionObj);

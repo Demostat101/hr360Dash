@@ -30,7 +30,7 @@ export const Paths = [
   },
   {
     to: "/announcement",
-    icons: [< MdCampaign size={40} />, < MdCampaign size={28} />],
+    icons: [<MdCampaign size={40} />, <MdCampaign size={28} />],
     label: "Announcement",
   },
 ];

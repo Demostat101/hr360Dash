@@ -6,7 +6,7 @@ import TopNavBar from "../components/navigation/topNavBar/TopNavBar";
 const MainLayout = () => {
   return (
     <div className="flex h-screen bg-[#F6F7FA] relative">
-      <SideNavBar/>
+      <SideNavBar />
       <div className="w-full min-h-screen overflow-auto overflow-x-hidden">
         <TopNavBar />
         <Outlet />

@@ -13,9 +13,9 @@ const halfsales = salesData.slice(0, 6);
 const Graph1 = () => {
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart barCategoryGap={15} data={halfsales} >
+      <BarChart barCategoryGap={15} data={halfsales}>
         <XAxis dataKey="month" />
-        <YAxis/>
+        <YAxis />
         <Tooltip />
         <Legend />
         <Bar dataKey="Employees working" fill="#B4D4FF" />

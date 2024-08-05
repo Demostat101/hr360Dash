@@ -571,11 +571,15 @@ const PaySlip = () => {
             </div>
           </div>
         </div>
-
       </div>
-        <div className="w-full flex flex-col place-items-end mt-[10px] cursor-pointer">
-          <div className="py-[12px] px-[22px] flex gap-[10px] rounded-xl bg-[#176B87] text-[#FFFFFF]"><span className="font-[600] text-[16.66px] leading-[24.99px]">Print</span> <MdPrint size={23.8}/></div>
+      <div className="w-full flex flex-col place-items-end mt-[10px] cursor-pointer">
+        <div className="py-[12px] px-[22px] flex gap-[10px] rounded-xl bg-[#176B87] text-[#FFFFFF]">
+          <span className="font-[600] text-[16.66px] leading-[24.99px]">
+            Print
+          </span>{" "}
+          <MdPrint size={23.8} />
         </div>
+      </div>
     </>
   );
 };

@@ -22,7 +22,7 @@ const SearchInput = () => {
             type="text"
             placeholder="Search..."
             className="w-full h-full outline-none"
-           /*  value={search}
+            /*  value={search}
             onChange={handleSearch} */
           />
         </div>

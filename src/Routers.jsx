@@ -28,24 +28,23 @@ const Routers = createBrowserRouter([
       },
       {
         path: "/employee/:id",
-        element: <EmployeeDetails/>,
+        element: <EmployeeDetails />,
 
-          children: [
-              {
-                index: true,
-               
-                element: <EmployeePage/>,
-              },
-              {
-                path: "employee-payslip",
-                element: <PaySlip/>,
-              },
-              {
-                path: "employee-leave-history",
-                element: <LeaveHistory/>,
-              },
-          ]
-         
+        children: [
+          {
+            index: true,
+
+            element: <EmployeePage />,
+          },
+          {
+            path: "employee-payslip",
+            element: <PaySlip />,
+          },
+          {
+            path: "employee-leave-history",
+            element: <LeaveHistory />,
+          },
+        ],
       },
 
       {
@@ -64,7 +63,7 @@ const Routers = createBrowserRouter([
       {
         path: "/*",
         element: <Error />,
-      }
+      },
     ],
   },
 ]);

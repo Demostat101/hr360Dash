@@ -42,7 +42,7 @@ ul a.active .icon {
   height: 2px;
   bottom: -12px;
   left: -10px;
-  background-color: #176B87;
+  background-color: #176b87;
 }
 .births::after {
   content: "";
@@ -51,7 +51,7 @@ ul a.active .icon {
   height: 2px;
   bottom: -15px;
   left: -10px;
-  background-color: #176B87;
+  background-color: #176b87;
 }
 .anniversary::after {
   content: "";
@@ -60,7 +60,7 @@ ul a.active .icon {
   height: 2px;
   bottom: -15px;
   right: 12px;
-  background-color: #176B87;
+  background-color: #176b87;
 }
 .anniversarys::after {
   content: "";
@@ -69,7 +69,7 @@ ul a.active .icon {
   height: 2px;
   bottom: -12px;
   right: 12px;
-  background-color: #176B87;
+  background-color: #176b87;
 }
 
 .open-grid {
@@ -96,9 +96,9 @@ ul a.active .icon {
   gap: 23.12px;
 }
 
-.link{
+.link {
   text-decoration: underline;
-  text-decoration-color: #176B87;
+  text-decoration-color: #176b87;
 }
 
 .loader {
@@ -134,60 +134,60 @@ ul a.active .icon {
   }
 }
 
-table{
+table {
   width: 100%;
   /* border-radius: 20px; */
 }
 
-.table-container th{
+.table-container th {
   text-align: left;
   font-weight: 500;
   font-size: 16.29px;
-  color: #41454B;
+  color: #41454b;
 }
-
-
 
 .th-bb {
-  border-bottom: 1px solid #F3F3F3;
+  border-bottom: 1px solid #f3f3f3;
 }
 
-tbody{
+tbody {
   width: 100%;
   background-color: white;
 }
 
-.table-container td{
+.table-container td {
   height: 70px;
 }
 
-.table-container th:first-child{
+.table-container th:first-child {
   padding-left: 30px;
   border-top-left-radius: 10px;
 }
-.table-container th:last-child{
+.table-container th:last-child {
   opacity: 0;
   border-top-right-radius: 10px;
 }
 
-.table-container thead{
+.table-container thead {
   border-radius: 20px;
 }
 
-.payslip-table td,th{
+.payslip-table td,
+th {
   padding-left: 20px;
 }
 
-
-.payslip-head{
+.payslip-head {
   border-bottom: 1px solid rgb(196, 194, 194);
-  
 }
 
-.payslip-table{
+.payslip-table {
   border-radius: 12px;
 }
 
+.payslip-table td:nth-child(4) {
+  padding: 0 30px;
+}
 
 @media only screen and (max-width: 1195px) {
   .top-box-wrap {
@@ -224,13 +224,6 @@ tbody{
     width: 80%;
   }
 }
-
-
-
-
-
-
-
 
 /* @media only screen and (max-width:767px) {
   .hide-nav{
