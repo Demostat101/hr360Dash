@@ -200,6 +200,9 @@ th {
   color: #FFFFFF;
 }
 
+.progress{
+  transition: 0.2s ease;
+}
 @media only screen and (max-width: 1195px) {
   .top-box-wrap {
     flex-wrap: wrap-reverse;

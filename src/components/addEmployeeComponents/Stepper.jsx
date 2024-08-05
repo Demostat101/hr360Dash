@@ -1,7 +1,30 @@
+import { useEffect } from "react";
+import { useState } from "react";
+import { useRef } from "react"
 
 
 const Stepper = ({stepper,currentStep,isComplete}) => {
 
+  const stepRef = useRef([]);
+  const [widthMargin, setWidthMargin] = useState({
+    marginLeft:0,
+    marginRight:0,
+  })
+
+  const calculateProgressBar = ()=>{
+
+    return (((currentStep - 1)/(stepper.length-1))*100)
+  }
+
+  useEffect(()=>{
+
+    setWidthMargin({
+      marginLeft:stepRef.current[0].offsetWidth/2,
+      marginRight:stepRef.current[stepper.length-1].offsetWidth/2
+  })
+    
+    
+  },[stepRef])
     
 
   return (
@@ -9,15 +32,15 @@ const Stepper = ({stepper,currentStep,isComplete}) => {
       <div className="w-full border-solid border-2 border-violet-500 flex justify-between relative ">{/* stepper */}
         {
             stepper.map(({name,Component}, index)=>{
-                return <div className={`flex flex-col items-center ${currentStep > index + 1 || isComplete ? " complete" : ""} ${currentStep === index + 1 ? " active" : ""} `} key={index}>{/* step */}
+                return <div ref={(dynamicWidth) => (stepRef.current[index]=dynamicWidth)} className={`flex flex-col items-center ${currentStep > index + 1 || isComplete ? " complete" : ""} ${currentStep === index + 1 ? " active" : ""} `} key={index}>{/* step */}
                     <div className={("text-center w-[59.5px] h-[59.5px] rounded-full flex justify-center place-items-center mb-[20px] z-20 bg-white step-number")}>{index+1}</div>{/* step-number */}
                     <div>{name}</div>{/* step-name */}
                 
                 </div>
             })
         }
-        <div className="progress-bar absolute top-[25%] left-0 h-1 bg-[#FFFFFF] w-full">
-            <div className="progress h-full bg-[#176b87] transition 0.2s ease"></div>
+        <div style={{width:`calc(100% - ${widthMargin.marginLeft + widthMargin.marginRight}px)`, marginLeft:widthMargin.marginLeft, marginRight:widthMargin.marginRight}} className="absolute top-[25%] left-0 h-1">
+            <div className="progress h-full bg-[#176b87]" style={{width:`${calculateProgressBar()}%`}} ></div>
         </div>
       </div>
       
