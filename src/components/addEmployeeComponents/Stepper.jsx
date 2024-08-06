@@ -5,6 +5,7 @@ import { useRef } from "react"
 
 const Stepper = ({stepper,currentStep,isComplete}) => {
 
+
   const stepRef = useRef([]);
   const [widthMargin, setWidthMargin] = useState({
     marginLeft:0,
@@ -29,12 +30,12 @@ const Stepper = ({stepper,currentStep,isComplete}) => {
 
   return (
     <div className="w-full px-[125px]">
-      <div className="w-full border-solid border-2 border-violet-500 flex justify-between relative ">{/* stepper */}
+      <div className="w-full flex justify-between relative ">{/* stepper */}
         {
-            stepper.map(({name,Component}, index)=>{
+            stepper.map(({name}, index)=>{
                 return <div ref={(dynamicWidth) => (stepRef.current[index]=dynamicWidth)} className={`flex flex-col items-center ${currentStep > index + 1 || isComplete ? " complete" : ""} ${currentStep === index + 1 ? " active" : ""} `} key={index}>{/* step */}
-                    <div className={("text-center w-[59.5px] h-[59.5px] rounded-full flex justify-center place-items-center mb-[20px] z-20 bg-white step-number")}>{index+1}</div>{/* step-number */}
-                    <div>{name}</div>{/* step-name */}
+                    <div className={("text-center w-[59.5px] h-[59.5px] rounded-full flex justify-center place-items-center mb-[20px] z-20 bg-white step-number text-[#176b87] text-[18px] font-[700]")}>{index+1}</div>{/* step-number */}
+                    <div className="font-[500] text-[16px] leading-[24px] text-black opacity-70">{name}</div>{/* step-name */}
                 
                 </div>
             })
