@@ -1,4 +1,21 @@
+import { useRef, useState } from "react";
+import { PiUploadThin } from "react-icons/pi";
+
 const PersonalDetails = () => {
+  const [files, setFiles] = useState(null);
+  const inputRef = useRef();
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
+
+  const handleDrop = (event) => {
+    event.preventDefault();
+    setFiles(event.dataTransfer.files);
+  };
+
+  const handleUpload = () => {};
+
   return (
     <div>
       <form
@@ -320,21 +337,58 @@ const PersonalDetails = () => {
           <div
             className={open ? "flex justify-between" : "flex justify-between"}
           >
-            <span className="flex flex-col gap-[20px]  w-[100%]">
+            <div className="flex flex-col gap-[20px]  w-[100%]">
               <label
                 className="font-[500] text-[12.37px] leading-[18.55px] text-black opacity-80"
-                htmlFor="language"
+                htmlFor="file"
               >
                 Add Attachment
               </label>
-              <input
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[180.6px] focus:outline-none"
-                type="text"
-                id="language"
-                name="language"
-                required
-              />
-            </span>{" "}
+
+              <>
+                {!files && (
+                  <div
+                    onDragOver={handleDragOver}
+                    onDrop={handleDrop}
+                    className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[180.6px] focus:outline-none text-center flex flex-col justify-center place-items-center font-[400] text-[12px] text-black opacity-60"
+                  >
+                    <div
+                      onClick={() => inputRef.current.click()}
+                      className="flex flex-col place-items-center"
+                    >
+                      <div>
+                        Click or Drag a file to the <br /> area to upload
+                      </div>
+                      <PiUploadThin size={24} />
+                      <input
+                        type="file"
+                        id="file"
+                        name="file"
+                        onChange={(event) => setFiles(event.target.files)}
+                        hidden
+                        ref={inputRef}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {files && (
+                  <div>
+                    <span>
+                      {Array.from(files).map((file, index) => file.name)}
+                    </span>
+                    <div>
+                      <button type="button" onClick={() => setFiles(null)}>
+                        Cancle
+                      </button>
+                      <button type="button" onClick={handleUpload}>
+                        Upload
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </>
+            </div>{" "}
           </div>
         </div>
       </form>
