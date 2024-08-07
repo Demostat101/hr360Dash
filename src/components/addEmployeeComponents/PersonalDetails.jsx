@@ -233,8 +233,8 @@ const PersonalDetails = () => {
                 id="nationality"
               >
                 <option value="">Select</option>
-                <option value="Single">Nigeria</option>
-                <option value="Married">London</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="London">London</option>
               </select>
             </span>
             <span className="flex flex-col gap-[6.9px]  w-[47%]">

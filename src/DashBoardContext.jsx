@@ -114,6 +114,7 @@ export const ContextProvider = ({ children }) => {
         setData(
           data.map((employee) =>
             employee.id === id ? { ...response.data } : employee
+            // employee.id === id ? { ...response.data } : employee.id === id ? employee.skills.map((val)=> val.skill) : employee
           )
         );
       } catch (error) {
@@ -121,6 +122,11 @@ export const ContextProvider = ({ children }) => {
       }
     }
   };
+
+  const a =["coding", "art",{skills:["man", "woman"]}];
+ 
+  
+  
 
   // Handle Edit Official Details
 
