@@ -1,6 +1,4 @@
-
-
-import React from 'react'
+import React from "react";
 
 const OfficialDetails = () => {
   return (
@@ -62,7 +60,7 @@ const OfficialDetails = () => {
           <div
             className={open ? "flex justify-between" : "flex justify-between"}
           >
-         <span className="flex flex-col gap-[6.9px]  w-[30%]">
+            <span className="flex flex-col gap-[6.9px]  w-[30%]">
               <label
                 className="font-[500] text-[12.37px] leading-[18.55px]"
                 htmlFor="officialemail"
@@ -120,113 +118,113 @@ const OfficialDetails = () => {
                 required
               />
             </span>
-            
           </div>
+          <div
+            className={open ? "flex justify-between" : "flex justify-between"}
+          >
+            <span className="flex flex-col gap-[6.9px]  w-[30%]">
+              <label
+                className="font-[500] text-[12.37px] leading-[18.55px]"
+                htmlFor="schedule"
+              >
+                Work Schedule
+              </label>
+              <select
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                name="schedule"
+                id="schedule"
+              >
+                <option value="">Select</option>
+                <option value="Hourly">Hourly</option>
+                <option value="Weekly">Weekly</option>
+              </select>
+            </span>
 
-          <div className={open ? "flex justify-between" : "flex justify-between"}>
-        <span className="flex flex-col gap-[6.9px]  w-[30%]">
-          <label
-            className="font-[500] text-[12.37px] leading-[18.55px]"
-            htmlFor="schedule"
-          >
-            Work Schedule
-          </label>
-          <select
-            className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
-            name="schedule"
-            id="schedule"
-          >
-            <option value="">Select</option>
-            <option value="Hourly">Hourly</option>
-            <option value="Weekly">Weekly</option>
-          </select>
-        </span>
+            <span className="flex flex-col gap-[6.9px]  w-[30%]">
+              <label
+                className="font-[500] text-[12.37px] leading-[18.55px]"
+                htmlFor="empType"
+              >
+                Employment Type
+              </label>
+              <select
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                name="emptype"
+                id="empType"
+              >
+                <option value="">Select</option>
+                <option value="Contract">Contract</option>
+                <option value="Full">Full</option>
+              </select>
+            </span>
 
-        <span className="flex flex-col gap-[6.9px]  w-[30%]">
-          <label
-            className="font-[500] text-[12.37px] leading-[18.55px]"
-            htmlFor="empType"
+            <span className="flex flex-col gap-[6.9px]  w-[30%]">
+              <label
+                className="font-[500] text-[12.37px] leading-[18.55px]"
+                htmlFor="region"
+              >
+                Region
+              </label>
+              <select
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                name="region"
+                id="region"
+              >
+                <option value="">Select</option>
+                <option value="Abuja">Abuja</option>
+                <option value="Lagos">Lagos</option>
+              </select>
+            </span>
+          </div>
+          <div
+            className={open ? "flex justify-between" : "flex justify-between"}
           >
-            Employment Type
-          </label>
-          <select
-            className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
-            name="emptype"
-            id="empType"
-          >
-            <option value="">Select</option>
-            <option value="Contract">Contract</option>
-            <option value="Full">Full</option>
-          </select>
-        </span>
-
-        <span className="flex flex-col gap-[6.9px]  w-[30%]">
-          <label
-            className="font-[500] text-[12.37px] leading-[18.55px]"
-            htmlFor="region"
-          >
-            Region
-          </label>
-          <select
-            className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
-            name="region"
-            id="region"
-          >
-            <option value="">Select</option>
-            <option value="Abuja">Abuja</option>
-            <option value="Lagos">Lagos</option>
-          </select>
-        </span>
-      </div>
-
-      <div className={open ? "flex justify-between" : "flex justify-between"}>
-        <span className="flex flex-col gap-[6.9px]  w-[30%]">
-          <label
-            className="font-[500] text-[12.37px] leading-[18.55px]"
-            htmlFor="salary"
-          >
-            Basic Salary
-          </label>
-          <input
-            className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
-            type="text"
-            id="salary"
-            name="salary"
-            required
-          />
-        </span>{" "}
-        <span className="flex flex-col gap-[6.9px]  w-[30%]">
-          <label
-            className="font-[500] text-[12.37px] leading-[18.55px]"
-            htmlFor="startdate"
-          >
-            Starting Date
-          </label>
-          <input
-            className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
-            type="date"
-            id="startdate"
-            name="startdate"
-            required
-          />
-        </span>{" "}
-        <span className="flex flex-col gap-[6.9px]  w-[30%]">
-          <label
-            className="font-[500] text-[12.37px] leading-[18.55px]"
-            htmlFor="enddate"
-          >
-            Contract End Date
-          </label>
-          <input
-            className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
-            type="date"
-            id="enddate"
-            name="enddate"
-            required
-          />
-        </span>{" "}
-      </div>
-
+            <span className="flex flex-col gap-[6.9px]  w-[30%]">
+              <label
+                className="font-[500] text-[12.37px] leading-[18.55px]"
+                htmlFor="salary"
+              >
+                Basic Salary
+              </label>
+              <input
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                type="text"
+                id="salary"
+                name="salary"
+                required
+              />
+            </span>{" "}
+            <span className="flex flex-col gap-[6.9px]  w-[30%]">
+              <label
+                className="font-[500] text-[12.37px] leading-[18.55px]"
+                htmlFor="startdate"
+              >
+                Starting Date
+              </label>
+              <input
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                type="date"
+                id="startdate"
+                name="startdate"
+                required
+              />
+            </span>{" "}
+            <span className="flex flex-col gap-[6.9px]  w-[30%]">
+              <label
+                className="font-[500] text-[12.37px] leading-[18.55px]"
+                htmlFor="enddate"
+              >
+                Contract End Date
+              </label>
+              <input
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                type="date"
+                id="enddate"
+                name="enddate"
+                required
+              />
+            </span>{" "}
+          </div>
           <div className="flex flex-col gap-[6.9px]  w-[100%]">
             <label
               className="font-[500] text-[12.37px] leading-[18.55px]"
@@ -234,15 +232,16 @@ const OfficialDetails = () => {
             >
               Add Skills
             </label>
-            <textarea className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[70px] focus:outline-none" name="" id=""></textarea>
+            <textarea
+              className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[70px] focus:outline-none"
+              name=""
+              id="skills"
+            ></textarea>
           </div>{" "}
-
-          
         </div>
-
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default OfficialDetails
+export default OfficialDetails;

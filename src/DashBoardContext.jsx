@@ -32,14 +32,14 @@ export const ContextProvider = ({ children }) => {
 
   const handleCheckBox = async (id) => {
     const toggleCheckBox = data.map((item) =>
-      item.id === id ? { ...item, active: !item.active } : item
+      item.id.toString() === id.toString() ? { ...item, active: !item.active } : item
     );
 
     setData(toggleCheckBox);
 
     //to update Status
 
-    const myItem = toggleCheckBox.filter((item) => item.id === id);
+    const myItem = toggleCheckBox.filter((item) => item.id.toString() === id.toString());
 
     const updateOptions = {
       method: "PATCH",
@@ -51,6 +51,7 @@ export const ContextProvider = ({ children }) => {
 
     const reqUrl = `${API_URL}/${id}`;
     const result = await apiRequest(reqUrl, updateOptions);
+    
     if (result) {
       setError(result);
     }

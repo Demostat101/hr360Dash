@@ -766,50 +766,55 @@ const EmployeePage = () => {
             >
               Attachment
             </div>
-            <div
-              className={
-                open
-                  ? "w-full h-[44px] flex justify-between"
-                  : "w-full h-[48.37px] flex justify-between"
-              }
-            >
-              <div
-                className={
-                  open
-                    ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px] justify-center place-items-center"
-                    : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-center place-items-center"
-                }
-              >
-                <LuSave size={15} />{" "}
-                <span className="text-nowrap text-[16px]">
-                  Ajayi's Employment Contract pdf
-                </span>
-              </div>
-              <div
-                className={
-                  open
-                    ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px]  place-items-center  "
-                    : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] text-[18px] p-[10px] flex gap-[8px] justify-center place-items-center"
-                }
-              >
-                <LuSave size={15} />{" "}
-                <span className="text-nowrap">
-                  Ajayi's Employment Contract pdf
-                </span>
-              </div>
-              <div
-                className={
-                  open
-                    ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px]  justify-center place-items-center"
-                    : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-center place-items-center"
-                }
-              >
-                <LuSave size={15} />{" "}
-                <span className="text-nowrap">
-                  Ajayi's Employment Contract pdf
-                </span>
-              </div>
-            </div>
+            <>
+              {employeeFilter.map(({ name }, index) => (
+                <div
+                  key={index}
+                  className={
+                    open
+                      ? "w-full h-[44px] flex justify-between"
+                      : "w-full h-[48.37px] flex justify-between"
+                  }
+                >
+                  <div
+                    className={
+                      open
+                        ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px] justify-center place-items-center"
+                        : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-center place-items-center"
+                    }
+                  >
+                    <LuSave size={15} />{" "}
+                    <span className="text-nowrap text-[16px]">
+                      {name.slice(0, 6)}'s Employment Contract pdf
+                    </span>
+                  </div>
+                  <div
+                    className={
+                      open
+                        ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px]  place-items-center  "
+                        : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] text-[18px] p-[10px] flex gap-[8px] justify-center place-items-center"
+                    }
+                  >
+                    <LuSave size={15} />{" "}
+                    <span className="text-nowrap">
+                      {name.slice(0, 6)}'s Employment Contract pdf
+                    </span>
+                  </div>
+                  <div
+                    className={
+                      open
+                        ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px]  justify-center place-items-center"
+                        : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-center place-items-center"
+                    }
+                  >
+                    <LuSave size={15} />{" "}
+                    <span className="text-nowrap">
+                      {name.slice(0, 6)}'s Employment Contract pdf
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </>
           </div>
         </div>
       </div>

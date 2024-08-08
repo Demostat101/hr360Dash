@@ -172,7 +172,7 @@ tbody {
 }
 
 /* Payslip table css */
-.payslip-table td,
+.payslip-table td,.payslip-table
 th {
   padding-left: 20px;
 }
