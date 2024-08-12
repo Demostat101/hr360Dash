@@ -32,14 +32,18 @@ export const ContextProvider = ({ children }) => {
 
   const handleCheckBox = async (id) => {
     const toggleCheckBox = data.map((item) =>
-      item.id.toString() === id.toString() ? { ...item, active: !item.active } : item
+      item.id.toString() === id.toString()
+        ? { ...item, active: !item.active }
+        : item
     );
 
     setData(toggleCheckBox);
 
     //to update Status
 
-    const myItem = toggleCheckBox.filter((item) => item.id.toString() === id.toString());
+    const myItem = toggleCheckBox.filter(
+      (item) => item.id.toString() === id.toString()
+    );
 
     const updateOptions = {
       method: "PATCH",
@@ -51,7 +55,7 @@ export const ContextProvider = ({ children }) => {
 
     const reqUrl = `${API_URL}/${id}`;
     const result = await apiRequest(reqUrl, updateOptions);
-    
+
     if (result) {
       setError(result);
     }
@@ -113,8 +117,8 @@ export const ContextProvider = ({ children }) => {
         setEditPersonalDetailsButton(false);
 
         setData(
-          data.map((employee) =>
-            employee.id === id ? { ...response.data } : employee
+          data.map(
+            (employee) => (employee.id === id ? { ...response.data } : employee)
             // employee.id === id ? { ...response.data } : employee.id === id ? employee.skills.map((val)=> val.skill) : employee
           )
         );
@@ -124,10 +128,7 @@ export const ContextProvider = ({ children }) => {
     }
   };
 
-  const a =["coding", "art",{skills:["man", "woman"]}];
- 
-  
-  
+  const a = ["coding", "art", { skills: ["man", "woman"] }];
 
   // Handle Edit Official Details
 
@@ -138,7 +139,7 @@ export const ContextProvider = ({ children }) => {
   const [editDepartment, setEditDepartment] = useState("");
   const [editReportingOfficer, setEditReportingOfficer] = useState("");
   const [editRegion, setEditRegion] = useState("");
-  const [editSkills, setEditSkills] = useState("");
+  const [editSkills, setEditSkills] = useState();
 
   const handleEditOfficialDetails = async (id) => {
     const edit = {
@@ -169,7 +170,7 @@ export const ContextProvider = ({ children }) => {
         setEditDepartment("");
         setEditReportingOfficer("");
         setEditRegion("");
-        setEditSkills("");
+        setEditSkills();
         setEditOfficialDetailsButton(false);
 
         setData(

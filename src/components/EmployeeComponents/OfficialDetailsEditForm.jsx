@@ -228,7 +228,7 @@ const OfficialDetailsEditForm = () => {
             </label>
 
             <input
-              readOnly
+            readOnly
               className="focus:outline-none border-[1px] border-[#a5b5bb] rounded-md"
               value={editSkills}
               onChange={(e) => setEditSkills(e.target.value)}

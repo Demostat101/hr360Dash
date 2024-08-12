@@ -1,4 +1,4 @@
-export const Box1Data = [
+export const eventArray = [
   {
     date: 18,
     month: "Mar",

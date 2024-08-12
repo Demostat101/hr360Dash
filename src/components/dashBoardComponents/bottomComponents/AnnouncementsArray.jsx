@@ -1,6 +1,6 @@
 import { IoMdMore } from "react-icons/io";
 
-export const Box2Data = [
+export const announcementArray = [
   {
     employee: "Employee Appraisal",
     dateTime: "Friday, 15th March 2024 | 3:00pm",

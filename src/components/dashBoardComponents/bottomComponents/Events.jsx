@@ -1,7 +1,7 @@
 import { Context } from "../../../DashBoardContext";
-import { Box1Data } from "./EventsArray";
+import { eventArray } from "./EventsArray";
 
-const Box1 = () => {
+const Events = () => {
   const { open } = Context();
 
   return (
@@ -32,7 +32,7 @@ const Box1 = () => {
         }
       >
         {/* 1st box */}
-        {Box1Data.map(({ date, time, title, month }, index) => {
+        {eventArray.map(({ date, time, title, month }, index) => {
           return (
             <div
               key={index}
@@ -88,4 +88,4 @@ const Box1 = () => {
   );
 };
 
-export default Box1;
+export default Events;

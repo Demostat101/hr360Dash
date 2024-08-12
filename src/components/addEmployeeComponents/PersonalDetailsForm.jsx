@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { PiUploadThin } from "react-icons/pi";
 
-const PersonalDetails = () => {
+const PersonalDetailsForm = () => {
   const [files, setFiles] = useState(null);
   const inputRef = useRef();
 
@@ -83,11 +83,11 @@ const PersonalDetails = () => {
                 Gender
               </label>
               <select
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none text-black opacity-60 text-[10.12px] font-[500]"
                 name="gender"
                 id="gender"
               >
-                <option value="">Select</option>
+                <option value="">- Select -</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
@@ -175,11 +175,11 @@ const PersonalDetails = () => {
                 Marital Status
               </label>
               <select
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none text-black opacity-60 text-[10.12px] font-[500]"
                 name="maritalstatus"
                 id="maritalstatus"
               >
-                <option value="">Select</option>
+                <option value="">- Select -</option>
                 <option value="Single">Single</option>
                 <option value="Married">Married</option>
               </select>
@@ -192,11 +192,11 @@ const PersonalDetails = () => {
                 Religion
               </label>
               <select
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none text-black opacity-60 text-[10.12px] font-[500]"
                 name="religion"
                 id="religion"
               >
-                <option value="">Select</option>
+                <option value="">- Select -</option>
                 <option value="Christian">Christian</option>
                 <option value="Muslim">Muslim</option>
               </select>
@@ -354,7 +354,8 @@ const PersonalDetails = () => {
                   >
                     <div
                       onClick={() => inputRef.current.click()}
-                      className="flex flex-col place-items-center"
+                      className="flex flex-col place-items-center cursor-pointer"
+                      
                     >
                       <div>
                         Click or Drag a file to the <br /> area to upload
@@ -396,4 +397,4 @@ const PersonalDetails = () => {
   );
 };
 
-export default PersonalDetails;
+export default PersonalDetailsForm;

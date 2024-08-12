@@ -1,11 +1,11 @@
 import React from "react";
 import Stepper from "../components/addEmployeeComponents/Stepper";
 import { useState } from "react";
-import PersonalDetails from "../components/addEmployeeComponents/PersonalDetails";
-import OfficialDetails from "../components/addEmployeeComponents/OfficialDetails";
-import BankDetails from "../components/addEmployeeComponents/BankDetails";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import PersonalDetailsForm from "../components/addEmployeeComponents/PersonalDetailsForm";
+import OfficialDetailsForm from "../components/addEmployeeComponents/OfficialDetailsForm";
+import BankDetailsForm from "../components/addEmployeeComponents/BankDetailsForm";
 
 const AddEmployee = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -14,22 +14,22 @@ const AddEmployee = () => {
   const stepper = [
     {
       name: "Personal details",
-      Component: () => <PersonalDetails />,
+      Component: () => <PersonalDetailsForm />,
     },
     {
       name: "Official details",
-      Component: () => <OfficialDetails />,
+      Component: () => <OfficialDetailsForm />,
     },
     {
       name: "Bank details",
-      Component: () => <BankDetails />,
+      Component: () => <BankDetailsForm />,
     },
   ];
 
   const handlePrevButton = () => {
     setCurrentStep((prevStep) => prevStep - 1);
   };
-  
+
   const handleNextButton = () => {
     setCurrentStep((prevStep) => {
       if (prevStep === stepper.length) {

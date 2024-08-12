@@ -1,6 +1,6 @@
 import React from "react";
 
-const OfficialDetails = () => {
+const OfficialDetailsForm = () => {
   return (
     <div>
       <form
@@ -130,11 +130,11 @@ const OfficialDetails = () => {
                 Work Schedule
               </label>
               <select
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none text-black opacity-60 text-[10.12px] font-[500]"
                 name="schedule"
                 id="schedule"
               >
-                <option value="">Select</option>
+                <option value="">- Select -</option>
                 <option value="Hourly">Hourly</option>
                 <option value="Weekly">Weekly</option>
               </select>
@@ -148,11 +148,11 @@ const OfficialDetails = () => {
                 Employment Type
               </label>
               <select
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none text-black opacity-60 text-[10.12px] font-[500]"
                 name="emptype"
                 id="empType"
               >
-                <option value="">Select</option>
+                <option value="">- Select -</option>
                 <option value="Contract">Contract</option>
                 <option value="Full">Full</option>
               </select>
@@ -166,11 +166,11 @@ const OfficialDetails = () => {
                 Region
               </label>
               <select
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none text-black opacity-60 text-[10.12px] font-[500]"
                 name="region"
                 id="region"
               >
-                <option value="">Select</option>
+                <option value="">- Select -</option>
                 <option value="Abuja">Abuja</option>
                 <option value="Lagos">Lagos</option>
               </select>
@@ -244,4 +244,4 @@ const OfficialDetails = () => {
   );
 };
 
-export default OfficialDetails;
+export default OfficialDetailsForm;

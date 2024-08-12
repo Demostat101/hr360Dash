@@ -3,7 +3,7 @@ import Anniversary from "./Anniversary";
 import Birthday from "./Birthday";
 import useLocalStorage from "use-local-storage";
 
-const Box3 = () => {
+const Celebrations = () => {
   const [toggle, setToggle] = useLocalStorage(false);
   const { open } = Context();
 
@@ -115,4 +115,4 @@ const Box3 = () => {
   );
 };
 
-export default Box3;
+export default Celebrations;

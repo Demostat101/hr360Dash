@@ -1,6 +1,6 @@
 import { Context } from "../../DashBoardContext";
 
-const PersonalDetailsEdit = () => {
+const PersonalDetailsEditForm = () => {
   const {
     open,
     editName,
@@ -344,4 +344,4 @@ const PersonalDetailsEdit = () => {
   );
 };
 
-export default PersonalDetailsEdit;
+export default PersonalDetailsEditForm;

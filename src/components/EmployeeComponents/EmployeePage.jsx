@@ -1,10 +1,12 @@
 import { Context } from "../../DashBoardContext";
 import { CiEdit } from "react-icons/ci";
 import { LuSave } from "react-icons/lu";
-import PersonalDetailsEdit from "./PersonalDetailsEditForm";
+import PersonalDetailsEditForm from "./PersonalDetailsEditForm";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import OfficialDetailsEditForm from "./OfficialDetailsEditForm";
+import { GoPaperclip } from "react-icons/go";
+
 
 const EmployeePage = () => {
   const { id } = useParams();
@@ -91,7 +93,7 @@ const EmployeePage = () => {
       setEditDepartment(post.department);
       setEditReportingOfficer(post.reportingSupervisor);
       setEditRegion(post.region);
-      setEditSkills(post.skills);
+      setEditSkills(post.skills.map((vals)=>vals));
     }
   }, [
     post,
@@ -461,7 +463,7 @@ const EmployeePage = () => {
               })}
             </>
           ) : (
-            <PersonalDetailsEdit />
+            <PersonalDetailsEditForm />
           )}
         </div>
       </div>
@@ -783,7 +785,7 @@ const EmployeePage = () => {
                         : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-center place-items-center"
                     }
                   >
-                    <LuSave size={15} />{" "}
+                    <GoPaperclip size={18} />{" "}
                     <span className="text-nowrap text-[16px]">
                       {name.slice(0, 6)}'s Employment Contract pdf
                     </span>
@@ -791,11 +793,11 @@ const EmployeePage = () => {
                   <div
                     className={
                       open
-                        ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px]  place-items-center  "
-                        : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] text-[18px] p-[10px] flex gap-[8px] justify-center place-items-center"
+                        ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px] justify-center place-items-center"
+                        : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-center place-items-center"
                     }
                   >
-                    <LuSave size={15} />{" "}
+                    <GoPaperclip size={18} />{" "}
                     <span className="text-nowrap">
                       {name.slice(0, 6)}'s Employment Contract pdf
                     </span>
@@ -807,7 +809,7 @@ const EmployeePage = () => {
                         : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-center place-items-center"
                     }
                   >
-                    <LuSave size={15} />{" "}
+                    <GoPaperclip size={18} />{" "}
                     <span className="text-nowrap">
                       {name.slice(0, 6)}'s Employment Contract pdf
                     </span>

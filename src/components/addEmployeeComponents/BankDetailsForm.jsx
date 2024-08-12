@@ -1,6 +1,6 @@
-import React from "react";
 
-const BankDetails = () => {
+
+const BankDetailsForm = () => {
   return (
     <div className="w-full flex flex-col  place-items-center">
       <form action=""
@@ -72,4 +72,4 @@ const BankDetails = () => {
   );
 };
 
-export default BankDetails;
+export default BankDetailsForm;

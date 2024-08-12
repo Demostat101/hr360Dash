@@ -2,7 +2,7 @@ import Alfred1 from "../../../assets/Alfed.jfif";
 import Alfred2 from "../../../assets/alfre2.jfif";
 import Alfred3 from "../../../assets/alfred3.jfif";
 
-export const Box3Data = [
+export const celebrationArray = [
   {
     img: Alfred1,
     name: "Alfred John",

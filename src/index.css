@@ -172,8 +172,8 @@ tbody {
 }
 
 /* Payslip table css */
-.payslip-table td,.payslip-table
-th {
+.payslip-table td,
+.payslip-table th {
   padding-left: 20px;
 }
 
@@ -191,18 +191,38 @@ th {
 
 /* Stepper Css */
 
-.active .step-number{
+.active .step-number {
   background-color: #176b87;
-  color: #FFFFFF;
+  color: #ffffff;
 }
-.complete .step-number{
+.complete .step-number {
   background-color: #176b87;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.progress{
+.progress {
   transition: 0.2s ease;
 }
+
+/* AddEmployee input CSS */
+
+input[type="date"]:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+
+input[type="date"]:focus::-webkit-datetime-edit {
+  color: #696a6b !important;
+}
+
+input {
+  background-color: white;
+  color: #696a6b;
+}
+
+textarea {
+  color: #696a6b;
+}
+
 @media only screen and (max-width: 1195px) {
   .top-box-wrap {
     flex-wrap: wrap-reverse;

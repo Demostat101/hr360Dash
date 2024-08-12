@@ -1,4 +1,4 @@
-import { createBrowserRouter, Route } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import Error from "./pages/Error";
 import DashBoard from "./pages/DashBoard";
@@ -10,9 +10,6 @@ import EmployeeDetails from "./components/EmployeeComponents/EmployeeDetails";
 import PaySlip from "./components/EmployeeComponents/PaySlip";
 import EmployeePage from "./components/EmployeeComponents/EmployeePage";
 import LeaveHistory from "./components/EmployeeComponents/LeaveHistory";
-import PersonalDetails from "./components/addEmployeeComponents/PersonalDetails";
-import OfficialDetails from "./components/addEmployeeComponents/OfficialDetails";
-import BankDetails from "./components/addEmployeeComponents/BankDetails";
 
 const Routers = createBrowserRouter([
   {

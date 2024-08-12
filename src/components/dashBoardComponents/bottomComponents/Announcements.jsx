@@ -1,7 +1,7 @@
 import { Context } from "../../../DashBoardContext";
-import { Box2Data } from "./AnnouncementsArray";
+import { announcementArray } from "./AnnouncementsArray";
 
-const Box2 = () => {
+const Announcements = () => {
   const { open } = Context();
   return (
     <div
@@ -48,7 +48,7 @@ const Box2 = () => {
       >
         {/* Each box */}
 
-        {Box2Data.map(({ employee, dateTime, icon }, index) => {
+        {announcementArray.map(({ employee, dateTime, icon }, index) => {
           return (
             <div
               key={index}
@@ -102,4 +102,4 @@ const Box2 = () => {
   );
 };
 
-export default Box2;
+export default Announcements;
