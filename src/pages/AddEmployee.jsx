@@ -1,4 +1,4 @@
-import React from "react";
+
 import Stepper from "../components/addEmployeeComponents/Stepper";
 import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";

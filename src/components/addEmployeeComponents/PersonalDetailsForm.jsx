@@ -1,9 +1,11 @@
 import { useRef, useState } from "react";
 import { PiUploadThin } from "react-icons/pi";
+import { Context } from "../../DashBoardContext";
 
 const PersonalDetailsForm = () => {
   const [files, setFiles] = useState(null);
   const inputRef = useRef();
+  
 
   const handleDragOver = (event) => {
     event.preventDefault();
