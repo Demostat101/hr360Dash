@@ -1,4 +1,5 @@
 import { FaRegCalendarAlt } from "react-icons/fa";
+import AnalyticsComponent from "../components/analyticsComponents/AnalyticsComponent";
 
 const Analytics = () => {
   return (
@@ -56,6 +57,7 @@ const Analytics = () => {
           </div>
         </div>
       </>
+      <AnalyticsComponent/>
     </div>
   );
 };
