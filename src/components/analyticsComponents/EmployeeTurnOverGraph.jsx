@@ -38,10 +38,10 @@ const EmployeeTurnOverGraph = () => {
         <XAxis dataKey="name" />
     
         <Tooltip />
-        <Legend />
-        <Bar dataKey="Voluntory" fill="#176B87" />
-        <Bar dataKey="Involuntory" fill="#86B6F6" />
-        <Bar dataKey="Retired" fill="#F4D35E" />
+        <Legend/>
+        <Bar dataKey="Voluntory" fill="#176B87"/>
+        <Bar dataKey="Involuntory" fill="#86B6F6"/>
+        <Bar dataKey="Retired" fill="#F4D35E"/>
       </BarChart>
     </ResponsiveContainer>
     </>

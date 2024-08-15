@@ -1,11 +1,28 @@
-
-
-import React from 'react'
+import {Context} from "../../DashBoardContext"
+import HiredVsLeftGraph from './HiredVsLeftGraph'
 
 const HiredVsLeft = () => {
+  const {open} = Context()
+  
   return (
-    <div className='w-[691.46px] h-[285.72px] border-2 border-yellow-500'>
-      Hired Vs Left
+    <div className='w-[100%] h-[285.72px] flex flex-col shadow-md rounded-lg justify-between p-[15px] bg-white'>
+      <div className='w-full h-[43.15px] flex justify-between place-items-center '>
+        <span className='font-[600] text-[16.27px] leading-[24.41px] text-black opacity-80'>Hired Vs Left</span>
+        <div className='bg-white h-full border-[1.16px] border-[#ECEEF6] px-[13.86px] py-[6.35px] rounded-lg cursor-pointer'>
+            <select className='bg-white focus:outline-none cursor-pointer' name="" id="">
+                <option value="">Jun 2021 - May 2022</option>
+                <option value="">Finance</option>
+                <option value="">HR</option>
+                <option value="">IT</option>
+            </select>
+        </div>
+      </div>
+        {/* Graph */}
+        <div className='w-full px-[20px]'>
+            <div className='w-full h-[200px] '>
+                <HiredVsLeftGraph/>
+            </div>
+        </div>
     </div>
   )
 }
