@@ -57,15 +57,27 @@ const data = [
   },
 ];
 
+export const graphLegend = [
+   
+  {
+    title:"Hired",
+    color: "#86B6F6"
+  },
+  {
+    title:"Left",
+    color: "#F4D35E"
+  },
+]
+
 const HiredVsLeftGraph = () => {
   return (
     <>
         <ResponsiveContainer width="100%" height="100%">
       <BarChart barCategoryGap={10} data={data} stackOffset="sign">
-        <XAxis dataKey="name" />
+        <XAxis dataKey="name" tickLine={false} axisLine={false} tick={{fill:"black", fontSize:"13.96px", fontWeight:"500"} }/>
         <Tooltip />
-        <Legend/>
-        <ReferenceLine y={0} stroke="#DBDADA" />
+        {/* <Legend/> */}
+        <ReferenceLine y={0} stroke="#9D9B9B" />
         <Bar dataKey="Hired" fill="#86B6F6" stackId="stack"/>
         <Bar dataKey="Left" fill="#F4D35E" stackId="stack"/>
       </BarChart>

@@ -27,6 +27,21 @@ const data = [
   }
 ];
 
+export const graphLegend = [
+  {
+    title:"Voluntory",
+    color: "#176B87"
+  },
+  {
+    title:"Involuntory",
+    color: "#86B6F6"
+  },
+  {
+    title:"Hired",
+    color: "#F4D35E"
+  },
+]
+
 
 
 
@@ -35,10 +50,10 @@ const EmployeeTurnOverGraph = () => {
     <>
       <ResponsiveContainer width="100%" height="100%">
       <BarChart barCategoryGap={20} data={data}>
-        <XAxis dataKey="name" />
+        <XAxis dataKey="name" tickLine={false} axisLine={{stroke:"black"}} tick={{fill:"black", fontSize:"13.96px", fontWeight:"500"} } />
     
         <Tooltip />
-        <Legend/>
+        {/* <Legend/> */}
         <Bar dataKey="Voluntory" fill="#176B87"/>
         <Bar dataKey="Involuntory" fill="#86B6F6"/>
         <Bar dataKey="Retired" fill="#F4D35E"/>
