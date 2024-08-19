@@ -21,7 +21,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
       <rect rx="5" ry="5" fill='white' x={x} y={y} textAnchor="m" dominantBaseline="middle"></rect>
         <text style={{ fontWeight: "bold", fontSize: "13.09px" }} x={x} y={y} fill={COLORS[index % COLORS.length]} textAnchor="middle" dominantBaseline="middle" >
       
-        {`${(percent * 100).toFixed(1)}%`};
+        {`${(percent * 100).toFixed(1)}%`}
         
       </text> 
       </>
