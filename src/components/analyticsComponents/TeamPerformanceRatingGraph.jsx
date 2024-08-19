@@ -1,25 +1,33 @@
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 
 export const data = [
-  { name: 'Sales', value: 700, color:'#176B87' },
-  { name: 'Hr', value: 400, color:'#B4D4FF' },
-  { name: 'Finance', value: 300, color:'#F4D35E' },
-  { name: 'IT', value: 50, color:'#D54C5C' },
+  { name: 'Sales', value: 700 },
+  { name: 'Hr', value: 400 },
+  { name: 'Finance', value: 300 },
+  { name: 'IT', value: 200},
 ];
 
-const COLORS = ['#176B87', '#B4D4FF', '#F4D35E', '#D54C5C']
+export const COLORS = ['#176B87', '#B4D4FF', '#F4D35E', '#D54C5C']
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const radius = innerRadius + (outerRadius - innerRadius) * 1;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-  return (
-    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-      {`${(percent * 100).toFixed(0)}%`}
-    </text>
-  );
+    return (
+
+      <>
+      <rect rx="5" ry="5" fill='white' x={x} y={y} textAnchor="m" dominantBaseline="middle"></rect>
+        <text style={{ fontWeight: "bold", fontSize: "13.09px" }} x={x} y={y} fill={COLORS[index % COLORS.length]} textAnchor="middle" dominantBaseline="middle" >
+      
+        {`${(percent * 100).toFixed(1)}%`}
+        
+      </text> 
+      </>
+    
+  )
+  ;
 };
 
 const TeamPerformanceRatingGraph = () => {
@@ -27,20 +35,24 @@ const TeamPerformanceRatingGraph = () => {
      <div className='min-w-[100%] h-full'>
         <ResponsiveContainer>
         <PieChart>
+          
           <Pie
             data={data}
             cx="50%"
             cy="50%"
+            fill="#8884d8"
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius={185}
-            fill="#8884d8"
+            outerRadius={170}
             dataKey="value"
+            style={{ outline: "none" }}
           >
+            
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
           </Pie>
+          <Tooltip/>
         </PieChart>
       </ResponsiveContainer>
     </div>

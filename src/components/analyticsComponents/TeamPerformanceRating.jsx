@@ -1,5 +1,6 @@
 
-import TeamPerformanceRatingGraph, { data } from './TeamPerformanceRatingGraph'
+import TeamPerformanceRatingGraph, { data,COLORS } from './TeamPerformanceRatingGraph'
+
 
 const TeamPerformanceRating = () => {
   return (
@@ -12,9 +13,9 @@ const TeamPerformanceRating = () => {
       </div>
       <div className='flex justify-center gap-[12.71px] w-full mt-[20px]'>
               {
-                data.map(({name,color},index)=>{
+                data.map(({name},index)=>{
                   return <div className='flex place-items-center gap-[10px]' key={index}>
-                    <div  style={{width:"11.55px", height:"11.55px", backgroundColor:color, borderRadius:"50%"}}></div>
+                    <div  style={{width:"11.55px", height:"11.55px", backgroundColor:COLORS[index], borderRadius:"50%"}}></div>
                     <div className='font-[500] text-[13.86px] leading-[20.8px]'>{name}</div>
                   </div>
                 })

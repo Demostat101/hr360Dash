@@ -1,4 +1,4 @@
-import { BarChart, Bar, XAxis, Tooltip, Legend, ResponsiveContainer,ReferenceLine } from 'recharts';
+import { BarChart, Bar, XAxis, Tooltip, ResponsiveContainer,ReferenceLine} from 'recharts';
 
 const data = [
   {
@@ -73,10 +73,9 @@ const HiredVsLeftGraph = () => {
   return (
     <>
         <ResponsiveContainer width="100%" height="100%">
-      <BarChart barCategoryGap={10} data={data} stackOffset="sign">
+      <BarChart barCategoryGap={10} data={data} stackOffset="sign" Legend="circle">
         <XAxis dataKey="name" tickLine={false} axisLine={false} tick={{fill:"black", fontSize:"13.96px", fontWeight:"500"} }/>
         <Tooltip />
-        {/* <Legend/> */}
         <ReferenceLine y={0} stroke="#9D9B9B" />
         <Bar dataKey="Hired" fill="#86B6F6" stackId="stack"/>
         <Bar dataKey="Left" fill="#F4D35E" stackId="stack"/>
