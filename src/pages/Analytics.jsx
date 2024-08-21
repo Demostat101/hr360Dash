@@ -14,18 +14,18 @@ const Analytics = () => {
             Search By:
           </span>
           <div className=" w-[100%] h-[45px] flex gap-[15px]">
-            <div>
-              <div className=" py-[9px] bg-white rounded-lg flex gap-2 place-items-center justify-center font-[400] text-[16px] leading-[24px] text-[#969696]">
+            <>
+              <div className=" py-[9px] px-[20px] bg-white rounded-lg flex gap-2 place-items-center justify-center font-[400] text-[16px] leading-[24px] text-[#969696]">
                 <input
-                  className="w-[50%] focus:outline-none text-center"
+                  className="w-[112px] h-[24px] focus:outline-none text-center"
                   type="text"
                   placeholder="Financial Year"
                 />{" "}
                 <FaRegCalendarAlt className="text-[#041419]" size={24} />
               </div>
-            </div>
-            <div>
-              <div className="px-[47px] py-[9px] bg-white rounded-lg grid place-items-center font-[400] text-[16px]">
+            </>
+            <>
+              <div className="px-[20px] py-[9px] bg-white rounded-lg grid place-items-center font-[400] text-[16px]">
                 <select name="" id="" className=" outline-none bg-white">
                   <option value="" className="bg-white">
                     Region
@@ -39,8 +39,8 @@ const Analytics = () => {
                   </option>
                 </select>
               </div>
-            </div>
-            <div className="px-[47px] py-[9px] bg-white rounded-lg grid place-items-center font-[400] text-[16px]">
+            </>
+            <div className="px-[20px] py-[9px] bg-white rounded-lg grid place-items-center font-[400] text-[16px]">
               <select name="" id="" className=" outline-none bg-white">
                 <option value="" className="bg-white">
                   Department

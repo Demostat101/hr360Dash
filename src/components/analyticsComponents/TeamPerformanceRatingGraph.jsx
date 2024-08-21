@@ -7,7 +7,7 @@ export const data = [
   { name: 'IT', value: 200},
 ];
 
-export const COLORS = ['#176B87', '#B4D4FF', '#F4D35E', '#D54C5C']
+export const COLORS = ['#176B87', '#86B6F6', '#F4D35E', '#C71026']
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {

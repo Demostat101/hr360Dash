@@ -27,7 +27,7 @@ const Events = () => {
       <div
         className={
           open
-            ? "flex flex-col gap-[20px] place-items-center pl-[15px] pr-[15px] "
+            ? "flex flex-col gap-[20px] place-items-center pl-[15px] pr-[15px]"
             : "flex flex-col gap-[20px] place-items-center pl-[15px] pr-[15px] "
         }
       >

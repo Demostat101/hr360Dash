@@ -22,7 +22,7 @@ const SideNavBar = () => {
         }
       >
         {open ? (
-          <h1 className=" relative w-[149px] h-[60px] text-[40px] font-[600] mb-[40px] pl-2">
+          <h1 className=" relative w-[100%] h-[60px] text-[40px] font-[600] mb-[40px] pl-4">
             HR 360{" "}
             <sup className=" absolute top-1 right-[-1] text-[20px]">
               <div className="w-[10px] h-[10px] rounded-full bg-white"></div>
