@@ -53,6 +53,15 @@ const AnnouncementPage = () => {
 //   }
 
 //   console.log(amPm);
+const [
+  totalPages,
+  startPageIndex,
+  endPageIndex,
+  currentPageIndex,
+  setStartPageIndex,
+  setEndPageIndex
+  
+] = UsePagination(initialRowLength, data.length);
 
   
 
@@ -61,6 +70,7 @@ const AnnouncementPage = () => {
     try {
       const response = await axios.get("https://blogappbackend-vhkj.onrender.com/users");
       setData(response.data);
+      
       
       
     } catch (error) {
@@ -73,15 +83,7 @@ const AnnouncementPage = () => {
 
  
 
-  const [
-    totalPages,
-    startPageIndex,
-    endPageIndex,
-    currentPageIndex,
-    setStartPageIndex,
-    setEndPageIndex
-    
-  ] = UsePagination(initialRowLength, data.length);
+ 
   console.log(startPageIndex);
   console.log(endPageIndex);
   console.log(totalPages);
@@ -98,21 +100,20 @@ const AnnouncementPage = () => {
           startPageIndex * endPageIndex,
           startPageIndex * endPageIndex + endPageIndex
         ),
+        
     [startPageIndex, data,endPageIndex,initialRowLength]
   );
 
   console.log(filteredEmployeeList);
 
+  useEffect (()=>{
+    setEndPageIndex(initialRowLength)
+  },[initialRowLength])
+
   const handleChange = (e)=>{
     
-    setInitialRowLength(Number(e.target.value))
-
-    initialRowLength > totalPages+10 ? setEndPageIndex(initialRowLength-5) : setEndPageIndex(initialRowLength+5)
     
-    
-    // setEndPageIndex(initialRowLength)
-    
-    
+    setInitialRowLength(Number(e.target.value))  
     
   }
 
@@ -121,10 +122,6 @@ const AnnouncementPage = () => {
     
 },[])
   
-
-  // useEffect(()=>{
-  //   setEndPageIndex()
-  // },[initialRowLength])
 
   
 
@@ -185,7 +182,7 @@ const AnnouncementPage = () => {
       <div className=" w-full flex justify-between">
         <div>
           <select onChange={handleChange} name="" id="">
-            <option><div>5</div></option>
+            <option value="5">5</option>
             <option value="10" >10</option>
             <option value="15">15</option>
           </select>
