@@ -16,6 +16,7 @@ export const ContextProvider = ({ children }) => {
   const [searchEmpID, setSearchEmpID] = useState("");
   const [searchEmpRegion, setSearchEmpRegion] = useState("");
   const [open, setOpen] = useLocalStorage(false);
+  const [openModal, setOpenModal] = useState(false)
   const [name, setName] = useState("Esther");
   const [editPersonalDetailsButton, setEditPersonalDetailsButton] =
     useState(false);
@@ -246,6 +247,8 @@ export const ContextProvider = ({ children }) => {
         setEditRegion,
         editSkills,
         setEditSkills,
+        openModal,
+        setOpenModal
       }}
     >
       {children}

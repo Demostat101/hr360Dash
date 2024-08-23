@@ -1,10 +1,22 @@
 import { MdCampaign } from "react-icons/md";
 import { FaPlus } from "react-icons/fa";
 import AnnouncementPage from "../components/announcementsComponents/AnnouncementPage";
+import AnnouncementPlatform from "../components/announcementsComponents/AnnouncementPlatform";
+import AnnouncementModal from "../components/announcementsComponents/AnnouncementModal";
+import { Context } from "../DashBoardContext";
 
 const Announcement = () => {
+  const {setOpenModal} = Context()
+
+
+    const openPost = () => {
+        setOpenModal(true);
+      };
   return (
-    <div className="w-full p-[20px] border-2 border-red-500">
+    <div className="w-full p-[20px]">
+      <AnnouncementPlatform>
+        <AnnouncementModal/>
+      </AnnouncementPlatform>
       <div>
         <div className="flex justify-between">
           <div>
@@ -21,12 +33,12 @@ const Announcement = () => {
             </p>
           </div>
 
-          <button className=" w-[254px] h-[54px] flex gap-[16px] rounded-lg justify-center place-items-center bg-[#176B87] text-white">
+          <div className=" w-[254px] h-[54px] flex gap-[16px] rounded-lg justify-center place-items-center bg-[#176B87] text-white cursor-pointer" onClick={openPost}>
             <FaPlus size={20} />{" "}
             <span className="font-[500] text-[14px] leading-[21px]">
               Create Announcement
             </span>
-          </button>
+          </div>
         </div>
         <AnnouncementPage/>
       </div>

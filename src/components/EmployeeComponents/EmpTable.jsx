@@ -2,13 +2,25 @@ import { Context } from "../../DashBoardContext";
 import Pagination from "@mui/material/Pagination";
 import { UsePagination } from "./UsePagination";
 import { Link } from "react-router-dom";
-import { PaginationItem, Typography } from "@mui/material";
+import {
+  createTheme,
+  PaginationItem,
+  ThemeProvider,
+  Typography,
+} from "@mui/material";
 import { useMemo } from "react";
 import { useTable } from "react-table";
 
 const EmpTable = () => {
   const { data, searchName, searchEmpID, handleCheckBox, searchEmpRegion } =
     Context();
+
+  const { palette } = createTheme();
+  const theme = createTheme({
+    palette: {
+      primaryBlue: palette.augmentColor({ color: { main: "#176B87" } }),
+    },
+  });
 
   const [
     totalPages,
@@ -154,25 +166,26 @@ const EmpTable = () => {
           })}
         </tbody>
       </table>
-
-      <Pagination
-        className="flex flex-col place-items-end pt-[15px] pb-[15px]"
-        color="primary"
-        count={totalPages}
-        onChange={(event, value) => setStartPageIndex(value - 1)}
-        renderItem={(item) => (
-          <PaginationItem
-            slots={{
-              previous: () => <Typography variant="label">Prev</Typography>,
-              next: () => <Typography variant="label">Next</Typography>,
-            }}
-            {...item}
-          />
-        )}
-        defaultPage={1}
-        siblingCount={0}
-        boundaryCount={1}
-      />
+      <ThemeProvider theme={theme}>
+        <Pagination
+          className="flex flex-col place-items-end pt-[15px] pb-[15px]"
+          color="primaryBlue"
+          count={totalPages}
+          onChange={(event, value) => setStartPageIndex(value - 1)}
+          renderItem={(item) => (
+            <PaginationItem
+              slots={{
+                previous: () => <Typography variant="label">Prev</Typography>,
+                next: () => <Typography variant="label">Next</Typography>,
+              }}
+              {...item}
+            />
+          )}
+          defaultPage={1}
+          siblingCount={0}
+          boundaryCount={1}
+        />
+      </ThemeProvider>
     </div>
   );
 };

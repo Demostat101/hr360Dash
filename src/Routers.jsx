@@ -10,6 +10,7 @@ import EmployeeDetails from "./components/EmployeeComponents/EmployeeDetails";
 import PaySlip from "./components/EmployeeComponents/PaySlip";
 import EmployeePage from "./components/EmployeeComponents/EmployeePage";
 import LeaveHistory from "./components/EmployeeComponents/LeaveHistory";
+import AnnouncementPlatform from "./components/announcementsComponents/AnnouncementPlatform";
 
 const Routers = createBrowserRouter([
   {

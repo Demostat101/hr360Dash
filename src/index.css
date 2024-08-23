@@ -107,7 +107,7 @@ ul a.active .icon {
   --g: radial-gradient(
       farthest-side,
       #0000 calc(95% - 3px),
-      #4400ff calc(100% - 3px) 98%,
+      #176B87 calc(100% - 3px) 98%,
       #0000 101%
     )
     no-repeat;
