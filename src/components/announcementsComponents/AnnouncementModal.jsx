@@ -2,6 +2,7 @@ import { FaTimes } from "react-icons/fa";
 import { TbWorldUp } from "react-icons/tb";
 import { TbMailForward } from "react-icons/tb"
 import { Context } from "../../DashBoardContext";
+import { Link } from "react-router-dom";
 
 
 
@@ -23,16 +24,16 @@ const AnnouncementModal = () => {
         </div>
 
         <div className="flex gap-[30px] justify-center">
-          <div className="w-[340px] h-[206px] flex flex-col place-items-center justify-center  bg-white">
+          <Link to="intranet-announcement" className="w-[340px] h-[206px] flex flex-col place-items-center justify-center  bg-white cursor-pointer">
             <TbWorldUp className="text-[#464646]" size={40}/>
             <div className="font-[500] text-[32px] leading-[48px] text-[#464646]">Intranet</div>
 
-          </div>
-          <div className="w-[340px] h-[206px] flex flex-col place-items-center justify-center  bg-white">
+          </Link>
+          <Link to="email-announcement" className="w-[340px] h-[206px] flex flex-col place-items-center justify-center  bg-white cursor-pointer">
             <TbMailForward className="text-[#464646]" size={40}/>
             <div className="font-[500] text-[32px] leading-[48px] text-[#464646]">E-Mail</div>
 
-          </div>
+          </Link>
         </div>
 
       </div>

@@ -10,7 +10,9 @@ import EmployeeDetails from "./components/EmployeeComponents/EmployeeDetails";
 import PaySlip from "./components/EmployeeComponents/PaySlip";
 import EmployeePage from "./components/EmployeeComponents/EmployeePage";
 import LeaveHistory from "./components/EmployeeComponents/LeaveHistory";
-import AnnouncementPlatform from "./components/announcementsComponents/AnnouncementPlatform";
+import CreateIntranetAnnouncement from "./components/announcementsComponents/CreateIntranetAnnouncement";
+import CreateEmailAnnouncement from "./components/announcementsComponents/CreateEmailAnnouncement";
+import DisplayAnnouncements from "./components/announcementsComponents/DisplayAnnouncements";
 
 const Routers = createBrowserRouter([
   {
@@ -72,10 +74,23 @@ const Routers = createBrowserRouter([
         element: <Analytics />,
       },
       {
-        path: "/announcement",
+        path: "/announcement/",
         element: <Announcement />,
+        children:[
+          {
+            index: true,
+            element: <DisplayAnnouncements/>
+          },
+          {
+            path: "intranet-announcement",
+            element: <CreateIntranetAnnouncement />
+          },
+          {
+            path: "email-announcement",
+            element: <CreateEmailAnnouncement />
+          },
+        ]
       },
-
       {
         path: "/*",
         element: <Error />,
