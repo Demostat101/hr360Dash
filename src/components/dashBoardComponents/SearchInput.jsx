@@ -5,7 +5,7 @@ import { LiaSlidersHSolid } from "react-icons/lia";
 const SearchInput = () => {
   return (
     <form
-      className="w-[100%] h-[58px] bg-[#ECEEF6] flex flex-col place-items-center border-solid border-2 shadow-sm rounded-md p-[15px]"
+      className="w-[100%] h-[58px] bg-[#FFFFFF] flex flex-col place-items-center border-solid border-2 border-[#ECEEF6] rounded-md p-[15px]"
       onSubmit={(e) => e.preventDefault()}
     >
       <div className=" w-[100%] h-[100%]  flex justify-between place-items-center pr-[25px]">
@@ -14,7 +14,7 @@ const SearchInput = () => {
           <input
             type="text"
             placeholder="Search..."
-            className="w-full h-full outline-none"
+            className="w-full h-full outline-none bg-[#FFFFFF]"
           />
         </div>
         <LiaSlidersHSolid size={28} className="text-[#A3A3A3]" />
