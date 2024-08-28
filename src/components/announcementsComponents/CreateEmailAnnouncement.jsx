@@ -1,24 +1,20 @@
 import { useRef, useState } from "react";
 import { PiUploadThin } from "react-icons/pi";
 
-
 const CreateEmailAnnouncement = () => {
+  const [files, setFiles] = useState(null);
+  const inputRef = useRef();
 
-    const [files, setFiles] = useState(null);
-    const inputRef = useRef();
-    
-  
-    const handleDragOver = (event) => {
-      event.preventDefault();
-    };
-  
-    const handleDrop = (event) => {
-      event.preventDefault();
-      setFiles(event.dataTransfer.files);
-    };
-  
-    const handleUpload = () => {};
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
 
+  const handleDrop = (event) => {
+    event.preventDefault();
+    setFiles(event.dataTransfer.files);
+  };
+
+  const handleUpload = () => {};
 
   return (
     <div className="w-full  p-[20px]">
@@ -101,7 +97,6 @@ const CreateEmailAnnouncement = () => {
                     <div
                       onClick={() => inputRef.current.click()}
                       className="flex flex-col place-items-center cursor-pointer"
-                      
                     >
                       <div>
                         Click or Drag a file to the <br /> area to upload
@@ -136,13 +131,14 @@ const CreateEmailAnnouncement = () => {
                 )}
               </>
             </div>
-
-            <button className="w-full text-white font-[500] text-[24px] leading-[36px] bg-[#176B87] px-[20px] py-[10px] rounded-[10px] mt-[60px]">Send</button>
+            <button className="w-full text-white font-[500] text-[24px] leading-[36px] bg-[#176B87] px-[20px] py-[10px] rounded-[10px] mt-[60px]">
+              Send
+            </button>
           </form>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CreateEmailAnnouncement
+export default CreateEmailAnnouncement;

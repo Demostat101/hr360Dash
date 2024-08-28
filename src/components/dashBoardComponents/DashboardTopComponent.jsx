@@ -1,6 +1,6 @@
 import { HiOutlineUserGroup } from "react-icons/hi";
-import { Context } from "../../DashBoardContext";
-import { EmployeeStore } from "./TopComponentStore";
+import { EmployeeStore } from "./DashboardTopComponentStore";
+import { Context } from "../../contexts/DashBoardContext";
 
 const TopComponent = () => {
   const { open } = Context();

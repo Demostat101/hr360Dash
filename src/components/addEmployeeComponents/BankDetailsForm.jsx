@@ -1,9 +1,8 @@
-
-
 const BankDetailsForm = () => {
   return (
     <div className="w-full flex flex-col  place-items-center">
-      <form action=""
+      <form
+        action=""
         onSubmit={(e) => e.preventDefault()}
         className="w-[450px] flex flex-col gap-[40px] my-[20px]"
       >

@@ -1,4 +1,4 @@
-import { Context } from "../../DashBoardContext";
+import { editEmployeeContext } from "../../contexts/EditDetailsContext";
 
 const PersonalDetailsEditForm = () => {
   const {
@@ -27,7 +27,7 @@ const PersonalDetailsEditForm = () => {
     setEditLanguage,
     editEmergencyContact,
     setEditEmergencyContact,
-  } = Context();
+  } = editEmployeeContext();
 
   return (
     <>

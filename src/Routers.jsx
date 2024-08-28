@@ -47,27 +47,12 @@ const Routers = createBrowserRouter([
             path: "employee-leave-history",
             element: <LeaveHistory />,
           },
-        ]
+        ],
       },
 
       {
         path: "/add-employee",
-        element: <AddEmployee />/* ,
-        children: [
-          {
-            index: true,
-
-            element: <PersonalDetails />,
-          },
-          {
-            path: "official-details",
-            element: <OfficialDetails />,
-          },
-          {
-            path: "bank-details",
-            element: <BankDetails />,
-          },
-        ] */
+        element: <AddEmployee />,
       },
       {
         path: "/analytics",
@@ -76,20 +61,20 @@ const Routers = createBrowserRouter([
       {
         path: "/announcement/",
         element: <Announcement />,
-        children:[
+        children: [
           {
             index: true,
-            element: <DisplayAnnouncements/>
+            element: <DisplayAnnouncements />,
           },
           {
             path: "intranet-announcement",
-            element: <CreateIntranetAnnouncement />
+            element: <CreateIntranetAnnouncement />,
           },
           {
             path: "email-announcement",
-            element: <CreateEmailAnnouncement />
+            element: <CreateEmailAnnouncement />,
           },
-        ]
+        ],
       },
       {
         path: "/*",

@@ -1,6 +1,8 @@
+import { Context } from "../../../contexts/DashBoardContext";
 import { celebrationArray } from "./CelebrationArray";
 
 const Birthday = () => {
+  const { open } = Context();
   return (
     <>
       {celebrationArray.map(({ img, department, name, date }, index) => {

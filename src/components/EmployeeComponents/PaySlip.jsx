@@ -1,7 +1,7 @@
 import React from "react";
-import { Context } from "../../DashBoardContext";
 import { useParams } from "react-router-dom";
 import { MdPrint } from "react-icons/md";
+import { Context } from "../../contexts/DashBoardContext";
 
 const PaySlip = () => {
   const { open, data } = Context();

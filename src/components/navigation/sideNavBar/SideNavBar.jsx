@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Paths } from "./SideBarArray";
 import SevenUpLogo from "../../../assets/SevenUpLogo.jfif";
-import { Context } from "../../../DashBoardContext";
+import { Context } from "../../../contexts/DashBoardContext";
 
 const SideNavBar = () => {
   const { open /* ,menu */ } = Context();

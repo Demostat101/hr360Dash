@@ -1,10 +1,10 @@
 import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
-import { Context } from "../../DashBoardContext";
 import Image from "../../assets/ajayiImage.jfif";
 import { BsDiagram3 } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { TbCalendarTime } from "react-icons/tb";
+import { Context } from "../../contexts/DashBoardContext";
 
 const EmployeeDetails = () => {
   const { pathname } = useLocation();

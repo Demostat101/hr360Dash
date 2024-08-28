@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 export const UsePagination = (perPageRecords, totalPageRecords) => {
@@ -9,12 +8,10 @@ export const UsePagination = (perPageRecords, totalPageRecords) => {
 
   const displayPage = (pageNumber) => {
     setCurrentPageIndex(pageNumber);
-    let end_page_index = perPageRecords * pageNumber - 1 ;
+    let end_page_index = perPageRecords * pageNumber - 1;
     let start_page_index = perPageRecords * pageNumber - perPageRecords;
-    
-    
-    setStartPageIndex(start_page_index +1);
-    
+
+    setStartPageIndex(start_page_index + 1);
 
     if (end_page_index > totalPageRecords) {
       setEndPageIndex(totalPageRecords);
@@ -29,6 +26,6 @@ export const UsePagination = (perPageRecords, totalPageRecords) => {
     endPageIndex,
     currentPageIndex,
     setStartPageIndex,
-    setEndPageIndex
+    setEndPageIndex,
   ];
 };

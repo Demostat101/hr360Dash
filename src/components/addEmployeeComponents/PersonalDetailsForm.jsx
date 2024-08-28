@@ -4,7 +4,6 @@ import { PiUploadThin } from "react-icons/pi";
 const PersonalDetailsForm = () => {
   const [files, setFiles] = useState(null);
   const inputRef = useRef();
-  
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -356,7 +355,6 @@ const PersonalDetailsForm = () => {
                     <div
                       onClick={() => inputRef.current.click()}
                       className="flex flex-col place-items-center cursor-pointer"
-                      
                     >
                       <div>
                         Click or Drag a file to the <br /> area to upload

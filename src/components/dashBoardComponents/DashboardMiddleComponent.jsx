@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Context } from "../../DashBoardContext";
 import Graph1 from "./Graph1";
 import Graph2 from "./Graph2";
 import DashCalender from "./DashCalender";
+import { Context } from "../../contexts/DashBoardContext";
 
 const MiddleComponent = () => {
   const [graph, setGraph] = useState(false);

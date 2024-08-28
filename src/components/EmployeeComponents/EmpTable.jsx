@@ -1,4 +1,3 @@
-import { Context } from "../../DashBoardContext";
 import Pagination from "@mui/material/Pagination";
 import { UsePagination } from "./UsePagination";
 import { Link } from "react-router-dom";
@@ -10,6 +9,7 @@ import {
 } from "@mui/material";
 import { useMemo } from "react";
 import { useTable } from "react-table";
+import { Context } from "../../contexts/DashBoardContext";
 
 const EmpTable = () => {
   const { data, searchName, searchEmpID, handleCheckBox, searchEmpRegion } =

@@ -1,4 +1,4 @@
-import { Context } from "../../../DashBoardContext";
+import { Context } from "../../../contexts/DashBoardContext";
 import Anniversary from "./Anniversary";
 import Birthday from "./Birthday";
 import useLocalStorage from "use-local-storage";

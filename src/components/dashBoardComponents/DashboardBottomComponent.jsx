@@ -1,7 +1,7 @@
-import { Context } from "../../DashBoardContext";
 import Events from "./bottomComponents/Events";
 import Announcements from "./bottomComponents/Announcements";
 import Celebrations from "./bottomComponents/Celebration";
+import { Context } from "../../contexts/DashBoardContext";
 
 const BottomComponent = () => {
   const { open } = Context();

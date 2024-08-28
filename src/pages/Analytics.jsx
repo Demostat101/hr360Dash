@@ -57,7 +57,7 @@ const Analytics = () => {
           </div>
         </div>
       </>
-      <AnalyticsComponent/>
+      <AnalyticsComponent />
     </div>
   );
 };

@@ -1,5 +1,4 @@
-import React from "react";
-import { Context } from "../../DashBoardContext";
+import { editEmployeeContext } from "../../contexts/EditDetailsContext";
 
 const OfficialDetailsEditForm = () => {
   const {
@@ -20,7 +19,7 @@ const OfficialDetailsEditForm = () => {
     setEditRegion,
     editSkills,
     setEditSkills,
-  } = Context();
+  } = editEmployeeContext();
 
   return (
     <>
@@ -228,7 +227,7 @@ const OfficialDetailsEditForm = () => {
             </label>
 
             <input
-            readOnly
+              readOnly
               className="focus:outline-none border-[1px] border-[#a5b5bb] rounded-md"
               value={editSkills}
               onChange={(e) => setEditSkills(e.target.value)}

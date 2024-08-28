@@ -1,6 +1,6 @@
 import EmpTable from "../components/EmployeeComponents/EmpTable";
-import { Context } from "../DashBoardContext";
 import { FaPlus } from "react-icons/fa";
+import { Context } from "../contexts/DashBoardContext";
 
 const Employee = () => {
   const {

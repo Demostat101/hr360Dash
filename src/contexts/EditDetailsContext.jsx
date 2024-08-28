@@ -1,66 +1,20 @@
-import { createContext, useContext, useState } from "react";
-import useLocalStorage from "use-local-storage";
-import { apiRequest, useAxiosFetch } from "./useAxiosFetch/UseAxiosFetch";
 import axios from "axios";
+import { createContext, useContext, useState } from "react";
+import { useAxiosFetch } from "../hooks/UseAxiosFetch";
 
-export const dashBoardContext = createContext();
+export const editContext = createContext();
 
-export const Context = () => {
-  return useContext(dashBoardContext);
+export const editEmployeeContext = () => {
+  return useContext(editContext);
 };
 
-export const ContextProvider = ({ children }) => {
-  const API_URL = "http://localhost:4000/data";
-  const [error, setError] = useState(null);
-  const [searchName, setSearchName] = useState("");
-  const [searchEmpID, setSearchEmpID] = useState("");
-  const [searchEmpRegion, setSearchEmpRegion] = useState("");
-  const [open, setOpen] = useLocalStorage(false);
-  const [openModal, setOpenModal] = useState(false)
-  const [name, setName] = useState("Esther");
+export const EditDetailsContext = ({ children }) => {
   const [editPersonalDetailsButton, setEditPersonalDetailsButton] =
     useState(false);
   const [editOfficialDetailsButton, setEditOfficialDetailsButton] =
     useState(false);
-  const { data, fetchError, isLoading, setData } = useAxiosFetch(
-    `http://localhost:4000/data`
-  );
 
-  const handleOpenBar = () => {
-    const close = !open;
-    setOpen(close);
-  };
-
-  const handleCheckBox = async (id) => {
-    const toggleCheckBox = data.map((item) =>
-      item.id.toString() === id.toString()
-        ? { ...item, active: !item.active }
-        : item
-    );
-
-    setData(toggleCheckBox);
-
-    //to update Status
-
-    const myItem = toggleCheckBox.filter(
-      (item) => item.id.toString() === id.toString()
-    );
-
-    const updateOptions = {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ active: myItem[0].active }),
-    };
-
-    const reqUrl = `${API_URL}/${id}`;
-    const result = await apiRequest(reqUrl, updateOptions);
-
-    if (result) {
-      setError(result);
-    }
-  };
+  const { data, setData } = useAxiosFetch(`http://localhost:4000/data`);
 
   // Handle Edit Personal Employee Details
 
@@ -118,9 +72,8 @@ export const ContextProvider = ({ children }) => {
         setEditPersonalDetailsButton(false);
 
         setData(
-          data.map(
-            (employee) => (employee.id === id ? { ...response.data } : employee)
-            // employee.id === id ? { ...response.data } : employee.id === id ? employee.skills.map((val)=> val.skill) : employee
+          data.map((employee) =>
+            employee.id === id ? { ...response.data } : employee
           )
         );
       } catch (error) {
@@ -128,8 +81,6 @@ export const ContextProvider = ({ children }) => {
       }
     }
   };
-
-  const a = ["coding", "art", { skills: ["man", "woman"] }];
 
   // Handle Edit Official Details
 
@@ -186,21 +137,8 @@ export const ContextProvider = ({ children }) => {
   };
 
   return (
-    <dashBoardContext.Provider
+    <editContext.Provider
       value={{
-        handleOpenBar,
-        open,
-        name,
-        data,
-        fetchError,
-        isLoading,
-        searchName,
-        setSearchName,
-        handleCheckBox,
-        searchEmpID,
-        setSearchEmpID,
-        searchEmpRegion,
-        setSearchEmpRegion,
         editPersonalDetailsButton,
         setEditPersonalDetailsButton,
         editName,
@@ -247,11 +185,10 @@ export const ContextProvider = ({ children }) => {
         setEditRegion,
         editSkills,
         setEditSkills,
-        openModal,
-        setOpenModal
+        data,
       }}
     >
       {children}
-    </dashBoardContext.Provider>
+    </editContext.Provider>
   );
 };

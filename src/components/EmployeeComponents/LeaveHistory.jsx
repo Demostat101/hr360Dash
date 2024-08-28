@@ -1,4 +1,4 @@
-import { Context } from "../../DashBoardContext";
+import { Context } from "../../contexts/DashBoardContext";
 
 const LeaveHistory = () => {
   const { open } = Context();

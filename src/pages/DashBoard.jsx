@@ -1,7 +1,7 @@
-import { Context } from "../DashBoardContext";
-import BottomComponent from "../components/dashBoardComponents/BottomComponent";
-import MiddleComponent from "../components/dashBoardComponents/MiddleComponent";
-import TopComponent from "../components/dashBoardComponents/TopComponent";
+import BottomComponent from "../components/dashBoardComponents/DashboardBottomComponent";
+import MiddleComponent from "../components/dashBoardComponents/DashboardMiddleComponent";
+import TopComponent from "../components/dashBoardComponents/DashboardTopComponent";
+import { Context } from "../contexts/DashBoardContext";
 
 const DashBoard = () => {
   const { open, name } = Context();

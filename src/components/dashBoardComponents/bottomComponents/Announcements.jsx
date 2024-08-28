@@ -1,4 +1,4 @@
-import { Context } from "../../../DashBoardContext";
+import { Context } from "../../../contexts/DashBoardContext";
 import { announcementArray } from "./AnnouncementsArray";
 
 const Announcements = () => {

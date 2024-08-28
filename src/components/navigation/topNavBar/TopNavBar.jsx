@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Pic from "/src/assets/woman.jfif";
 import { FaBars } from "react-icons/fa";
-import { FaTimes } from "react-icons/fa";
 import SearchInput from "../../dashBoardComponents/SearchInput";
-import { Context } from "../../../DashBoardContext";
+import { Context } from "../../../contexts/DashBoardContext";
 
 const TopNavBar = () => {
   const [isLogin, setIsLogin] = useState(true);

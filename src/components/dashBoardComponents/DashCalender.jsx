@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { generateDate } from "./DashCalenderFunctions";
 import { useState } from "react";
-import { Context } from "../../DashBoardContext";
+import { Context } from "../../contexts/DashBoardContext";
 
 function cn(...classes) {
   return classes.filter(Boolean).join();
@@ -10,7 +10,7 @@ function cn(...classes) {
 const DashCalender = () => {
   const currentDay = dayjs();
 
-  const { open } = Context;
+  const { open } = Context();
 
   const days = ["S", "M", "T", "W", "T", "F", "S"];
 

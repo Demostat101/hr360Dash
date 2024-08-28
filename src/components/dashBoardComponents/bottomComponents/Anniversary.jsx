@@ -1,8 +1,10 @@
+import { Context } from "../../../contexts/DashBoardContext";
 import { Box3Data1 } from "./CelebrationArray";
 
 import React from "react";
 
 const Anniversary = () => {
+  const { open } = Context();
   return (
     <>
       {Box3Data1.map(({ img, department, name, date }, index) => {

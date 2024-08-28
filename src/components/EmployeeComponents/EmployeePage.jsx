@@ -1,4 +1,3 @@
-import { Context } from "../../DashBoardContext";
 import { CiEdit } from "react-icons/ci";
 import { LuSave } from "react-icons/lu";
 import PersonalDetailsEditForm from "./PersonalDetailsEditForm";
@@ -6,13 +5,16 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import OfficialDetailsEditForm from "./OfficialDetailsEditForm";
 import { GoPaperclip } from "react-icons/go";
-
+import { editEmployeeContext } from "../../contexts/EditDetailsContext";
+import { Context } from "../../contexts/DashBoardContext";
 
 const EmployeePage = () => {
   const { id } = useParams();
+
+  const { open } = Context();
+  const { data } = editEmployeeContext();
+
   const {
-    open,
-    data,
     editPersonalDetailsButton,
     setEditPersonalDetailsButton,
     setEditName,
@@ -39,7 +41,8 @@ const EmployeePage = () => {
     setEditReportingOfficer,
     setEditRegion,
     setEditSkills,
-  } = Context();
+  } = editEmployeeContext();
+
   const employeeFilter = data.filter(
     (employee) => employee.id.toString() === id
   );
@@ -93,7 +96,7 @@ const EmployeePage = () => {
       setEditDepartment(post.department);
       setEditReportingOfficer(post.reportingSupervisor);
       setEditRegion(post.region);
-      setEditSkills(post.skills.map((vals)=>vals));
+      setEditSkills(post.skills.map((vals) => vals));
     }
   }, [
     post,
