@@ -42,7 +42,7 @@ const CreateIntranetAnnouncement = () => {
                 <span className="text-[red]">*</span>Date
               </label>
               <input
-                className="border-[2px] px-[15px] border-solid border-[#ECEEF6] rounded-[5px] h-[60px] focus:outline-none"
+                className="border-[2px] px-[15px] w-full border-solid border-[#ECEEF6] rounded-[5px] h-[60px] focus:outline-none"
                 type="date"
                 id="date"
                 name="date"

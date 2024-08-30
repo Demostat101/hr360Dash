@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PiUploadThin } from "react-icons/pi";
 
 const PersonalDetailsForm = () => {
@@ -16,8 +16,37 @@ const PersonalDetailsForm = () => {
 
   const handleUpload = () => {};
 
+// const [val, setVal] = useState("")
+//   const restApi = async ()=>{
+//     try {
+//       const res = await fetch("https://restcountries.com/v3.1/all");
+
+//       const data = await res.json()
+//       console.log(data);
+//       console.log(res);
+
+//       let mapper = data.map(({idd})=> idd)
+//       setVal(mapper)
+//       console.log(mapper);
+      
+      
+//     } catch (error) {
+//       console.log(error);
+      
+//     }
+
+//   }
+
+//   useEffect(()=>{
+//     restApi()
+//   },[])
+
+// console.log(val.root);
+
+
   return (
     <div>
+      {/* <div>{val.root}</div> */}
       <form
         className="flex flex-col gap-[30px]"
         action=""
