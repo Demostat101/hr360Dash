@@ -8,8 +8,8 @@ const TopComponent = () => {
     <div
       className={
         open
-          ? "w-full h-[228.01px] flex gap-[27px] top-box-wrap"
-          : "w-full h-[251.06px] flex gap-[27px] top-box-wrap"
+          ? "w-full flex gap-[27px] top-box-wrap"
+          : "w-full flex gap-[27px] top-box-wrap"
       }
     >
       {/* container holding all cards */}
@@ -20,7 +20,7 @@ const TopComponent = () => {
             <div
               className={
                 open
-                  ? "max-w-[100%] max-h-[228.01px] "
+                  ? "max-w-[100%] max-h-[228.01px]"
                   : "max-w-[100%] max-h-[251.06px] "
               }
             >
@@ -29,8 +29,8 @@ const TopComponent = () => {
               <div
                 className={
                   open
-                    ? "w-[100%] rounded-lg relative max-h-[202.44px] pt-[40px] pb-[40px] shadow-lg bg-[#FFFFFF] pl-[16px] mt-[25.57px] flex flex-col justify-center"
-                    : " w-[100%] rounded-lg bg-[#FFFFFF] shadow-lg pt-[44px] pb-[44px] relative max-h-[222.9px] flex flex-col justify-center mt-[28.16px] pl-[16px]"
+                    ? "w-[100%] rounded-lg relative max-h-[202.44px] pt-[40px] pb-[10px] shadow-lg bg-[#FFFFFF] pl-[16px] mt-[25.57px] flex flex-col justify-center"
+                    : " w-[100%] rounded-lg bg-[#FFFFFF] shadow-lg pt-[40px] pb-[10px] relative max-h-[222.9px] flex flex-col justify-center mt-[28.16px] pl-[16px]"
                 }
               >
                 {/* top small box */}

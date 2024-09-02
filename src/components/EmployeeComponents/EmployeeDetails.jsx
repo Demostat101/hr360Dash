@@ -8,6 +8,7 @@ import { Context } from "../../contexts/DashBoardContext";
 
 const EmployeeDetails = () => {
   const { pathname } = useLocation();
+  
   const { open, data } = Context();
   const { id } = useParams();
   const employeeFilter = data.filter(
@@ -212,8 +213,8 @@ const EmployeeDetails = () => {
                     <button>
                       <NavLink
                         className={
-                          (open && pathname === `/employee/${id}`) ||
-                          (!open && pathname === `/employee/${id}`)
+                          (open && pathname === `/layout/employee/${id}`) ||
+                          (!open && pathname === `/layout/employee/${id}`)
                             ? "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 bg-[#E1EDFD] rounded-[10px] border-[1px] border-[#a5b5bb]"
                             : "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black bg-white opacity-70 border-[1px] border-[#a5b5bb] rounded-[10px]"
                         }
@@ -225,13 +226,13 @@ const EmployeeDetails = () => {
                       <NavLink
                         className={
                           (open &&
-                            pathname === `/employee/${id}/employee-payslip`) ||
+                            pathname === `/layout/employee/${id}/employee-payslip`) ||
                           (!open &&
-                            pathname === `/employee/${id}/employee-payslip`)
+                            pathname === `/layout/employee/${id}/employee-payslip`)
                             ? "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 bg-[#E1EDFD] rounded-[10px] border-[1px] border-[#a5b5bb]"
                             : "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 border-[1px] border-[#a5b5bb] rounded-[10px] bg-white"
                         }
-                        to={`/employee/${id}/employee-payslip`}
+                        to={`/layout/employee/${id}/employee-payslip`}
                       >
                         Payslip
                       </NavLink>
@@ -241,14 +242,14 @@ const EmployeeDetails = () => {
                         className={
                           (open &&
                             pathname ===
-                              `/employee/${id}/employee-leave-history`) ||
+                              `/layout/employee/${id}/employee-leave-history`) ||
                           (!open &&
                             pathname ===
-                              `/employee/${id}/employee-leave-history`)
+                              `/layout/employee/${id}/employee-leave-history`)
                             ? "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 bg-[#E1EDFD] rounded-[10px] border-[1px] border-[#a5b5bb]"
                             : "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 border-[1px] border-[#a5b5bb] rounded-[10px] bg-white"
                         }
-                        to={`/employee/${id}/employee-leave-history`}
+                        to={`/layout/employee/${id}/employee-leave-history`}
                       >
                         Leave History
                       </NavLink>

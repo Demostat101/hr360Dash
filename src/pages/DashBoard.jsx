@@ -12,9 +12,9 @@ const DashBoard = () => {
       >
         <h1
           className={
-            !open
-              ? "font-[600] text-[28.63px] leading-[42.94px]"
-              : "font-[600] text-[26px] leading-[39px]"
+            open
+              ? "font-[600] text-[24px] leading-[39px]"
+              : "font-[600] text-[26px] leading-[42.94px] "
           }
         >
           Good Morning, {name}{" "}

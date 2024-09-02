@@ -3,7 +3,7 @@ import ErrorPageImage from "../assets/errorpage.jfif"
 
 const Error = () => {
   return (
-    <div className="w-full h-[86vh] flex flex-col place-items-center justify-center">
+    <div className="w-full h-[100vh] flex flex-col place-items-center justify-center bg-[#F6F7FA]">
       <div className="w-[90%] h-[450px] flex place-items-center justify-between">
         <div className="w-[49%]">
           <div className="w-full text-[#464646]">

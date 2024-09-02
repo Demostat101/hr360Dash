@@ -110,7 +110,7 @@ const MiddleComponent = () => {
           <div
             className={
               open
-                ? "w-[90%] h-[230px] pr-[30px] pb-[15px] "
+                ? "w-[90%] h-[230px] pr-[30px] pb-[15px]"
                 : "w-[90%] h-[250px] pr-[30px] pb-[15px] "
             }
           >
@@ -129,7 +129,7 @@ const MiddleComponent = () => {
         }
       >
         <DashCalender />
-        <hr />
+        <hr className="mt-3" />
         <div
           className={
             open

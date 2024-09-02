@@ -9,8 +9,8 @@ const SideNavBar = () => {
     <nav /* id="side-bar" */
       className={
         open
-          ? "w-[250px] h-[100vh] trans bg-[#176B87] text-[#FFFFFF] pt-[100px] flex flex-col justify-between pb-[8px] "
-          : "w-[130px] h-[100vh] transit bg-[#176B87] place-items-center text-white pt-[110px] flex flex-col justify-between pb-[12px]" /* ,
+          ? "w-[250px] h-[100vh] trans bg-[#176B87] text-[#FFFFFF] pt-[20px] flex flex-col justify-between pb-[8px] "
+          : "w-[130px] h-[100vh] transit bg-[#176B87] place-items-center text-white pt-[28px] flex flex-col justify-between pb-[12px]" /* ,
           open || menu ? "#side-bar hide-nav w-[250px] h-[100vh] trans bg-[#176B87] text-[#FFFFFF] pt-[100px] flex flex-col justify-between pb-[8px]" : !open || menu ?  "#side-bar hide-nav w-[130px] h-[100vh] transit bg-[#176B87] place-items-center text-white pt-[110px] flex flex-col justify-between pb-[12px]" : "#side-bar" */
       }
     >
@@ -21,16 +21,13 @@ const SideNavBar = () => {
             : "w-[130px] transit bg-[#176B87] flex flex-col place-items-center "
         }
       >
-        {open ? (
-          <h1 className=" relative w-[100%] h-[60px] text-[40px] font-[600] mb-[40px] pl-4">
+        
+          <h1 className={open ? " relative w-[100%] h-[60px] text-[40px] font-[600] mb-[40px]" : " relative w-[100%] h-[60px] text-[20px] font-[600] text-center"}>
             HR 360{" "}
-            <sup className=" absolute top-1 right-[-1] text-[20px]">
+            <sup className={open ? " absolute top-1 right-[-1] text-[20px]" : " absolute top-0 right-[-1] text-[10px]"}>
               <div className="w-[10px] h-[10px] rounded-full bg-white"></div>
             </sup>
           </h1>
-        ) : (
-          ""
-        )}
 
         {Paths.map((path, index) => {
           return (
@@ -64,7 +61,7 @@ const SideNavBar = () => {
                 <span
                   id="label"
                   className={
-                    !open ? " hidden" : "text-[#FFFFFF] text-[18px] font-[400]"
+                    !open ? " hidden" : "text-[#FFFFFF] text-[16px] font-[400]"
                   }
                 >
                   {path.label}

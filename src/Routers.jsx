@@ -13,24 +13,29 @@ import LeaveHistory from "./components/EmployeeComponents/LeaveHistory";
 import CreateIntranetAnnouncement from "./components/announcementsComponents/CreateIntranetAnnouncement";
 import CreateEmailAnnouncement from "./components/announcementsComponents/CreateEmailAnnouncement";
 import DisplayAnnouncements from "./components/announcementsComponents/DisplayAnnouncements";
+import Login from "./pages/Login";
 
 const Routers = createBrowserRouter([
   {
-    path: "/",
+    path:"/",
+    element:<Login/>
+  },
+  {
+    path: "layout/",
     element: <MainLayout />,
 
     children: [
       {
-        index: true,
-        element: <DashBoard />,
+        path:"dashboard",
+        element: <DashBoard />
       },
 
       {
-        path: "/employee",
+        path: "employee",
         element: <Employee />,
       },
       {
-        path: "/employee/:id",
+        path: "employee/:id",
         element: <EmployeeDetails />,
 
         children: [
@@ -51,15 +56,15 @@ const Routers = createBrowserRouter([
       },
 
       {
-        path: "/add-employee",
+        path: "add-employee",
         element: <AddEmployee />,
       },
       {
-        path: "/analytics",
+        path: "analytics",
         element: <Analytics />,
       },
       {
-        path: "/announcement/",
+        path: "announcement/",
         element: <Announcement />,
         children: [
           {
@@ -75,12 +80,13 @@ const Routers = createBrowserRouter([
             element: <CreateEmailAnnouncement />,
           },
         ],
-      },
-      {
-        path: "/*",
-        element: <Error />,
-      },
+      }
+      
     ],
+  },
+  {
+    path: "/*",
+    element: <Error />,
   },
 ]);
 

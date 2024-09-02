@@ -6,30 +6,30 @@ import { MdCampaign } from "react-icons/md";
 
 export const Paths = [
   {
-    to: "/",
+    to: "dashboard",
     icons: [<BsColumnsGap size={40} />, <BsColumnsGap size={28} />],
 
     label: "Dashboard",
   },
 
   {
-    to: "/employee",
+    to: "employee",
     icons: [<HiOutlineUserGroup size={40} />, <HiOutlineUserGroup size={28} />],
     label: "Employee",
   },
 
   {
-    to: "/add-employee",
+    to: "add-employee",
     icons: [<BsPersonAdd size={40} />, <BsPersonAdd size={28} />],
     label: "Add Employee",
   },
   {
-    to: "/analytics",
+    to: "analytics",
     icons: [<MdOutlineAnalytics size={40} />, <MdOutlineAnalytics size={28} />],
     label: "Analytics",
   },
   {
-    to: "/announcement",
+    to: "announcement",
     icons: [<MdCampaign size={40} />, <MdCampaign size={28} />],
     label: "Announcement",
   },

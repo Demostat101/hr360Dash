@@ -2,8 +2,6 @@ import {
   BarChart,
   Bar,
   XAxis,
-  Tooltip,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
 
@@ -60,9 +58,6 @@ const EmployeeTurnOverGraph = () => {
             axisLine={{ stroke: "black" }}
             tick={{ fill: "black", fontSize: "13.96px", fontWeight: "500" }}
           />
-
-          <Tooltip />
-          {/* <Legend/> */}
           <Bar dataKey="Voluntory" fill="#176B87" />
           <Bar dataKey="Involuntory" fill="#86B6F6" />
           <Bar dataKey="Retired" fill="#F4D35E" />

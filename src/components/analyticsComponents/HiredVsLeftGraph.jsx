@@ -2,7 +2,6 @@ import {
   BarChart,
   Bar,
   XAxis,
-  Tooltip,
   ResponsiveContainer,
   ReferenceLine,
 } from "recharts";
@@ -92,7 +91,6 @@ const HiredVsLeftGraph = () => {
             axisLine={false}
             tick={{ fill: "black", fontSize: "13.96px", fontWeight: "500" }}
           />
-          <Tooltip />
           <ReferenceLine y={0} stroke="#9D9B9B" />
           <Bar dataKey="Hired" fill="#86B6F6" stackId="stack" />
           <Bar dataKey="Left" fill="#F4D35E" stackId="stack" />

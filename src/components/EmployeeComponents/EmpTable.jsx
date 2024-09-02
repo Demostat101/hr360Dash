@@ -155,7 +155,7 @@ const EmpTable = () => {
                 </td>
                 <td>
                   <Link
-                    to={`/employee/${val.id}`}
+                    to={`${val.id}`}
                     className="link text-[#176B87] bg-white"
                   >
                     Details

@@ -4,7 +4,6 @@ import {
   Sector,
   Cell,
   ResponsiveContainer,
-  Tooltip,
 } from "recharts";
 
 export const data = [
@@ -79,7 +78,6 @@ const TeamPerformanceRatingGraph = () => {
               />
             ))}
           </Pie>
-          <Tooltip />
         </PieChart>
       </ResponsiveContainer>
     </div>

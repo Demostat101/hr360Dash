@@ -44,8 +44,8 @@ const DashCalender = () => {
       >
         {months[today.month()]} {[today.year()]}
       </h1>
-      <hr />
-      <div className="grid grid-cols-7 w-[100%] place-items-center justify-center text-[15px]">
+      <hr className="mb-3" />
+      <div className="grid grid-cols-7 w-[100%] place-items-center justify-center text-[15px] mb-2">
         {days.map((day, index) => {
           return (
             <h1 key={index} className=" font-[700]">

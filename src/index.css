@@ -74,26 +74,26 @@ ul a.active .icon {
 
 .open-grid {
   display: grid;
-  grid-template-columns: 65.8% minmax(30%, 33%);
-  gap: 30px;
+  grid-template-columns: 66.1% minmax(31%, 35%);
+  gap: 25px;
 }
 
 .close-grid {
   display: grid;
-  grid-template-columns: 65.8% 1fr;
-  gap: 33.03px;
+  grid-template-columns: 66.1% minmax(31%, 35%);
+  gap: 25px;
 }
 
 .open-container {
   display: grid;
-  grid-template-columns: minmax(29%, 31.5%) minmax(29%, 31.5%) 1fr;
-  gap: 21px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
 }
 
 .close-container {
   display: grid;
-  grid-template-columns: minmax(29%, 31.5%) minmax(29%, 31.5%) 1fr;
-  gap: 23.12px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
 }
 
 .link {
