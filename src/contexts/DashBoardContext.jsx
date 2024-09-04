@@ -8,6 +8,8 @@ export const Context = () => {
   return useContext(dashBoardContext);
 };
 
+
+
 export const ContextProvider = ({ children }) => {
   const API_URL = "http://localhost:4000/data";
   const [error, setError] = useState(null);
@@ -57,6 +59,13 @@ export const ContextProvider = ({ children }) => {
     }
   };
 
+
+
+  const [isSignedIn,setIsSignedIn] = useLocalStorage(false);
+ console.log(isSignedIn);
+ 
+  
+
   return (
     <dashBoardContext.Provider
       value={{
@@ -73,12 +82,28 @@ export const ContextProvider = ({ children }) => {
         setSearchEmpID,
         searchEmpRegion,
         setSearchEmpRegion,
-
         openModal,
         setOpenModal,
+        
+        setIsSignedIn,
+        isSignedIn
       }}
     >
       {children}
     </dashBoardContext.Provider>
   );
 };
+
+
+  // Auth Logic
+
+ 
+  export const useAuth = () => {
+    const context =  useContext(dashBoardContext);
+
+    if (context === undefined) {
+      throw new Error("UseAuth must be used within an Authprovider")
+    }
+
+    return context
+  }

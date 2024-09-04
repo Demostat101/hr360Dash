@@ -7,7 +7,7 @@ import { EditDetailsContext } from "./contexts/EditDetailsContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ContextProvider>
+    <ContextProvider isSignedIn={false}>
       <EditDetailsContext>
         <App />
       </EditDetailsContext>

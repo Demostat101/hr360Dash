@@ -1,14 +1,23 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Context } from "../contexts/DashBoardContext";
 
 
 const Login = () => {
   const navigate = useNavigate()
   const [email,setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const {isSignedIn,setIsSignedIn} = Context()
+  console.log(isSignedIn);
+  
 
   const handleLogin = ()=>{
-    email === "" || password === "" ? alert("Fields cant be blank") : ()=> navigate("layout/dashboard")
+
+    if (email !== "" || password !== "") {
+      navigate("layout/dashboard")
+      setIsSignedIn(true)
+    } 
+
   }
   return (
     <div className="w-full flex">
@@ -116,11 +125,11 @@ const Login = () => {
               <div className="flex flex-col gap-[20px]">
                 <div className="flex flex-col gap-[10px]">
                   <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="loginemail">Email</label>
-                <input id="loginemail" className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="email" placeholder="Enter your email" required/>
+                <input id="loginemail" value={email} onChange={(e)=> setEmail(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="email" placeholder="Enter your email" required/>
                 </div>
                 <div className="flex flex-col gap-[10px]">
                   <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="loginpassword">Password</label>
-                <input id="loginpassword" className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="password" placeholder="Enter your password" required/>
+                <input id="loginpassword" value={password} onChange={(e)=> setPassword(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="password" placeholder="Enter your password" required/>
                 </div>
                 
               </div>

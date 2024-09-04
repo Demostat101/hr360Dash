@@ -14,6 +14,8 @@ import CreateIntranetAnnouncement from "./components/announcementsComponents/Cre
 import CreateEmailAnnouncement from "./components/announcementsComponents/CreateEmailAnnouncement";
 import DisplayAnnouncements from "./components/announcementsComponents/DisplayAnnouncements";
 import Login from "./pages/Login";
+import UnAuth from "./pages/UnAuth";
+import ProtectedRoute from "./hooks/ProtectedRoute";
 
 const Routers = createBrowserRouter([
   {
@@ -22,12 +24,12 @@ const Routers = createBrowserRouter([
   },
   {
     path: "layout/",
-    element: <MainLayout />,
+    element: <ProtectedRoute> <MainLayout /> </ProtectedRoute>,
 
     children: [
       {
         path:"dashboard",
-        element: <DashBoard />
+        element:  <DashBoard /> 
       },
 
       {
@@ -88,6 +90,10 @@ const Routers = createBrowserRouter([
     path: "/*",
     element: <Error />,
   },
+  {
+    path: "/unauthorize",
+    element: <UnAuth />,
+  }
 ]);
 
 export default Routers;

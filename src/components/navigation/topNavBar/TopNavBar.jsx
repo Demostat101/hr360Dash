@@ -3,10 +3,12 @@ import Pic from "/src/assets/woman.jfif";
 import { FaBars } from "react-icons/fa";
 import SearchInput from "../../dashBoardComponents/SearchInput";
 import { Context } from "../../../contexts/DashBoardContext";
+import { useNavigate } from "react-router-dom";
 
 const TopNavBar = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin] = useState(true);
   const { open, handleOpenBar /* ,menu,handleMenuChange */ } = Context();
+
 
   return (
     <>
@@ -34,6 +36,7 @@ const TopNavBar = () => {
               <FaBars size={25} className="text-[#176B87]" />
             )}
           </div>
+
           {/* <div className="hidden menu-icon" onClick={handleMenuChange}>
             {
               !menu ? <FaBars size={25}/> : <FaTimes/>
