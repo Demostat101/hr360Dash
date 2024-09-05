@@ -20,23 +20,9 @@ const AnnouncementPage = () => {
   const [data, setData] = useState([]);
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [editAnnouncementTitle, setEditAnnouncementTitle] = useState("");
-  const [editAnnouncementBody,setEditAnnouncementBody] = useState("");
-  const [targetId, setTargetId] = useState("");
-  const [showEditDelete, setEditDelete] = useState("")
-
-  let handleEditAnnouncement = (getSelected) => {
-    return setTargetId(getSelected === targetId ? "" : getSelected);
-  };
 
 
-  // let closeAnswer = (getSelected) => {
-  //    setTargetId(getSelected !== targetId ? getSelected : "");
-  // };
- 
-const showEditDeleteButton = (getSelected)=>{
-  setEditDelete(getSelected === showEditDelete ? "" : getSelected)
-}
+
   
 
   const { palette } = createTheme();
@@ -93,15 +79,21 @@ const showEditDeleteButton = (getSelected)=>{
   };
 
   //Edit functionalities
-  // const { id } = useParams();
-  // const post = data.find((post) => post._id.toString() === id);
-  console.log(data);
-  // console.log(id);
+
+  const [editAnnouncementTitle, setEditAnnouncementTitle] = useState("");
+  const [editAnnouncementBody,setEditAnnouncementBody] = useState("");
+  const [targetId, setTargetId] = useState("");
+  const [showEditDelete, setEditDelete] = useState("")
+
+  let handleEditAnnouncement = (getSelected) => {
+    setTargetId(getSelected === targetId ? "" : getSelected);
+  };
+
+const showEditDeleteButton = (getSelected)=>{
+  setEditDelete(getSelected === showEditDelete ? "" : getSelected)
+}
   
-  
-  
-  
-  const post = data.find((post) => post._id.toString() === post._id.toString());
+  const post = data.find((post) => post._id.toString() === targetId);
 
   useEffect(() => {
     if (post) {
@@ -110,7 +102,7 @@ const showEditDeleteButton = (getSelected)=>{
     }
   }, [post, setEditAnnouncementBody, setEditAnnouncementTitle]);
 
-  const handleEdit = async (_id) => {
+  const handleEdit = async (_id,getSelected) => {
     const edit = {
       _id: (data.length + 1).toString(),
       title: editAnnouncementTitle,
@@ -129,6 +121,7 @@ const showEditDeleteButton = (getSelected)=>{
         setEditAnnouncementBody("");
         setEditAnnouncementTitle("");
         setTargetId(getSelected !== targetId ? getSelected : "")
+        setEditDelete(getSelected !== showEditDelete ? getSelected : "")
         setData(
           data.map((post) => (post._id === _id ? { ...response.data } : post))
         );
@@ -137,6 +130,21 @@ const showEditDeleteButton = (getSelected)=>{
       }
     }
   };
+
+  // Delete Announcement Functionality
+
+  const handleDelete = async (_id) => {
+    await axios.delete(`https://blogappbackend-vhkj.onrender.com/users/${_id}`);
+    try {
+      let deleteAnnouncement = data.filter((post) => post._id !== _id);
+      setData(deleteAnnouncement);
+      
+    } catch (error) {
+      console.log(`Error: ${error.message}`);
+    }
+  };
+
+
 
   return (
     <>
@@ -198,7 +206,7 @@ const showEditDeleteButton = (getSelected)=>{
                       showEditDelete === _id ?
                       <div className="absolute flex justify-center font-[600] gap-[20px] w-[100px] border-2 left-[-20px] top-[70px] py-2 bg-white cursor-pointer">
                         <span onClick={()=> handleEditAnnouncement(_id)}><AiFillEdit className="text-[#176B87]" size={30}/></span>
-                        <span><FaTrashCan className="text-[red]" size={30}/></span>
+                        <span onClick={()=>handleDelete(_id)}><FaTrashCan className="text-[red]" size={30}/></span>
                       </div>
                       : ""
                     }
@@ -209,12 +217,12 @@ const showEditDeleteButton = (getSelected)=>{
                      : 
 
                      <>
-                        <div className="flex flex-col gap-2">
-                    <div className="font-[600] text-[16.66px] leading-[24.99px]">
-                    <input className="w-full h-8 border-2 rounded-[5px]" placeholder="Announcement Title" type="text" value={editAnnouncementTitle} onChange={(e)=> setEditAnnouncementTitle(e.target.value)} />
+                        <div className="border-2 w-full flex flex-col gap-2">
+                    <div className="font-[600] text-[16.66px] leading-[24.99px] w-full">
+                    <input className="w-full h-8 border-2 rounded-[5px] focus:outline-none" placeholder="Announcement Title" type="text" value={editAnnouncementTitle} onChange={(e)=> setEditAnnouncementTitle(e.target.value)} />
                     </div>
-                    <div className="font-[400] text-[16px] leading-[24px]">
-                      <input className="w-full h-8 border-2 rounded-[5px]" placeholder="Announcement Body" type="text" value={editAnnouncementBody} onChange={(e)=> setEditAnnouncementBody(e.target.value)} />
+                    <div className="font-[400] text-[16px] leading-[24px] w-full">
+                      <input className="w-full h-8 border-2 rounded-[5px] focus:outline-none" placeholder="Announcement Body" type="text" value={editAnnouncementBody} onChange={(e)=> setEditAnnouncementBody(e.target.value)} />
                     </div>
                   </div>
                   <div className="flex justify-between place-items-center w-[310px] h-[53.95px]">
@@ -229,7 +237,7 @@ const showEditDeleteButton = (getSelected)=>{
                         </span>
                       </div>
                     </div>
-                    <div onClick={()=> handleEdit(_id)} className="w-[40px] h-[40px] bg-[#D9D9D9] grid place-items-center rounded-lg text-[#464646]">
+                    <div onClick={()=> handleEdit(_id)} className="w-[40px] h-[40px] bg-[#D9D9D9] grid place-items-center rounded-lg text-[#464646] cursor-pointer">
                       {" "}
                       Save{" "}
                     </div>
