@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import useLocalStorage from "use-local-storage";
 import { useAxiosFetch, apiRequest } from "../hooks/UseAxiosFetch";
+import useSessionStorageState from "use-session-storage-state";
 
 export const dashBoardContext = createContext();
 
@@ -61,7 +62,7 @@ export const ContextProvider = ({ children }) => {
 
 
 
-  const [isSignedIn,setIsSignedIn] = useLocalStorage(false);
+  const [isSignedIn,setIsSignedIn] = useState(false);
  console.log(isSignedIn);
  
   
@@ -98,12 +99,12 @@ export const ContextProvider = ({ children }) => {
   // Auth Logic
 
  
-  export const useAuth = () => {
-    const context =  useContext(dashBoardContext);
+  // export const useAuth = () => {
+  //   const context =  useContext(dashBoardContext);
 
-    if (context === undefined) {
-      throw new Error("UseAuth must be used within an Authprovider")
-    }
+  //   if (context === undefined) {
+  //     throw new Error("UseAuth must be used within an Authprovider")
+  //   }
 
-    return context
-  }
+  //   return context
+  // }

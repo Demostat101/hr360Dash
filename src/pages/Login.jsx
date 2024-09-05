@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../contexts/DashBoardContext";
 
@@ -9,6 +9,12 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const {isSignedIn,setIsSignedIn} = Context()
   console.log(isSignedIn);
+
+  // useEffect(()=>{
+  //   sessionStorage.setItem("login","true")
+  //   setIsSignedIn(sessionStorage.getItem("login"))
+    
+  // },[password])
   
 
   const handleLogin = ()=>{
@@ -16,6 +22,8 @@ const Login = () => {
     if (email !== "" || password !== "") {
       navigate("layout/dashboard")
       setIsSignedIn(true)
+      
+      
     } 
 
   }

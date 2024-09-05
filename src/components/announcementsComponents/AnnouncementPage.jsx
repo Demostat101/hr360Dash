@@ -1,6 +1,10 @@
 import { IoIosMore } from "react-icons/io";
 import { UsePagination } from "./AnnouncementPaginationFunction";
 import { useEffect, useMemo, useState } from "react";
+import { AiFillEdit } from "react-icons/ai";
+import { FaTrashCan } from "react-icons/fa6";
+
+
 import {
   createTheme,
   PaginationItem,
@@ -9,12 +13,31 @@ import {
 } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const AnnouncementPage = () => {
   const [initialRowLength, setInitialRowLength] = useState(5);
   const [data, setData] = useState([]);
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [editAnnouncementTitle, setEditAnnouncementTitle] = useState("");
+  const [editAnnouncementBody,setEditAnnouncementBody] = useState("");
+  const [targetId, setTargetId] = useState("");
+  const [showEditDelete, setEditDelete] = useState("")
+
+  let handleEditAnnouncement = (getSelected) => {
+    return setTargetId(getSelected === targetId ? "" : getSelected);
+  };
+
+
+  // let closeAnswer = (getSelected) => {
+  //    setTargetId(getSelected !== targetId ? getSelected : "");
+  // };
+ 
+const showEditDeleteButton = (getSelected)=>{
+  setEditDelete(getSelected === showEditDelete ? "" : getSelected)
+}
+  
 
   const { palette } = createTheme();
   const theme = createTheme({
@@ -22,6 +45,7 @@ const AnnouncementPage = () => {
       primaryBlue: palette.augmentColor({ color: { main: "#176B87" } }),
     },
   });
+
 
   const [
     totalPages,
@@ -68,6 +92,52 @@ const AnnouncementPage = () => {
     setInitialRowLength(Number(e.target.value));
   };
 
+  //Edit functionalities
+  // const { id } = useParams();
+  // const post = data.find((post) => post._id.toString() === id);
+  console.log(data);
+  // console.log(id);
+  
+  
+  
+  
+  const post = data.find((post) => post._id.toString() === post._id.toString());
+
+  useEffect(() => {
+    if (post) {
+      setEditAnnouncementBody(post.body);
+      setEditAnnouncementTitle(post.title);
+    }
+  }, [post, setEditAnnouncementBody, setEditAnnouncementTitle]);
+
+  const handleEdit = async (_id) => {
+    const edit = {
+      _id: (data.length + 1).toString(),
+      title: editAnnouncementTitle,
+      body: editAnnouncementBody,
+    };
+
+    if (editAnnouncementBody === "" || editAnnouncementTitle === "") {
+      alert("fields cant be blank");
+    } else {
+      try {
+        const response = await axios.put(
+          `https://blogappbackend-vhkj.onrender.com/users/${_id}`,
+          edit
+        );
+
+        setEditAnnouncementBody("");
+        setEditAnnouncementTitle("");
+        setTargetId(getSelected !== targetId ? getSelected : "")
+        setData(
+          data.map((post) => (post._id === _id ? { ...response.data } : post))
+        );
+      } catch (error) {
+        console.log(`Error: ${error.message}`);
+      }
+    }
+  };
+
   return (
     <>
       {isLoading && (
@@ -91,7 +161,10 @@ const AnnouncementPage = () => {
                 className="flex flex-col gap-[20px] place-items-center mt-[30px]"
               >
                 <div className=" w-[100%] pl-[20px] pr-[40px] h-[126px] border-l-[6px] justify-between place-items-center border-l-[#176B87] rounded-md flex border-[1.17px] bg-white border-[#ECEEF6]">
-                  <div>
+                  {
+                    targetId !== _id ?
+                    <>
+                      <div>
                     <div className="font-[600] text-[16.66px] leading-[24.99px]">
                       {title}
                     </div>
@@ -112,15 +185,57 @@ const AnnouncementPage = () => {
                         {created.slice(0, 10)}{" "}
                         <span>
                           {created.slice(11, 20)}{" "}
-                          {/* {hour===0 ? hour=12 : hour > 12 ? hour=hour-12} */}
                         </span>
                       </div>
                     </div>
-                    <div className="w-[40px] h-[40px] bg-[#D9D9D9] grid place-items-center rounded-lg text-[#464646]">
+                    <div className="relative">
+                    <div onClick={()=> showEditDeleteButton(_id)}  className="w-[40px] h-[40px] bg-[#D9D9D9] grid place-items-center rounded-lg text-[#464646] cursor-pointer">
                       {" "}
                       <IoIosMore size={20} />{" "}
+                     
+                    </div>
+                    {
+                      showEditDelete === _id ?
+                      <div className="absolute flex justify-center font-[600] gap-[20px] w-[100px] border-2 left-[-20px] top-[70px] py-2 bg-white cursor-pointer">
+                        <span onClick={()=> handleEditAnnouncement(_id)}><AiFillEdit className="text-[#176B87]" size={30}/></span>
+                        <span><FaTrashCan className="text-[red]" size={30}/></span>
+                      </div>
+                      : ""
+                    }
+                    </div>
+                    
+                  </div>
+                    </>
+                     : 
+
+                     <>
+                        <div className="flex flex-col gap-2">
+                    <div className="font-[600] text-[16.66px] leading-[24.99px]">
+                    <input className="w-full h-8 border-2 rounded-[5px]" placeholder="Announcement Title" type="text" value={editAnnouncementTitle} onChange={(e)=> setEditAnnouncementTitle(e.target.value)} />
+                    </div>
+                    <div className="font-[400] text-[16px] leading-[24px]">
+                      <input className="w-full h-8 border-2 rounded-[5px]" placeholder="Announcement Body" type="text" value={editAnnouncementBody} onChange={(e)=> setEditAnnouncementBody(e.target.value)} />
                     </div>
                   </div>
+                  <div className="flex justify-between place-items-center w-[310px] h-[53.95px]">
+                    <div>
+                      <div className="font-[400] text-[16px] leading-[24.99px] text-black opacity-70">
+                        Posted
+                      </div>
+                      <div className="font-[400] text-[16px] leading-[24px] text-black opacity-70 flex gap-[10px]">
+                        {created.slice(0, 10)}{" "}
+                        <span>
+                          {created.slice(11, 20)}{" "}
+                        </span>
+                      </div>
+                    </div>
+                    <div onClick={()=> handleEdit(_id)} className="w-[40px] h-[40px] bg-[#D9D9D9] grid place-items-center rounded-lg text-[#464646]">
+                      {" "}
+                      Save{" "}
+                    </div>
+                  </div>
+                     </>
+                  }
                 </div>
               </div>
             );
