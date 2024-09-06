@@ -91,6 +91,10 @@ const AnnouncementPage = () => {
 
 const showEditDeleteButton = (getSelected)=>{
   setEditDelete(getSelected === showEditDelete ? "" : getSelected)
+  console.log(getSelected);
+  console.log(showEditDelete);
+  
+  
 }
   
   const post = data.find((post) => post._id.toString() === targetId);

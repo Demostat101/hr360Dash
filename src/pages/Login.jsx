@@ -5,9 +5,8 @@ import { Context } from "../contexts/DashBoardContext";
 
 const Login = () => {
   const navigate = useNavigate()
-  const [email,setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const {isSignedIn,setIsSignedIn} = Context()
+
+  const {isSignedIn,setIsSignedIn,email,setEmail,password,setPassword,state,setState} = Context()
   console.log(isSignedIn);
 
   // useEffect(()=>{
@@ -122,30 +121,71 @@ const Login = () => {
         </div>
       </div>
       <div className="w-[50%] h-screen flex justify-center place-items-center bg-[#F6F7FA]">
-        < div className="w-[60%] h-[563px] flex flex-col gap-[80px]">
+        {
+          state === "login" ?
+          <>
+              < div className="w-[60%] h-[563px] flex flex-col gap-[80px] border-2 border-red-500">
 
-          <div className="flex flex-col gap-[30px] text-center">
-              <span className="font-[600] text-[20px] leading-[30px] text-[#464646]">Welcome To HR360</span>
-              <span className="font-[400] text-[20px] leading-[30px] text-[#464646]">Please enter your email and password</span>
-          </div>
-          
-            <form className="flex flex-col h-[393px] justify-between" action="" onSubmit={(e)=> e.preventDefault()}>
-              <div className="flex flex-col gap-[20px]">
-                <div className="flex flex-col gap-[10px]">
-                  <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="loginemail">Email</label>
-                <input id="loginemail" value={email} onChange={(e)=> setEmail(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="email" placeholder="Enter your email" required/>
-                </div>
-                <div className="flex flex-col gap-[10px]">
-                  <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="loginpassword">Password</label>
-                <input id="loginpassword" value={password} onChange={(e)=> setPassword(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="password" placeholder="Enter your password" required/>
-                </div>
-                
-              </div>
-              <button className="h-[70px] bg-[#176B87] font-[600] text-[24px] leading-[36px] text-white rounded-[10px]" onClick={handleLogin}>Login</button>
-            </form>
-          
+<div className="flex flex-col gap-[30px] text-center">
+    <span className="font-[600] text-[20px] leading-[30px] text-[#464646]">Welcome To HR360</span>
+    <span className="font-[400] text-[20px] leading-[30px] text-[#464646]">Please enter your email and password</span>
+</div>
 
-        </div>
+  <form className="flex flex-col h-[393px] justify-between" action="" onSubmit={(e)=> e.preventDefault()}>
+    <div className="flex flex-col gap-[20px]">
+      <div className="flex flex-col gap-[10px]">
+        <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="loginemail">Email</label>
+      <input id="loginemail" value={email} onChange={(e)=> setEmail(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="email" placeholder="Enter your email" required/>
+      </div>
+      <div className="flex flex-col gap-[10px]">
+        <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="loginpassword">Password</label>
+      <input id="loginpassword" value={password} onChange={(e)=> setPassword(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="password" placeholder="Enter your password" required/>
+      </div>
+      
+    </div>
+    <button className="h-[70px] bg-[#176B87] font-[600] text-[24px] leading-[36px] text-white rounded-[10px]" onClick={handleLogin}>Login</button>
+  </form>
+
+
+</div>
+          </>
+          :
+          <>
+            < div className="w-[60%] h-[700px] flex flex-col gap-5 border-2 border-red-500">
+
+
+            <div className="flex flex-col gap-[10px] text-center">
+    <span className="font-[600] text-[20px] leading-[30px] text-[#464646]">Welcome To HR360</span>
+    <span className="font-[400] text-[20px] leading-[30px] text-[#464646]">Please sign up for an account </span>
+</div>
+
+  <form className="flex flex-col h-[600px] justify-between" action="" onSubmit={(e)=> e.preventDefault()}>
+    <div className="flex flex-col gap-[20px]">
+      <div className="flex flex-col gap-[10px]">
+        <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="name">First Name</label>
+      <input id="name" className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="text" placeholder="Enter your first name" required/>
+      </div>
+      <div className="flex flex-col gap-[10px]">
+        <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="surname">Surname</label>
+      <input id="surname" className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="email" placeholder="Enter your surname" required/>
+      </div>
+      <div className="flex flex-col gap-[10px]">
+        <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="loginemail">Email</label>
+      <input id="loginemail" value={email} onChange={(e)=> setEmail(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="email" placeholder="Enter your email" required/>
+      </div>
+      <div className="flex flex-col gap-[10px]">
+        <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="loginpassword">Password</label>
+      <input id="loginpassword" value={password} onChange={(e)=> setPassword(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="password" placeholder="Enter your password" required/>
+      </div>
+      
+    </div>
+    <button className="h-[70px] bg-[#176B87] font-[600] text-[24px] leading-[36px] text-white rounded-[10px]">Sign Up</button>
+  </form>
+
+
+</div>
+          </>
+        }
       </div>
     </div>
   );

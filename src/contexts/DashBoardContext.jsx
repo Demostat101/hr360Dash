@@ -64,6 +64,13 @@ export const ContextProvider = ({ children }) => {
 
   const [isSignedIn,setIsSignedIn] = useState(false);
  console.log(isSignedIn);
+
+ // LOGIN AND SIGNUP PAGE LOGIC
+
+ const [state,setState] = useState("signup");
+ const [email,setEmail] = useState("")
+ const [password, setPassword] = useState("")
+
  
   
 
@@ -87,7 +94,13 @@ export const ContextProvider = ({ children }) => {
         setOpenModal,
         
         setIsSignedIn,
-        isSignedIn
+        isSignedIn,
+        email,
+        password,
+        setState,
+        setPassword,
+        setEmail,
+        state
       }}
     >
       {children}
