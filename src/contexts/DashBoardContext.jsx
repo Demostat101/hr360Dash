@@ -95,7 +95,7 @@ export const ContextProvider = ({ children }) => {
         sessionStorage.setItem("auth-token",signUpData.token);
         sessionStorage.setItem("logged",signUpData.success)
         setIsSignedIn(signUpData.success)
-        alert("Login")
+        window.location.replace("layout/dashboard")
       } 
     } catch (error) {
     
