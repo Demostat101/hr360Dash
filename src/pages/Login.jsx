@@ -6,8 +6,8 @@ import { Context } from "../contexts/DashBoardContext";
 const Login = () => {
   const navigate = useNavigate()
 
-  const {isSignedIn,setIsSignedIn,email,setEmail,password,setPassword,state,setState} = Context()
-  console.log(isSignedIn);
+  const {loginEmail,loginPassword,signupEmail, signupPassword,setLoginPassword,setLoginEmail,setSignupPassword, setSignupEmail,state,setState,name,setName,surname,setSurname,Signup,signupErrors,loginErrors,Login} = Context()
+  // console.log(isSignedIn);
 
   // useEffect(()=>{
   //   sessionStorage.setItem("login","true")
@@ -16,16 +16,16 @@ const Login = () => {
   // },[password])
   
 
-  const handleLogin = ()=>{
+  // const handleLogin = ()=>{
 
-    if (email !== "" || password !== "") {
-      navigate("layout/dashboard")
-      setIsSignedIn(true)
+  //   if (email !== "" || password !== "") {
+  //     navigate("layout/dashboard")
+  //     setIsSignedIn(true)
       
       
-    } 
+  //   } 
 
-  }
+  // }
   return (
     <div className="w-full flex">
       <div className="w-[50%] h-screen bg-[#176B87] relative flex justify-center place-items-center">
@@ -129,21 +129,25 @@ const Login = () => {
 <div className="flex flex-col gap-[30px] text-center">
     <span className="font-[600] text-[20px] leading-[30px] text-[#464646]">Welcome To HR360</span>
     <span className="font-[400] text-[20px] leading-[30px] text-[#464646]">Please enter your email and password</span>
+    <span className="font-[600] text-[20px] leading-[30px] text-red-500">{loginErrors}</span>
 </div>
 
   <form className="flex flex-col h-[393px] justify-between" action="" onSubmit={(e)=> e.preventDefault()}>
-    <div className="flex flex-col gap-[20px]">
+  <div className="flex flex-col gap-[20px]">
       <div className="flex flex-col gap-[10px]">
         <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="loginemail">Email</label>
-      <input id="loginemail" value={email} onChange={(e)=> setEmail(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="email" placeholder="Enter your email" required/>
+      <input id="loginemail" value={loginEmail} onChange={(e)=> setLoginEmail(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="email" placeholder="Enter your email" required/>
       </div>
       <div className="flex flex-col gap-[10px]">
         <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="loginpassword">Password</label>
-      <input id="loginpassword" value={password} onChange={(e)=> setPassword(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="password" placeholder="Enter your password" required/>
+      <input id="loginpassword" value={loginPassword} onChange={(e)=> setLoginPassword(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="password" placeholder="Enter your password" required/>
       </div>
       
     </div>
-    <button className="h-[70px] bg-[#176B87] font-[600] text-[24px] leading-[36px] text-white rounded-[10px]" onClick={handleLogin}>Login</button>
+    <div className="w-full flex flex-col gap-[20px]">
+    <button className="h-[70px] bg-[#176B87] font-[600] text-[24px] leading-[36px] text-white rounded-[10px]" onClick={Login}>Login</button>
+    <div className="font-[500] text-[16px] leading-[24px] text-[#464646]">Dont have an account? <span className="text-[#176B87] font-[600] cursor-pointer" onClick={()=> setState("signup")}>Sign up</span></div>
+    </div>
   </form>
 
 
@@ -151,37 +155,39 @@ const Login = () => {
           </>
           :
           <>
-            < div className="w-[60%] h-[700px] flex flex-col gap-5 border-2 border-red-500">
+            < div className="w-[60%] h-[750px] flex flex-col gap-5 border-2 border-red-500">
 
 
             <div className="flex flex-col gap-[10px] text-center">
     <span className="font-[600] text-[20px] leading-[30px] text-[#464646]">Welcome To HR360</span>
     <span className="font-[400] text-[20px] leading-[30px] text-[#464646]">Please sign up for an account </span>
+    <span className="font-[600] text-[20px] leading-[30px] text-red-500">{signupErrors}</span>
 </div>
 
   <form className="flex flex-col h-[600px] justify-between" action="" onSubmit={(e)=> e.preventDefault()}>
-    <div className="flex flex-col gap-[20px]">
+  <div className="flex flex-col gap-[20px]">
       <div className="flex flex-col gap-[10px]">
         <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="name">First Name</label>
-      <input id="name" className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="text" placeholder="Enter your first name" required/>
+      <input id="name" value={name} onChange={(e)=> setName(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="text" placeholder="Enter your first name" required/>
       </div>
       <div className="flex flex-col gap-[10px]">
         <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="surname">Surname</label>
-      <input id="surname" className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="email" placeholder="Enter your surname" required/>
+      <input id="surname" className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="text" placeholder="Enter your surname" value={surname} onChange={(e)=> setSurname(e.target.value)} required/>
       </div>
       <div className="flex flex-col gap-[10px]">
         <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="loginemail">Email</label>
-      <input id="loginemail" value={email} onChange={(e)=> setEmail(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="email" placeholder="Enter your email" required/>
+      <input id="loginemail" value={signupEmail} onChange={(e)=> setSignupEmail(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="email" placeholder="Enter your email" required/>
       </div>
       <div className="flex flex-col gap-[10px]">
         <label className="font-[500] text-[16px] leading-[24px] text-[#464646]" htmlFor="loginpassword">Password</label>
-      <input id="loginpassword" value={password} onChange={(e)=> setPassword(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="password" placeholder="Enter your password" required/>
+      <input id="loginpassword" value={signupPassword} onChange={(e)=> setSignupPassword(e.target.value)} className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none" type="password" placeholder="Enter your password" required/>
       </div>
       
     </div>
-    <button className="h-[70px] bg-[#176B87] font-[600] text-[24px] leading-[36px] text-white rounded-[10px]">Sign Up</button>
+    <button className="h-[70px] bg-[#176B87] font-[600] text-[24px] leading-[36px] text-white rounded-[10px]" onClick={Signup}>Continue</button>
   </form>
 
+          <div className="font-[500] text-[16px] leading-[24px] text-[#464646]">Already have an account? <span className="text-[#176B87] font-[600] cursor-pointer" onClick={()=> setState("login")}>Login</span></div>
 
 </div>
           </>

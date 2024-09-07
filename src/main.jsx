@@ -7,10 +7,12 @@ import { EditDetailsContext } from "./contexts/EditDetailsContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    
     <ContextProvider>
       <EditDetailsContext>
         <App />
       </EditDetailsContext>
     </ContextProvider>
+  
   </React.StrictMode>
 );
