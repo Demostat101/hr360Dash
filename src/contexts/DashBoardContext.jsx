@@ -99,6 +99,7 @@ export const ContextProvider = ({ children }) => {
         setIsSignedIn(signUpData.success)
         window.location.replace("layout/dashboard")
         setUserName(signUpData.user.name)
+        console.log(userName.slice(0,1));
       }  else {
       
         setLoginErrors(signUpData.errors);
@@ -117,6 +118,8 @@ export const ContextProvider = ({ children }) => {
     }
  }
 
+ 
+ 
 
  const Signup = async () => {
   const signupFormData = {
