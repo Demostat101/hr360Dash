@@ -10,9 +10,9 @@ const {isSignedIn} = Context();
     
 
     useEffect(()=>{
-        if (isSignedIn === false) {
+        if (!isSignedIn) {
             navigate("/unauthorize", {replace:true})
-        }
+        } 
     },[navigate, isSignedIn])
 
   return children

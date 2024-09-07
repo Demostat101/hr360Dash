@@ -21,7 +21,7 @@ export const ContextProvider = ({ children }) => {
   const [searchEmpRegion, setSearchEmpRegion] = useState("");
   const [open, setOpen] = useLocalStorage(false);
   const [openModal, setOpenModal] = useState(false);
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   // const [name, setName] = useState("Esther");
   const { data, fetchError, isLoading, setData } = useAxiosFetch(
     `http://localhost:4000/data`
@@ -75,24 +75,34 @@ export const ContextProvider = ({ children }) => {
  const [surname, setSurname] = useState("")
  const [signupErrors,setSignupErrors] = useState("") 
  const [loginErrors,setLoginErrors] = useState("") 
- const [isSignedIn,setIsSignedIn] = useState(false);
+ const [isSignedIn,setIsSignedIn] = useState(sessionStorage.getItem("logged"));
+ console.log(isSignedIn);
+ 
 
  const Login = async() => {
   const signupFormData = {
     email:loginEmail,
     password:loginPassword
   }
+
+  console.log(signupFormData);
+  
     try {
       const response =await axios.post("http://localhost:4501/login",signupFormData)
       const signUpData = await response.data
+      console.log(signUpData.token);
       if (signUpData.success) {
         sessionStorage.setItem("auth-token",signUpData.token);
-        setIsSignedIn(true)
-        navigate("layout/dashboard")
+        sessionStorage.setItem("logged",signUpData.success)
+        setIsSignedIn(signUpData.success)
+        alert("Login")
       } 
     } catch (error) {
     
       setLoginErrors(error.response.data.errors);
+      console.log(error);
+      
+      alert("hey")
 
       setTimeout(() => {
         setLoginErrors("")
