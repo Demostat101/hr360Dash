@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const TopNavBar = () => {
   const [isLogin] = useState(true);
-  const { open, handleOpenBar /* ,menu,handleMenuChange */ } = Context();
+  const { open, handleOpenBar,logOut /* ,menu,handleMenuChange */ } = Context();
 
 
   return (
@@ -36,6 +36,7 @@ const TopNavBar = () => {
               <FaBars size={25} className="text-[#176B87]" />
             )}
           </div>
+          <div onClick={logOut}>Logout</div>
 
           {/* <div className="hidden menu-icon" onClick={handleMenuChange}>
             {

@@ -4,7 +4,8 @@ import TopComponent from "../components/dashBoardComponents/DashboardTopComponen
 import { Context } from "../contexts/DashBoardContext";
 
 const DashBoard = () => {
-  const { open, name } = Context();
+  const { open, userName } = Context();
+  
   return (
     <main className="w-full flex flex-col min-h-screen p-[25px]">
       <div
@@ -17,7 +18,7 @@ const DashBoard = () => {
               : "font-[600] text-[26px] leading-[42.94px] "
           }
         >
-          Good Morning, {name}{" "}
+          Good Morning, {userName}{" "}
         </h1>
         {/* container holding all contents */}
         <div

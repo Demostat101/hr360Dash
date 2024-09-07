@@ -1,9 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import useLocalStorage from "use-local-storage";
 import { useAxiosFetch, apiRequest } from "../hooks/UseAxiosFetch";
-// import useSessionStorageState from "use-session-storage-state";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 export const dashBoardContext = createContext();
 
@@ -76,7 +74,8 @@ export const ContextProvider = ({ children }) => {
  const [signupErrors,setSignupErrors] = useState("") 
  const [loginErrors,setLoginErrors] = useState("") 
  const [isSignedIn,setIsSignedIn] = useState(sessionStorage.getItem("logged"));
- console.log(isSignedIn);
+ const [userName, setUserName] = useState(sessionStorage.getItem("user"))
+
  
 
  const Login = async() => {
@@ -89,13 +88,19 @@ export const ContextProvider = ({ children }) => {
     try {
       const response =await axios.post("http://localhost:4501/login",signupFormData)
       const signUpData = await response.data
+
+      
+      
+      
       if (signUpData.success) {
         sessionStorage.setItem("auth-token",signUpData.token);
         sessionStorage.setItem("logged",signUpData.success)
+        sessionStorage.setItem("user",signUpData.user.name)
         setIsSignedIn(signUpData.success)
         window.location.replace("layout/dashboard")
+        setUserName(signUpData.user.name)
       }  else {
-        console.log(signUpData.errors);
+      
         setLoginErrors(signUpData.errors);
         setTimeout(() => {
           setLoginErrors("")
@@ -104,7 +109,6 @@ export const ContextProvider = ({ children }) => {
       }
     } catch (error) {
     
-      // setLoginErrors(error.response.data.errors);
       console.log(error);
       
 
@@ -132,6 +136,8 @@ export const ContextProvider = ({ children }) => {
         setState("login");
       } 
     } catch (error) {
+      console.log(error.response.config.data);
+      
     
       setSignupErrors(error.response.data.errors);
 
@@ -145,7 +151,11 @@ export const ContextProvider = ({ children }) => {
 
 
 
-
+const logOut = ()=>{
+  sessionStorage.removeItem("logged")
+  window.location.replace("/")
+  setState("login")
+}
  
   
 
@@ -186,7 +196,9 @@ export const ContextProvider = ({ children }) => {
         Signup,
         Login,
         signupErrors,
-        loginErrors
+        loginErrors,
+        userName,
+        logOut
       }}
     >
       {children}
