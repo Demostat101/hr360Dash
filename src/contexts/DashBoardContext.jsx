@@ -85,28 +85,30 @@ export const ContextProvider = ({ children }) => {
     password:loginPassword
   }
 
-  console.log(signupFormData);
   
     try {
       const response =await axios.post("http://localhost:4501/login",signupFormData)
       const signUpData = await response.data
-      console.log(signUpData.token);
       if (signUpData.success) {
         sessionStorage.setItem("auth-token",signUpData.token);
         sessionStorage.setItem("logged",signUpData.success)
         setIsSignedIn(signUpData.success)
         window.location.replace("layout/dashboard")
-      } 
+      }  else {
+        console.log(signUpData.errors);
+        setLoginErrors(signUpData.errors);
+        setTimeout(() => {
+          setLoginErrors("")
+        }, 5000);
+        
+      }
     } catch (error) {
     
-      setLoginErrors(error.response.data.errors);
+      // setLoginErrors(error.response.data.errors);
       console.log(error);
       
-      alert("hey")
 
-      setTimeout(() => {
-        setLoginErrors("")
-      }, 5000);
+      
       
     }
  }
