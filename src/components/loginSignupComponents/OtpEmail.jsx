@@ -4,9 +4,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Context } from '../../contexts/DashBoardContext'
 
 const OtpEmail = () => {
-    const otpLenght = 4;
+    const otpLength = 4;
     const {loginEmail,handleOtpSubmit} = Context()
-    const [otp, setOtp] = useState(new Array(otpLenght).fill(""))
+    const [otp, setOtp] = useState(new Array(otpLength).fill(""))
     const inputRefs = useRef([])
 
     useEffect(()=>{
@@ -22,16 +22,37 @@ const OtpEmail = () => {
         }
 
         const newOtp = [...otp];
-        newOtp[index] = value.subString(value.length - 1);
+        newOtp[index] = value.substring(value.length - 1)
         setOtp(newOtp)
+
+        // Handle submit otp trigger
+
+        const combinedOtp = newOtp.join("");
+        if (combinedOtp.length === otpLength) {
+            handleOtpSubmit(combinedOtp)
+        }
+
+        // Move to next input if current field is filled
+
+        if (value && index < otpLength - 1 && inputRefs.current[index + 1]) {
+            inputRefs.current[index + 1].focus();
+        }
     }
 
-    
-    const handleClick = ()=>{
+
+    const handleClick = (index)=>{
+        inputRefs.current[index].setSelectRange(1,1)
 
     }
-    const handleKeyDown = ()=>{
 
+    // Move cursor on pressing back space or Arrowleft
+
+    const handleKeyDown = (index,e)=>{
+        
+        if (e.key === "ArrowLeft" && !otp[index] && index > 0 && inputRefs.current[index - 1]) {
+
+            inputRefs.current[index - 1].focus(); 
+        }
     }
 
     console.log(otp);
@@ -40,9 +61,9 @@ const OtpEmail = () => {
 
   return (
     <>
-      <div className="w-[60%] h-[400px] flex flex-col justify-evenly bg-white">
+      <div className="w-[70%] h-fit flex flex-col gap-[30px] bg-white p-[40px]">
               <div className="flex flex-col gap-[10px] text-center">
-                <span className="font-[600] text-[30px] leading-[30px] text-[#464646]">
+                <span className="font-[600] text-[20px] leading-[30px] text-[#746f6f]">
                   Email Verification
                 </span>
                 <span className="font-[400] text-[20px] leading-[30px] text-[#464646]">
@@ -54,24 +75,24 @@ const OtpEmail = () => {
               </div>
 
               <form
-                className="flex flex-col h-[200px] justify-between place-items-center"
+                className="flex flex-col h-fit gap-[40px] place-items-center"
                 action=""
                 onSubmit={(e) => e.preventDefault()}
               >
                 <div className="flex gap-[20px]">
                  {
-                    otp.map((val,index)=>{
+                    otp.map((value,index)=>{
                         return  <div key={index}>
                     
                         <input
                           
-                          className="h-[60px] w-[60px] text-center text-[18px] border-2 focus:border-[#176B87] opacity-60  bg-white rounded-[10px] focus:opacity-50"
+                          className="h-[60px] w-[60px] font-[500] text-center text-[18px] text-[#176B87] border-2 focus:border-[#176B87] bg-white rounded-[10px] focus:outline-none"
                           type="text"
                           ref={(input)=> inputRefs.current[index]=input}
-                          value={val}
-                          onChange={()=>{handleChange(index,e)}}
+                          value={value}
+                          onChange={(e)=>{handleChange(index,e)}}
                           onClick={()=>handleClick(index)}
-                          onKeyDown={()=> handleKeyDown(index,e)}
+                          onKeyDown={(e)=> handleKeyDown(index,e)}
                           required
                         />
                       </div>
@@ -85,7 +106,7 @@ const OtpEmail = () => {
                   
                 </div>
 
-                <button className='w-[80%] h-[60px] bg-[#176B87] text-white font-[600] text-[16px] rounded-[10px]' onClick={handleOtpSubmit}>Verify Account</button>
+                
 
                 <div className=" font-[500] text-[16px] leading-[24px] text-[#464646]">
                   <span>

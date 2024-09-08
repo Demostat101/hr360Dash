@@ -168,7 +168,7 @@ export const ContextProvider = ({ children }) => {
  }
 
  const handleOtpSubmit = (otp)=> {
-    console.log(otp);
+    console.log("Login successful",otp);
     
  }
 

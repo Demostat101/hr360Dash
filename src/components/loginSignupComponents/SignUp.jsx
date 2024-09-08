@@ -6,8 +6,8 @@ const SignUp = () => {
     const {  signupEmail,signupPassword,setSignupPassword,setSignupEmail, setState,name,setName,surname,setSurname,Signup,signupErrors} = Context()
   return (
     <>
-      <div className="w-[60%] h-[750px] flex flex-col gap-5 bg-white p-[20px]">
-              <div className="flex flex-col gap-[10px] text-center">
+      <div className="w-[80%] h-fit flex flex-col gap-3 bg-white p-[20px]">
+              <div className="flex flex-col gap-[5px] text-center">
                 <span className="font-[600] text-[20px] leading-[30px] text-[#464646]">
                   Welcome To HR360
                 </span>
@@ -20,11 +20,11 @@ const SignUp = () => {
               </div>
 
               <form
-                className="flex flex-col h-[600px] justify-between"
+                className="flex flex-col h-fit gap-[20px]"
                 action=""
                 onSubmit={(e) => e.preventDefault()}
               >
-                <div className="flex flex-col gap-[20px]">
+                <div className="flex flex-col gap-[10px]">
                   <div className="flex flex-col gap-[10px]">
                     <label
                       className="font-[500] text-[16px] leading-[24px] text-[#464646]"
@@ -36,7 +36,7 @@ const SignUp = () => {
                       id="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none border-2"
+                      className="h-[50px] bg-white rounded-[10px] pl-[20px] focus:outline-none border-2"
                       type="text"
                       placeholder="Enter your first name"
                       required
@@ -51,7 +51,7 @@ const SignUp = () => {
                     </label>
                     <input
                       id="surname"
-                      className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none border-2"
+                      className="h-[50px] bg-white rounded-[10px] pl-[20px] focus:outline-none border-2"
                       type="text"
                       placeholder="Enter your surname"
                       value={surname}
@@ -70,7 +70,7 @@ const SignUp = () => {
                       id="loginemail"
                       value={signupEmail}
                       onChange={(e) => setSignupEmail(e.target.value)}
-                      className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none border-2"
+                      className="h-[50px] bg-white rounded-[10px] pl-[20px] focus:outline-none border-2"
                       type="email"
                       placeholder="Enter your email"
                       required
@@ -87,7 +87,7 @@ const SignUp = () => {
                       id="loginpassword"
                       value={signupPassword}
                       onChange={(e) => setSignupPassword(e.target.value)}
-                      className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none border-2"
+                      className="h-[50px] bg-white rounded-[10px] pl-[20px] focus:outline-none border-2"
                       type="password"
                       placeholder="Enter your password"
                       required
@@ -95,7 +95,7 @@ const SignUp = () => {
                   </div>
                 </div>
                 <button
-                  className="h-[70px] bg-[#176B87] font-[600] text-[24px] leading-[36px] text-white rounded-[10px]"
+                  className="h-[50px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px]"
                   onClick={Signup}
                 >
                   Continue
