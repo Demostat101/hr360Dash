@@ -13,14 +13,14 @@ import LeaveHistory from "./components/EmployeeComponents/LeaveHistory";
 import CreateIntranetAnnouncement from "./components/announcementsComponents/CreateIntranetAnnouncement";
 import CreateEmailAnnouncement from "./components/announcementsComponents/CreateEmailAnnouncement";
 import DisplayAnnouncements from "./components/announcementsComponents/DisplayAnnouncements";
-import Login from "./pages/Login";
+import LoginSignup from "./pages/LoginSignup";
 import UnAuth from "./pages/UnAuth";
 import ProtectedRoute from "./hooks/ProtectedRoute";
 
 const Routers = createBrowserRouter([
   {
     path:"/",
-    element:<Login/>
+    element:<LoginSignup/>
   },
   {
     path: "layout/",

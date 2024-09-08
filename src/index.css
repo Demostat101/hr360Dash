@@ -232,6 +232,8 @@ rect {
 
 }
 
+
+
 @media only screen and (max-width: 1195px) {
   .top-box-wrap {
     flex-wrap: wrap-reverse;

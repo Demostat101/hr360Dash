@@ -152,6 +152,27 @@ export const ContextProvider = ({ children }) => {
  }
 
 
+ // forgot password logic
+
+ const handleForgotPassword = ()=>{
+  if (loginEmail === "") {
+    setLoginErrors("Pls enter your registered email below")
+    setTimeout(() => {
+      setLoginErrors("")
+    }, 3000);
+    return;
+  }
+
+    // API CALL
+  setState("otp")
+ }
+
+ const handleOtpSubmit = (otp)=> {
+    console.log(otp);
+    
+ }
+
+
 
 
 const logOut = ()=>{
@@ -159,6 +180,8 @@ const logOut = ()=>{
   window.location.replace("/")
   setState("login")
 }
+
+
  
   
 
@@ -201,7 +224,9 @@ const logOut = ()=>{
         signupErrors,
         loginErrors,
         userName,
-        logOut
+        logOut,
+        handleForgotPassword,
+        handleOtpSubmit
       }}
     >
       {children}
