@@ -153,6 +153,7 @@ export const ContextProvider = ({ children }) => {
 
 
  // forgot password logic
+const [emailOtp, setEmailOtp] = useState()
 
  const handleForgotPassword = ()=>{
   if (loginEmail === "") {
@@ -164,6 +165,11 @@ export const ContextProvider = ({ children }) => {
   }
 
     // API CALL
+    const OTP = Math.floor(Math.random() * 9000 + 1000);
+    console.log(OTP);
+    setEmailOtp(OTP)
+
+    
   setState("otp")
  }
 
@@ -226,7 +232,7 @@ const logOut = ()=>{
         userName,
         logOut,
         handleForgotPassword,
-        handleOtpSubmit
+        handleOtpSubmit,
       }}
     >
       {children}
