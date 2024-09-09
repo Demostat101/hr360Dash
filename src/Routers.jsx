@@ -1,21 +1,37 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import Error from "./pages/Error";
-import DashBoard from "./pages/DashBoard";
-import Employee from "./pages/Employee";
-import AddEmployee from "./pages/AddEmployee";
-import Analytics from "./pages/Analytics";
-import Announcement from "./pages/Announcement";
-import EmployeeDetails from "./components/EmployeeComponents/EmployeeDetails";
-import PaySlip from "./components/EmployeeComponents/PaySlip";
-import EmployeePage from "./components/EmployeeComponents/EmployeePage";
-import LeaveHistory from "./components/EmployeeComponents/LeaveHistory";
-import CreateIntranetAnnouncement from "./components/announcementsComponents/CreateIntranetAnnouncement";
-import CreateEmailAnnouncement from "./components/announcementsComponents/CreateEmailAnnouncement";
-import DisplayAnnouncements from "./components/announcementsComponents/DisplayAnnouncements";
+import { Suspense } from "react";
+import React from "react";
+// import DashBoard from "./pages/DashBoard";
+// import Employee from "./pages/Employee";
+// import AddEmployee from "./pages/AddEmployee";
+// import Analytics from "./pages/Analytics";
+// import Announcement from "./pages/Announcement";
+// import EmployeeDetails from "./components/EmployeeComponents/EmployeeDetails";
+// import PaySlip from "./components/EmployeeComponents/PaySlip";
+// import EmployeePage from "./components/EmployeeComponents/EmployeePage";
+// import LeaveHistory from "./components/EmployeeComponents/LeaveHistory";
+// import CreateIntranetAnnouncement from "./components/announcementsComponents/CreateIntranetAnnouncement";
+// import CreateEmailAnnouncement from "./components/announcementsComponents/CreateEmailAnnouncement";
+// import DisplayAnnouncements from "./components/announcementsComponents/DisplayAnnouncements";
 import LoginSignup from "./pages/LoginSignup";
 import UnAuth from "./pages/UnAuth";
 import ProtectedRoute from "./hooks/ProtectedRoute";
+
+
+const DashBoard = React.lazy(()=> import("./pages/DashBoard"))
+const Employee = React.lazy(()=> import("./pages/Employee"))
+const AddEmployee = React.lazy(()=> import("./pages/AddEmployee"))
+const Analytics = React.lazy(()=> import("./pages/Analytics"))
+const Announcement = React.lazy(()=> import("./pages/Announcement"))
+const EmployeeDetails = React.lazy(()=> import("./components/EmployeeComponents/EmployeeDetails"))
+const PaySlip = React.lazy(()=> import( "./components/EmployeeComponents/PaySlip"))
+const EmployeePage = React.lazy(()=> import("./components/EmployeeComponents/EmployeePage"))
+const LeaveHistory = React.lazy(()=> import("./components/EmployeeComponents/LeaveHistory"))
+const CreateIntranetAnnouncement = React.lazy(()=> import( "./components/announcementsComponents/CreateIntranetAnnouncement"))
+const CreateEmailAnnouncement = React.lazy(()=> import("./components/announcementsComponents/CreateEmailAnnouncement"))
+const DisplayAnnouncements = React.lazy(()=> import("./components/announcementsComponents/DisplayAnnouncements"))
 
 const Routers = createBrowserRouter([
   {
@@ -29,57 +45,67 @@ const Routers = createBrowserRouter([
     children: [
       {
         path:"dashboard",
-        element:  <DashBoard /> 
+        element:  <Suspense fallback={<div className="flex justify-center place-items-center h-full bg-[#176b87] "><span className="loader"></span></div> }> <DashBoard /> </Suspense>
       },
 
       {
         path: "employee",
-        element: <Employee />,
+        
+        element:  <Suspense fallback={<div className="loader"></div> }> <Employee /> </Suspense>
       },
       {
         path: "employee/:id",
-        element: <EmployeeDetails />,
+        
+        element:  <Suspense fallback={<div className="loader"></div> }> <EmployeeDetails /> </Suspense>,
 
         children: [
           {
             index: true,
 
-            element: <EmployeePage />,
+            element:  <Suspense fallback={<div className="loader"></div> }> <EmployeePage /> </Suspense>
           },
           {
             path: "employee-payslip",
-            element: <PaySlip />,
+            element:  <Suspense fallback={<div className="loader"></div> }>  <PaySlip /> </Suspense>
           },
           {
             path: "employee-leave-history",
-            element: <LeaveHistory />,
+            
+            element:  <Suspense fallback={<div className="loader"></div> }> <LeaveHistory /> </Suspense>
           },
         ],
       },
 
       {
         path: "add-employee",
-        element: <AddEmployee />,
+      
+        element:  <Suspense fallback={<div className="loader"></div> }><AddEmployee /></Suspense>
       },
       {
         path: "analytics",
-        element: <Analytics />,
+      
+        element:  <Suspense fallback={<div className="loader"></div> }><Analytics /></Suspense>
       },
       {
         path: "announcement/",
-        element: <Announcement />,
+      
+        element:  <Suspense fallback={<div className="loader"></div> }> <Announcement /></Suspense>,
         children: [
           {
             index: true,
-            element: <DisplayAnnouncements />,
+          
+            element:  <Suspense fallback={<div className="loader"></div> }><DisplayAnnouncements /></Suspense>
+            
           },
           {
             path: "intranet-announcement",
-            element: <CreateIntranetAnnouncement />,
+          
+            element:  <Suspense fallback={<div className="loader"></div> }> <CreateIntranetAnnouncement /></Suspense>
           },
           {
             path: "email-announcement",
-            element: <CreateEmailAnnouncement />,
+         
+            element:  <Suspense fallback={<div className="loader"></div> }> <CreateEmailAnnouncement /></Suspense>
           },
         ],
       }

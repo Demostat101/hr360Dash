@@ -75,6 +75,8 @@ export const ContextProvider = ({ children }) => {
  const [loginErrors,setLoginErrors] = useState("") 
  const [isSignedIn,setIsSignedIn] = useState(sessionStorage.getItem("logged"));
  const [userName, setUserName] = useState(sessionStorage.getItem("user"))
+ const [isSignupLoading, setIsSignupLoading] = useState(false);
+ const [isLoginLoading, setIsLoginLoading] = useState(false);
 
  
 
@@ -84,7 +86,7 @@ export const ContextProvider = ({ children }) => {
     password:loginPassword
   }
 
-  
+  setIsLoginLoading(true)
     try {
       const response =await axios.post("http://localhost:4501/login",signupFormData)
       const signUpData = await response.data
@@ -105,6 +107,7 @@ export const ContextProvider = ({ children }) => {
         setLoginErrors(signUpData.errors);
         setTimeout(() => {
           setLoginErrors("")
+
         }, 5000);
         
       }
@@ -112,9 +115,9 @@ export const ContextProvider = ({ children }) => {
     
       console.log(error);
       
-
+    } finally {
       
-      
+      setIsLoginLoading(false)
     }
  }
 
@@ -128,6 +131,7 @@ export const ContextProvider = ({ children }) => {
     email:signupEmail,
     password:signupPassword
   }
+  setIsSignupLoading(true)
     try {
       const response =await axios.post("http://localhost:4501/signup",signupFormData)
       const signUpData = await response.data
@@ -136,18 +140,24 @@ export const ContextProvider = ({ children }) => {
 
       if (signUpData.success) {
         sessionStorage.setItem("auth-token",signUpData.token);
+        setName("")
+      setSurname("")
+      setSignupEmail("")
+      setSignupPassword("")
         setState("login");
       } 
     } catch (error) {
-      console.log(error.response.config.data);
+      console.log(error);
       
-    
       setSignupErrors(error.response.data.errors);
 
       setTimeout(() => {
         setSignupErrors("")
       }, 5000);
       
+    } finally{
+      
+      setIsSignupLoading(false)
     }
  }
 
@@ -157,7 +167,7 @@ const [emailOtp, setEmailOtp] = useState()
 
  const handleForgotPassword = ()=>{
   if (loginEmail === "") {
-    setLoginErrors("Pls enter your registered email below")
+    setLoginErrors("Please enter your registered email below")
     setTimeout(() => {
       setLoginErrors("")
     }, 3000);
@@ -181,11 +191,11 @@ const [emailOtp, setEmailOtp] = useState()
 
 
 
-const logOut = ()=>{
-  sessionStorage.removeItem("logged")
-  window.location.replace("/")
-  setState("login")
-}
+// const logOut = ()=>{
+//   sessionStorage.removeItem("logged")
+//   window.location.replace("/")
+//   setState("login")
+// }
 
 
  
@@ -230,9 +240,10 @@ const logOut = ()=>{
         signupErrors,
         loginErrors,
         userName,
-        logOut,
         handleForgotPassword,
         handleOtpSubmit,
+        isSignupLoading,
+        isLoginLoading
       }}
     >
       {children}

@@ -90,10 +90,7 @@ const AnnouncementPage = () => {
   };
 
 const showEditDeleteButton = (getSelected)=>{
-  setEditDelete(getSelected === showEditDelete ? "" : getSelected)
-  console.log(getSelected);
-  console.log(showEditDelete);
-  
+  setEditDelete(getSelected === showEditDelete ? "" : getSelected) 
   
 }
   
