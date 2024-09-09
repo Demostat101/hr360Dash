@@ -128,7 +128,7 @@ ul a.active .icon {
   color: #176b87;
 
 }
-.loader:before {
+.loading:before {
   content:"HR 360°"
 }
 @keyframes l1 {
