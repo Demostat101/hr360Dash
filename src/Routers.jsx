@@ -1,25 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-import MainLayout from "./layout/MainLayout";
 import Error from "./pages/Error";
 import { Suspense } from "react";
 import React from "react";
-// import DashBoard from "./pages/DashBoard";
-// import Employee from "./pages/Employee";
-// import AddEmployee from "./pages/AddEmployee";
-// import Analytics from "./pages/Analytics";
-// import Announcement from "./pages/Announcement";
-// import EmployeeDetails from "./components/EmployeeComponents/EmployeeDetails";
-// import PaySlip from "./components/EmployeeComponents/PaySlip";
-// import EmployeePage from "./components/EmployeeComponents/EmployeePage";
-// import LeaveHistory from "./components/EmployeeComponents/LeaveHistory";
-// import CreateIntranetAnnouncement from "./components/announcementsComponents/CreateIntranetAnnouncement";
-// import CreateEmailAnnouncement from "./components/announcementsComponents/CreateEmailAnnouncement";
-// import DisplayAnnouncements from "./components/announcementsComponents/DisplayAnnouncements";
 import LoginSignup from "./pages/LoginSignup";
 import UnAuth from "./pages/UnAuth";
 import ProtectedRoute from "./hooks/ProtectedRoute";
-
-
+const MainLayout = React.lazy(()=> import("./layout/MainLayout"))
 const DashBoard = React.lazy(()=> import("./pages/DashBoard"))
 const Employee = React.lazy(()=> import("./pages/Employee"))
 const AddEmployee = React.lazy(()=> import("./pages/AddEmployee"))
@@ -40,38 +26,38 @@ const Routers = createBrowserRouter([
   },
   {
     path: "layout/",
-    element: <ProtectedRoute> <MainLayout /> </ProtectedRoute>,
+    element: <Suspense fallback={<div className="flex justify-center place-items-center h-screen bg-[#176b87] text-white"><span className="loader"></span></div> }> <ProtectedRoute> <MainLayout /> </ProtectedRoute> </Suspense>,
 
     children: [
       {
         path:"dashboard",
-        element:  <Suspense fallback={<div className="flex justify-center place-items-center h-full bg-[#176b87] "><span className="loader"></span></div> }> <DashBoard /> </Suspense>
+        element:   <DashBoard /> 
       },
 
       {
         path: "employee",
         
-        element:  <Suspense fallback={<div className="loader"></div> }> <Employee /> </Suspense>
+        element:   <Employee /> 
       },
       {
         path: "employee/:id",
         
-        element:  <Suspense fallback={<div className="loader"></div> }> <EmployeeDetails /> </Suspense>,
+        element:   <EmployeeDetails /> ,
 
         children: [
           {
             index: true,
 
-            element:  <Suspense fallback={<div className="loader"></div> }> <EmployeePage /> </Suspense>
+            element:   <EmployeePage /> 
           },
           {
             path: "employee-payslip",
-            element:  <Suspense fallback={<div className="loader"></div> }>  <PaySlip /> </Suspense>
+            element:    <PaySlip /> 
           },
           {
             path: "employee-leave-history",
             
-            element:  <Suspense fallback={<div className="loader"></div> }> <LeaveHistory /> </Suspense>
+            element:   <LeaveHistory /> 
           },
         ],
       },
@@ -79,33 +65,33 @@ const Routers = createBrowserRouter([
       {
         path: "add-employee",
       
-        element:  <Suspense fallback={<div className="loader"></div> }><AddEmployee /></Suspense>
+        element:  <AddEmployee />
       },
       {
         path: "analytics",
       
-        element:  <Suspense fallback={<div className="loader"></div> }><Analytics /></Suspense>
+        element:  <Analytics />
       },
       {
         path: "announcement/",
       
-        element:  <Suspense fallback={<div className="loader"></div> }> <Announcement /></Suspense>,
+        element:   <Announcement />,
         children: [
           {
             index: true,
           
-            element:  <Suspense fallback={<div className="loader"></div> }><DisplayAnnouncements /></Suspense>
+            element:  <DisplayAnnouncements />
             
           },
           {
             path: "intranet-announcement",
           
-            element:  <Suspense fallback={<div className="loader"></div> }> <CreateIntranetAnnouncement /></Suspense>
+            element:   <CreateIntranetAnnouncement />
           },
           {
             path: "email-announcement",
          
-            element:  <Suspense fallback={<div className="loader"></div> }> <CreateEmailAnnouncement /></Suspense>
+            element:   <CreateEmailAnnouncement />
           },
         ],
       }

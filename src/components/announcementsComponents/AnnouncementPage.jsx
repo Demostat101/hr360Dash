@@ -13,7 +13,6 @@ import {
 } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 
 const AnnouncementPage = () => {
   const [initialRowLength, setInitialRowLength] = useState(5);
@@ -151,7 +150,7 @@ const showEditDeleteButton = (getSelected)=>{
     <>
       {isLoading && (
         <div className="w-full h-[70dvh] flex flex-col place-items-center justify-center">
-          <div className="loader"></div>
+          <div className="loading"></div>
         </div>
       )}
 

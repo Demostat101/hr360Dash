@@ -114,10 +114,28 @@ ul a.active .icon {
   content:"HR 360°"
 }
 @keyframes l1 {
-  0%{opacity: 1; font-size:80px}
-  50%{opacity: 1;font-size:60px}
-  85%{opacity: 0.5;font-size:40px}
-  100%{opacity: 0;font-size:40px}
+  0%{opacity: 1; font-size:50px}
+  50%{opacity: 1;font-size:40px}
+  85%{opacity: 0.5;font-size:30px}
+  100%{opacity: 0;font-size:20px}
+}
+
+.loading {
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 50px;
+  animation: l1 1s linear infinite alternate;
+  color: #176b87;
+
+}
+.loader:before {
+  content:"HR 360°"
+}
+@keyframes l1 {
+  0%{opacity: 1; font-size:50px}
+  50%{opacity: 1;font-size:40px}
+  85%{opacity: 0.5;font-size:30px}
+  100%{opacity: 0;font-size:20px}
 }
 
 /* .loader {
