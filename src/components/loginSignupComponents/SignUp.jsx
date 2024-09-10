@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Context } from "../../contexts/DashBoardContext";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
+
 
 const SignUp = () => {
   const {
@@ -19,7 +20,29 @@ const SignUp = () => {
     isSignupLoading
   } = Context();
 
+   let PassWordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#?!@$%^&*-.]).{8,}$/
+   let EmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
   const [visible, setVisible] = useState(false);
+  const [validPwd, setValidPwd] = useState(false);
+  const [passwordFocus, setPassWordFocus] = useState(false)
+  const [validEmail, setValidEmail] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false)
+
+  useEffect(()=>{
+    const result = PassWordRegex.test(signupPassword);
+    console.log(result);
+    console.log(signupPassword);
+    setValidPwd(result)
+  },[signupPassword])
+
+  useEffect(()=>{
+    const result = EmailRegex.test(signupEmail);
+    console.log(result);
+    console.log(signupEmail);
+    setValidEmail(result)
+  },[signupEmail])
+ 
 
   const handleChangeVisibility = () => {
     setVisible((prev) => !prev);
@@ -27,7 +50,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="w-[80%] h-fit flex flex-col gap-3 bg-white p-[20px]">
+      <div className="w-[80%] h-fit flex flex-col gap-1 bg-white p-[10px]">
         <div className="flex flex-col gap-[5px] text-center">
           <span className="font-[600] text-[20px] leading-[30px] text-[#464646]">
             Welcome To HR360
@@ -56,6 +79,7 @@ const SignUp = () => {
               <input
                 id="name"
                 value={name}
+                autoComplete="off"
                 onChange={(e) => setName(e.target.value)}
                 className="h-[50px] bg-white rounded-[10px] pl-[20px] focus:outline-none border-2"
                 type="text"
@@ -74,6 +98,7 @@ const SignUp = () => {
                 id="surname"
                 className="h-[50px] bg-white rounded-[10px] pl-[20px] focus:outline-none border-2"
                 type="text"
+                autoComplete="off"
                 placeholder="Enter your surname"
                 value={surname}
                 onChange={(e) => setSurname(e.target.value)}
@@ -90,12 +115,17 @@ const SignUp = () => {
               <input
                 id="loginemail"
                 value={signupEmail}
+                autoComplete="off"
                 onChange={(e) => setSignupEmail(e.target.value)}
                 className="h-[50px] bg-white rounded-[10px] pl-[20px] focus:outline-none border-2"
                 type="email"
                 placeholder="Enter your email"
+                onFocus={() => setEmailFocus(true)}
+                  onBlur={() => setEmailFocus(false)}
+                  aria-invalid={validEmail ? "false" : "true"}
                 required
               />
+              <p className={!validEmail && emailFocus ? "text-wrap text-red-500" : "hidden"}>Email must follow this pattern(hr360@gmail.com)</p>
             </div>
             <div className="flex flex-col gap-[10px]">
               <label
@@ -107,20 +137,26 @@ const SignUp = () => {
               <div className="border-2 rounded-[10px] flex place-items-center pr-[20px] gap-[10px]">
                 <input
                   id="loginpassword"
+                  autoComplete="off"
                   value={signupPassword}
                   onChange={(e) => setSignupPassword(e.target.value)}
                   className="h-[50px] bg-white rounded-[10px] pl-[20px] focus:outline-none x w-full"
                   type={visible ? "text" : "password"}
                   placeholder="Enter your password"
+                  onFocus={() => setPassWordFocus(true)}
+                  onBlur={() => setPassWordFocus(false)}
+                  aria-invalid={validPwd ? "false" : "true"}
                   required
                 />
                 <div onClick={handleChangeVisibility} className=" cursor-pointer text-[#176B87]">{visible ? <FaRegEye size={24}/>  : <FaRegEyeSlash size={24}/>}</div>
               </div>
+              <p className={!validPwd && passwordFocus ? "text-wrap text-red-500" : "hidden"}>Atleast 8 characters. Must include uppercase and lowercase letters, a number and a special character(#?!@$%^&*-.)</p>
             </div>
           </div>
           <button
             className="h-[50px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] flex justify-center place-items-center"
             onClick={Signup}
+            disabled={!validPwd || !validEmail}
           >
            {!isSignupLoading ?"Continue": <div className="isSignupLoader"></div> }
           </button>

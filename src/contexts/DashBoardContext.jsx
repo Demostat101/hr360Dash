@@ -101,19 +101,23 @@ export const ContextProvider = ({ children }) => {
         setIsSignedIn(signUpData.success)
         window.location.replace("layout/dashboard")
         setUserName(signUpData.user.name)
-        console.log(userName.slice(0,1));
       }  else {
       
         setLoginErrors(signUpData.errors);
         setTimeout(() => {
           setLoginErrors("")
 
-        }, 5000);
+        }, 3000);
         
       }
     } catch (error) {
     
-      console.log(error);
+      setLoginErrors(error.message);
+      
+      setTimeout(() => {
+        setLoginErrors("")
+
+      }, 3000)
       
     } finally {
       
@@ -132,6 +136,10 @@ export const ContextProvider = ({ children }) => {
     password:signupPassword
   }
   setIsSignupLoading(true)
+  if (name === "" || signupEmail === "" || signupPassword === "" || surname === "") {
+    setIsSignupLoading(false)
+    return;
+  }
     try {
       const response =await axios.post("http://localhost:4501/signup",signupFormData)
       const signUpData = await response.data
@@ -153,7 +161,7 @@ export const ContextProvider = ({ children }) => {
 
       setTimeout(() => {
         setSignupErrors("")
-      }, 5000);
+      }, 3000);
       
     } finally{
       
