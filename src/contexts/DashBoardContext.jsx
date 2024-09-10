@@ -78,7 +78,7 @@ export const ContextProvider = ({ children }) => {
  const [isSignupLoading, setIsSignupLoading] = useState(false);
  const [isLoginLoading, setIsLoginLoading] = useState(false);
 
- 
+
 
  const Login = async() => {
   const signupFormData = {
@@ -101,6 +101,7 @@ export const ContextProvider = ({ children }) => {
         setIsSignedIn(signUpData.success)
         window.location.replace("layout/dashboard")
         setUserName(signUpData.user.name)
+        
       }  else {
       
         setLoginErrors(signUpData.errors);
