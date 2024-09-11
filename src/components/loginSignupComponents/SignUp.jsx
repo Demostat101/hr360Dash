@@ -154,7 +154,7 @@ const SignUp = () => {
             </div>
           </div>
           <button
-            className="h-[50px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] flex justify-center place-items-center"
+            className={!validPwd || !validEmail ? "h-[50px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] opacity-30 flex justify-center place-items-center" : "h-[50px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] flex justify-center place-items-center"}
             onClick={Signup}
             disabled={!validPwd || !validEmail}
           >
