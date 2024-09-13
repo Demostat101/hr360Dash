@@ -7,6 +7,7 @@ import OfficialDetailsEditForm from "./OfficialDetailsEditForm";
 import { GoPaperclip } from "react-icons/go";
 import { editEmployeeContext } from "../../contexts/EditDetailsContext";
 import { Context } from "../../contexts/DashBoardContext";
+import MultipleSelectChip from "./EmployeeSkillsChip";
 
 const EmployeePage = () => {
   const { id } = useParams();
@@ -717,8 +718,10 @@ const EmployeePage = () => {
                           </div>
                         </div>
 
-                        <div className="w-full h-full flex flex-col gap-[5px]">
-                          <span
+                        <div className="w-full h-full flex flex-col gap-[5px] border-2 border-red-600">
+
+                          <MultipleSelectChip employeeSkills={employee.skills}/>
+                          {/* <span
                             className={
                               open
                                 ? "font-[400] text-[16px] leading-[24px] text-black opacity-60"
@@ -749,7 +752,7 @@ const EmployeePage = () => {
                                 </div>
                               );
                             })}
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
