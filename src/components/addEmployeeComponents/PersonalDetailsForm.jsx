@@ -82,7 +82,7 @@ const PersonalDetailsForm = () => {
                 type="text"
                 id="middlename"
                 name="middlename"
-                required
+              
               />
             </span>
             <span className="flex flex-col gap-[6.9px]  w-[30%]">

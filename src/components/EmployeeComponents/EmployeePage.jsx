@@ -47,6 +47,7 @@ const EmployeePage = () => {
   const employeeFilter = data.filter(
     (employee) => employee.id.toString() === id
   );
+  
 
   const handleEditPersonalDetailsButton = () => {
     setEditPersonalDetailsButton(true);
@@ -718,10 +719,20 @@ const EmployeePage = () => {
                           </div>
                         </div>
 
-                        <div className="w-full h-full flex flex-col gap-[5px] border-2 border-red-600">
+                        <div className="w-full h-full flex flex-col gap-[5px]">
 
-                          <MultipleSelectChip employeeSkills={employee.skills}/>
-                          {/* <span
+                        {/* <span
+                            className={
+                              open
+                                ? "font-[400] text-[16px] leading-[24px] text-black opacity-60"
+                                : "font-[400] text-[17.6px] leading-[26.4px] text-black opacity-60"
+                            }
+                          >
+                            Skills
+                          </span> */}
+
+                          {/* <MultipleSelectChip employeeSkills={employee.skills}/> */}
+                          <span
                             className={
                               open
                                 ? "font-[400] text-[16px] leading-[24px] text-black opacity-60"
@@ -748,11 +759,11 @@ const EmployeePage = () => {
                                       : "py-[9px] px-[20px] bg-[#E0ECFC] rounded-[10px] border-[1px] border-[#176B87] font-[400] text-[14px] leading-[21px] text-[#176B87] text-nowrap"
                                   }
                                 >
-                                  {val.skill}
+                                  {val}
                                 </div>
                               );
                             })}
-                          </div> */}
+                          </div>
                         </div>
                       </div>
                     </div>

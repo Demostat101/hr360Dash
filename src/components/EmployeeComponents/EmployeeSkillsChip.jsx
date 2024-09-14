@@ -10,7 +10,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 
-const customerDetalsFromLocalStorage = JSON.parse(localStorage.getItem("customers")|| "[]")
+// const customerDetalsFromLocalStorage = JSON.parse(localStorage.getItem("customers")|| "[]")
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -34,7 +34,7 @@ function getStyles(name, personName, theme) {
 
 export default function MultipleSelectChip({employeeSkills}) {
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState(customerDetalsFromLocalStorage);
+  const [personName, setPersonName] = React.useState([]);
 
 
   const handleChange = (event) => {
@@ -47,18 +47,18 @@ export default function MultipleSelectChip({employeeSkills}) {
     );
   };
 
-  React.useEffect(()=>{
-    localStorage.setItem("customers", JSON.stringify(employeeSkills))
+//   React.useEffect(()=>{
+//     localStorage.setItem("customers", JSON.stringify(employeeSkills))
 
-},[employeeSkills]);
+// },[employeeSkills]);
 
 console.log(personName);
 
 
   return (
     <div>
-      <FormControl sx={{ width: "100% "}}>
-        <InputLabel id="demo-multiple-chip-label">Skills</InputLabel>
+      <FormControl sx={{ width: "100% "}} variant='none'>
+        <InputLabel variant='none' id="demo-multiple-chip-label" ></InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
@@ -67,9 +67,9 @@ console.log(personName);
           onChange={handleChange}
           input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
           renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }} variant="none">
               {selected.map((value) => (
-                <Chip key={value} label={value} />
+                <Chip key={value} label={value} color='info' variant="filled" />
               ))}
             </Box>
           )}
@@ -80,6 +80,7 @@ console.log(personName);
               key={skill}
               value={skill}
               style={getStyles(skill, personName, theme)}
+              
             >
               {skill}
             </MenuItem>

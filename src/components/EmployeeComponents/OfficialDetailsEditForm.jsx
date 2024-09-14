@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { editEmployeeContext } from "../../contexts/EditDetailsContext";
 
 const OfficialDetailsEditForm = () => {
@@ -21,6 +22,7 @@ const OfficialDetailsEditForm = () => {
     setEditSkills,
   } = editEmployeeContext();
 
+  const [skills, setSkills] = useState("")
   return (
     <>
       <form
@@ -226,14 +228,47 @@ const OfficialDetailsEditForm = () => {
               Skills
             </label>
 
-            <input
-              readOnly
-              className="focus:outline-none border-[1px] border-[#a5b5bb] rounded-md"
-              value={editSkills}
-              onChange={(e) => setEditSkills(e.target.value)}
-              type="text"
-              placeholder="skills"
-            />
+              <div>
+            <div className="flex gap-4 items-center">
+              <input
+                // readOnly
+                className="focus:outline-none border-[1px] border-[#a5b5bb] rounded-md"
+                value={skills}
+                onChange={e => setSkills(e.target.value)}
+                // value={editSkills}
+                // onChange={(e) => setEditSkills(e.target.value)}
+                
+                type="text"
+                placeholder="skills"
+              />
+              <button 
+                onClick={()=> { 
+                  if(!skills){
+                    console.log("no skills")
+                    return;
+                  }
+
+                   setEditSkills(prev => {
+                    const skillExists = prev.find(skill => skill === skills.trim())
+                    if(!!skillExists){
+                      console.log("skills already exist", skillExists)
+                      return prev;
+                    }
+  
+                    return [...prev, skills]
+                    
+                  });
+
+                  setSkills("")
+                }
+                }
+                >+
+              </button>
+              </div>
+                <div>
+                  
+                </div>
+              </div>
           </div>
         </div>
       </form>

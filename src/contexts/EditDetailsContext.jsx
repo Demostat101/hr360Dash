@@ -16,6 +16,8 @@ export const EditDetailsContext = ({ children }) => {
 
   const { data, setData } = useAxiosFetch(`http://localhost:4000/data`);
 
+  
+
   // Handle Edit Personal Employee Details
 
   const [editName, setEditName] = useState("");
@@ -91,7 +93,9 @@ export const EditDetailsContext = ({ children }) => {
   const [editDepartment, setEditDepartment] = useState("");
   const [editReportingOfficer, setEditReportingOfficer] = useState("");
   const [editRegion, setEditRegion] = useState("");
-  const [editSkills, setEditSkills] = useState();
+  const [editSkills, setEditSkills] = useState([]);
+
+  console.log({editSkills})
 
   const handleEditOfficialDetails = async (id) => {
     const edit = {

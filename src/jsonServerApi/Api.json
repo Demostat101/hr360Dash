@@ -7,7 +7,7 @@
       "department": "Marketing",
       "role": "Manager",
       "email": "esther@sbc.org",
-      "empType": "Full time",
+      "empType": "contract",
       "active": false,
       "region": "Abuja",
       "job": "Web Developer",
@@ -27,7 +27,8 @@
       "skills": [
         "Coding",
         "Team work",
-        "Communication"
+        "react",
+        "flutter"
       ],
       "bankName": "Union Bank",
       "bankAccount": "0023467823",
