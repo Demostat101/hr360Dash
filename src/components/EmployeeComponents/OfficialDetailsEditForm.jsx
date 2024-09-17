@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { editEmployeeContext } from "../../contexts/EditDetailsContext";
+import { FaPlus } from "react-icons/fa";
 
-const OfficialDetailsEditForm = () => {
+const OfficialDetailsEditForm = ({employee}) => {
+  console.log(employee);
+  
   const {
     open,
     editEmployeeId,
@@ -23,6 +26,40 @@ const OfficialDetailsEditForm = () => {
   } = editEmployeeContext();
 
   const [skills, setSkills] = useState("")
+  const [message,setMessage] = useState("")
+
+
+  const handleEditSkills = () => {
+    if(!skills){
+      setMessage("No skill added, kindly add a skill.")
+      setTimeout(() => {
+        setMessage("")
+      }, 2000);
+      return;
+    }
+
+     setEditSkills(prev => {
+      const skillExists = prev.find(skill => skill.toLowerCase() === skills.trim().toLowerCase())
+      if(!!skillExists){
+
+        setMessage("skill already exist")
+        setTimeout(() => {
+          setMessage("")
+        }, 2000);
+        return prev;
+      }
+      setMessage("Skill added Kindly click on save Button to add skill successfully")
+      setTimeout(() => {
+        setMessage("")
+      }, 5000);
+      return [...prev, skills]
+      
+    });
+
+    setSkills("")
+  }
+
+
   return (
     <>
       <form
@@ -229,6 +266,7 @@ const OfficialDetailsEditForm = () => {
             </label>
 
               <div>
+                <div className="font-[500] text-red-500">{message}</div>
             <div className="flex gap-4 items-center">
               <input
                 // readOnly
@@ -242,28 +280,18 @@ const OfficialDetailsEditForm = () => {
                 placeholder="skills"
               />
               <button 
-                onClick={()=> { 
-                  if(!skills){
-                    console.log("no skills")
-                    return;
-                  }
-
-                   setEditSkills(prev => {
-                    const skillExists = prev.find(skill => skill === skills.trim())
-                    if(!!skillExists){
-                      console.log("skills already exist", skillExists)
-                      return prev;
-                    }
-  
-                    return [...prev, skills]
-                    
-                  });
-
-                  setSkills("")
-                }
-                }
-                >+
+                onClick={handleEditSkills}
+                ><FaPlus/>
               </button>
+              </div>
+              <div className="w-full mt-2">
+                {
+                  employee.map((val,index)=>{
+                    return <div className=" w-full flex gap-2 flex-wrap">{val.skills.map((val,index)=>{
+                      return <div className=" text-nowrap">{val},</div>
+                    })}</div>
+                  })
+                }
               </div>
                 <div>
                   

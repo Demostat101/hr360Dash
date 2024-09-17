@@ -164,7 +164,7 @@ const EmployeePage = () => {
               onClick={() => handleEditPersonalDetails(post.id)}
               className={
                 open
-                  ? "w-[95px] h-[24px] flex gap-[10px] place-items-center justify-end cursor-pointer"
+                  ? "w-[95px] h-[24px] flex gap-[10px] place-items-center justify-end cursor-pointer "
                   : "w-[104.51px] h-[26.4px] flex gap-[11px] place-items-center justify-end cursor-pointer"
               }
             >
@@ -476,8 +476,8 @@ const EmployeePage = () => {
       <div
         className={
           open
-            ? " w-full h-[405.59px] bg-white rounded-xl"
-            : " w-full h-[445.91px] bg-white rounded-xl"
+            ? " w-full h-fit bg-white rounded-xl"
+            : " w-full h-fit bg-white rounded-xl"
         }
       >
         <div
@@ -534,7 +534,7 @@ const EmployeePage = () => {
         </div>
         <hr />
 
-        <div className="w-full p-[20px] shadow-lg ">
+        <div className="w-full h-full p-[20px] shadow-lg">
           <div>
             {!editOfficialDetailsButton ? (
               <>
@@ -771,7 +771,7 @@ const EmployeePage = () => {
                 })}
               </>
             ) : (
-              <OfficialDetailsEditForm />
+              <OfficialDetailsEditForm employee={employeeFilter} />
             )}
           </div>
 
