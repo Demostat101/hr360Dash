@@ -170,72 +170,127 @@ export const ContextProvider = ({ children }) => {
     }
  }
 
+ //get user details
+
+ const getUser = async () => {
+  
+
+  try {
+      const { data } = await axios.get(`http://localhost:4501/user/${loginEmail}`);
+      console.log(data);
+      
+      return data; // Return data directly
+  } catch (error) {
+      console.error(error);
+      return null; // Return null or an error object to indicate failure
+  }
+};
+
+
+
+
+//  const getUser = async ({email}) => {
+//   console.log(email);
+  
+//     try {
+//       const {data} = await axios.get(`http://localhost:4501/user/${email}`)
+//       return {data}
+//     } catch (error) {
+//       console.log(error);
+      
+//     }
+//  }
+
 
  // forgot password logic
 const [emailOtp, setEmailOtp] = useState()
 
- const handleForgotPassword = async(Email)=>{
-  // const signupFormData = {
-  //   email:signupEmail,
-  // }
-  if (loginEmail === "") {
-    setLoginErrors("Please enter your registered email below")
-    setTimeout(() => {
-      setLoginErrors("")
-    }, 3000);
-    return;
+const handleForgotPassword = async () => {
+  if (!loginEmail) {
+      setLoginErrors("Please enter your registered email below");
+      setTimeout(() => {
+          setLoginErrors("");
+      }, 3000);
+      return;
   }
 
-    // API CALL
-    try {
-      const res =await axios.post("http://localhost:4501/login", loginEmail)
-      const signUpData = await res.data
-
-      // const compData = signUpData.map(({email})=> email)
-
-      console.log(signUpData);
-      const /* {data,status} */ response =await axios.get("http://localhost:4501/generateOTP")
-
-      
-
-
-      console.log(response.data.code);
-      console.log(response.status);
-      console.log(loginEmail);
-      // console.log(response.config.email);
-      // console.log(signupFormData);
-      console.log(response);
-      
-      
+  // API CALL
+  try {
+      const { data: { code }, status } = await axios.get("http://localhost:4501/generateOTP", loginEmail);
+      console.log(status);
+      console.log(code);
       
       
 
-      if (response.status === 201 && loginEmail === response.config.email) {
-        console.log("Good");
-        // let {data:{email}} =await Login({Email})
-        
-        let text = `Your Password Recovery OTP is  ${response.data.code}. Verify and recover your password`;
-        await axios.post("http://localhost:4501/sendOtp", {name,email,text,subject:"Password Recovery OTP"})
-        setState("otp")
+      if (status === 200 || status === 201) {
+          const data = await getUser(loginEmail);
+          console.log(data);
+          
+          console.log(data.email);
+          
+          const text = `Your password recovery OTP is ${code}. Verify and recover your password.`;
+          await axios.post("http://localhost:4501/sendOtp", {
+              name:data.name,
+              email:data.email,
+              text,
+              subject: "Password Recovery OTP"
+          });
+          setState("otp")
+          return code;  // Simply return code
+      } else {
+          setLoginErrors("Failed to generate OTP. Please try again.");
       }
+  } catch (error) {
+      setLoginErrors("An error occured, please check your email and try again");
+      setTimeout(() => {
+        setLoginErrors("");
+    }, 3000);
+  }
+};
 
-      return Promise.resolve(code);
+
+const [otpMessage, setOtpMessage] = useState("")
 
 
-    } catch (error) {
-      console.log(error);
+ const handleOtpSubmit = async ({loginEmail, code})=> {
+
+      try {
+        const {data, status} = await axios.get("http://localhost:4501/verifyOTP",{ params:{loginEmail, code}})
+
+        console.log(data);
+        console.log(status);
+
+        if (status === 201) {
+          setState("passwordReset")
+        }
+
       
-    }
+        
+
+        return {data, status}
+      } catch (error) {
+        console.log(error);
+        setOtpMessage("Wrong OTP!, confirm OTP and try again")
+        setTimeout(() => {
+          setOtpMessage("");
+      }, 3000);
+        
+      }
     
  }
 
- const handleOtpSubmit = (otp)=> {
 
+ // reset password
 
+ const resetPassword = async ({name,password})=>{
 
-
-    console.log("Login successful",otp);
-    
+      try {
+        const {data, status} = await axios.put("http://localhost:4501/resetPassword",{name,password})
+        return Promise.resolve({data,status})
+      } catch (error) {
+        console.log(error);
+        
+      }
  }
 
 
@@ -293,7 +348,8 @@ const [emailOtp, setEmailOtp] = useState()
         handleForgotPassword,
         handleOtpSubmit,
         isSignupLoading,
-        isLoginLoading
+        isLoginLoading,
+        otpMessage
       }}
     >
       {children}

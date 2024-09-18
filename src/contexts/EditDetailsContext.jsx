@@ -95,8 +95,6 @@ export const EditDetailsContext = ({ children }) => {
   const [editRegion, setEditRegion] = useState("");
   const [editSkills, setEditSkills] = useState([]);
 
-  console.log({editSkills})
-
   const handleEditOfficialDetails = async (id) => {
     const edit = {
       id: (data.length + 1).toString(),

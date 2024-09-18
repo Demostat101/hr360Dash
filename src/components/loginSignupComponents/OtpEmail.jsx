@@ -5,7 +5,7 @@ import { Context } from '../../contexts/DashBoardContext'
 
 const OtpEmail = () => {
     const otpLength = 4;
-    const {loginEmail,handleOtpSubmit} = Context()
+    const {loginEmail,handleOtpSubmit,otpMessage} = Context()
     const [otp, setOtp] = useState(new Array(otpLength).fill(""))
     const inputRefs = useRef([])
 
@@ -15,7 +15,7 @@ const OtpEmail = () => {
         }
     },[])
 
-    const handleChange = (index,e)=>{
+    const handleChange = async (index,e)=>{
         const value = e.target.value;
         if (isNaN(value)) {
             return;
@@ -29,7 +29,9 @@ const OtpEmail = () => {
 
         const combinedOtp = newOtp.join("");
         if (combinedOtp.length === otpLength) {
-            handleOtpSubmit(combinedOtp)
+           await handleOtpSubmit({loginEmail, code:combinedOtp})
+           console.log(loginEmail);
+           
         }
 
         // Move to next input if current field is filled
@@ -73,6 +75,8 @@ const OtpEmail = () => {
                   {""}
                 </span>
               </div>
+
+              <div className='text-red-500 font-[500] text-[18px]'>{otpMessage}</div>
 
               <form
                 className="flex flex-col h-fit gap-[40px] place-items-center"

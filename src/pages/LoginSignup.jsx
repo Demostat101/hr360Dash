@@ -1,5 +1,6 @@
 import Login from "../components/loginSignupComponents/Login";
 import OtpEmail from "../components/loginSignupComponents/OtpEmail";
+import PasswordReset from "../components/loginSignupComponents/PasswordReset";
 import SignUp from "../components/loginSignupComponents/SignUp";
 import { Context } from "../contexts/DashBoardContext";
 
@@ -134,7 +135,14 @@ const LoginSignup = () => {
         state === "otp" ? 
         <>
           <OtpEmail/>
-        </> : ""
+        </> : 
+        state === "passwordReset" ?
+        <>
+          <PasswordReset/>
+        </>
+
+        : ""
+
       
       }
       </div>
