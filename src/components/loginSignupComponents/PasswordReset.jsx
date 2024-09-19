@@ -13,8 +13,6 @@ const PasswordReset = () => {
 
   useEffect(()=>{
     const result = PassWordRegex.test(resetPassword);
-    console.log(result);
-    console.log(resetPassword);
     setValidPwd(result)
   },[resetPassword])
 

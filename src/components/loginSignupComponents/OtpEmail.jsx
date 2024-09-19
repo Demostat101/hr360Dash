@@ -64,8 +64,7 @@ const OtpEmail = () => {
         data: { code },
         status,
       } = await axios.get("http://localhost:4501/generateOTP", loginEmail);
-      console.log(status);
-      console.log(code);
+     
 
       if (status === 200 || status === 201) {
         const data = await getUser(loginEmail);
@@ -81,7 +80,7 @@ const OtpEmail = () => {
         setTimerCount(60);
         return code;
       }
-    } catch (error) {}
+    } catch (error) {return null;}
   };
 
   useEffect(() => {

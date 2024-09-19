@@ -177,33 +177,16 @@ export const ContextProvider = ({ children }) => {
 
   try {
       const { data } = await axios.get(`http://localhost:4501/user/${loginEmail}`);
-      console.log(data);
       
-      return data; // Return data directly
+      return data;
   } catch (error) {
-      console.error(error);
-      return null; // Return null or an error object to indicate failure
+      return null; 
   }
 };
 
 
-
-
-//  const getUser = async ({email}) => {
-//   console.log(email);
-  
-//     try {
-//       const {data} = await axios.get(`http://localhost:4501/user/${email}`)
-//       return {data}
-//     } catch (error) {
-//       console.log(error);
-      
-//     }
-//  }
-
-
  // forgot password logic
-const [emailOtp, setEmailOtp] = useState()
+
 
 const handleForgotPassword = async () => {
   if (!loginEmail) {
@@ -217,16 +200,11 @@ const handleForgotPassword = async () => {
   // API CALL
   try {
       const { data: { code }, status } = await axios.get("http://localhost:4501/generateOTP", loginEmail);
-      console.log(status);
-      console.log(code);
       
       
 
       if (status === 200 || status === 201) {
           const data = await getUser(loginEmail);
-          console.log(data);
-          
-          console.log(data.email);
           
           const text = `Your password recovery OTP is ${code}. Verify and recover your password.`;
           await axios.post("http://localhost:4501/sendOtp", {
@@ -236,7 +214,7 @@ const handleForgotPassword = async () => {
               subject: "Password Recovery OTP"
           });
           setState("otp")
-          return code;  // Simply return code
+          return code;
       } else {
           setLoginErrors("Failed to generate OTP. Please try again.");
       }
@@ -245,6 +223,7 @@ const handleForgotPassword = async () => {
       setTimeout(() => {
         setLoginErrors("");
     }, 3000);
+    return null;
   }
 };
 
@@ -257,9 +236,6 @@ const [otpMessage, setOtpMessage] = useState("")
       try {
         const {data, status} = await axios.get("http://localhost:4501/verifyOTP",{ params:{loginEmail, code}})
 
-        console.log(data);
-        console.log(status);
-
         if (status === 201) {
           setState("passwordReset")
         }
@@ -269,11 +245,11 @@ const [otpMessage, setOtpMessage] = useState("")
 
         return {data, status}
       } catch (error) {
-        console.log(error);
         setOtpMessage("Wrong OTP!, confirm OTP and try again")
         setTimeout(() => {
           setOtpMessage("");
       }, 3000);
+      return null;
         
       }
     

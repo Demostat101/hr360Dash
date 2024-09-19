@@ -31,15 +31,11 @@ const SignUp = () => {
 
   useEffect(()=>{
     const result = PassWordRegex.test(signupPassword);
-    console.log(result);
-    console.log(signupPassword);
     setValidPwd(result)
   },[signupPassword])
 
   useEffect(()=>{
     const result = EmailRegex.test(signupEmail);
-    console.log(result);
-    console.log(signupEmail);
     setValidEmail(result)
   },[signupEmail])
  
