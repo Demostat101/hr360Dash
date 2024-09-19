@@ -3,7 +3,6 @@ import { Context } from "../../contexts/DashBoardContext";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 
-
 const SignUp = () => {
   const {
     signupEmail,
@@ -17,28 +16,28 @@ const SignUp = () => {
     setSurname,
     Signup,
     signupErrors,
-    isSignupLoading
+    isSignupLoading,
   } = Context();
 
-   let PassWordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#?!@$%^&*-.]).{8,}$/
-   let EmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  let PassWordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#?!@$%^&*-.]).{8,}$/;
+  let EmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   const [visible, setVisible] = useState(false);
   const [validPwd, setValidPwd] = useState(false);
-  const [passwordFocus, setPassWordFocus] = useState(false)
+  const [passwordFocus, setPassWordFocus] = useState(false);
   const [validEmail, setValidEmail] = useState(false);
-  const [emailFocus, setEmailFocus] = useState(false)
+  const [emailFocus, setEmailFocus] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     const result = PassWordRegex.test(signupPassword);
-    setValidPwd(result)
-  },[signupPassword])
+    setValidPwd(result);
+  }, [signupPassword]);
 
-  useEffect(()=>{
+  useEffect(() => {
     const result = EmailRegex.test(signupEmail);
-    setValidEmail(result)
-  },[signupEmail])
- 
+    setValidEmail(result);
+  }, [signupEmail]);
 
   const handleChangeVisibility = () => {
     setVisible((prev) => !prev);
@@ -117,11 +116,19 @@ const SignUp = () => {
                 type="email"
                 placeholder="Enter your email"
                 onFocus={() => setEmailFocus(true)}
-                  onBlur={() => setEmailFocus(false)}
-                  aria-invalid={validEmail ? "false" : "true"}
+                onBlur={() => setEmailFocus(false)}
+                aria-invalid={validEmail ? "false" : "true"}
                 required
               />
-              <p className={!validEmail && emailFocus ? "text-wrap text-red-500" : "hidden"}>Email must follow this pattern(hr360@gmail.com)</p>
+              <p
+                className={
+                  !validEmail && emailFocus
+                    ? "text-wrap text-red-500"
+                    : "hidden"
+                }
+              >
+                Email must follow this pattern(hr360@gmail.com)
+              </p>
             </div>
             <div className="flex flex-col gap-[10px]">
               <label
@@ -144,17 +151,43 @@ const SignUp = () => {
                   aria-invalid={validPwd ? "false" : "true"}
                   required
                 />
-                <div onClick={handleChangeVisibility} className=" cursor-pointer text-[#176B87]">{visible ? <FaRegEye size={24}/>  : <FaRegEyeSlash size={24}/>}</div>
+                <div
+                  onClick={handleChangeVisibility}
+                  className=" cursor-pointer text-[#176B87]"
+                >
+                  {visible ? (
+                    <FaRegEye size={24} />
+                  ) : (
+                    <FaRegEyeSlash size={24} />
+                  )}
+                </div>
               </div>
-              <p className={!validPwd && passwordFocus ? "text-wrap text-red-500" : "hidden"}>Atleast 8 characters. Must include uppercase and lowercase letters, a number and a special character(#?!@$%^&*-.)</p>
+              <p
+                className={
+                  !validPwd && passwordFocus
+                    ? "text-wrap text-red-500"
+                    : "hidden"
+                }
+              >
+                Atleast 8 characters. Must include uppercase and lowercase
+                letters, a number and a special character(#?!@$%^&*-.)
+              </p>
             </div>
           </div>
           <button
-            className={!validPwd || !validEmail ? "h-[50px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] opacity-30 flex justify-center place-items-center" : "h-[50px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] flex justify-center place-items-center"}
+            className={
+              !validPwd || !validEmail
+                ? "h-[50px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] opacity-30 flex justify-center place-items-center"
+                : "h-[50px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] flex justify-center place-items-center"
+            }
             onClick={Signup}
             disabled={!validPwd || !validEmail}
           >
-           {!isSignupLoading ?"Continue": <div className="isSignupLoader"></div> }
+            {!isSignupLoading ? (
+              "Continue"
+            ) : (
+              <div className="isSignupLoader"></div>
+            )}
           </button>
         </form>
 

@@ -5,13 +5,7 @@ import SignUp from "../components/loginSignupComponents/SignUp";
 import { Context } from "../contexts/DashBoardContext";
 
 const LoginSignup = () => {
-  const {
-    
-  
-    state,
-   
-   
-  } = Context();
+  const { state } = Context();
 
   return (
     <div className="w-full flex">
@@ -124,27 +118,23 @@ const LoginSignup = () => {
       <div className="w-[50%] h-screen flex justify-center place-items-center bg-[#F6F7FA]">
         {state === "login" ? (
           <>
-            <Login/>
+            <Login />
           </>
-        ) :
-        state === "signUp" ?(
+        ) : state === "signUp" ? (
           <>
-            <SignUp/>
+            <SignUp />
           </>
-        ) :
-        state === "otp" ? 
-        <>
-          <OtpEmail/>
-        </> : 
-        state === "passwordReset" ?
-        <>
-          <PasswordReset/>
-        </>
-
-        : ""
-
-      
-      }
+        ) : state === "otp" ? (
+          <>
+            <OtpEmail />
+          </>
+        ) : state === "passwordReset" ? (
+          <>
+            <PasswordReset />
+          </>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

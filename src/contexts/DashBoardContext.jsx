@@ -9,8 +9,6 @@ export const Context = () => {
   return useContext(dashBoardContext);
 };
 
-
-
 export const ContextProvider = ({ children }) => {
   const API_URL = "http://localhost:4000/data";
   const [error, setError] = useState(null);
@@ -61,226 +59,221 @@ export const ContextProvider = ({ children }) => {
     }
   };
 
+  // LOGIN AND SIGNUP PAGE LOGIC
 
- // LOGIN AND SIGNUP PAGE LOGIC
+  const [state, setState] = useState("login");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [signupEmail, setSignupEmail] = useState("");
+  const [signupPassword, setSignupPassword] = useState("");
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [signupErrors, setSignupErrors] = useState("");
+  const [loginErrors, setLoginErrors] = useState("");
+  const [isSignedIn, setIsSignedIn] = useState(
+    sessionStorage.getItem("logged")
+  );
+  const [userName, setUserName] = useState(sessionStorage.getItem("user"));
+  const [isSignupLoading, setIsSignupLoading] = useState(false);
+  const [isLoginLoading, setIsLoginLoading] = useState(false);
 
- const [state,setState] = useState("login");
- const [loginEmail,setLoginEmail] = useState("")
- const [loginPassword, setLoginPassword] = useState("")
- const [signupEmail,setSignupEmail] = useState("")
- const [signupPassword, setSignupPassword] = useState("")
- const [name, setName] = useState("")
- const [surname, setSurname] = useState("")
- const [signupErrors,setSignupErrors] = useState("") 
- const [loginErrors,setLoginErrors] = useState("") 
- const [isSignedIn,setIsSignedIn] = useState(sessionStorage.getItem("logged"));
- const [userName, setUserName] = useState(sessionStorage.getItem("user"))
- const [isSignupLoading, setIsSignupLoading] = useState(false);
- const [isLoginLoading, setIsLoginLoading] = useState(false);
+  const Login = async () => {
+    const signupFormData = {
+      email: loginEmail,
+      password: loginPassword,
+    };
 
-
-
- const Login = async() => {
-  const signupFormData = {
-    email:loginEmail,
-    password:loginPassword
-  }
-
-  setIsLoginLoading(true)
+    setIsLoginLoading(true);
     try {
-      const response =await axios.post("http://localhost:4501/login",signupFormData)
-      const signUpData = await response.data
+      const response = await axios.post(
+        "http://localhost:4501/login",
+        signupFormData
+      );
+      const signUpData = await response.data;
 
-      
-      
-      
       if (signUpData.success) {
-        sessionStorage.setItem("auth-token",signUpData.token);
-        sessionStorage.setItem("logged",signUpData.success)
-        sessionStorage.setItem("user",signUpData.user.name)
-        setIsSignedIn(signUpData.success)
-        window.location.replace("layout/dashboard")
-        setUserName(signUpData.user.name)
-        
-      }  else {
-      
+        sessionStorage.setItem("auth-token", signUpData.token);
+        sessionStorage.setItem("logged", signUpData.success);
+        sessionStorage.setItem("user", signUpData.user.name);
+        setIsSignedIn(signUpData.success);
+        window.location.replace("layout/dashboard");
+        setUserName(signUpData.user.name);
+      } else {
         setLoginErrors(signUpData.errors);
         setTimeout(() => {
-          setLoginErrors("")
-
+          setLoginErrors("");
         }, 3000);
-        
       }
     } catch (error) {
-    
       setLoginErrors(error.message);
-      
+
       setTimeout(() => {
-        setLoginErrors("")
-
-      }, 3000)
-      
+        setLoginErrors("");
+      }, 3000);
     } finally {
-      
-      setIsLoginLoading(false)
+      setIsLoginLoading(false);
     }
- }
+  };
 
- 
- 
-
- const Signup = async () => {
-  const signupFormData = {
-    name:name,
-    surname:surname,
-    email:signupEmail,
-    password:signupPassword
-  }
-  setIsSignupLoading(true)
-  if (name === "" || signupEmail === "" || signupPassword === "" || surname === "") {
-    setIsSignupLoading(false)
-    return;
-  }
+  const Signup = async () => {
+    const signupFormData = {
+      name: name,
+      surname: surname,
+      email: signupEmail,
+      password: signupPassword,
+    };
+    setIsSignupLoading(true);
+    if (
+      name === "" ||
+      signupEmail === "" ||
+      signupPassword === "" ||
+      surname === ""
+    ) {
+      setIsSignupLoading(false);
+      return;
+    }
     try {
-      const response =await axios.post("http://localhost:4501/signup",signupFormData)
-      const signUpData = await response.data
+      const response = await axios.post(
+        "http://localhost:4501/signup",
+        signupFormData
+      );
+      const signUpData = await response.data;
       console.log(signUpData.errors);
-      
 
       if (signUpData.success) {
-        sessionStorage.setItem("auth-token",signUpData.token);
-        setName("")
-      setSurname("")
-      setSignupEmail("")
-      setSignupPassword("")
+        sessionStorage.setItem("auth-token", signUpData.token);
+        setName("");
+        setSurname("");
+        setSignupEmail("");
+        setSignupPassword("");
         setState("login");
-      } 
+      }
     } catch (error) {
       console.log(error);
-      
+
       setSignupErrors(error.response.data.errors);
 
       setTimeout(() => {
-        setSignupErrors("")
+        setSignupErrors("");
       }, 3000);
-      
-    } finally{
-      
-      setIsSignupLoading(false)
+    } finally {
+      setIsSignupLoading(false);
     }
- }
+  };
 
- //get user details
+  //get user details
 
- const getUser = async () => {
-  
+  const getUser = async () => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:4501/user/${loginEmail}`
+      );
 
-  try {
-      const { data } = await axios.get(`http://localhost:4501/user/${loginEmail}`);
-      
       return data;
-  } catch (error) {
-      return null; 
-  }
-};
+    } catch (error) {
+      return null;
+    }
+  };
 
+  // forgot password logic
 
- // forgot password logic
-
-
-const handleForgotPassword = async () => {
-  if (!loginEmail) {
+  const handleForgotPassword = async () => {
+    if (!loginEmail) {
       setLoginErrors("Please enter your registered email below");
       setTimeout(() => {
-          setLoginErrors("");
+        setLoginErrors("");
       }, 3000);
       return;
-  }
+    }
 
-  // API CALL
-  try {
-      const { data: { code }, status } = await axios.get("http://localhost:4501/generateOTP", loginEmail);
-      
-      
+    // API CALL
+    try {
+      const {
+        data: { code },
+        status,
+      } = await axios.get("http://localhost:4501/generateOTP", loginEmail);
 
       if (status === 200 || status === 201) {
-          const data = await getUser(loginEmail);
-          
-          const text = `Your password recovery OTP is ${code}. Verify and recover your password.`;
-          await axios.post("http://localhost:4501/sendOtp", {
-              name:data.name,
-              email:data.email,
-              text,
-              subject: "Password Recovery OTP"
-          });
-          setState("otp")
-          return code;
+        const data = await getUser(loginEmail);
+
+        const text = `Your password recovery OTP is ${code}. Verify and recover your password.`;
+        await axios.post("http://localhost:4501/sendOtp", {
+          name: data.name,
+          email: data.email,
+          text,
+          subject: "Password Recovery OTP",
+        });
+        setState("otp");
+
+        return code;
       } else {
-          setLoginErrors("Failed to generate OTP. Please try again.");
+        setLoginErrors("Failed to generate OTP. Please try again.");
       }
-  } catch (error) {
-      setLoginErrors("An error occured, please check your email and try again");
+    } catch (error) {
+      setLoginErrors(
+        "An error occured, please check your Network, Email and try again"
+      );
       setTimeout(() => {
         setLoginErrors("");
-    }, 3000);
-    return null;
-  }
-};
+      }, 5000);
+      return null;
+    }
+  };
 
+  const [otpMessage, setOtpMessage] = useState("");
 
-const [otpMessage, setOtpMessage] = useState("")
+  const handleOtpSubmit = async ({ loginEmail, code }) => {
+    try {
+      const { data, status } = await axios.get(
+        "http://localhost:4501/verifyOTP",
+        { params: { loginEmail, code } }
+      );
 
+      if (status === 201) {
+        setState("passwordReset");
+      }
 
- const handleOtpSubmit = async ({loginEmail, code})=> {
-
-      try {
-        const {data, status} = await axios.get("http://localhost:4501/verifyOTP",{ params:{loginEmail, code}})
-
-        if (status === 201) {
-          setState("passwordReset")
-        }
-
-      
-        
-
-        return {data, status}
-      } catch (error) {
-        setOtpMessage("Wrong OTP!, confirm OTP and try again")
-        setTimeout(() => {
-          setOtpMessage("");
+      return { data, status };
+    } catch (error) {
+      setOtpMessage("Wrong OTP!, confirm OTP and try again");
+      setTimeout(() => {
+        setOtpMessage("");
       }, 3000);
       return null;
-        
+    }
+  };
+
+  // reset password
+
+  const [resetPassword, setResetPassword] = useState("");
+
+  const resetPasswordHandler = async () => {
+    const user = await getUser(loginEmail);
+    const password = resetPassword;
+
+    try {
+      const { data, status } = await axios.put(
+        "http://localhost:4501/resetPassword",
+        {
+          email: user.email,
+          password,
+        }
+      );
+
+      if (status === 200) {
+        setState("login");
+        return Promise.resolve({ data, status });
       }
-    
- }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-
- // reset password
-
- const resetPassword = async ({name,password})=>{
-
-      try {
-        const {data, status} = await axios.put("http://localhost:4501/resetPassword",{name,password})
-        return Promise.resolve({data,status})
-      } catch (error) {
-        console.log(error);
-        
-      }
- }
-
-
-
-
-// const logOut = ()=>{
-//   sessionStorage.removeItem("logged")
-//   window.location.replace("/")
-//   setState("login")
-// }
-
-
- 
-  
+  // const logOut = ()=>{
+  //   sessionStorage.removeItem("logged")
+  //   window.location.replace("/")
+  //   setState("login")
+  // }
 
   return (
     <dashBoardContext.Provider
@@ -303,7 +296,7 @@ const [otpMessage, setOtpMessage] = useState("")
         setSearchEmpRegion,
         openModal,
         setOpenModal,
-        
+
         setIsSignedIn,
         isSignedIn,
         loginEmail,
@@ -326,7 +319,10 @@ const [otpMessage, setOtpMessage] = useState("")
         isSignupLoading,
         isLoginLoading,
         otpMessage,
-        getUser
+        getUser,
+        resetPassword,
+        setResetPassword,
+        resetPasswordHandler,
       }}
     >
       {children}
@@ -334,16 +330,14 @@ const [otpMessage, setOtpMessage] = useState("")
   );
 };
 
+// Auth Logic
 
-  // Auth Logic
+// export const useAuth = () => {
+//   const context =  useContext(dashBoardContext);
 
- 
-  // export const useAuth = () => {
-  //   const context =  useContext(dashBoardContext);
+//   if (context === undefined) {
+//     throw new Error("UseAuth must be used within an Authprovider")
+//   }
 
-  //   if (context === undefined) {
-  //     throw new Error("UseAuth must be used within an Authprovider")
-  //   }
-
-  //   return context
-  // }
+//   return context
+// }
