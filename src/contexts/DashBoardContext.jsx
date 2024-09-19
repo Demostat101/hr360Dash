@@ -349,7 +349,8 @@ const [otpMessage, setOtpMessage] = useState("")
         handleOtpSubmit,
         isSignupLoading,
         isLoginLoading,
-        otpMessage
+        otpMessage,
+        getUser
       }}
     >
       {children}

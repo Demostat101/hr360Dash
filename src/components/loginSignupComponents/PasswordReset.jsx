@@ -48,7 +48,7 @@ const PasswordReset = () => {
                   autoComplete="off"
                   value={resetPassword}
                   onChange={(e) => setResetPassword(e.target.value)}
-                  className="h-[50px] bg-white rounded-[10px] pl-[20px] focus:outline-none  w-full"
+                  className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none  w-full"
                   type={visible ? "text" : "password"}
                   placeholder="Enter your password"
                   onFocus={() => setPassWordFocus(true)}
@@ -62,7 +62,7 @@ const PasswordReset = () => {
             </div>
           
           <button
-            className={!validPwd ? " w-full h-[50px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] opacity-30 flex justify-center place-items-center" : "w-full h-[50px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] flex justify-center place-items-center"}
+            className={!validPwd ? " w-full h-[70px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] opacity-30 flex justify-center place-items-center" : "w-full h-[70px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] flex justify-center place-items-center"}
             disabled={!validPwd}
           >
            Continue {/* {!isSignupLoading ?"Continue": <div className="isSignupLoader"></div> } */}
