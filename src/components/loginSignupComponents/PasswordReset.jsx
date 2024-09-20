@@ -30,23 +30,22 @@ const PasswordReset = () => {
         action=""
         onSubmit={(e) => e.preventDefault()}
       >
-        <div className="w-[80%] flex flex-col gap-[20px]">
+        <div className="w-[80%] flex flex-col gap-[20px] bg-white p-[20px]">
+          <div className="text-center mb-[30px]">
+            <div className="font-[600] text-[30px] leading-[30px] text-[#464646] mb-[10px]">Reset</div>
+            <div className="font-[400] text-[20px] leading-[30px] text-[#464646]">Enter new password</div>
+          </div>
           <div className="flex flex-col gap-[10px] w-full">
-            <label
-              className="font-[700] text-[20px] leading-[24px] text-[#464646]"
-              htmlFor="loginpassword"
-            >
-              Password Reset
-            </label>
+            
             <div className="border-2 rounded-[10px] flex place-items-center pr-[20px] gap-[10px] bg-white">
               <input
-                id="loginpassword"
+                id="resetPassword"
                 autoComplete="off"
                 value={resetPassword}
                 onChange={(e) => setResetPassword(e.target.value)}
-                className="h-[70px] bg-white rounded-[10px] pl-[20px] focus:outline-none  w-full"
+                className="h-[60px] bg-white rounded-[10px] pl-[20px] focus:outline-none  w-full"
                 type={visible ? "text" : "password"}
-                placeholder="Enter your password"
+                placeholder="Enter new password"
                 onFocus={() => setPassWordFocus(true)}
                 onBlur={() => setPassWordFocus(false)}
                 aria-invalid={validPwd ? "false" : "true"}
@@ -72,8 +71,8 @@ const PasswordReset = () => {
           <button
             className={
               !validPwd
-                ? " w-full h-[70px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] opacity-30 flex justify-center place-items-center"
-                : "w-full h-[70px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] flex justify-center place-items-center"
+                ? " w-full h-[60px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] opacity-30 flex justify-center place-items-center"
+                : "w-full h-[60px] bg-[#176B87] font-[600] text-[18px] leading-[36px] text-white rounded-[10px] flex justify-center place-items-center"
             }
             disabled={!validPwd}
             onClick={resetPasswordHandler}

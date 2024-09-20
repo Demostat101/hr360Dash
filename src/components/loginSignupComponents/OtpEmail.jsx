@@ -63,13 +63,13 @@ const OtpEmail = () => {
       const {
         data: { code },
         status,
-      } = await axios.get("http://localhost:4501/generateOTP", loginEmail);
+      } = await axios.get("https://hr360backendloginsignup.onrender.com/generateOTP", loginEmail);
 
       if (status === 200 || status === 201) {
         const data = await getUser(loginEmail);
 
         const text = `Your password recovery OTP is ${code}. Verify and recover your password.`;
-        await axios.post("http://localhost:4501/sendOtp", {
+        await axios.post("https://hr360backendloginsignup.onrender.com/sendOtp", {
           name: data.name,
           email: data.email,
           text,
@@ -115,7 +115,7 @@ const OtpEmail = () => {
           </span>
         </div>
 
-        <div className="text-red-500 font-[500] text-[18px]">{otpMessage}</div>
+        <div className="text-red-500 font-[500] text-[18px] text-center">{otpMessage}</div>
 
         <form
           className="flex flex-col h-fit gap-[40px] place-items-center"

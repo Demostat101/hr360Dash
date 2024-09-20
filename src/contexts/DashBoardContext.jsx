@@ -17,8 +17,7 @@ export const ContextProvider = ({ children }) => {
   const [searchEmpRegion, setSearchEmpRegion] = useState("");
   const [open, setOpen] = useLocalStorage(false);
   const [openModal, setOpenModal] = useState(false);
-  // const navigate = useNavigate()
-  // const [name, setName] = useState("Esther");
+
   const { data, fetchError, isLoading, setData } = useAxiosFetch(
     `http://localhost:4000/data`
   );
@@ -86,7 +85,7 @@ export const ContextProvider = ({ children }) => {
     setIsLoginLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:4501/login",
+        "https://hr360backendloginsignup.onrender.com/login",
         signupFormData
       );
       const signUpData = await response.data;
@@ -134,11 +133,10 @@ export const ContextProvider = ({ children }) => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:4501/signup",
+        "https://hr360backendloginsignup.onrender.com/signup",
         signupFormData
       );
       const signUpData = await response.data;
-      console.log(signUpData.errors);
 
       if (signUpData.success) {
         sessionStorage.setItem("auth-token", signUpData.token);
@@ -166,7 +164,7 @@ export const ContextProvider = ({ children }) => {
   const getUser = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:4501/user/${loginEmail}`
+        `https://hr360backendloginsignup.onrender.com/user/${loginEmail}`
       );
 
       return data;
@@ -191,13 +189,13 @@ export const ContextProvider = ({ children }) => {
       const {
         data: { code },
         status,
-      } = await axios.get("http://localhost:4501/generateOTP", loginEmail);
+      } = await axios.get("https://hr360backendloginsignup.onrender.com/generateOTP", loginEmail);
 
-      if (status === 200 || status === 201) {
+      if (status === 200) {
         const data = await getUser(loginEmail);
 
         const text = `Your password recovery OTP is ${code}. Verify and recover your password.`;
-        await axios.post("http://localhost:4501/sendOtp", {
+        await axios.post("https://hr360backendloginsignup.onrender.com/sendOtp", {
           name: data.name,
           email: data.email,
           text,
@@ -225,11 +223,11 @@ export const ContextProvider = ({ children }) => {
   const handleOtpSubmit = async ({ loginEmail, code }) => {
     try {
       const { data, status } = await axios.get(
-        "http://localhost:4501/verifyOTP",
+        "https://hr360backendloginsignup.onrender.com/verifyOTP",
         { params: { loginEmail, code } }
       );
 
-      if (status === 201) {
+      if (status === 200) {
         setState("passwordReset");
       }
 
@@ -253,7 +251,7 @@ export const ContextProvider = ({ children }) => {
 
     try {
       const { data, status } = await axios.put(
-        "http://localhost:4501/resetPassword",
+        "https://hr360backendloginsignup.onrender.com/resetPassword",
         {
           email: user.email,
           password,
@@ -262,6 +260,7 @@ export const ContextProvider = ({ children }) => {
 
       if (status === 200) {
         setState("login");
+        setResetPassword("")
         return Promise.resolve({ data, status });
       }
     } catch (error) {
