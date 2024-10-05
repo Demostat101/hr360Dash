@@ -2,49 +2,73 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { MdPrint } from "react-icons/md";
 import { Context } from "../../contexts/DashBoardContext";
+import { useAxiosFetch } from "../../hooks/UseAxiosFetch";
 
 const PaySlip = () => {
-  const { open, data } = Context();
+  const { open,data } = Context();
+  // const {data} = useAxiosFetch(`https://hr360employeescrudbackend.onrender.com/employees`)
   const { id } = useParams();
+  const medicalAllowance = 20000
+  const transportAllowance = 10000
+  const foodAllowance=10000
+  const overTime = 5000
+  const otherAllowance =2000
+  const nationalInsurance = 3000
+  const incomeTax = 3000
+  const loanRepayment = 4000
+  const nhs = 2000
 
   const PaySlip = data.filter(
-    (employeePaySlip) => employeePaySlip.id.toString() === id
+    (employeePaySlip) => employeePaySlip._id.toString() === id
   );
 
   const totalEarnings = PaySlip.map((filterPaySlip) => {
     return (
-      Number(filterPaySlip.salary) +
-      Number(filterPaySlip.medicalAllowance) +
-      Number(filterPaySlip.transportAllowance) +
-      Number(filterPaySlip.foodAllowance) +
-      Number(filterPaySlip.overTime) +
-      Number(filterPaySlip.otherAllowance)
+      Number(filterPaySlip.officialDetails.basicSalary) +
+      Number(medicalAllowance) +
+      Number(transportAllowance) +
+      Number(foodAllowance) +
+      Number(overTime) +
+      Number(otherAllowance)
     ).toLocaleString();
   });
 
-  const totalDeduction = PaySlip.map((filterPaySlip) => {
-    return (
-      Number(filterPaySlip.natinalInsurance) +
-      Number(filterPaySlip.incomeTax) +
-      Number(filterPaySlip.loanRepayment) +
-      Number(filterPaySlip.nhs)
-    ).toLocaleString();
-  });
+  const totalDeduction = (
+    Number(nationalInsurance) +
+      Number(incomeTax) +
+      Number(loanRepayment) +
+      Number(nhs)
+  ).toLocaleString();
 
   const netPay = PaySlip.map((filterPaySlip) => {
     return (
-      Number(filterPaySlip.salary) +
-      Number(filterPaySlip.medicalAllowance) +
-      Number(filterPaySlip.transportAllowance) +
-      Number(filterPaySlip.foodAllowance) +
-      Number(filterPaySlip.overTime) +
-      Number(filterPaySlip.otherAllowance) -
-      (Number(filterPaySlip.natinalInsurance) +
-        Number(filterPaySlip.incomeTax) +
-        Number(filterPaySlip.loanRepayment) +
-        Number(filterPaySlip.nhs))
+      Number(filterPaySlip.officialDetails.basicSalary) +
+      Number(medicalAllowance) +
+      Number(transportAllowance) +
+      Number(foodAllowance) +
+      Number(overTime) +
+      Number(otherAllowance) -
+      (Number(nationalInsurance) +
+        Number(incomeTax) +
+        Number(loanRepayment) +
+        Number(nhs))
     ).toLocaleString();
   });
+
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec"
+  ];
 
   return (
     <>
@@ -66,7 +90,7 @@ const PaySlip = () => {
             {PaySlip.map((filterPaySlip) => {
               return (
                 <div
-                  key={filterPaySlip.id}
+                  key={filterPaySlip._id}
                   className={
                     open
                       ? "w-[192px] h-[122px] flex flex-col gap-[25px] "
@@ -90,7 +114,7 @@ const PaySlip = () => {
                           : "font-[400] text-[17.56px] leading-[26.33px] text-black opacity-80"
                       }
                     >
-                      {filterPaySlip.empID}
+                      {filterPaySlip.officialDetails.employeeId}
                     </span>
                   </div>
                   <div className="w-full flex justify-between">
@@ -110,10 +134,10 @@ const PaySlip = () => {
                           : "font-[400] text-[17.56px] leading-[26.33px] text-black opacity-80"
                       }
                     >
-                      {filterPaySlip.cycle}
+                      Monthly
                     </span>
                   </div>
-                  <div className="w-full flex justify-between">
+                  <div className="w-full flex justify-between text-nowrap">
                     <span
                       className={
                         open
@@ -126,11 +150,12 @@ const PaySlip = () => {
                     <span
                       className={
                         open
-                          ? "font-[400] text-[16px] leading-[24px] text-black opacity-80"
-                          : "font-[400] text-[17.56px] leading-[26.33px] text-black opacity-80"
+                          ? "font-[400] text-[16px] leading-[24px] text-black opacity-80 ml-3"
+                          : "font-[400] text-[17.56px] leading-[26.33px] text-black opacity-80 ml-3"
                       }
                     >
-                      {filterPaySlip.dateIssued}
+                        <span> {months[Number(filterPaySlip.created.slice(6,7)-1)]} {filterPaySlip.created.slice(0,4)} </span>
+                        
                     </span>
                   </div>
                 </div>
@@ -142,7 +167,7 @@ const PaySlip = () => {
             {PaySlip.map((filterPaySlip) => {
               return (
                 <div
-                  key={filterPaySlip.id}
+                  key={filterPaySlip._id}
                   className={
                     open
                       ? "w-[228px] h-[122px] flex flex-col gap-[25px] "
@@ -166,7 +191,7 @@ const PaySlip = () => {
                           : "font-[400] text-[17.56px] leading-[26.33px] text-black opacity-80"
                       }
                     >
-                      {filterPaySlip.bankAccount}
+                      {filterPaySlip.bankDetails.accountNumber}
                     </span>
                   </div>
                   <div className="w-full flex justify-between">
@@ -186,7 +211,7 @@ const PaySlip = () => {
                           : "font-[400] text-[17.56px] leading-[26.33px] text-black opacity-80"
                       }
                     >
-                      {filterPaySlip.bankName}
+                      {filterPaySlip.bankDetails.bankName}
                     </span>
                   </div>
                   <div className="w-full flex justify-between">
@@ -206,7 +231,7 @@ const PaySlip = () => {
                           : "font-[400] text-[17.56px] leading-[26.33px] text-black opacity-80"
                       }
                     >
-                      {filterPaySlip.daysWorked}
+                      22 days
                     </span>
                   </div>
                 </div>
@@ -313,7 +338,7 @@ const PaySlip = () => {
               {PaySlip.map((filterPaySlip) => {
                 return (
                   <div
-                    key={filterPaySlip.id}
+                    key={filterPaySlip._id}
                     className={
                       open
                         ? "w-[79px] h-[244px] flex flex-col gap-[20px] text-end"
@@ -327,7 +352,7 @@ const PaySlip = () => {
                           : "font-[600] text-[17.56px] leading-[26.33px] text-black opacity-80"
                       }
                     >
-                      #{Number(filterPaySlip.salary).toLocaleString()}
+                      #{Number(filterPaySlip.officialDetails.basicSalary).toLocaleString()}
                     </span>
                     <span
                       className={
@@ -336,7 +361,7 @@ const PaySlip = () => {
                           : "font-[600] text-[17.56px] leading-[26.33px] text-black opacity-80"
                       }
                     >
-                      #{Number(filterPaySlip.medicalAllowance).toLocaleString()}
+                      #{Number(medicalAllowance).toLocaleString()}
                     </span>
                     <span
                       className={
@@ -347,7 +372,7 @@ const PaySlip = () => {
                     >
                       #
                       {Number(
-                        filterPaySlip.transportAllowance
+                        transportAllowance
                       ).toLocaleString()}
                     </span>
                     <span
@@ -357,7 +382,7 @@ const PaySlip = () => {
                           : "font-[600] text-[17.56px] leading-[26.33px] text-black opacity-80"
                       }
                     >
-                      #{Number(filterPaySlip.foodAllowance).toLocaleString()}
+                      #{Number(foodAllowance).toLocaleString()}
                     </span>
                     <span
                       className={
@@ -366,7 +391,7 @@ const PaySlip = () => {
                           : "font-[600] text-[17.56px] leading-[26.33px] text-black opacity-80"
                       }
                     >
-                      #{Number(filterPaySlip.overTime).toLocaleString()}
+                      #{Number(overTime).toLocaleString()}
                     </span>
                     <span
                       className={
@@ -375,7 +400,7 @@ const PaySlip = () => {
                           : "font-[600] text-[17.56px] leading-[26.33px] text-black opacity-80"
                       }
                     >
-                      #{Number(filterPaySlip.otherAllowance).toLocaleString()}
+                      #{Number(otherAllowance).toLocaleString()}
                     </span>
                   </div>
                 );
@@ -477,7 +502,7 @@ const PaySlip = () => {
               {PaySlip.map((filterPaySlip) => {
                 return (
                   <div
-                    key={filterPaySlip.id}
+                    key={filterPaySlip._id}
                     className={
                       open
                         ? "w-[79px] h-[244px] flex flex-col gap-[20px] text-end"
@@ -491,7 +516,7 @@ const PaySlip = () => {
                           : "font-[600] text-[17.56px] leading-[26.33px] text-black opacity-80"
                       }
                     >
-                      #{Number(filterPaySlip.natinalInsurance).toLocaleString()}
+                      #{Number(nationalInsurance).toLocaleString()}
                     </span>
                     <span
                       className={
@@ -500,7 +525,7 @@ const PaySlip = () => {
                           : "font-[600] text-[17.56px] leading-[26.33px] text-black opacity-80"
                       }
                     >
-                      #{Number(filterPaySlip.incomeTax).toLocaleString()}
+                      #{Number(incomeTax).toLocaleString()}
                     </span>
                     <span
                       className={
@@ -509,7 +534,7 @@ const PaySlip = () => {
                           : "font-[600] text-[17.56px] leading-[26.33px] text-black opacity-80"
                       }
                     >
-                      #{Number(filterPaySlip.loanRepayment).toLocaleString()}
+                      #{Number(loanRepayment).toLocaleString()}
                     </span>
                     <span
                       className={
@@ -518,7 +543,7 @@ const PaySlip = () => {
                           : "font-[600] text-[17.56px] leading-[26.33px] text-black opacity-80"
                       }
                     >
-                      #{Number(filterPaySlip.nhs).toLocaleString()}
+                      #{Number(nhs).toLocaleString()}
                     </span>
                   </div>
                 );

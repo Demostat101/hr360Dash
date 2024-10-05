@@ -1,8 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import { PiUploadThin } from "react-icons/pi";
+import { addEmployeeContext } from "../../contexts/AddEmployeeContext";
+import { FaTimes } from "react-icons/fa";
 
 const PersonalDetailsForm = () => {
-  const [files, setFiles] = useState(null);
+  const {
+    files,
+    setFiles,
+    handleChangePersonalInfo,
+    personalInfo,
+    handleChangeEmergencyContact,
+    emergencyContact,
+  } = addEmployeeContext();
   const inputRef = useRef();
 
   const handleDragOver = (event) => {
@@ -11,42 +20,12 @@ const PersonalDetailsForm = () => {
 
   const handleDrop = (event) => {
     event.preventDefault();
-    setFiles(event.dataTransfer.files);
+    const filesArray = [...event.dataTransfer.files];
+    setFiles(filesArray);
   };
-
-  const handleUpload = () => {};
-
-// const [val, setVal] = useState("")
-//   const restApi = async ()=>{
-//     try {
-//       const res = await fetch("https://restcountries.com/v3.1/all");
-
-//       const data = await res.json()
-//       console.log(data);
-//       console.log(res);
-
-//       let mapper = data.map(({idd})=> idd)
-//       setVal(mapper)
-//       console.log(mapper);
-      
-      
-//     } catch (error) {
-//       console.log(error);
-      
-//     }
-
-//   }
-
-//   useEffect(()=>{
-//     restApi()
-//   },[])
-
-// console.log(val.root);
-
 
   return (
     <div>
-      {/* <div>{val.root}</div> */}
       <form
         className="flex flex-col gap-[30px]"
         action=""
@@ -63,10 +42,14 @@ const PersonalDetailsForm = () => {
                 First Name
               </label>
               <input
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3"
                 type="text"
                 id="fname"
-                name="fname"
+                pattern="^[A-Z][a-z]+(\s[A-Z][a-z]+)?$"
+                title="Name should start with UpperCase"
+                onChange={handleChangePersonalInfo}
+                name="firstName"
+                value={personalInfo.firstName}
                 required
               />
             </span>{" "}
@@ -78,11 +61,14 @@ const PersonalDetailsForm = () => {
                 Middle Name
               </label>
               <input
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3"
                 type="text"
                 id="middlename"
-                name="middlename"
-              
+                pattern="^[A-Z][a-z]+(\s[A-Z][a-z]+)?$"
+                title="Name should start with UpperCase"
+                value={personalInfo.middleName}
+                onChange={handleChangePersonalInfo}
+                name="middleName"
               />
             </span>
             <span className="flex flex-col gap-[6.9px]  w-[30%]">
@@ -93,10 +79,14 @@ const PersonalDetailsForm = () => {
                 Last Name
               </label>
               <input
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3"
                 type="text"
                 id="lastname"
-                name="lastname"
+                pattern="^[A-Z][a-z]+(\s[A-Z][a-z]+)?$"
+                title="Name should start with UpperCase"
+                value={personalInfo.lastName}
+                onChange={handleChangePersonalInfo}
+                name="lastName"
                 required
               />
             </span>
@@ -112,7 +102,9 @@ const PersonalDetailsForm = () => {
                 Gender
               </label>
               <select
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none text-black opacity-60 text-[10.12px] font-[500]"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3 text-black opacity-60 text-[10.12px] font-[500]"
+                value={personalInfo.gender}
+                onChange={handleChangePersonalInfo}
                 name="gender"
                 id="gender"
               >
@@ -129,9 +121,11 @@ const PersonalDetailsForm = () => {
                 Email
               </label>
               <input
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3"
                 type="email"
                 id="email"
+                value={personalInfo.email}
+                onChange={handleChangePersonalInfo}
                 name="email"
                 required
               />
@@ -145,20 +139,25 @@ const PersonalDetailsForm = () => {
               </label>
               <span className="flex justify-between">
                 <select
-                  className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
-                  name=""
+                  className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3 text-[10px]"
+                  name="phoneNoCode"
                   id=""
+                  value={personalInfo.phoneNoCode}
+                  onChange={handleChangePersonalInfo}
                 >
-                  <option value="234">+234</option>
-                  <option value="1">+1</option>
-                  <option value="+222">222</option>
+                  <option value="+1">+1</option>
+                  <option value="+234">+234</option>
+                  <option value="+222">+222</option>
                 </select>
                 <input
-                  className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none w-[65%]"
+                  className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3 w-[65%]"
                   type="tel"
                   id="phone"
-                  name="phone"
+                  name="phoneNo"
+                  value={personalInfo.phoneNo}
+                  onChange={handleChangePersonalInfo}
                   required
+                  maxLength={10}
                 />
               </span>
             </span>
@@ -171,10 +170,12 @@ const PersonalDetailsForm = () => {
               Address
             </label>
             <input
-              className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+              className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3"
               type="text"
               id="address"
               name="address"
+              value={personalInfo.address}
+              onChange={handleChangePersonalInfo}
               required
             />
           </div>{" "}
@@ -189,10 +190,12 @@ const PersonalDetailsForm = () => {
                 Date of Birth
               </label>
               <input
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3"
                 type="date"
                 id="dob"
-                name="dob"
+                name="dateOfBirth"
+                value={personalInfo.dateOfBirth}
+                onChange={handleChangePersonalInfo}
                 required
               />
             </span>{" "}
@@ -204,8 +207,10 @@ const PersonalDetailsForm = () => {
                 Marital Status
               </label>
               <select
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none text-black opacity-60 text-[10.12px] font-[500]"
-                name="maritalstatus"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3 text-black opacity-60 text-[10.12px] font-[500]"
+                name="maritalStatus"
+                value={personalInfo.maritalStatus}
+                onChange={handleChangePersonalInfo}
                 id="maritalstatus"
               >
                 <option value="">- Select -</option>
@@ -221,8 +226,10 @@ const PersonalDetailsForm = () => {
                 Religion
               </label>
               <select
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none text-black opacity-60 text-[10.12px] font-[500]"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3 text-black opacity-60 text-[10.12px] font-[500]"
                 name="religion"
+                value={personalInfo.religion}
+                onChange={handleChangePersonalInfo}
                 id="religion"
               >
                 <option value="">- Select -</option>
@@ -239,10 +246,12 @@ const PersonalDetailsForm = () => {
               Educational Qualification
             </label>
             <input
-              className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+              className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3"
               type="text"
               id="education"
-              name="education"
+              name="educationalQualification"
+              value={personalInfo.educationalQualification}
+              onChange={handleChangePersonalInfo}
               required
             />
           </div>{" "}
@@ -257,8 +266,10 @@ const PersonalDetailsForm = () => {
                 Nationality
               </label>
               <select
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3"
                 name="nationality"
+                value={personalInfo.nationality}
+                onChange={handleChangePersonalInfo}
                 id="nationality"
               >
                 <option value="">Select</option>
@@ -274,10 +285,12 @@ const PersonalDetailsForm = () => {
                 Language Spoken
               </label>
               <input
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3"
                 type="text"
                 id="language"
-                name="language"
+                name="languageSpoken"
+                value={personalInfo.languageSpoken}
+                onChange={handleChangePersonalInfo}
                 required
               />
             </span>{" "}
@@ -299,10 +312,12 @@ const PersonalDetailsForm = () => {
                 Name
               </label>
               <input
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3"
                 type="text"
                 id="name"
                 name="name"
+                value={emergencyContact.name}
+                onChange={handleChangeEmergencyContact}
                 required
               />
             </span>{" "}
@@ -313,22 +328,27 @@ const PersonalDetailsForm = () => {
               >
                 Phone No
               </label>
-              <span className="flex justify-between">
+              <span className="flex justify-between gap-2">
                 <select
-                  className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
-                  name="contact"
+                  className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3"
+                  name="phoneNoCode"
+                  value={emergencyContact.phoneNoCode}
+                  onChange={handleChangeEmergencyContact}
                   id=""
                 >
-                  <option value="234">+234</option>
-                  <option value="1">+1</option>
-                  <option value="+222">222</option>
+                  <option value="+1">+1</option>
+                  <option value="+234">+234</option>
+                  <option value="+222">+222</option>
                 </select>
                 <input
-                  className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none w-[65%]"
+                  className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3 w-[65%]"
                   type="tel"
                   id="contactphone"
-                  name="contactphone"
+                  name="phoneNo"
+                  value={emergencyContact.phoneNo}
+                  onChange={handleChangeEmergencyContact}
                   required
+                  maxLength={10}
                 />
               </span>
             </span>
@@ -340,10 +360,12 @@ const PersonalDetailsForm = () => {
                 Relationship
               </label>
               <input
-                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+                className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3"
                 type="text"
                 id="relationship"
                 name="relationship"
+                value={emergencyContact.relationship}
+                onChange={handleChangeEmergencyContact}
                 required
               />
             </span>
@@ -356,10 +378,12 @@ const PersonalDetailsForm = () => {
               Address
             </label>
             <input
-              className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none"
+              className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[36.79px] focus:outline-none px-3"
               type="text"
               id="contactaddress"
-              name="contactaddress"
+              name="address"
+              value={emergencyContact.address}
+              onChange={handleChangeEmergencyContact}
               required
             />
           </div>{" "}
@@ -379,7 +403,7 @@ const PersonalDetailsForm = () => {
                   <div
                     onDragOver={handleDragOver}
                     onDrop={handleDrop}
-                    className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[180.6px] focus:outline-none text-center flex flex-col justify-center place-items-center font-[400] text-[12px] text-black opacity-60"
+                    className="border-[1.55px] border-solid border-[#ECEEF6] rounded-[7.73px] h-[180.6px] focus:outline-none px-3 text-center flex flex-col justify-center place-items-center font-[400] text-[12px] text-black opacity-60"
                   >
                     <div
                       onClick={() => inputRef.current.click()}
@@ -388,12 +412,13 @@ const PersonalDetailsForm = () => {
                       <div>
                         Click or Drag a file to the <br /> area to upload
                       </div>
-                      <PiUploadThin size={24} />
+                      <PiUploadThin size={24} /> <br /> Document type(.pdf)
                       <input
                         type="file"
                         id="file"
                         name="file"
-                        onChange={(event) => setFiles(event.target.files)}
+                        accept="application/pdf"
+                        onChange={(event) => setFiles(event.target.files[0])}
                         hidden
                         ref={inputRef}
                       />
@@ -402,18 +427,12 @@ const PersonalDetailsForm = () => {
                 )}
 
                 {files && (
-                  <div>
-                    <span>
-                      {Array.from(files).map((file, index) => file.name)}
-                    </span>
-                    <div>
-                      <button type="button" onClick={() => setFiles(null)}>
-                        Cancle
-                      </button>
-                      <button type="button" onClick={handleUpload}>
-                        Upload
-                      </button>
-                    </div>
+                  <div className="flex justify-between flex-row">
+                    <span>{files.name}</span>
+
+                    <button type="button" onClick={() => setFiles(null)}>
+                      <FaTimes size={20} className="text-red-500" />
+                    </button>
                   </div>
                 )}
               </>

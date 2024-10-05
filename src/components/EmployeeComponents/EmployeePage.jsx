@@ -8,17 +8,20 @@ import { GoPaperclip } from "react-icons/go";
 import { editEmployeeContext } from "../../contexts/EditDetailsContext";
 import { Context } from "../../contexts/DashBoardContext";
 import MultipleSelectChip from "./EmployeeSkillsChip";
+import { useAxiosFetch } from "../../hooks/UseAxiosFetch";
 
 const EmployeePage = () => {
   const { id } = useParams();
 
   const { open } = Context();
-  const { data } = editEmployeeContext();
+  const {data} = editEmployeeContext()
 
   const {
     editPersonalDetailsButton,
     setEditPersonalDetailsButton,
     setEditName,
+    setEditMiddleName,
+    setEditSurname,
     setEditGender,
     setEditPhone,
     setEditEmail,
@@ -26,10 +29,12 @@ const EmployeePage = () => {
     setEditMaritalStatus,
     setEditReligion,
     setEditAddress,
-    setEditEducation,
+    setEditEducationalQualification,
     setEditNationality,
-    setEditLanguage,
-    setEditEmergencyContact,
+    setEditLanguageSpoken,
+    setEditEmergencyContactCode,
+    setEditEmergencyContactPhone,
+    setEditEmergencyContactRelationship,
     handleEditPersonalDetails,
     editOfficialDetailsButton,
     setEditOfficialDetailsButton,
@@ -45,9 +50,8 @@ const EmployeePage = () => {
   } = editEmployeeContext();
 
   const employeeFilter = data.filter(
-    (employee) => employee.id.toString() === id
+    (employee) => employee._id.toString() === id
   );
-  
 
   const handleEditPersonalDetailsButton = () => {
     setEditPersonalDetailsButton(true);
@@ -56,49 +60,58 @@ const EmployeePage = () => {
     setEditOfficialDetailsButton(true);
   };
 
-  const post = data.find((post) => post.id.toString() === id);
+  const post = data.find((post) => post._id.toString() === id);
+  
 
   useEffect(() => {
     if (post) {
-      setEditName(post.name);
+      setEditName(post.firstName);
+      setEditMiddleName(post.middleName);
+      setEditSurname(post.lastName);
       setEditGender(post.gender);
-      setEditPhone(post.phone);
+      setEditPhone(post.phoneNo.phone);
       setEditEmail(post.email);
-      setEditDateOfBirth(post.dob);
+      setEditDateOfBirth(post.dateOfBirth);
       setEditMaritalStatus(post.maritalStatus);
-      setEditReligion(post.Religion);
+      setEditReligion(post.religion);
       setEditAddress(post.address);
-      setEditEducation(post.education);
-      setEditNationality(post.Nationality);
-      setEditLanguage(post.language);
-      setEditEmergencyContact(post.emergencyContact);
+      setEditEducationalQualification(post.educationalQualification);
+      setEditNationality(post.nationality);
+      setEditLanguageSpoken(post.languageSpoken);
+      setEditEmergencyContactCode(post.emergencyContact.phoneNo.code);
+      setEditEmergencyContactPhone(post.emergencyContact.phoneNo.phone);
+      setEditEmergencyContactRelationship(post.emergencyContact.relationship);
     }
   }, [
     post,
     setEditName,
     setEditGender,
+    setEditMiddleName,
+    setEditSurname,
     setEditPhone,
     setEditEmail,
     setEditDateOfBirth,
     setEditMaritalStatus,
     setEditReligion,
     setEditAddress,
-    setEditEducation,
+    setEditEducationalQualification,
     setEditNationality,
-    setEditLanguage,
-    setEditEmergencyContact,
+    setEditLanguageSpoken,
+    setEditEmergencyContactCode,
+    setEditEmergencyContactPhone,
+    setEditEmergencyContactRelationship,
   ]);
 
   useEffect(() => {
     if (post) {
-      setEditEmployeeId(post.empID);
-      setEditEmployementType(post.empType);
-      setEditWorkSchedule(post.schedule);
-      setEditJobTitle(post.job);
-      setEditDepartment(post.department);
-      setEditReportingOfficer(post.reportingSupervisor);
-      setEditRegion(post.region);
-      setEditSkills(post.skills.map((vals) => vals));
+      setEditEmployeeId(post.officialDetails.employeeId);
+      setEditEmployementType(post.officialDetails.employmentType);
+      setEditWorkSchedule(post.officialDetails.workSchedule);
+      setEditJobTitle(post.officialDetails.jobTitle);
+      setEditDepartment(post.officialDetails.department);
+      setEditReportingOfficer(post.officialDetails.reportingOfficer);
+      setEditRegion(post.officialDetails.region);
+      setEditSkills(post.officialDetails.skills.map((vals) => vals));
     }
   }, [
     post,
@@ -112,13 +125,28 @@ const EmployeePage = () => {
     setEditSkills,
   ]);
 
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   return (
     <div className="w-full h-full flex flex-col gap-[30px]">
       <div
         className={
           open
-            ? "w-full h-[395.18px] border-[1.75px] border-[#ECEEF6] shadow-md bg-white rounded-xl"
-            : "w-full h-[434.73px] border-[1.92px] border-[#ECEEF6] shadow-md bg-white rounded-xl"
+            ? "w-full h-fit border-[1.75px] border-[#ECEEF6] shadow-md bg-white rounded-xl"
+            : "w-full h-fit border-[1.92px] border-[#ECEEF6] shadow-md bg-white rounded-xl"
         }
       >
         <div
@@ -161,7 +189,7 @@ const EmployeePage = () => {
             </div>
           ) : (
             <div
-              onClick={() => handleEditPersonalDetails(post.id)}
+              onClick={() => handleEditPersonalDetails(post._id)}
               className={
                 open
                   ? "w-[95px] h-[24px] flex gap-[10px] place-items-center justify-end cursor-pointer "
@@ -175,13 +203,13 @@ const EmployeePage = () => {
         </div>
         <hr />
 
-        <div className="w-full p-[20px]">
+        <div className="w-full p-[20px] h-fit">
           {!editPersonalDetailsButton ? (
             <>
               {employeeFilter.map((employee) => {
                 return (
                   <div
-                    key={employee.id}
+                    key={employee._id}
                     className={
                       open
                         ? "w-full h-[296.68px] flex justify-between gap-[30px]"
@@ -208,11 +236,13 @@ const EmployeePage = () => {
                         <div
                           className={
                             open
-                              ? "font-[500] text-[16px] leading-[24px]"
-                              : "font-[500] text-[17.6px] leading-[26.4px]"
+                              ? "font-[500] text-[16px] leading-[24px] flex gap-2"
+                              : "font-[500] text-[17.6px] leading-[26.4px] flex gap-2"
                           }
                         >
-                          {employee.name}
+                          <span>{employee.firstName}</span>
+                          <span>{employee.middleName}</span>
+                          <span>{employee.lastName}</span>
                         </div>
                       </div>
 
@@ -254,7 +284,7 @@ const EmployeePage = () => {
                               : "font-[500] text-[17.6px] leading-[26.4px]"
                           }
                         >
-                          {employee.phone}
+                          {employee.phoneNo.phone}
                         </div>
                       </div>
 
@@ -304,7 +334,38 @@ const EmployeePage = () => {
                               : "font-[500] text-[17.6px] leading-[26.4px]"
                           }
                         >
-                          {employee.dob}
+                          <span>
+                            {employee.dateOfBirth.slice(8, 10)}
+                            <sup>
+                              {Number(employee.dateOfBirth.slice(8, 10)) ===
+                                1 ||
+                              Number(employee.dateOfBirth.slice(8, 10)) ===
+                                21 ||
+                              Number(employee.dateOfBirth.slice(8, 10)) === 31
+                                ? "st"
+                                : Number(employee.dateOfBirth.slice(8, 10)) ===
+                                    2 ||
+                                  Number(employee.dateOfBirth.slice(8, 10)) ===
+                                    22
+                                ? "nd"
+                                : Number(employee.dateOfBirth.slice(8, 10)) ===
+                                    3 ||
+                                  Number(employee.dateOfBirth.slice(8, 10)) ===
+                                    23
+                                ? "rd"
+                                : "th"}
+                            </sup>
+                          </span>
+                          <span>
+                            {" "}
+                            {
+                              months[
+                                Number(employee.dateOfBirth.slice(5,7) - 1)
+                              ]
+                            }
+                            ,
+                          </span>
+                          <span> {employee.dateOfBirth.slice(0, 4)}</span>
                         </div>
                       </div>
 
@@ -346,7 +407,7 @@ const EmployeePage = () => {
                               : "font-[500] text-[17.6px] leading-[26.4px]"
                           }
                         >
-                          {employee.Religion}
+                          {employee.religion}
                         </div>
                       </div>
 
@@ -396,7 +457,7 @@ const EmployeePage = () => {
                               : "font-[500] text-[17.6px] leading-[26.4px]"
                           }
                         >
-                          {employee.education}
+                          {employee.educationalQualification}
                         </div>
                       </div>
 
@@ -417,7 +478,7 @@ const EmployeePage = () => {
                               : "font-[500] text-[17.6px] leading-[26.4px]"
                           }
                         >
-                          {employee.Nationality}
+                          {employee.nationality}
                         </div>
                       </div>
 
@@ -438,7 +499,7 @@ const EmployeePage = () => {
                               : "font-[500] text-[17.6px] leading-[26.4px]"
                           }
                         >
-                          {employee.language}
+                          {employee.languageSpoken}
                         </div>
                       </div>
 
@@ -455,11 +516,15 @@ const EmployeePage = () => {
                         <div
                           className={
                             open
-                              ? "font-[500] text-[16px] leading-[24px]"
-                              : "font-[500] text-[17.6px] leading-[26.4px]"
+                              ? "font-[500] text-[16px] leading-[24px] flex gap-2"
+                              : "font-[500] text-[17.6px] leading-[26.4px] flex gap-2"
                           }
                         >
-                          {employee.emergencyContact}
+                          <span>{employee.emergencyContact.phoneNo.code}</span>
+                          <span>{employee.emergencyContact.phoneNo.phone}</span>
+                          <span>
+                            ({employee.emergencyContact.relationship})
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -520,7 +585,7 @@ const EmployeePage = () => {
             </div>
           ) : (
             <div
-              onClick={() => handleEditOfficialDetails(post.id)}
+              onClick={() => handleEditOfficialDetails(post._id)}
               className={
                 open
                   ? "w-[95px] h-[24px] flex gap-[10px] place-items-center justify-end cursor-pointer"
@@ -542,7 +607,7 @@ const EmployeePage = () => {
                 {employeeFilter.map((employee) => {
                   return (
                     <div
-                      key={employee.id}
+                      key={employee._id}
                       className={
                         open
                           ? "w-full h-fit flex justify-between gap-[30px]"
@@ -573,7 +638,7 @@ const EmployeePage = () => {
                                 : "font-[500] text-[17.6px] leading-[26.4px]"
                             }
                           >
-                            {employee.empID}
+                            {employee.officialDetails.employeeId}
                           </div>
                         </div>
 
@@ -594,7 +659,7 @@ const EmployeePage = () => {
                                 : "font-[500] text-[17.6px] leading-[26.4px]"
                             }
                           >
-                            {employee.empType}
+                            {employee.officialDetails.employmentType}
                           </div>
                         </div>
 
@@ -615,7 +680,7 @@ const EmployeePage = () => {
                                 : "font-[500] text-[17.6px] leading-[26.4px]"
                             }
                           >
-                            {employee.schedule}
+                            {employee.officialDetails.workSchedule}
                           </div>
                         </div>
                       </div>
@@ -644,7 +709,7 @@ const EmployeePage = () => {
                                 : "font-[500] text-[17.6px] leading-[26.4px]"
                             }
                           >
-                            {employee.job}
+                            {employee.officialDetails.jobTitle}
                           </div>
                         </div>
 
@@ -665,7 +730,7 @@ const EmployeePage = () => {
                                 : "font-[500] text-[17.6px] leading-[26.4px]"
                             }
                           >
-                            {employee.department}
+                            {employee.officialDetails.department}
                           </div>
                         </div>
 
@@ -686,7 +751,7 @@ const EmployeePage = () => {
                                 : "font-[500] text-[17.6px] leading-[26.4px]"
                             }
                           >
-                            {employee.reportingSupervisor}
+                            {employee.officialDetails.reportingOfficer}
                           </div>
                         </div>
                       </div>
@@ -715,13 +780,12 @@ const EmployeePage = () => {
                                 : "font-[500] text-[17.6px] leading-[26.4px]"
                             }
                           >
-                            {employee.region}
+                            {employee.officialDetails.region}
                           </div>
                         </div>
 
                         <div className="w-full h-full flex flex-col gap-[5px]">
-
-                        {/* <span
+                          {/* <span
                             className={
                               open
                                 ? "font-[400] text-[16px] leading-[24px] text-black opacity-60"
@@ -744,25 +808,27 @@ const EmployeePage = () => {
 
                           <div
                             className={
-                              employee.skills.length > 2
-                                ? "py-[9px] px-[5px] flex flex-wrap gap-[10px]"
-                                : "py-[9px] px-[5px] flex gap-[10px]"
+                              employee.officialDetails.skills.length > 2
+                                ? "py-[9px] px-[5px] flex flex-wrap gap-[10px] pr-[5px]"
+                                : "py-[9px] px-[5px] flex flex-wrap gap-[10px] pr-[10px]"
                             }
                           >
-                            {employee.skills.map((val, index) => {
-                              return (
-                                <div
-                                  key={index}
-                                  className={
-                                    open
-                                      ? "py-[9px] px-[20px] bg-[#E0ECFC] rounded-[10px] border-[1px] border-[#176B87] font-[400] text-[14px] leading-[21px] text-[#176B87] text-nowrap"
-                                      : "py-[9px] px-[20px] bg-[#E0ECFC] rounded-[10px] border-[1px] border-[#176B87] font-[400] text-[14px] leading-[21px] text-[#176B87] text-nowrap"
-                                  }
-                                >
-                                  {val}
-                                </div>
-                              );
-                            })}
+                            {employee.officialDetails.skills
+                              .map((val, index) => {
+                                return (
+                                  <div
+                                    key={index}
+                                    className={
+                                      open
+                                        ? "py-[9px] px-[20px] bg-[#E0ECFC] rounded-[10px] border-[1px] border-[#176B87] font-[400] text-[14px] leading-[21px] text-[#176B87] text-nowrap"
+                                        : "py-[9px] px-[20px] bg-[#E0ECFC] rounded-[10px] border-[1px] border-[#176B87] font-[400] text-[14px] leading-[21px] text-[#176B87] text-nowrap"
+                                    }
+                                  >
+                                    {val}
+                                  </div>
+                                );
+                              })
+                              .reverse()}
                           </div>
                         </div>
                       </div>
@@ -786,51 +852,57 @@ const EmployeePage = () => {
               Attachment
             </div>
             <>
-              {employeeFilter.map(({ name }, index) => (
+              {employeeFilter.map(({ lastName, document }, index) => (
                 <div
                   key={index}
                   className={
                     open
-                      ? "w-full h-[44px] flex justify-between"
-                      : "w-full h-[48.37px] flex justify-between"
+                      ? "w-full h-[44px] flex justify-between gap-3"
+                      : "w-full h-[48.37px] flex justify-between gap-3"
                   }
                 >
-                  <div
+                  <a
                     className={
                       open
-                        ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px] justify-center place-items-center"
-                        : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-center place-items-center"
+                        ? " bg-[#E1EDFD] w-fit border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px] justify-between place-items-center "
+                        : "bg-[#E1EDFD] w-fit border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-between place-items-center"
                     }
+                    href={document}
+                    target="_blank"
                   >
-                    <GoPaperclip size={18} />{" "}
-                    <span className="text-nowrap text-[16px]">
-                      {name.slice(0, 6)}'s Employment Contract pdf
+                    <GoPaperclip size={24} />{" "}
+                    <span className=" text-[16px] text-center">
+                      {lastName}'s Employment Contract pdf
                     </span>
-                  </div>
-                  <div
+                  </a>
+                  <a
                     className={
                       open
-                        ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px] justify-center place-items-center"
-                        : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-center place-items-center"
+                        ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px] justify-between place-items-center"
+                        : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-between place-items-center"
                     }
+                    href={document}
+                    target="_blank"
                   >
-                    <GoPaperclip size={18} />{" "}
-                    <span className="text-nowrap">
-                      {name.slice(0, 6)}'s Employment Contract pdf
+                    <GoPaperclip size={24} />{" "}
+                    <span className="text-center">
+                      {lastName}'s Employment Contract pdf
                     </span>
-                  </div>
-                  <div
+                  </a>
+                  <a
                     className={
                       open
-                        ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px]  justify-center place-items-center"
-                        : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-center place-items-center"
+                        ? " bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[5px]  justify-between place-items-center"
+                        : "bg-[#E1EDFD] border-[1px] rounded-xl border-[#a5b5bb] p-[10px] flex gap-[8px] justify-between place-items-center"
                     }
+                    href={document}
+                    target="_blank"
                   >
-                    <GoPaperclip size={18} />{" "}
-                    <span className="text-nowrap">
-                      {name.slice(0, 6)}'s Employment Contract pdf
+                    <GoPaperclip size={24} />{" "}
+                    <span className="text-center">
+                      {lastName}'s Employment Contract pdf
                     </span>
-                  </div>
+                  </a>
                 </div>
               ))}
             </>

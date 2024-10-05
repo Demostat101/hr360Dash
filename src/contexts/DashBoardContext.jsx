@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import useLocalStorage from "use-local-storage";
 import { useAxiosFetch, apiRequest } from "../hooks/UseAxiosFetch";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const dashBoardContext = createContext();
 
@@ -10,7 +11,6 @@ export const Context = () => {
 };
 
 export const ContextProvider = ({ children }) => {
-  const API_URL = "http://localhost:4000/data";
   const [error, setError] = useState(null);
   const [searchName, setSearchName] = useState("");
   const [searchEmpID, setSearchEmpID] = useState("");
@@ -19,7 +19,7 @@ export const ContextProvider = ({ children }) => {
   const [openModal, setOpenModal] = useState(false);
 
   const { data, fetchError, isLoading, setData } = useAxiosFetch(
-    `http://localhost:4000/data`
+    `https://hr360employeescrudbackend.onrender.com/employees`
   );
 
   const handleOpenBar = () => {
@@ -28,33 +28,34 @@ export const ContextProvider = ({ children }) => {
   };
 
   const handleCheckBox = async (id) => {
-    const toggleCheckBox = data.map((item) =>
-      item.id.toString() === id.toString()
+    const API_URL = `https://hr360employeescrudbackend.onrender.com/employee/${id}`;
+    const toggleCheckBox = data.map((item) => {
+      return `${item._id}` === `${id}`
         ? { ...item, active: !item.active }
-        : item
-    );
+        : item;
+    });
 
     setData(toggleCheckBox);
 
     //to update Status
 
-    const myItem = toggleCheckBox.filter(
-      (item) => item.id.toString() === id.toString()
-    );
+    const myItem = toggleCheckBox.filter((item) => {
+      return `${item._id}` === `${id}`;
+    });
 
     const updateOptions = {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ active: myItem[0].active }),
+      body: JSON.stringify({ active: `${myItem[0]}`.active }),
     };
 
-    const reqUrl = `${API_URL}/${id}`;
-    const result = await apiRequest(reqUrl, updateOptions);
+    const result = await apiRequest(API_URL, updateOptions);
 
-    if (result) {
-      setError(result);
+    if (result.error) {
+      setError(result.error); // Handle the error properly
+    } else {
     }
   };
 
@@ -73,6 +74,7 @@ export const ContextProvider = ({ children }) => {
     sessionStorage.getItem("logged")
   );
   const [userName, setUserName] = useState(sessionStorage.getItem("user"));
+  const [surName, setSurName] = useState(sessionStorage.getItem("surname"));
   const [isSignupLoading, setIsSignupLoading] = useState(false);
   const [isLoginLoading, setIsLoginLoading] = useState(false);
 
@@ -89,14 +91,15 @@ export const ContextProvider = ({ children }) => {
         signupFormData
       );
       const signUpData = await response.data;
-
       if (signUpData.success) {
         sessionStorage.setItem("auth-token", signUpData.token);
         sessionStorage.setItem("logged", signUpData.success);
         sessionStorage.setItem("user", signUpData.user.name);
+        sessionStorage.setItem("surname", signUpData.user.surname);
         setIsSignedIn(signUpData.success);
         window.location.replace("layout/dashboard");
         setUserName(signUpData.user.name);
+        setSurName(signUpData.user.surname);
       } else {
         setLoginErrors(signUpData.errors);
         setTimeout(() => {
@@ -147,8 +150,6 @@ export const ContextProvider = ({ children }) => {
         setState("login");
       }
     } catch (error) {
-      console.log(error);
-
       setSignupErrors(error.response.data.errors);
 
       setTimeout(() => {
@@ -166,10 +167,9 @@ export const ContextProvider = ({ children }) => {
       const { data } = await axios.get(
         `https://hr360backendloginsignup.onrender.com/user/${loginEmail}`
       );
-
       return data;
     } catch (error) {
-      return null;
+      return;
     }
   };
 
@@ -184,33 +184,49 @@ export const ContextProvider = ({ children }) => {
       return;
     }
 
+    toast.loading("Sending OTP...");
+
     // API CALL
     try {
       const {
         data: { code },
         status,
-      } = await axios.get("https://hr360backendloginsignup.onrender.com/generateOTP", loginEmail);
+      } = await axios.get(
+        "https://hr360backendloginsignup.onrender.com/generateOTP",
+        loginEmail
+      );
 
       if (status === 200) {
         const data = await getUser(loginEmail);
+        if (!data || !data.name || !data.email) {
+          setLoginErrors("User not found. Please check your email.");
+          setTimeout(() => {
+            setLoginErrors("");
+          }, 5000);
+          toast.dismiss();
+          return;
+        } else {
+          const text = `Your password recovery OTP is ${code}. Verify and recover your password.`;
+          await axios.post(
+            "https://hr360backendloginsignup.onrender.com/sendOtp",
+            {
+              name: data.name,
+              email: data.email,
+              text,
+              subject: "Password Recovery OTP",
+            }
+          );
+          setState("otp");
+          toast.dismiss();
 
-        const text = `Your password recovery OTP is ${code}. Verify and recover your password.`;
-        await axios.post("https://hr360backendloginsignup.onrender.com/sendOtp", {
-          name: data.name,
-          email: data.email,
-          text,
-          subject: "Password Recovery OTP",
-        });
-        setState("otp");
-
-        return code;
+          return code;
+        }
       } else {
         setLoginErrors("Failed to generate OTP. Please try again.");
       }
     } catch (error) {
-      setLoginErrors(
-        "An error occured, please check your Network, Email and try again"
-      );
+      setLoginErrors(error.message || "An error occurred.");
+      toast.dismiss();
       setTimeout(() => {
         setLoginErrors("");
       }, 5000);
@@ -244,10 +260,12 @@ export const ContextProvider = ({ children }) => {
   // reset password
 
   const [resetPassword, setResetPassword] = useState("");
+  const [isResetPasswordLoading, setIsResetPasswordLoading] = useState(false);
 
   const resetPasswordHandler = async () => {
     const user = await getUser(loginEmail);
     const password = resetPassword;
+    setIsResetPasswordLoading(true);
 
     try {
       const { data, status } = await axios.put(
@@ -260,11 +278,12 @@ export const ContextProvider = ({ children }) => {
 
       if (status === 200) {
         setState("login");
-        setResetPassword("")
+        setResetPassword("");
         return Promise.resolve({ data, status });
       }
     } catch (error) {
-      console.log(error);
+    } finally {
+      setIsResetPasswordLoading(false);
     }
   };
 
@@ -295,7 +314,6 @@ export const ContextProvider = ({ children }) => {
         setSearchEmpRegion,
         openModal,
         setOpenModal,
-
         setIsSignedIn,
         isSignedIn,
         loginEmail,
@@ -313,6 +331,7 @@ export const ContextProvider = ({ children }) => {
         signupErrors,
         loginErrors,
         userName,
+        surName,
         handleForgotPassword,
         handleOtpSubmit,
         isSignupLoading,
@@ -322,6 +341,8 @@ export const ContextProvider = ({ children }) => {
         resetPassword,
         setResetPassword,
         resetPasswordHandler,
+        isResetPasswordLoading,
+        setData,
       }}
     >
       {children}

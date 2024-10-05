@@ -7,13 +7,40 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useTable } from "react-table";
 import { Context } from "../../contexts/DashBoardContext";
+import { addEmployeeContext } from "../../contexts/AddEmployeeContext";
+import axios from "axios";
+import { useDebounce } from "../../hooks/UseDebounce";
 
 const EmpTable = () => {
-  const { data, searchName, searchEmpID, handleCheckBox, searchEmpRegion } =
+  const { searchName, searchEmpID, handleCheckBox, searchEmpRegion,data,setData } =
     Context();
+  const { addNewEmployee, setAddNewEmployee } = addEmployeeContext();
+  const debouncedSearchName = useDebounce(searchName, 1000)
+  const debouncedSearchEmpID = useDebounce(searchEmpID, 1000)
+
+  // TO update table after a new employee has been added
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        "https://hr360employeescrudbackend.onrender.com/employees"
+      );
+      setData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (addNewEmployee || data.length === 0) {
+      fetchData();
+      setAddNewEmployee(false);
+    }
+  }, [addNewEmployee, data.length]);
+
+  // To change pagination background color
 
   const { palette } = createTheme();
   const theme = createTheme({
@@ -29,15 +56,24 @@ const EmpTable = () => {
     currentPageIndex,
     setStartPageIndex,
   ] = UsePagination(9, data.length);
+  
+  
 
   const filteredEmployeeList = useMemo(
     () =>
       data
         .filter(
           (employee) =>
-            employee.name.toLowerCase().includes(searchName.toLowerCase()) &&
-            employee.empID.toString().includes(searchEmpID.toString()) &&
-            employee.region
+            (employee.firstName
+              .toLowerCase()
+              .includes(debouncedSearchName.toLowerCase()) ||
+              employee.lastName
+                .toLowerCase()
+                .includes(debouncedSearchName.toLowerCase())) &&
+            employee.officialDetails.employeeId
+              .toString()
+              .includes(debouncedSearchEmpID.toString()) &&
+            employee.officialDetails.region
               .toLowerCase()
               .includes(searchEmpRegion.toLowerCase())
         )
@@ -45,7 +81,13 @@ const EmpTable = () => {
           startPageIndex * endPageIndex,
           startPageIndex * endPageIndex + endPageIndex
         ),
-    [startPageIndex, searchName, searchEmpID, searchEmpRegion, data]
+    [
+      startPageIndex,
+      debouncedSearchName,
+      debouncedSearchEmpID,
+      searchEmpRegion,
+      data
+    ]
   );
 
   const columns = useMemo(
@@ -124,7 +166,7 @@ const EmpTable = () => {
           {filteredEmployeeList.map((val) => {
             return (
               <tr
-                key={val.id}
+                key={val._id}
                 className={
                   open
                     ? " w-full h-[62.62px] text-[#8F8F8F] th-bb"
@@ -134,18 +176,22 @@ const EmpTable = () => {
                 <td>
                   <input
                     className="ml-[15px] border-[#8F8F8F]"
-                    onChange={() => handleCheckBox(val.id)}
+                    onChange={() => handleCheckBox(val._id)}
                     type="checkbox"
                     name=""
                     id=""
                   />
-                  <span className="pl-[10px]">{val.empID}</span>
+                  <span className="pl-[10px]">
+                    {val.officialDetails.employeeId}
+                  </span>
                 </td>
-                <td>{val.name}</td>
-                <td>{val.department}</td>
-                <td>{val.role}</td>
-                <td>{val.email}</td>
-                <td>{val.empType}</td>
+                <td className="flex gap-[8px] place-items-center">
+                  <span>{val.firstName}</span> <span>{val.lastName}</span>
+                </td>
+                <td>{val.officialDetails.department}</td>
+                <td>{val.officialDetails.role}</td>
+                <td>{val.officialDetails.email}</td>
+                <td>{val.officialDetails.employmentType}</td>
                 <td>
                   {val.active ? (
                     <div className="text-green-400">Active</div>
@@ -155,7 +201,7 @@ const EmpTable = () => {
                 </td>
                 <td>
                   <Link
-                    to={`${val.id}`}
+                    to={`${val._id}`}
                     className="link text-[#176B87] bg-white"
                   >
                     Details

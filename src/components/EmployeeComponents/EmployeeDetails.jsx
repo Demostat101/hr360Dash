@@ -1,19 +1,35 @@
 import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
-import Image from "../../assets/ajayiImage.jfif";
+import Image from "../../assets/sevenupLogo1.jfif";
 import { BsDiagram3 } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { TbCalendarTime } from "react-icons/tb";
 import { Context } from "../../contexts/DashBoardContext";
 
+
 const EmployeeDetails = () => {
   const { pathname } = useLocation();
-  
-  const { open, data } = Context();
+
+  const { open, isLoading,data } = Context();
   const { id } = useParams();
   const employeeFilter = data.filter(
-    (employee) => employee.id.toString() === id
+    (employee) => employee._id.toString() === id
   );
+
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
 
   return (
     <main className="w-full p-[25px]">
@@ -25,170 +41,264 @@ const EmployeeDetails = () => {
               : "w-full h-[245.01px] rounded-xl flex flex-col justify-center bg-white pl-[20px] shadow-md border-[1.75px] border-[#ECEEF6]"
           }
         >
-          {employeeFilter.map((employee) => {
-            return (
-              <div
-                key={employee.id}
-                className={
-                  open
-                    ? "w-[536.94px] h-[164.37px] flex gap-[10px] place-items-center"
-                    : "w-[589.17px] h-[180.35px] flex gap-[10.97px] place-items-center"
-                }
-              >
-                <img
-                  src={Image}
-                  alt=""
-                  className={
-                    open
-                      ? "w-[164.37px] h-[164.37px] object-cover"
-                      : "w-[180.85px] h-[180.85px] object-cover"
-                  }
-                />
-                <div
-                  className={
-                    open
-                      ? "w-[361.63px] h-[138px] "
-                      : "w-[396.94px] h-[150.38px]"
-                  }
-                >
+          {isLoading && (
+            <div className="w-full h-full flex justify-center place-items-center">
+              <div className="loading "></div>
+            </div>
+          )}
+
+          {!isLoading && data.length && (
+            <>
+              {employeeFilter.map((employee) => {
+                return (
                   <div
+                    key={employee._id}
                     className={
                       open
-                        ? "w-[117px] h-[65px] p-[5px] flex flex-col gap-[10px]"
-                        : "w-[127.97px] h-[70.95px] p-[5.49px] flex flex-col gap-[10.97px]"
+                        ? "w-[536.94px] h-[164.37px] flex gap-[10px] place-items-center "
+                        : "w-[589.17px] h-[180.35px] flex gap-[10.97px] place-items-center"
                     }
                   >
-                    <h3
-                      className={
+                    <div className={
                         open
-                          ? "font-[600] text-[16px] leading-[24px] text-nowrap"
-                          : "font-[600] text-[17.56px] leading-[26.33px] text-nowrap"
-                      }
-                    >
-                      {employee.name}
-                    </h3>
-                    <small
-                      className={
-                        open
-                          ? "font-[400] text-[14px] leading-[21px] text-black opacity-60 text-nowrap"
-                          : "font-[400] text-[15.36px] leading-[23.04px] text-black opacity-60 text-nowrap"
-                      }
-                    >
-                      {employee.job}
-                    </small>
-                  </div>
-
-                  <div
-                    className={
-                      open
-                        ? "w-full h-[73px] p-[5px] flex gap-[48px]"
-                        : "w-full h-[79px] p-[5.49px] flex gap-[52.67px]"
-                    }
-                  >
+                          ? "w-[164.37px] h-[164.37px] rounded-lg text-center bg-[#F6F7FA] text-[#176B87]"
+                          : "w-[180.85px] h-[180.85px] rounded-lg text-center bg-[#F6F7FA] text-[#176B87]"
+                      }>
+                      <span className="text-[100px]">{employee.firstName.slice(0,1)}</span>
+                      <span className="text-[100px]">{employee.lastName.slice(0,1)}</span>
+                    </div>
+                  
                     <div
                       className={
-                        open
-                          ? "w-[120.31px] h-[63px] flex flex-col gap-[15px]"
-                          : "w-[132.17px] h-[68.46px] flex flex-col gap-[16.46px]"
+                        open ? "w-fit h-[138px] " : "w-fit h-[150.38px]"
                       }
                     >
                       <div
                         className={
                           open
-                            ? "w-[111.31px] h-[24px] flex gap-[6px] place-items-center"
-                            : "w-[122.17px] h-[26px] flex gap-[6.58px] place-items-center"
+                            ? "w-fit h-[65px] p-[5px] flex flex-col gap-[10px]"
+                            : "w-fit h-[70.95px] p-[5.49px] flex flex-col gap-[10.97px]"
                         }
                       >
-                        {" "}
-                        <BsDiagram3 size={23} className="text-[#176B87]" />{" "}
-                        <span
+                        <h3
                           className={
                             open
-                              ? "font-[500] text-[16px] leading-[24px] text-black opacity-70 text-nowrap"
-                              : "font-[500] text-[17.56px] leading-[26.33px] text-black opacity-70 text-nowrap"
+                              ? "font-[600] text-[16px] leading-[24px] text-nowrap flex gap-[8px]"
+                              : "font-[600] text-[17.56px] leading-[26.33px] text-nowrap flex gap-[8px]"
                           }
                         >
-                          {employee.department}
-                        </span>{" "}
-                      </div>
-                      <div
-                        className={
-                          open
-                            ? "w-[120.31px] h-[24px] flex gap-[6px] place-items-center"
-                            : "w-[132.17px] h-[26px] flex gap-[6.58px] place-items-center"
-                        }
-                      >
-                        {" "}
-                        <TbCalendarTime
-                          size={23}
-                          className="text-[#176B87]"
-                        />{" "}
-                        <span
+                          <span>{employee.firstName}</span>
+                          <span>{employee.lastName}</span>
+                        </h3>
+                        <small
                           className={
                             open
-                              ? "font-[500] text-[16px] leading-[24px] text-black opacity-70 text-nowrap"
-                              : "font-[500] text-[17.56px] leading-[26.33px] text-black opacity-70 text-nowrap"
+                              ? "font-[400] text-[14px] leading-[21px] text-black opacity-60 text-nowrap"
+                              : "font-[400] text-[15.36px] leading-[23.04px] text-black opacity-60 text-nowrap"
                           }
                         >
-                          {employee.date}
-                        </span>{" "}
+                          {employee.officialDetails.jobTitle}
+                        </small>
                       </div>
-                    </div>
 
-                    <div
-                      className={
-                        open
-                          ? "w-[173.31px] h-[63px] flex flex-col gap-[15px]"
-                          : "w-[190.17px] h-[68.46px] flex flex-col gap-[16.46px]"
-                      }
-                    >
                       <div
                         className={
                           open
-                            ? "w-[157.31px] h-[24px] flex gap-[6px] place-items-center"
-                            : "w-[172.17px] h-[26px] flex gap-[6.58px] place-items-center"
+                            ? "w-full h-[73px] p-[5px] flex gap-[48px]"
+                            : "w-full h-[79px] p-[5.49px] flex gap-[52.67px]"
                         }
                       >
-                        {" "}
-                        <MdEmail
-                          size={23}
-                          className="text-[#176B87] overflow-visible"
-                        />{" "}
-                        <span
+                        <div
                           className={
                             open
-                              ? "font-[500] text-[16px] leading-[24px] text-black opacity-70"
-                              : "font-[500] text-[17.56px] leading-[26.33px] text-black opacity-70"
+                              ? "w-[120.31px] h-[63px] flex flex-col gap-[15px]"
+                              : "w-[132.17px] h-[68.46px] flex flex-col gap-[16.46px]"
                           }
                         >
-                          {employee.email}
-                        </span>{" "}
-                      </div>
-                      <div
-                        className={
-                          open
-                            ? "w-[173.31px] h-[24px] flex gap-[6px] place-items-center"
-                            : "w-[190.17px] h-[26px] flex gap-[6.58px] place-items-center"
-                        }
-                      >
-                        {" "}
-                        <FaPhone size={23} className="text-[#176B87]" />{" "}
-                        <span
+                          <div
+                            className={
+                              open
+                                ? "w-fit h-[24px] flex gap-[6px] place-items-center"
+                                : "w-fit h-[26px] flex gap-[6.58px] place-items-center"
+                            }
+                          >
+                            {" "}
+                            <BsDiagram3
+                              size={23}
+                              className="text-[#176B87]"
+                            />{" "}
+                            <span
+                              className={
+                                open
+                                  ? "font-[500] text-[16px] leading-[24px] text-black opacity-70 text-nowrap"
+                                  : "font-[500] text-[17.56px] leading-[26.33px] text-black opacity-70 text-nowrap"
+                              }
+                            >
+                              {employee.officialDetails.department}
+                            </span>{" "}
+                          </div>
+                          <div
+                            className={
+                              open
+                                ? "w-fit h-[24px] flex gap-[6px] place-items-center"
+                                : "w-fit h-[26px] flex gap-[6.58px] place-items-center"
+                            }
+                          >
+                            {" "}
+                            <TbCalendarTime
+                              size={23}
+                              className="text-[#176B87]"
+                            />{" "}
+                            <span
+                              className={
+                                open
+                                  ? "font-[500] text-[16px] leading-[24px] text-black opacity-70 text-nowrap"
+                                  : "font-[500] text-[17.56px] leading-[26.33px] text-black opacity-70 text-nowrap"
+                              }
+                            >
+                              <span>
+                                
+                                {
+                                  months[
+                                    Number(
+                                      employee.officialDetails.startingDate.slice(
+                                        5,
+                                        7
+                                      ) - 1
+                                    )
+                                  ]
+                                }
+                              </span>
+                              <span>
+                                {" "}
+                                {employee.officialDetails.startingDate.slice(
+                                  8,
+                                  10
+                                )}
+                                <sup>
+                                  {Number(
+                                    employee.officialDetails.startingDate.slice(
+                                      8,
+                                      10
+                                    )
+                                  ) === 1 ||
+                                  Number(
+                                    employee.officialDetails.startingDate.slice(
+                                      8,
+                                      10
+                                    )
+                                  ) === 21 ||
+                                  Number(
+                                    employee.officialDetails.startingDate.slice(
+                                      8,
+                                      10
+                                    )
+                                  ) === 31
+                                    ? "st"
+                                    : Number(
+                                        employee.officialDetails.startingDate.slice(
+                                          8,
+                                          10
+                                        )
+                                      ) === 2 ||
+                                      Number(
+                                        employee.officialDetails.startingDate.slice(
+                                          8,
+                                          10
+                                        )
+                                      ) === 22
+                                    ? "nd"
+                                    : Number(
+                                        employee.officialDetails.startingDate.slice(
+                                          8,
+                                          10
+                                        )
+                                      ) === 3 ||
+                                      Number(
+                                        employee.officialDetails.startingDate.slice(
+                                          8,
+                                          10
+                                        )
+                                      ) === 23
+                                    ? "rd"
+                                    : "th"}
+                                </sup>
+                                ,
+                              </span>
+                              <span className="ml-1">
+                                {employee.officialDetails.startingDate.slice(
+                                  0,
+                                  4
+                                )}
+                              </span>
+                            </span>{" "}
+                          </div>
+                        </div>
+
+                        <div
                           className={
                             open
-                              ? "font-[500] text-[16px] leading-[24px] text-black opacity-70"
-                              : "font-[500] text-[17.56px] leading-[26.33px] text-black opacity-70"
+                              ? "w-[173.31px] h-[63px] flex flex-col gap-[15px]"
+                              : "w-[190.17px] h-[68.46px] flex flex-col gap-[16.46px]"
                           }
                         >
-                          {employee.phone}
-                        </span>{" "}
+                          <div
+                            className={
+                              open
+                                ? "w-fit h-[24px] flex gap-[6px] place-items-center"
+                                : "w-fit h-[26px] flex gap-[6.58px] place-items-center"
+                            }
+                          >
+                            {" "}
+                            <MdEmail
+                              size={23}
+                              className="text-[#176B87] overflow-visible"
+                            />{" "}
+                            <span
+                              className={
+                                open
+                                  ? "font-[500] text-[16px] leading-[24px] text-black opacity-70"
+                                  : "font-[500] text-[17.56px] leading-[26.33px] text-black opacity-70"
+                              }
+                            >
+                              {employee.officialDetails.email}
+                            </span>{" "}
+                          </div>
+                          <div
+                            className={
+                              open
+                                ? "w-fit h-[24px] flex gap-[6px] place-items-center"
+                                : "w-fit h-[26px] flex gap-[6.58px] place-items-center"
+                            }
+                          >
+                            {" "}
+                            <FaPhone
+                              size={23}
+                              className="text-[#176B87]"
+                            />{" "}
+                            <span
+                              className={
+                                open
+                                  ? "font-[500] text-[16px] leading-[24px] text-black opacity-70 flex gap-2"
+                                  : "font-[500] text-[17.56px] leading-[26.33px] text-black opacity-70 flex gap-2"
+                              }
+                            >
+                              <span>
+                                {employee.officialDetails.phoneNo.code}
+                              </span>
+                              <span>
+                                {employee.officialDetails.phoneNo.phone}
+                              </span>
+                            </span>{" "}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            );
-          })}
+                );
+              })}
+            </>
+          )}
         </div>
 
         <div
@@ -202,7 +312,7 @@ const EmployeeDetails = () => {
             {employeeFilter.map((val) => {
               return (
                 <nav
-                  key={val.id}
+                  key={val._id}
                   className={
                     open
                       ? "w-full h-[67.61px] rounded-[10px] border-[1.75px] border-[#ECEEF6] shadow-md bg-white flex place-items-center px-[20px]"
@@ -226,9 +336,11 @@ const EmployeeDetails = () => {
                       <NavLink
                         className={
                           (open &&
-                            pathname === `/layout/employee/${id}/employee-payslip`) ||
+                            pathname ===
+                              `/layout/employee/${id}/employee-payslip`) ||
                           (!open &&
-                            pathname === `/layout/employee/${id}/employee-payslip`)
+                            pathname ===
+                              `/layout/employee/${id}/employee-payslip`)
                             ? "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 bg-[#E1EDFD] rounded-[10px] border-[1px] border-[#a5b5bb]"
                             : "py-[9px] px-[40px] font-[400] text-[14px] leading-[21px] text-black opacity-70 border-[1px] border-[#a5b5bb] rounded-[10px] bg-white"
                         }
